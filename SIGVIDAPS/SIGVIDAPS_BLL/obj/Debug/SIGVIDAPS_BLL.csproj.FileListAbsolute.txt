@@ -1,0 +1,5 @@
+E:\Universidad\2015-A\Propietarios\proyecto_aap\SIGVIDAPS\SIGVIDAPS_BLL\bin\Debug\SIGVIDAPS_BLL.dll
+E:\Universidad\2015-A\Propietarios\proyecto_aap\SIGVIDAPS\SIGVIDAPS_BLL\bin\Debug\SIGVIDAPS_BLL.pdb
+E:\Universidad\2015-A\Propietarios\proyecto_aap\SIGVIDAPS\SIGVIDAPS_BLL\obj\Debug\SIGVIDAPS_BLL.csprojResolveAssemblyReference.cache
+E:\Universidad\2015-A\Propietarios\proyecto_aap\SIGVIDAPS\SIGVIDAPS_BLL\obj\Debug\SIGVIDAPS_BLL.dll
+E:\Universidad\2015-A\Propietarios\proyecto_aap\SIGVIDAPS\SIGVIDAPS_BLL\obj\Debug\SIGVIDAPS_BLL.pdb

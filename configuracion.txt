@@ -1,0 +1,30 @@
+/////////////////////////
+Datos de Conexión a BDD:
+/////////////////////////
+
+usuario
+Password123.
+
+
+
+/////////////////////////////////////
+Generar nuevo modelo de Entidades:
+/////////////////////////////////////
+
+https://stack247.wordpress.com/2012/09/08/move-entity-types-to-another-project-in-ef-code-generation/
+
+
+
+1.	En el proyecto de DATOS:
+a.	Agregar nuevo elemento
+2.	Entity Data Model
+	i.	NOMBRE DEL MODELO:  (Modelo_SIGVIDAPS)
+		b.	Definir parámetros de conexión (los que estan arriba)
+c.	En el wizard de conexión escoger la opción:
+	i.	“Si, incluir datos confidenciales de conexión”
+	ii.	“Guardar configuración de conexión de la entidad en App.Config como: (SIGVIDAPS_entidades)
+	d.	En la siguiente pantalla seleccionar los objetos a importar 
+	e.	Escoger  la opción “Poner en plural o en singular los objetos generados”
+
+
+
