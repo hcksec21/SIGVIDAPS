@@ -59,23 +59,37 @@ namespace SIGVIDAPS_FORMS
                 this.dgvEmpleado.Rows.Clear();
                 List<EMPLEADO> lstEmpleados = (new clsEmpleadoBLL()).obtenerTodosEmpleados();
 
-
                 foreach (EMPLEADO empleado in lstEmpleados)
                 {
                     DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //ID
+                    DataGridViewCell cellId= new DataGridViewTextBoxCell();
+                    cellId.Value = empleado.IDEMP;
+                    tempRow.Cells.Add(cellId);
 
                     //NOMBRE
                     DataGridViewCell cellNombre = new DataGridViewTextBoxCell();
                     cellNombre.Value = empleado.NOMBREEMP;
                     tempRow.Cells.Add(cellNombre);
 
+                    //APELLIDO
+                    DataGridViewCell cellApellido = new DataGridViewTextBoxCell();
+                    cellApellido.Value = empleado.APELLIDOEMP;
+                    tempRow.Cells.Add(cellApellido);
+
+                    //CÉDULA
+                    DataGridViewCell cellCedula = new DataGridViewTextBoxCell();
+                    cellCedula.Value = empleado.CEDULAEMP;
+                    tempRow.Cells.Add(cellCedula);
+
                     //NIVEL
+                    CARGO objCargo = (new clsCargoBLL()).BuscarConId(Convert.ToInt32(empleado.IDCARGO));
                     DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
-                    cellNivel.Value = empleado.IDNIVEL;
+                    cellNivel.Value = objCargo.IDNIVEL;
                     tempRow.Cells.Add(cellNivel);
 
-                    //CARGO
-                    CARGO objCargo = (new clsCargoBLL()).BuscarConId(Convert.ToInt32(empleado.IDCARGO));
+                    //CARGO                    
                     DataGridViewCell cellCargo = new DataGridViewTextBoxCell();
                     cellCargo.Value = objCargo.NOMCARGO;
                     tempRow.Cells.Add(cellCargo);
@@ -96,7 +110,7 @@ namespace SIGVIDAPS_FORMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en la carga de cajas\n" + ex.Message);
+                MessageBox.Show("Error al cargar la lista de Empleados\n" + ex.Message);
             }
         }
 
@@ -115,11 +129,12 @@ namespace SIGVIDAPS_FORMS
 
                 new clsEmpleadoBLL().insertarEmpleado(
                     new EMPLEADO
-                    {
-                        IDNIVEL = Convert.ToInt32(this.txtNivel.Value),
+                    {                        
                         IDCARGO = Convert.ToInt32(cmbCargos.SelectedValue),
+                        CEDULAEMP = txtCedula.Text,
                         CODEMP = "EMP",
-                        NOMBREEMP = this.txtNombres.Text + " " + this.txtApellidos.Text,
+                        NOMBREEMP = this.txtNombres.Text ,
+                        APELLIDOEMP = this.txtApellidos.Text,
                         DIREMP = this.txtDireccion.Text,
                         TELEMP = this.txtTelefono.Text
                     }
@@ -128,10 +143,72 @@ namespace SIGVIDAPS_FORMS
 
             MessageBox.Show("Elemento registrado satisfactoriamente");
             cargarEmpleados();
-                
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtNombres_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else
+                e.Handled = true;
+
+            if (txtCedula.Text.Length == 10)            
+                e.Handled = true;
+            else
+                e.Handled = false;
             
 
+        }
+
+        private void txtDireccion_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
         }
     }
 }

@@ -34,8 +34,6 @@
             this.txtNombres = new System.Windows.Forms.MaskedTextBox();
             this.txtApellidos = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNivel = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,20 +43,26 @@
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblNivel = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dirección = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNivel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SIGVIDAPS_FORMS.Properties.Resources.sigtierras;
-            this.pictureBox1.Location = new System.Drawing.Point(461, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(695, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(289, 109);
             this.pictureBox1.TabIndex = 0;
@@ -80,7 +84,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SlateGray;
-            this.label2.Location = new System.Drawing.Point(73, 125);
+            this.label2.Location = new System.Drawing.Point(174, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 25);
             this.label2.TabIndex = 2;
@@ -89,60 +93,40 @@
             // 
             // txtNombres
             // 
-            this.txtNombres.Location = new System.Drawing.Point(221, 130);
+            this.txtNombres.Location = new System.Drawing.Point(322, 137);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PromptChar = ' ';
             this.txtNombres.Size = new System.Drawing.Size(464, 20);
             this.txtNombres.TabIndex = 6;
+            this.txtNombres.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtNombres_MaskInputRejected);
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(221, 162);
+            this.txtApellidos.Location = new System.Drawing.Point(322, 169);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.PromptChar = ' ';
             this.txtApellidos.Size = new System.Drawing.Size(464, 20);
             this.txtApellidos.TabIndex = 8;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SlateGray;
-            this.label3.Location = new System.Drawing.Point(73, 157);
+            this.label3.Location = new System.Drawing.Point(174, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Apellidos";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SlateGray;
-            this.label4.Location = new System.Drawing.Point(73, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Nivel";
-            // 
-            // txtNivel
-            // 
-            this.txtNivel.Location = new System.Drawing.Point(221, 193);
-            this.txtNivel.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.txtNivel.Name = "txtNivel";
-            this.txtNivel.Size = new System.Drawing.Size(76, 20);
-            this.txtNivel.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SlateGray;
-            this.label5.Location = new System.Drawing.Point(73, 219);
+            this.label5.Location = new System.Drawing.Point(174, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 25);
             this.label5.TabIndex = 11;
@@ -153,7 +137,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.SlateGray;
-            this.label6.Location = new System.Drawing.Point(73, 248);
+            this.label6.Location = new System.Drawing.Point(174, 288);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 25);
             this.label6.TabIndex = 12;
@@ -164,7 +148,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.SlateGray;
-            this.label7.Location = new System.Drawing.Point(74, 277);
+            this.label7.Location = new System.Drawing.Point(175, 317);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 25);
             this.label7.TabIndex = 13;
@@ -173,25 +157,28 @@
             // cmbCargos
             // 
             this.cmbCargos.FormattingEnabled = true;
-            this.cmbCargos.Location = new System.Drawing.Point(221, 223);
+            this.cmbCargos.Location = new System.Drawing.Point(322, 235);
             this.cmbCargos.Name = "cmbCargos";
-            this.cmbCargos.Size = new System.Drawing.Size(121, 21);
+            this.cmbCargos.Size = new System.Drawing.Size(200, 21);
             this.cmbCargos.TabIndex = 14;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(221, 253);
+            this.txtDireccion.Location = new System.Drawing.Point(322, 293);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.PromptChar = ' ';
             this.txtDireccion.Size = new System.Drawing.Size(464, 20);
             this.txtDireccion.TabIndex = 15;
+            this.txtDireccion.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDireccion_MaskInputRejected);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(221, 282);
+            this.txtTelefono.Location = new System.Drawing.Point(322, 322);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(464, 20);
             this.txtTelefono.TabIndex = 16;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // dgvEmpleado
             // 
@@ -199,33 +186,37 @@
             this.dgvEmpleado.AllowUserToDeleteRows = false;
             this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Nombre,
+            this.Apellidos,
+            this.Cedula,
             this.Nivel,
             this.Cargo,
             this.Dirección,
             this.Teléfono});
-            this.dgvEmpleado.Location = new System.Drawing.Point(79, 329);
+            this.dgvEmpleado.Location = new System.Drawing.Point(12, 366);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.ReadOnly = true;
-            this.dgvEmpleado.Size = new System.Drawing.Size(606, 222);
+            this.dgvEmpleado.Size = new System.Drawing.Size(960, 205);
             this.dgvEmpleado.TabIndex = 18;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(387, 575);
+            this.btnCancelar.Location = new System.Drawing.Point(480, 587);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(145, 49);
+            this.btnCancelar.Size = new System.Drawing.Size(135, 49);
             this.btnCancelar.TabIndex = 30;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(253, 575);
+            this.btnGuardar.Location = new System.Drawing.Point(346, 587);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(128, 49);
             this.btnGuardar.TabIndex = 28;
@@ -233,18 +224,80 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.SlateGray;
+            this.label4.Location = new System.Drawing.Point(174, 260);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Nivel";
+            // 
+            // lblNivel
+            // 
+            this.lblNivel.AutoSize = true;
+            this.lblNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel.ForeColor = System.Drawing.Color.SlateGray;
+            this.lblNivel.Location = new System.Drawing.Point(317, 261);
+            this.lblNivel.Name = "lblNivel";
+            this.lblNivel.Size = new System.Drawing.Size(0, 25);
+            this.lblNivel.TabIndex = 31;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(322, 204);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.PromptChar = ' ';
+            this.txtCedula.Size = new System.Drawing.Size(200, 20);
+            this.txtCedula.TabIndex = 33;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.SlateGray;
+            this.label8.Location = new System.Drawing.Point(174, 199);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 25);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Cédula";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 30;
+            // 
             // Nombre
             // 
-            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.HeaderText = "Nombres";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 150;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            this.Apellidos.Width = 150;
+            // 
+            // Cedula
+            // 
+            this.Cedula.HeaderText = "Cédula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
             // 
             // Nivel
             // 
             this.Nivel.HeaderText = "Nivel";
             this.Nivel.Name = "Nivel";
             this.Nivel.ReadOnly = true;
+            this.Nivel.Width = 40;
             // 
             // Cargo
             // 
@@ -257,6 +310,7 @@
             this.Dirección.HeaderText = "Dirección";
             this.Dirección.Name = "Dirección";
             this.Dirección.ReadOnly = true;
+            this.Dirección.Width = 245;
             // 
             // Teléfono
             // 
@@ -270,7 +324,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
-            this.ClientSize = new System.Drawing.Size(749, 648);
+            this.ClientSize = new System.Drawing.Size(984, 648);
+            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblNivel);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgvEmpleado);
@@ -280,7 +337,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtNivel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.label3);
@@ -294,7 +350,6 @@
             this.Text = "Registro de Empleado";
             this.Load += new System.EventHandler(this.frmEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNivel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -309,8 +364,6 @@
         private System.Windows.Forms.MaskedTextBox txtNombres;
         private System.Windows.Forms.MaskedTextBox txtApellidos;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown txtNivel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -320,10 +373,17 @@
         private System.Windows.Forms.DataGridView dgvEmpleado;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblNivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dirección;
         private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.Label label8;
     }
 }
