@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SIGVIDAPSModelStoreContainer" CdmEntityContainer="SIGVIDAPS_entidades">
+    <EntitySetMapping Name="CALCULOes">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.CALCULO">
+        <MappingFragment StoreEntitySet="CALCULO">
+          <ScalarProperty Name="IDCALCULO" ColumnName="IDCALCULO" />
+          <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARGOes">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.CARGO">
+        <MappingFragment StoreEntitySet="CARGO">
+          <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
+          <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
+          <ScalarProperty Name="CODCARGO" ColumnName="CODCARGO" />
+          <ScalarProperty Name="NOMCARGO" ColumnName="NOMCARGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMBINACION_VIATICOS">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.COMBINACION_VIATICOS">
+        <MappingFragment StoreEntitySet="COMBINACION_VIATICOS">
+          <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
+          <ScalarProperty Name="CODCOMBINACION" ColumnName="CODCOMBINACION" />
+          <ScalarProperty Name="NOMCOMBINACION" ColumnName="NOMCOMBINACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_CALCULO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_CALCULO">
+        <MappingFragment StoreEntitySet="DETALLE_CALCULO">
+          <ScalarProperty Name="IDDETALLECALCULO" ColumnName="IDDETALLECALCULO" />
+          <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
+          <ScalarProperty Name="IDCALCULO" ColumnName="IDCALCULO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_FACTURACION">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_FACTURACION">
+        <MappingFragment StoreEntitySet="DETALLE_FACTURACION">
+          <ScalarProperty Name="IDDETALLEFAC" ColumnName="IDDETALLEFAC" />
+          <ScalarProperty Name="IDFACTURACION" ColumnName="IDFACTURACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_SOLICITUD_ANTICIPO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_SOLICITUD_ANTICIPO">
+        <MappingFragment StoreEntitySet="DETALLE_SOLICITUD_ANTICIPO">
+          <ScalarProperty Name="IDDETSOLIC" ColumnName="IDDETSOLIC" />
+          <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
+          <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+          <ScalarProperty Name="IDRUTA" ColumnName="IDRUTA" />
+          <ScalarProperty Name="FECSALIDA" ColumnName="FECSALIDA" />
+          <ScalarProperty Name="HORASALIDA" ColumnName="HORASALIDA" />
+          <ScalarProperty Name="FECLLEGADA" ColumnName="FECLLEGADA" />
+          <ScalarProperty Name="HORALLEGADA" ColumnName="HORALLEGADA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADOes">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.EMPLEADO">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
+          <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
+          <ScalarProperty Name="CODEMP" ColumnName="CODEMP" />
+          <ScalarProperty Name="CEDULAEMP" ColumnName="CEDULAEMP" />
+          <ScalarProperty Name="NOMBREEMP" ColumnName="NOMBREEMP" />
+          <ScalarProperty Name="APELLIDOEMP" ColumnName="APELLIDOEMP" />
+          <ScalarProperty Name="DIREMP" ColumnName="DIREMP" />
+          <ScalarProperty Name="TELEMP" ColumnName="TELEMP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_SOLICITUD_ANTICIPO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.ESTADO_SOLICITUD_ANTICIPO">
+        <MappingFragment StoreEntitySet="ESTADO_SOLICITUD_ANTICIPO">
+          <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
+          <ScalarProperty Name="ESTSOLICANT" ColumnName="ESTSOLICANT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURACIONs">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.FACTURACION">
+        <MappingFragment StoreEntitySet="FACTURACION">
+          <ScalarProperty Name="IDFACTURACION" ColumnName="IDFACTURACION" />
+          <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NIVELs">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.NIVEL">
+        <MappingFragment StoreEntitySet="NIVEL">
+          <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
+          <ScalarProperty Name="COD_NIVEL" ColumnName="COD_NIVEL" />
+          <ScalarProperty Name="NIVEL1" ColumnName="NIVEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPCION_NIVEL">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.OPCION_NIVEL">
+        <MappingFragment StoreEntitySet="OPCION_NIVEL">
+          <ScalarProperty Name="IDOPCIONN" ColumnName="IDOPCIONN" />
+          <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
+          <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
+          <ScalarProperty Name="CODOPCIONN" ColumnName="CODOPCIONN" />
+          <ScalarProperty Name="VALOROPCION" ColumnName="VALOROPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPCIONES_VIATICOS">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.OPCIONES_VIATICOS">
+        <MappingFragment StoreEntitySet="OPCIONES_VIATICOS">
+          <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
+          <ScalarProperty Name="CODOPCION" ColumnName="CODOPCION" />
+          <ScalarProperty Name="NOMBREOPCION" ColumnName="NOMBREOPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUTAs">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.RUTA">
+        <MappingFragment StoreEntitySet="RUTA">
+          <ScalarProperty Name="IDRUTA" ColumnName="IDRUTA" />
+          <ScalarProperty Name="CODRUTA" ColumnName="CODRUTA" />
+          <ScalarProperty Name="NOMRUTA" ColumnName="NOMRUTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD__ANTICIPO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.SOLICITUD__ANTICIPO">
+        <MappingFragment StoreEntitySet="SOLICITUD__ANTICIPO">
+          <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
+          <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
+          <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
+          <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
+          <ScalarProperty Name="CODSOLICANT" ColumnName="CODSOLICANT" />
+          <ScalarProperty Name="NUMSOLICANT" ColumnName="NUMSOLICANT" />
+          <ScalarProperty Name="FECSOLICANT" ColumnName="FECSOLICANT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD_LIQUIDACION">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.SOLICITUD_LIQUIDACION">
+        <MappingFragment StoreEntitySet="SOLICITUD_LIQUIDACION">
+          <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+          <ScalarProperty Name="CODSOLICLIQ" ColumnName="CODSOLICLIQ" />
+          <ScalarProperty Name="NUMSOLICLIQ" ColumnName="NUMSOLICLIQ" />
+          <ScalarProperty Name="FECSOLICLIQ" ColumnName="FECSOLICLIQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
