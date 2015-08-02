@@ -17,6 +17,7 @@ namespace SIGVIDAPS_BLL
             return lstCargos;
         }
 
+        //BUSCAR CON ID
         public CARGO BuscarConId(int id)
         {
             return (new SIGVIDAPS_entidades()).CARGOes.Where(e => e.IDCARGO == id).First();

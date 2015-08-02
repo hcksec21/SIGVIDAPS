@@ -11,11 +11,11 @@ namespace SIGVIDAPS_BLL
 {
     public class clsNivelBLL
     {
-        //BUSCAR NOMBRE 
-        //public CA_CAJA BuscarConIdCaja(int p)
-        //{
-        //    return (new crecerEntidades()).CA_CAJA.Where(e => e.CA_ID_CAJA == p).First();
-        //}
+        //BUSCAR CON ID
+        public NIVEL BuscarConId(int id)
+        {
+            return (new SIGVIDAPS_entidades()).NIVELs.Where(e => e.IDNIVEL == id).First();
+        }
 
     }
 }

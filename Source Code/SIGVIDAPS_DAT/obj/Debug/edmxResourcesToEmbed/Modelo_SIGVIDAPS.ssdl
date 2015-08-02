@@ -39,13 +39,14 @@
     <Property Name="IDDETALLEFAC" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDFACTURACION" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
-  <EntityType Name="DETALLE_SOLICITUD_ANTICIPO">
+  <EntityType Name="DETALLE_SOLICITUD">
     <Key>
       <PropertyRef Name="IDDETSOLIC" />
     </Key>
     <Property Name="IDDETSOLIC" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDSOLICANT" Type="numeric" Precision="18" Scale="0" />
     <Property Name="IDSOLICLIQ" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="IDTIPOTRANSPORTE" Type="numeric" Precision="18" Scale="0" />
     <Property Name="IDRUTA" Type="numeric" Precision="18" Scale="0" />
     <Property Name="FECSALIDA" Type="datetime" />
     <Property Name="HORASALIDA" Type="int" />
@@ -60,10 +61,11 @@
     <Property Name="IDCARGO" Type="numeric" Precision="18" Scale="0" />
     <Property Name="CODEMP" Type="varchar" MaxLength="10" />
     <Property Name="CEDULAEMP" Type="varchar" MaxLength="10" />
-    <Property Name="NOMBREEMP" Type="varchar" MaxLength="50" />
-    <Property Name="APELLIDOEMP" Type="varchar" MaxLength="50" />
+    <Property Name="NOMBREEMP" Type="varchar" MaxLength="100" />
+    <Property Name="APELLIDOEMP" Type="varchar" MaxLength="100" />
     <Property Name="DIREMP" Type="varchar" MaxLength="50" />
     <Property Name="TELEMP" Type="varchar" MaxLength="15" />
+    <Property Name="ESTEMP" Type="bit" />
   </EntityType>
   <EntityType Name="ESTADO_SOLICITUD_ANTICIPO">
     <Key>
@@ -134,6 +136,13 @@
     <Property Name="NUMSOLICLIQ" Type="varchar" MaxLength="15" />
     <Property Name="FECSOLICLIQ" Type="datetime" />
   </EntityType>
+  <EntityType Name="TIPO_TRANSPORTE">
+    <Key>
+      <PropertyRef Name="IDTIPOTRANSPORTE" />
+    </Key>
+    <Property Name="IDTIPOTRANSPORTE" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPOTRANSPORTE" Type="varchar" MaxLength="50" />
+  </EntityType>
   <Association Name="FK_CALCULO_RELATIONS_SOLICITU">
     <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="0..1" />
     <End Role="CALCULO" Type="Self.CALCULO" Multiplicity="*" />
@@ -196,37 +205,49 @@
   </Association>
   <Association Name="FK_DETALLE__RELATIONS_RUTA">
     <End Role="RUTA" Type="Self.RUTA" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD_ANTICIPO" Type="Self.DETALLE_SOLICITUD_ANTICIPO" Multiplicity="*" />
+    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RUTA">
         <PropertyRef Name="IDRUTA" />
       </Principal>
-      <Dependent Role="DETALLE_SOLICITUD_ANTICIPO">
+      <Dependent Role="DETALLE_SOLICITUD">
         <PropertyRef Name="IDRUTA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DETALLE__RELATIONS_SOLICITUD1">
+  <Association Name="FK_DETALLE__RELATIONS_SOLICITU1">
     <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD_ANTICIPO" Type="Self.DETALLE_SOLICITUD_ANTICIPO" Multiplicity="*" />
+    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SOLICITUD__ANTICIPO">
         <PropertyRef Name="IDSOLICANT" />
       </Principal>
-      <Dependent Role="DETALLE_SOLICITUD_ANTICIPO">
+      <Dependent Role="DETALLE_SOLICITUD">
         <PropertyRef Name="IDSOLICANT" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DETALLE__RELATIONS_SOLICITUD2">
+  <Association Name="FK_DETALLE__RELATIONS_SOLICITU2">
     <End Role="SOLICITUD_LIQUIDACION" Type="Self.SOLICITUD_LIQUIDACION" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD_ANTICIPO" Type="Self.DETALLE_SOLICITUD_ANTICIPO" Multiplicity="*" />
+    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SOLICITUD_LIQUIDACION">
         <PropertyRef Name="IDSOLICLIQ" />
       </Principal>
-      <Dependent Role="DETALLE_SOLICITUD_ANTICIPO">
+      <Dependent Role="DETALLE_SOLICITUD">
         <PropertyRef Name="IDSOLICLIQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_TIPO_TRA">
+    <End Role="TIPO_TRANSPORTE" Type="Self.TIPO_TRANSPORTE" Multiplicity="0..1" />
+    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_TRANSPORTE">
+        <PropertyRef Name="IDTIPOTRANSPORTE" />
+      </Principal>
+      <Dependent Role="DETALLE_SOLICITUD">
+        <PropertyRef Name="IDTIPOTRANSPORTE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -320,7 +341,7 @@
     <EntitySet Name="COMBINACION_VIATICOS" EntityType="Self.COMBINACION_VIATICOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLE_CALCULO" EntityType="Self.DETALLE_CALCULO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLE_FACTURACION" EntityType="Self.DETALLE_FACTURACION" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DETALLE_SOLICITUD_ANTICIPO" EntityType="Self.DETALLE_SOLICITUD_ANTICIPO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_SOLICITUD" EntityType="Self.DETALLE_SOLICITUD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ESTADO_SOLICITUD_ANTICIPO" EntityType="Self.ESTADO_SOLICITUD_ANTICIPO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FACTURACION" EntityType="Self.FACTURACION" Schema="dbo" store:Type="Tables" />
@@ -330,6 +351,7 @@
     <EntitySet Name="RUTA" EntityType="Self.RUTA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SOLICITUD__ANTICIPO" EntityType="Self.SOLICITUD__ANTICIPO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SOLICITUD_LIQUIDACION" EntityType="Self.SOLICITUD_LIQUIDACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_TRANSPORTE" EntityType="Self.TIPO_TRANSPORTE" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CALCULO_RELATIONS_SOLICITU" Association="Self.FK_CALCULO_RELATIONS_SOLICITU">
       <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
       <End Role="CALCULO" EntitySet="CALCULO" />
@@ -352,15 +374,19 @@
     </AssociationSet>
     <AssociationSet Name="FK_DETALLE__RELATIONS_RUTA" Association="Self.FK_DETALLE__RELATIONS_RUTA">
       <End Role="RUTA" EntitySet="RUTA" />
-      <End Role="DETALLE_SOLICITUD_ANTICIPO" EntitySet="DETALLE_SOLICITUD_ANTICIPO" />
+      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
     </AssociationSet>
-    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITUD1" Association="Self.FK_DETALLE__RELATIONS_SOLICITUD1">
+    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITU1" Association="Self.FK_DETALLE__RELATIONS_SOLICITU1">
       <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
-      <End Role="DETALLE_SOLICITUD_ANTICIPO" EntitySet="DETALLE_SOLICITUD_ANTICIPO" />
+      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
     </AssociationSet>
-    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITUD2" Association="Self.FK_DETALLE__RELATIONS_SOLICITUD2">
+    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITU2" Association="Self.FK_DETALLE__RELATIONS_SOLICITU2">
       <End Role="SOLICITUD_LIQUIDACION" EntitySet="SOLICITUD_LIQUIDACION" />
-      <End Role="DETALLE_SOLICITUD_ANTICIPO" EntitySet="DETALLE_SOLICITUD_ANTICIPO" />
+      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_TIPO_TRA" Association="Self.FK_DETALLE__RELATIONS_TIPO_TRA">
+      <End Role="TIPO_TRANSPORTE" EntitySet="TIPO_TRANSPORTE" />
+      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
     </AssociationSet>
     <AssociationSet Name="FK_EMPLEADO_RELATIONS_CARGO" Association="Self.FK_EMPLEADO_RELATIONS_CARGO">
       <End Role="CARGO" EntitySet="CARGO" />

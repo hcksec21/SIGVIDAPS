@@ -156,6 +156,7 @@
             // 
             // cmbCargos
             // 
+            this.cmbCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCargos.FormattingEnabled = true;
             this.cmbCargos.Location = new System.Drawing.Point(322, 235);
             this.cmbCargos.Name = "cmbCargos";

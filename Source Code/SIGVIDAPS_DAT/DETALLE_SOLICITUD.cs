@@ -12,11 +12,12 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class DETALLE_SOLICITUD_ANTICIPO
+    public partial class DETALLE_SOLICITUD
     {
         public decimal IDDETSOLIC { get; set; }
         public Nullable<decimal> IDSOLICANT { get; set; }
         public Nullable<decimal> IDSOLICLIQ { get; set; }
+        public Nullable<decimal> IDTIPOTRANSPORTE { get; set; }
         public Nullable<decimal> IDRUTA { get; set; }
         public Nullable<System.DateTime> FECSALIDA { get; set; }
         public Nullable<int> HORASALIDA { get; set; }
@@ -26,5 +27,6 @@ namespace SIGVIDAPS_DAT
         public virtual RUTA RUTA { get; set; }
         public virtual SOLICITUD__ANTICIPO SOLICITUD__ANTICIPO { get; set; }
         public virtual SOLICITUD_LIQUIDACION SOLICITUD_LIQUIDACION { get; set; }
+        public virtual TIPO_TRANSPORTE TIPO_TRANSPORTE { get; set; }
     }
 }

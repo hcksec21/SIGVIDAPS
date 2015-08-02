@@ -40,6 +40,7 @@
             this.anularFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aprobarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarEliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@
             this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,6 +148,12 @@
             this.aprobarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.aprobarFormularioToolStripMenuItem.Text = "Aprobar Formulario";
             // 
+            // editarFormularioToolStripMenuItem
+            // 
+            this.editarFormularioToolStripMenuItem.Name = "editarFormularioToolStripMenuItem";
+            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.editarFormularioToolStripMenuItem.Text = "Editar Formulario";
+            // 
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,7 +215,7 @@
             // 
             this.administrarRutasToolStripMenuItem.Name = "administrarRutasToolStripMenuItem";
             this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
-            this.administrarRutasToolStripMenuItem.Text = "Administrar Rutas";
+            this.administrarRutasToolStripMenuItem.Text = "Administrar Rutas de Movilización";
             // 
             // administrarUsuariosToolStripMenuItem
             // 
@@ -228,14 +234,8 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
-            // 
-            // editarFormularioToolStripMenuItem
-            // 
-            this.editarFormularioToolStripMenuItem.Name = "editarFormularioToolStripMenuItem";
-            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.editarFormularioToolStripMenuItem.Text = "Editar Formulario";
             // 
             // mdiMenu
             // 
@@ -251,7 +251,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "mdiMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mdiMenu";
+            this.Text = "SISTEMA DE GESTIÓN DE VIÁTICOS ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.mdiMenu_Load);
             this.menuStrip1.ResumeLayout(false);

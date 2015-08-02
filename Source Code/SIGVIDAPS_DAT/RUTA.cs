@@ -16,13 +16,13 @@ namespace SIGVIDAPS_DAT
     {
         public RUTA()
         {
-            this.DETALLE_SOLICITUD_ANTICIPO = new HashSet<DETALLE_SOLICITUD_ANTICIPO>();
+            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
         }
     
         public decimal IDRUTA { get; set; }
         public string CODRUTA { get; set; }
         public string NOMRUTA { get; set; }
     
-        public virtual ICollection<DETALLE_SOLICITUD_ANTICIPO> DETALLE_SOLICITUD_ANTICIPO { get; set; }
+        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
     }
 }

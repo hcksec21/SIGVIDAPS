@@ -12,19 +12,16 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class NIVEL
+    public partial class TIPO_TRANSPORTE
     {
-        public NIVEL()
+        public TIPO_TRANSPORTE()
         {
-            this.CARGOes = new HashSet<CARGO>();
-            this.OPCION_NIVEL = new HashSet<OPCION_NIVEL>();
+            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
         }
     
-        public decimal IDNIVEL { get; set; }
-        public string COD_NIVEL { get; set; }
-        public int NIVEL1 { get; set; }
+        public decimal IDTIPOTRANSPORTE { get; set; }
+        public string TIPOTRANSPORTE { get; set; }
     
-        public virtual ICollection<CARGO> CARGOes { get; set; }
-        public virtual ICollection<OPCION_NIVEL> OPCION_NIVEL { get; set; }
+        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
     }
 }

@@ -37,11 +37,11 @@ namespace SIGVIDAPS_FORMS
             try
             {
                 List<CARGO> lstCargos = (new clsCargoBLL()).obtenerTodosCargos();
-                cmbCargos.DataSource = lstCargos;
-                cmbCargos.DisplayMember = "NOMCARGO";
                 cmbCargos.ValueMember = "IDCARGO";
+                cmbCargos.DisplayMember = "NOMCARGO";
+                cmbCargos.DataSource = lstCargos;
                 cmbCargos.SelectedIndex = -1;
-                
+
             }
             catch (Exception ex)
             {
@@ -64,7 +64,7 @@ namespace SIGVIDAPS_FORMS
                     DataGridViewRow tempRow = new DataGridViewRow();
 
                     //ID
-                    DataGridViewCell cellId= new DataGridViewTextBoxCell();
+                    DataGridViewCell cellId = new DataGridViewTextBoxCell();
                     cellId.Value = empleado.IDEMP;
                     tempRow.Cells.Add(cellId);
 
@@ -122,18 +122,38 @@ namespace SIGVIDAPS_FORMS
 
         }
 
+        
+
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if(txtNombres.Text == "")
+            {
+                if (txtApellidos.Text == "")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("El campo Apellidos se encuentra vacío");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El  se encuentra vacío");
+            }
+
+
             if (MessageBox.Show("¿Desea guardar el registro?", "Guardar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
                 new clsEmpleadoBLL().insertarEmpleado(
                     new EMPLEADO
-                    {                        
+                    {
                         IDCARGO = Convert.ToInt32(cmbCargos.SelectedValue),
                         CEDULAEMP = txtCedula.Text,
                         ESTEMP = true,
-                        NOMBREEMP = this.txtNombres.Text ,
+                        NOMBREEMP = this.txtNombres.Text,
                         APELLIDOEMP = this.txtApellidos.Text,
                         DIREMP = this.txtDireccion.Text,
                         TELEMP = this.txtTelefono.Text
@@ -153,7 +173,7 @@ namespace SIGVIDAPS_FORMS
 
         private void txtNombres_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            
+
         }
 
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
@@ -187,11 +207,11 @@ namespace SIGVIDAPS_FORMS
             else
                 e.Handled = true;
 
-            if (txtCedula.Text.Length == 10)            
+            if (txtCedula.Text.Length == 10)
                 e.Handled = true;
             else
                 e.Handled = false;
-            
+
 
         }
 
@@ -213,9 +233,21 @@ namespace SIGVIDAPS_FORMS
 
         private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idCargo = (int)cmbCargos.SelectedValue;
+
+            if (cmbCargos.SelectedIndex >= 1)
+            {
+                String strId = cmbCargos.SelectedValue.ToString();
+                int idCargo = Int32.Parse(strId.ToString());
+
+                CARGO objCargo = (new clsCargoBLL()).BuscarConId(idCargo);
+                NIVEL objNivel = (new clsNivelBLL()).BuscarConId((int)objCargo.IDNIVEL);
+
+                lblNivel.Text = objNivel.COD_NIVEL;
+            }
 
 
         }
+
+
     }
 }

@@ -12,6 +12,8 @@ namespace SIGVIDAPS_FORMS
 {
     public partial class mdiMenu : Form
     {
+        Form Forma = new Form();
+
         public mdiMenu()
         {
             InitializeComponent();
@@ -20,17 +22,16 @@ namespace SIGVIDAPS_FORMS
         private void ValidarForm(Form forma)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Form form = new Form();
-            if (!this.MdiChildren.Contains(form))
+            if (!this.MdiChildren.Contains(Forma))
             {
-                form = forma;
-                form.MdiParent = this;
-                form.Show();
+                Forma = forma;
+                Forma.MdiParent = this;
+                Forma.Show();
             }
             else
             {
                 MessageBox.Show("Existe una ventana abierta");
-                form.Focus();
+                Forma.Focus();
             }
             Cursor.Current = Cursors.Default;
         }
@@ -38,7 +39,7 @@ namespace SIGVIDAPS_FORMS
         private void sbmnuformAnticipo_Click(object sender, EventArgs e)
         {
             frmFormularioAnticipo anticipo = new frmFormularioAnticipo();
-            anticipo.Show();
+            ValidarForm(anticipo);
         }
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,56 +81,58 @@ namespace SIGVIDAPS_FORMS
         private void sbmnuformAnticipo_Click_1(object sender, EventArgs e)
         {
             frmFormularioAnticipo anticipo = new frmFormularioAnticipo();
-            anticipo.Show();
+            ValidarForm(anticipo);
         }
 
         private void sbmnuFormLiquidacion_Click(object sender, EventArgs e)
         {
             frmFormularioLiquidacion liquidacion = new frmFormularioLiquidacion();
-            liquidacion.Show();
+            ValidarForm(liquidacion);
         }
 
         private void cálculoMontoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCalculoMonto calculoMonto = new frmCalculoMonto();
-            calculoMonto.Show();
+            ValidarForm(calculoMonto);
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmViatico opcionViatico = new frmViatico();
-            opcionViatico.Show();
+            ValidarForm(opcionViatico);
         }
 
         private void combinaciónDeViáticoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCombinacionViaticos combinacionViatico = new frmCombinacionViaticos();
-            combinacionViatico.Show();
+            ValidarForm(combinacionViatico);
         }
 
         private void registrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRegistroUsuario registroUsuario = new frmRegistroUsuario();
-            registroUsuario.Show();
+            ValidarForm(registroUsuario);
 
         }
 
         private void modificarEliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmModificarUsuario modificarUsuario = new frmModificarUsuario();
-            modificarUsuario.Show();
+            ValidarForm(modificarUsuario);
         }
 
         private void registrarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroEmpleado empleado = new frmRegistroEmpleado();
-            empleado.Show();
+            frmRegistroEmpleado frmRegistro = new frmRegistroEmpleado();            
+            ValidarForm(frmRegistro);
         }
+
+       
 
         private void modificarEliminarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmModificarEmpleado modificarEmpleado = new frmModificarEmpleado();
-            modificarEmpleado.Show();
+            ValidarForm(modificarEmpleado);
         }
 
         private void consultaDeFormulariosToolStripMenuItem_Click(object sender, EventArgs e)

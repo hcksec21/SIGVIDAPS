@@ -30,7 +30,7 @@ namespace SIGVIDAPS_DAT
         public virtual DbSet<COMBINACION_VIATICOS> COMBINACION_VIATICOS { get; set; }
         public virtual DbSet<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
         public virtual DbSet<DETALLE_FACTURACION> DETALLE_FACTURACION { get; set; }
-        public virtual DbSet<DETALLE_SOLICITUD_ANTICIPO> DETALLE_SOLICITUD_ANTICIPO { get; set; }
+        public virtual DbSet<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
         public virtual DbSet<ESTADO_SOLICITUD_ANTICIPO> ESTADO_SOLICITUD_ANTICIPO { get; set; }
         public virtual DbSet<FACTURACION> FACTURACIONs { get; set; }
@@ -40,5 +40,6 @@ namespace SIGVIDAPS_DAT
         public virtual DbSet<RUTA> RUTAs { get; set; }
         public virtual DbSet<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }
         public virtual DbSet<SOLICITUD_LIQUIDACION> SOLICITUD_LIQUIDACION { get; set; }
+        public virtual DbSet<TIPO_TRANSPORTE> TIPO_TRANSPORTE { get; set; }
     }
 }

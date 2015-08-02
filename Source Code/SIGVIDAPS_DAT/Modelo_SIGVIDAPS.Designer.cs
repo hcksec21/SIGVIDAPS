@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS_DAT\Modelo_SIGVIDAPS.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\Modelo_SIGVIDAPS.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

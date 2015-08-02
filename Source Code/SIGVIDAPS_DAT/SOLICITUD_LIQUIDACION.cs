@@ -16,7 +16,7 @@ namespace SIGVIDAPS_DAT
     {
         public SOLICITUD_LIQUIDACION()
         {
-            this.DETALLE_SOLICITUD_ANTICIPO = new HashSet<DETALLE_SOLICITUD_ANTICIPO>();
+            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
             this.FACTURACIONs = new HashSet<FACTURACION>();
         }
     
@@ -25,7 +25,7 @@ namespace SIGVIDAPS_DAT
         public string NUMSOLICLIQ { get; set; }
         public Nullable<System.DateTime> FECSOLICLIQ { get; set; }
     
-        public virtual ICollection<DETALLE_SOLICITUD_ANTICIPO> DETALLE_SOLICITUD_ANTICIPO { get; set; }
+        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
         public virtual ICollection<FACTURACION> FACTURACIONs { get; set; }
     }
 }

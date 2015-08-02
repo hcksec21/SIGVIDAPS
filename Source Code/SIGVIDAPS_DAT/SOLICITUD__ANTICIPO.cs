@@ -17,7 +17,7 @@ namespace SIGVIDAPS_DAT
         public SOLICITUD__ANTICIPO()
         {
             this.CALCULOes = new HashSet<CALCULO>();
-            this.DETALLE_SOLICITUD_ANTICIPO = new HashSet<DETALLE_SOLICITUD_ANTICIPO>();
+            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
         }
     
         public decimal IDSOLICANT { get; set; }
@@ -30,7 +30,7 @@ namespace SIGVIDAPS_DAT
     
         public virtual ICollection<CALCULO> CALCULOes { get; set; }
         public virtual COMBINACION_VIATICOS COMBINACION_VIATICOS { get; set; }
-        public virtual ICollection<DETALLE_SOLICITUD_ANTICIPO> DETALLE_SOLICITUD_ANTICIPO { get; set; }
+        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual ESTADO_SOLICITUD_ANTICIPO ESTADO_SOLICITUD_ANTICIPO { get; set; }
     }

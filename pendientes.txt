@@ -1,5 +1,14 @@
-Los formularios no forman parte del MDI
+
+
 
 formulario registrar empleado -> 
 	cuando la cedula llega a 10 caracteres, backspace no funciona
 	cargar nivel cuando se seleccciona cargo
+	al inicio si me muestra el nivel asociado al cargo del combobox
+
+
+
+
+
+una tabla de perfiles con datos quemados: identificador, lista submenus a los que puede o no acceder
+			a cada usuario se le asigna 

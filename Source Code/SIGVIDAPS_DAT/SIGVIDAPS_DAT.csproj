@@ -73,7 +73,7 @@
     <Compile Include="DETALLE_FACTURACION.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
-    <Compile Include="DETALLE_SOLICITUD_ANTICIPO.cs">
+    <Compile Include="DETALLE_SOLICITUD.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLEADO.cs">
@@ -117,6 +117,9 @@
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
     <Compile Include="SOLICITUD__ANTICIPO.cs">
+      <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_TRANSPORTE.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
   </ItemGroup>

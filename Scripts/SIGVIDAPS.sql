@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     01/08/2015 13:17:36                          */
+/* Created on:     01/08/2015 19:37:28                          */
 /*==============================================================*/
 
 
@@ -41,23 +41,30 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD_ANTICIPO') and o.name = 'FK_DETALLE__RELATIONS_SOLICITUD1')
-alter table DETALLE_SOLICITUD_ANTICIPO
-   drop constraint FK_DETALLE__RELATIONS_SOLICITUD1
+   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_TIPO_TRA')
+alter table DETALLE_SOLICITUD
+   drop constraint FK_DETALLE__RELATIONS_TIPO_TRA
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD_ANTICIPO') and o.name = 'FK_DETALLE__RELATIONS_RUTA')
-alter table DETALLE_SOLICITUD_ANTICIPO
+   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_SOLICITU1')
+alter table DETALLE_SOLICITUD
+   drop constraint FK_DETALLE__RELATIONS_SOLICITU1
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_RUTA')
+alter table DETALLE_SOLICITUD
    drop constraint FK_DETALLE__RELATIONS_RUTA
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD_ANTICIPO') and o.name = 'FK_DETALLE__RELATIONS_SOLICITUD2')
-alter table DETALLE_SOLICITUD_ANTICIPO
-   drop constraint FK_DETALLE__RELATIONS_SOLICITUD2
+   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_SOLICITU2')
+alter table DETALLE_SOLICITUD
+   drop constraint FK_DETALLE__RELATIONS_SOLICITU2
 go
 
 if exists (select 1
@@ -191,36 +198,45 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD_ANTICIPO')
+           where  id    = object_id('DETALLE_SOLICITUD')
+            and   name  = 'RELATIONSHIP_20_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index DETALLE_SOLICITUD.RELATIONSHIP_20_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('DETALLE_SOLICITUD')
             and   name  = 'RELATIONSHIP_8_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD_ANTICIPO.RELATIONSHIP_8_FK
+   drop index DETALLE_SOLICITUD.RELATIONSHIP_8_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD_ANTICIPO')
+           where  id    = object_id('DETALLE_SOLICITUD')
             and   name  = 'RELATIONSHIP_6_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD_ANTICIPO.RELATIONSHIP_6_FK
+   drop index DETALLE_SOLICITUD.RELATIONSHIP_6_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD_ANTICIPO')
+           where  id    = object_id('DETALLE_SOLICITUD')
             and   name  = 'RELATIONSHIP_5_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD_ANTICIPO.RELATIONSHIP_5_FK
+   drop index DETALLE_SOLICITUD.RELATIONSHIP_5_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('DETALLE_SOLICITUD_ANTICIPO')
+           where  id = object_id('DETALLE_SOLICITUD')
             and   type = 'U')
-   drop table DETALLE_SOLICITUD_ANTICIPO
+   drop table DETALLE_SOLICITUD
 go
 
 if exists (select 1
@@ -349,6 +365,13 @@ if exists (select 1
    drop table SOLICITUD__ANTICIPO
 go
 
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('TIPO_TRANSPORTE')
+            and   type = 'U')
+   drop table TIPO_TRANSPORTE
+go
+
 /*==============================================================*/
 /* Table: CALCULO                                               */
 /*==============================================================*/
@@ -444,25 +467,26 @@ IDFACTURACION ASC
 go
 
 /*==============================================================*/
-/* Table: DETALLE_SOLICITUD_ANTICIPO                            */
+/* Table: DETALLE_SOLICITUD                                     */
 /*==============================================================*/
-create table DETALLE_SOLICITUD_ANTICIPO (
+create table DETALLE_SOLICITUD (
    IDDETSOLIC           numeric              identity,
    IDSOLICANT           numeric              null,
    IDSOLICLIQ           numeric              null,
+   IDTIPOTRANSPORTE     numeric              null,
    IDRUTA               numeric              null,
    FECSALIDA            datetime             null,
    HORASALIDA           int                  null,
    FECLLEGADA           datetime             null,
    HORALLEGADA          int                  null,
-   constraint PK_DETALLE_SOLICITUD_ANTICIPO primary key nonclustered (IDDETSOLIC)
+   constraint PK_DETALLE_SOLICITUD primary key nonclustered (IDDETSOLIC)
 )
 go
 
 /*==============================================================*/
 /* Index: RELATIONSHIP_5_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_5_FK on DETALLE_SOLICITUD_ANTICIPO (
+create index RELATIONSHIP_5_FK on DETALLE_SOLICITUD (
 IDSOLICANT ASC
 )
 go
@@ -470,7 +494,7 @@ go
 /*==============================================================*/
 /* Index: RELATIONSHIP_6_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_6_FK on DETALLE_SOLICITUD_ANTICIPO (
+create index RELATIONSHIP_6_FK on DETALLE_SOLICITUD (
 IDRUTA ASC
 )
 go
@@ -478,8 +502,16 @@ go
 /*==============================================================*/
 /* Index: RELATIONSHIP_8_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_8_FK on DETALLE_SOLICITUD_ANTICIPO (
+create index RELATIONSHIP_8_FK on DETALLE_SOLICITUD (
 IDSOLICLIQ ASC
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_20_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_20_FK on DETALLE_SOLICITUD (
+IDTIPOTRANSPORTE ASC
 )
 go
 
@@ -491,10 +523,11 @@ create table EMPLEADO (
    IDCARGO              numeric              null,
    CODEMP               varchar(10)          null,
    CEDULAEMP            varchar(10)          null,
-   NOMBREEMP            varchar(50)          null,
-   APELLIDOEMP          varchar(50)          null,
+   NOMBREEMP            varchar(100)         null,
+   APELLIDOEMP          varchar(100)         null,
    DIREMP               varchar(50)          null,
    TELEMP               varchar(15)          null,
+   ESTEMP               bit                  null,
    constraint PK_EMPLEADO primary key nonclustered (IDEMP)
 )
 go
@@ -648,6 +681,16 @@ IDESTSOLICANT ASC
 )
 go
 
+/*==============================================================*/
+/* Table: TIPO_TRANSPORTE                                       */
+/*==============================================================*/
+create table TIPO_TRANSPORTE (
+   IDTIPOTRANSPORTE     numeric              identity,
+   TIPOTRANSPORTE       varchar(50)          null,
+   constraint PK_TIPO_TRANSPORTE primary key nonclustered (IDTIPOTRANSPORTE)
+)
+go
+
 alter table CALCULO
    add constraint FK_CALCULO_RELATIONS_SOLICITU foreign key (IDSOLICANT)
       references SOLICITUD__ANTICIPO (IDSOLICANT)
@@ -673,18 +716,23 @@ alter table DETALLE_FACTURACION
       references FACTURACION (IDFACTURACION)
 go
 
-alter table DETALLE_SOLICITUD_ANTICIPO
-   add constraint FK_DETALLE__RELATIONS_SOLICITUD1 foreign key (IDSOLICANT)
+alter table DETALLE_SOLICITUD
+   add constraint FK_DETALLE__RELATIONS_TIPO_TRA foreign key (IDTIPOTRANSPORTE)
+      references TIPO_TRANSPORTE (IDTIPOTRANSPORTE)
+go
+
+alter table DETALLE_SOLICITUD
+   add constraint FK_DETALLE__RELATIONS_SOLICITU1 foreign key (IDSOLICANT)
       references SOLICITUD__ANTICIPO (IDSOLICANT)
 go
 
-alter table DETALLE_SOLICITUD_ANTICIPO
+alter table DETALLE_SOLICITUD
    add constraint FK_DETALLE__RELATIONS_RUTA foreign key (IDRUTA)
       references RUTA (IDRUTA)
 go
 
-alter table DETALLE_SOLICITUD_ANTICIPO
-   add constraint FK_DETALLE__RELATIONS_SOLICITUD2 foreign key (IDSOLICLIQ)
+alter table DETALLE_SOLICITUD
+   add constraint FK_DETALLE__RELATIONS_SOLICITU2 foreign key (IDSOLICLIQ)
       references SOLICITUD_LIQUIDACION (IDSOLICLIQ)
 go
 
