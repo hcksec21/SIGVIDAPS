@@ -29,6 +29,8 @@ namespace SIGVIDAPS_FORMS
             cargarCargosEmpleado();
             cargarEmpleadosDataGridView();
 
+            limpiarTodo();
+
         }
 
         //METODO PARA OBTENER LOS CARGOS
@@ -104,6 +106,11 @@ namespace SIGVIDAPS_FORMS
                     cellTelefono.Value = empleado.TELEMP;
                     tempRow.Cells.Add(cellTelefono);
 
+                    //ESTADO
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO";
+                    tempRow.Cells.Add(cellEstado);
+
                     tempRow.Tag = empleado.IDEMP;
                     dgvEmpleado.Rows.Add(tempRow);
                 }
@@ -144,23 +151,28 @@ namespace SIGVIDAPS_FORMS
                 strError += "La cédula es obligatoria\n";
                 bolError = true;
             }
-            if (cmbCargos.SelectedIndex==-1)
+            if (cmbCargos.SelectedIndex == -1)
             {
                 strError += "El cargo es obligatorio\n";
                 bolError = true;
             }
-            if (txtDireccion.Text=="")
+            if (txtDireccion.Text == "")
             {
                 strError += "La dirección es obligatoria\n";
                 bolError = true;
             }
-            if (txtTelefono.Text=="")
+            if (txtTelefono.Text == "")
             {
                 strError += "El teléfono es obligatorio\n";
                 bolError = true;
             }
+            if (!VerificarCedula(txtCedula.Text))
+            {
+                strError += "La cédula no es válida\n";
+                bolError = true;
+            }
 
-            if(!bolError)
+            if (!bolError)
             {
                 if (MessageBox.Show("¿Guardar el registro de empleado?", "Guardar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -180,18 +192,12 @@ namespace SIGVIDAPS_FORMS
 
                 MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
                 cargarEmpleadosDataGridView();
+                limpiarTodo();
             }
             else
             {
                 MessageBox.Show(strError);
             }
-
-
-
-
-
-
-            
 
         }
 
@@ -237,11 +243,12 @@ namespace SIGVIDAPS_FORMS
                 e.Handled = true;
 
             if (txtCedula.Text.Length == 10)
-                e.Handled = true;
-            else
-                e.Handled = false;
-
-
+            {
+                if (Char.IsControl(e.KeyChar))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
         }
 
         private void txtDireccion_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -262,8 +269,8 @@ namespace SIGVIDAPS_FORMS
 
         private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (cmbCargos.SelectedIndex >= 1)
+            
+            if (cmbCargos.SelectedIndex >= 0)
             {
                 String strId = cmbCargos.SelectedValue.ToString();
                 int idCargo = Int32.Parse(strId.ToString());
@@ -275,6 +282,51 @@ namespace SIGVIDAPS_FORMS
             }
 
 
+        }
+
+        public bool VerificarCedula(String ced)
+        {
+            long isNumeric;
+            var total = 0;
+            const int tamanoLongitudCedula = 10;
+            int[] coeficientes = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+            const int numeroProvincias = 24;
+            const int tercerDigito = 6;
+
+            if (long.TryParse(ced, out isNumeric) && ced.Length == tamanoLongitudCedula)
+            {
+                var provincia = Convert.ToInt32(string.Concat(ced[0], ced[1], string.Empty));
+                var digitoTres = Convert.ToInt32(ced[2] + string.Empty);
+                if ((provincia > 0 && provincia <= numeroProvincias) && digitoTres < tercerDigito)
+                {
+                    var digitoVerificadorRecibido = Convert.ToInt32(ced[9] + string.Empty);
+                    for (var k = 0; k < coeficientes.Length; k++)
+                    {
+                        var valor = Convert.ToInt32(coeficientes[k] + string.Empty) *
+                            Convert.ToInt32(ced[k] + string.Empty);
+                        total = valor >= 10 ? total + (valor - 9) : total + valor;
+                    }
+                    var digitoVerificadorObtenido = total >= 10 ? (total % 10) != 0 ?
+                        10 - (total % 10) : (total % 10) : total;
+
+                    return digitoVerificadorObtenido == digitoVerificadorRecibido;
+                }
+
+                return false;
+            }
+
+            return false;
+        }
+
+        private void limpiarTodo()
+        {
+            txtNombres.Text = "";
+            txtApellidos.Text = "";
+            txtCedula.Text = "";
+            cmbCargos.SelectedIndex = -1;
+            lblNivel.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
         }
 
 

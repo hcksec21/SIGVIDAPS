@@ -20,11 +20,11 @@ namespace SIGVIDAPS_BLL
             return lstPerfiles;
         }
 
-        public List<PERFIL> obtenerTodosPerfilesAgrupados()
-        {
-            List<PERFIL> lstPerfiles = entityContext.PERFILs.;
-            return lstPerfiles;
-        }
+        //public list<perfil> obtenertodosperfilesagrupados()
+        //{
+        //    list<perfil> lstperfiles = entitycontext.perfils;
+        //    return lstperfiles;
+        //}
 
         //BUSCAR CON ID
         public PERFIL buscarConId(int id)

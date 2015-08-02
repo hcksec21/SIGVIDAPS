@@ -1,10 +1,7 @@
 
+formulario eliminar empleado -> 
+	probar las dependencias
 
-
-formulario registrar empleado -> 
-	cuando la cedula llega a 10 caracteres, backspace no funciona
-	cargar nivel cuando se seleccciona cargo
-	al inicio si me muestra el nivel asociado al cargo del combobox
 
 
 

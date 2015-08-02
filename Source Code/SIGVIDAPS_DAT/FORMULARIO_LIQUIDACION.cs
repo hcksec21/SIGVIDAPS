@@ -21,11 +21,13 @@ namespace SIGVIDAPS_DAT
         }
     
         public decimal IDSOLICLIQ { get; set; }
+        public Nullable<decimal> IDEMP { get; set; }
         public string CODSOLICLIQ { get; set; }
         public string NUMSOLICLIQ { get; set; }
         public Nullable<System.DateTime> FECSOLICLIQ { get; set; }
     
         public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
+        public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual ICollection<FACTURACION> FACTURACIONs { get; set; }
     }
 }

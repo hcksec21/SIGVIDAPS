@@ -160,10 +160,27 @@ namespace SIGVIDAPS_FORMS
             ValidarForm(eliminarCargo);
         }
 
+
         private void registrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRegistrarUsuario registrarUsuario = new frmRegistrarUsuario();
             ValidarForm(registrarUsuario);
+        }
+
+        private void eliminarEmpleadoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmEliminarEmpleado eliminarEmpleado = new frmEliminarEmpleado();
+            ValidarForm(eliminarEmpleado);
+        }
+
+        private void administrarRutasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editarFormularioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

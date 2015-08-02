@@ -17,6 +17,7 @@ namespace SIGVIDAPS_DAT
         public EMPLEADO()
         {
             this.FORMULARIO__ANTICIPO = new HashSet<FORMULARIO__ANTICIPO>();
+            this.FORMULARIO_LIQUIDACION = new HashSet<FORMULARIO_LIQUIDACION>();
             this.USUARIOs = new HashSet<USUARIO>();
         }
     
@@ -35,9 +36,11 @@ namespace SIGVIDAPS_DAT
                 return NOMBREEMP + " " + APELLIDOEMP;
             }
         }
+            
     
         public virtual CARGO CARGO { get; set; }
         public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
+        public virtual ICollection<FORMULARIO_LIQUIDACION> FORMULARIO_LIQUIDACION { get; set; }
         public virtual ICollection<USUARIO> USUARIOs { get; set; }
     }
 }

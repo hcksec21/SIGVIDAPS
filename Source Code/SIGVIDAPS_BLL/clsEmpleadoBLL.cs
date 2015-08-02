@@ -42,14 +42,47 @@ namespace SIGVIDAPS_BLL
 
         public List<EMPLEADO> obtenerTodosEmpleados()
         {
-            List<EMPLEADO> lstEmpleados = (new SIGVIDAPS_entidades()).EMPLEADOes.ToList();
+            List<EMPLEADO> lstEmpleados = modeloEntidades.EMPLEADOes.ToList();
             return lstEmpleados;
         }
 
         //BUSCAR CON ID
         public EMPLEADO buscarConId(int id)
         {
-            return (new SIGVIDAPS_entidades()).EMPLEADOes.Where(e => e.IDEMP == id).First();
+            return modeloEntidades.EMPLEADOes.Where(e => e.IDEMP == id).First();
         }
+
+        //VERIFICAR DEPENDENCIAS
+        public bool verificarDependencias(int? idCargo)
+        {
+            Boolean retorno = false;
+            var lstUsuarios = modeloEntidades.USUARIOs.Where(e => e.IDEMP==idCargo).ToList();
+            var lstFormulariosAnticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(e => e.IDEMP == idCargo).ToList();
+            var lstFormulariosLiquidacion = modeloEntidades.FORMULARIO_LIQUIDACION.Where(e => e.IDEMP == idCargo).ToList();
+
+            if (lstUsuarios.Count > 0 || lstFormulariosAnticipo.Count > 0 || lstFormulariosLiquidacion.Count > 0)
+            {
+                retorno = true; //Si hay dependencias
+            }
+
+            return retorno;            
+        }
+
+        //ELIMINAR EMPLEADO
+        public void eliminarEmpleado(int? indice)
+        {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                int indice1 = (int)indice;
+                EMPLEADO objEmpleado = buscarConId(indice1);
+                modeloEntidades.EMPLEADOes.Remove(objEmpleado);
+                modeloEntidades.SaveChanges();
+                transaction.Complete();
+            }
+        }
+
+
+
+        
     }
 }

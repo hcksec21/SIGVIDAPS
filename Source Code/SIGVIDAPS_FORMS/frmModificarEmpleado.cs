@@ -17,6 +17,7 @@ namespace SIGVIDAPS_FORMS
         public frmModificarEmpleado()
         {
             InitializeComponent();
+            limpiarTodo();
 
         }
 
@@ -28,12 +29,13 @@ namespace SIGVIDAPS_FORMS
         private void frmModificarEmpleado_Load(object sender, EventArgs e)
         {
             habilitarControles(false);
-            
+
             cargarEmpleadosDataGridView();
             cargarCargosEmpleado();
 
             cmbCargos.SelectedIndex = -1;
             dgvEmpleado.ClearSelection();
+            limpiarTodo();
         }
 
         //CARGAR EMPLEADOS EN DATAGRIDVIEW
@@ -89,6 +91,11 @@ namespace SIGVIDAPS_FORMS
                     cellTelefono.Value = empleado.TELEMP;
                     tempRow.Cells.Add(cellTelefono);
 
+                    //ESTADO
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO";
+                    tempRow.Cells.Add(cellEstado);
+
                     tempRow.Tag = empleado.IDEMP;
                     dgvEmpleado.Rows.Add(tempRow);
                 }
@@ -110,6 +117,7 @@ namespace SIGVIDAPS_FORMS
                 cmbCargos.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[5].Value.ToString();
                 txtDireccion.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[6].Value.ToString();
                 txtTelefono.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[7].Value.ToString();
+                cmbEstado.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[8].Value.ToString();
             }
         }
 
@@ -121,6 +129,7 @@ namespace SIGVIDAPS_FORMS
             txtDireccion.Enabled = flag;
             txtTelefono.Enabled = flag;
             cmbCargos.Enabled = flag;
+            cmbEstado.Enabled = flag;
         }
 
         //METODO PARA OBTENER LOS CARGOS
@@ -143,7 +152,10 @@ namespace SIGVIDAPS_FORMS
 
         private void button4_Click(object sender, EventArgs e)
         {
-            habilitarControles(true);
+            if (dgvEmpleado.SelectedRows.Count > 0)
+                habilitarControles(true);
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void bttnGuardar_Click(object sender, EventArgs e)
@@ -181,6 +193,11 @@ namespace SIGVIDAPS_FORMS
                 strError += "El teléfono es obligatorio\n";
                 bolError = true;
             }
+            if (!VerificarCedula(txtCedula.Text))
+            {
+                strError += "La cédula no es válida\n";
+                bolError = true;
+            }
 
             if (!bolError)
             {
@@ -206,6 +223,9 @@ namespace SIGVIDAPS_FORMS
 
                 MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
                 cargarEmpleadosDataGridView();
+                limpiarTodo();
+                habilitarControles(false);
+                dgvEmpleado.ClearSelection();
             }
             else
             {
@@ -244,6 +264,69 @@ namespace SIGVIDAPS_FORMS
             if (Char.IsDigit(e.KeyChar))
                 e.Handled = false;
         }
+
+
+        public bool VerificarCedula(String ced)
+        {
+            long isNumeric;
+            var total = 0;
+            const int tamanoLongitudCedula = 10;
+            int[] coeficientes = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+            const int numeroProvincias = 24;
+            const int tercerDigito = 6;
+
+            if (long.TryParse(ced, out isNumeric) && ced.Length == tamanoLongitudCedula)
+            {
+                var provincia = Convert.ToInt32(string.Concat(ced[0], ced[1], string.Empty));
+                var digitoTres = Convert.ToInt32(ced[2] + string.Empty);
+                if ((provincia > 0 && provincia <= numeroProvincias) && digitoTres < tercerDigito)
+                {
+                    var digitoVerificadorRecibido = Convert.ToInt32(ced[9] + string.Empty);
+                    for (var k = 0; k < coeficientes.Length; k++)
+                    {
+                        var valor = Convert.ToInt32(coeficientes[k] + string.Empty) *
+                            Convert.ToInt32(ced[k] + string.Empty);
+                        total = valor >= 10 ? total + (valor - 9) : total + valor;
+                    }
+                    var digitoVerificadorObtenido = total >= 10 ? (total % 10) != 0 ?
+                        10 - (total % 10) : (total % 10) : total;
+
+                    return digitoVerificadorObtenido == digitoVerificadorRecibido;
+                }
+
+                return false;
+            }
+
+            return false;
+        }
+
+        private void limpiarTodo()
+        {
+            txtNombres.Text = "";
+            txtApellidos.Text = "";
+            txtCedula.Text = "";
+            cmbCargos.SelectedIndex = -1;
+            lblNivel.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            cmbEstado.SelectedIndex = -1;
+        }
+
+        private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCargos.SelectedIndex >= 0)
+            {
+                String strId = cmbCargos.SelectedValue.ToString();
+                int idCargo = Int32.Parse(strId.ToString());
+
+                CARGO objCargo = (new clsCargoBLL()).buscarConId(idCargo);
+                NIVEL objNivel = (new clsNivelBLL()).buscarConId((int)objCargo.IDNIVEL);
+
+                lblNivel.Text = objNivel.COD_NIVEL;
+            }
+        }
+
+
 
     }
 }

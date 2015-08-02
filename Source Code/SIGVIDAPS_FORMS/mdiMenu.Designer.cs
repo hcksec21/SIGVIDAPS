@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuFormularios = new System.Windows.Forms.ToolStripMenuItem();
-            this.formularioDeAnticipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFormularioAnticipo = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anularFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,7 @@
             this.consultarFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aprobarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarEliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +58,7 @@
             this.registrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +67,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFormularios,
-            this.empleadosToolStripMenuItem,
+            this.mnuEmpleados,
             this.mnuAdministracion,
-            this.ayudaToolStripMenuItem});
+            this.mnuAyuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(840, 24);
@@ -79,22 +79,22 @@
             // mnuFormularios
             // 
             this.mnuFormularios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formularioDeAnticipoToolStripMenuItem,
+            this.mnuFormularioAnticipo,
             this.formularioDeLiquidaciónToolStripMenuItem});
             this.mnuFormularios.Name = "mnuFormularios";
             this.mnuFormularios.Size = new System.Drawing.Size(82, 20);
             this.mnuFormularios.Text = "Formularios";
             // 
-            // formularioDeAnticipoToolStripMenuItem
+            // mnuFormularioAnticipo
             // 
-            this.formularioDeAnticipoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFormularioAnticipo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarFormularioToolStripMenuItem,
             this.anularFormularioToolStripMenuItem,
             this.consultarFormularioToolStripMenuItem,
             this.aprobarFormualrioToolStripMenuItem});
-            this.formularioDeAnticipoToolStripMenuItem.Name = "formularioDeAnticipoToolStripMenuItem";
-            this.formularioDeAnticipoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.formularioDeAnticipoToolStripMenuItem.Text = "Formulario de Anticipo";
+            this.mnuFormularioAnticipo.Name = "mnuFormularioAnticipo";
+            this.mnuFormularioAnticipo.Size = new System.Drawing.Size(213, 22);
+            this.mnuFormularioAnticipo.Text = "Formulario de Anticipo";
             // 
             // registrarFormularioToolStripMenuItem
             // 
@@ -159,39 +159,41 @@
             // editarFormularioToolStripMenuItem
             // 
             this.editarFormularioToolStripMenuItem.Name = "editarFormularioToolStripMenuItem";
-            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.editarFormularioToolStripMenuItem.Text = "Editar Formulario";
+            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.editarFormularioToolStripMenuItem.Text = "Actualizar Formulario";
+            this.editarFormularioToolStripMenuItem.Click += new System.EventHandler(this.editarFormularioToolStripMenuItem_Click);
             // 
-            // empleadosToolStripMenuItem
+            // mnuEmpleados
             // 
-            this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuEmpleados.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarEmpleadoToolStripMenuItem,
             this.modificarEliminarEmpleadoToolStripMenuItem,
             this.eliminarEmpleadoToolStripMenuItem});
-            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
+            this.mnuEmpleados.Name = "mnuEmpleados";
+            this.mnuEmpleados.Size = new System.Drawing.Size(77, 20);
+            this.mnuEmpleados.Text = "Empleados";
+            this.mnuEmpleados.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // registrarEmpleadoToolStripMenuItem
             // 
             this.registrarEmpleadoToolStripMenuItem.Name = "registrarEmpleadoToolStripMenuItem";
-            this.registrarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.registrarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.registrarEmpleadoToolStripMenuItem.Text = "Registrar Empleado";
             this.registrarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.registrarEmpleadoToolStripMenuItem_Click);
             // 
             // modificarEliminarEmpleadoToolStripMenuItem
             // 
             this.modificarEliminarEmpleadoToolStripMenuItem.Name = "modificarEliminarEmpleadoToolStripMenuItem";
-            this.modificarEliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.modificarEliminarEmpleadoToolStripMenuItem.Text = "Modificar Empleado";
+            this.modificarEliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.modificarEliminarEmpleadoToolStripMenuItem.Text = "Actualizar Empleado";
             this.modificarEliminarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.modificarEliminarEmpleadoToolStripMenuItem_Click);
             // 
             // eliminarEmpleadoToolStripMenuItem
             // 
             this.eliminarEmpleadoToolStripMenuItem.Name = "eliminarEmpleadoToolStripMenuItem";
-            this.eliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.eliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.eliminarEmpleadoToolStripMenuItem.Text = "Eliminar Empleado";
+            this.eliminarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.eliminarEmpleadoToolStripMenuItem_Click_1);
             // 
             // mnuAdministracion
             // 
@@ -216,21 +218,21 @@
             // registrarCargoDeEmpleadoToolStripMenuItem
             // 
             this.registrarCargoDeEmpleadoToolStripMenuItem.Name = "registrarCargoDeEmpleadoToolStripMenuItem";
-            this.registrarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.registrarCargoDeEmpleadoToolStripMenuItem.Text = "Registrar Cargo de Empleado";
             this.registrarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.registrarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
             // editarCargoDeEmpleadoToolStripMenuItem
             // 
             this.editarCargoDeEmpleadoToolStripMenuItem.Name = "editarCargoDeEmpleadoToolStripMenuItem";
-            this.editarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.editarCargoDeEmpleadoToolStripMenuItem.Text = "Editar Cargo de Empleado";
+            this.editarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.editarCargoDeEmpleadoToolStripMenuItem.Text = "Actualizar Cargo de Empleado";
             this.editarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.editarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
             // eliminarCargoDeEmpleadoToolStripMenuItem
             // 
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Name = "eliminarCargoDeEmpleadoToolStripMenuItem";
-            this.eliminarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Text = "Eliminar Cargo de Empleado";
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.eliminarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
@@ -243,23 +245,24 @@
             this.administrarRutasToolStripMenuItem.Name = "administrarRutasToolStripMenuItem";
             this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.administrarRutasToolStripMenuItem.Text = "Rutas de Movilización";
+            this.administrarRutasToolStripMenuItem.Click += new System.EventHandler(this.administrarRutasToolStripMenuItem_Click);
             // 
             // registrarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Name = "registrarRutaDeMovilizaciónToolStripMenuItem";
-            this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Text = "Registrar Ruta de Movilización";
             // 
             // editarRutaDeMovilizacionToolStripMenuItem
             // 
             this.editarRutaDeMovilizacionToolStripMenuItem.Name = "editarRutaDeMovilizacionToolStripMenuItem";
-            this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Editar Ruta de Movilización";
+            this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Actualizar Ruta de Movilización";
             // 
             // eliminarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Name = "eliminarRutaDeMovilizaciónToolStripMenuItem";
-            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Text = "Eliminar Ruta de Movilización";
             // 
             // administrarUsuariosToolStripMenuItem
@@ -275,29 +278,29 @@
             // registrarUsuariosToolStripMenuItem
             // 
             this.registrarUsuariosToolStripMenuItem.Name = "registrarUsuariosToolStripMenuItem";
-            this.registrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.registrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.registrarUsuariosToolStripMenuItem.Text = "Registrar Usuario";
             this.registrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuariosToolStripMenuItem_Click);
             // 
             // editarUsuariosToolStripMenuItem
             // 
             this.editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
-            this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.editarUsuariosToolStripMenuItem.Text = "Editar Usuario";
+            this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.editarUsuariosToolStripMenuItem.Text = "Actualizar Usuario";
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             // 
-            // ayudaToolStripMenuItem
+            // mnuAyuda
             // 
-            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verAyudaToolStripMenuItem});
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.mnuAyuda.Name = "mnuAyuda";
+            this.mnuAyuda.Size = new System.Drawing.Size(53, 20);
+            this.mnuAyuda.Text = "Ayuda";
             // 
             // verAyudaToolStripMenuItem
             // 
@@ -335,14 +338,14 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFormularios;
         private System.Windows.Forms.ToolStripMenuItem mnuAdministracion;
         private System.Windows.Forms.ToolStripMenuItem sbmnuCargo;
-        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuEmpleados;
         private System.Windows.Forms.ToolStripMenuItem registrarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarEliminarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarRutasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarUsuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAyuda;
         private System.Windows.Forms.ToolStripMenuItem verAyudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formularioDeAnticipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuFormularioAnticipo;
         private System.Windows.Forms.ToolStripMenuItem registrarFormularioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularFormularioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarFormularioToolStripMenuItem;
