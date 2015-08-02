@@ -14,12 +14,17 @@ namespace SIGVIDAPS_DAT
     
     public partial class OPCION_NIVEL
     {
+        public OPCION_NIVEL()
+        {
+            this.DETALLE_CALCULO = new HashSet<DETALLE_CALCULO>();
+        }
+    
         public decimal IDOPCIONN { get; set; }
         public Nullable<decimal> IDOPCION { get; set; }
         public Nullable<decimal> IDNIVEL { get; set; }
-        public string CODOPCIONN { get; set; }
         public Nullable<decimal> VALOROPCION { get; set; }
     
+        public virtual ICollection<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
         public virtual NIVEL NIVEL { get; set; }
         public virtual OPCIONES_VIATICOS OPCIONES_VIATICOS { get; set; }
     }

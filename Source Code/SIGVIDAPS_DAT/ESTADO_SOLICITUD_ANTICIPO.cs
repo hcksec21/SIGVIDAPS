@@ -16,12 +16,12 @@ namespace SIGVIDAPS_DAT
     {
         public ESTADO_SOLICITUD_ANTICIPO()
         {
-            this.SOLICITUD__ANTICIPO = new HashSet<SOLICITUD__ANTICIPO>();
+            this.FORMULARIO__ANTICIPO = new HashSet<FORMULARIO__ANTICIPO>();
         }
     
         public decimal IDESTSOLICANT { get; set; }
         public string ESTSOLICANT { get; set; }
     
-        public virtual ICollection<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }
+        public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
     }
 }

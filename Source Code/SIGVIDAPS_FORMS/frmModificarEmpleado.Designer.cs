@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bttnGuardar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,28 +93,29 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Existente";
             // 
-            // button5
+            // bttnGuardar
             // 
-            this.button5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button5.Location = new System.Drawing.Point(504, 588);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 49);
-            this.button5.TabIndex = 36;
-            this.button5.Text = "GUARDAR";
-            this.button5.UseVisualStyleBackColor = true;
+            this.bttnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.bttnGuardar.Location = new System.Drawing.Point(504, 588);
+            this.bttnGuardar.Name = "bttnGuardar";
+            this.bttnGuardar.Size = new System.Drawing.Size(128, 49);
+            this.bttnGuardar.TabIndex = 36;
+            this.bttnGuardar.Text = "GUARDAR";
+            this.bttnGuardar.UseVisualStyleBackColor = true;
+            this.bttnGuardar.Click += new System.EventHandler(this.bttnGuardar_Click);
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button4.Location = new System.Drawing.Point(356, 588);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 49);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "MODIFICAR";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnGuardar.Location = new System.Drawing.Point(356, 588);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(142, 49);
+            this.btnGuardar.TabIndex = 35;
+            this.btnGuardar.Text = "MODIFICAR";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button4_Click);
             // 
             // dgvEmpleado
             // 
@@ -374,8 +375,8 @@
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvEmpleado);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.bttnGuardar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -394,8 +395,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bttnGuardar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;

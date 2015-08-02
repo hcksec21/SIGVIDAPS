@@ -16,15 +16,12 @@ namespace SIGVIDAPS_DAT
     {
         public OPCIONES_VIATICOS()
         {
-            this.DETALLE_CALCULO = new HashSet<DETALLE_CALCULO>();
             this.OPCION_NIVEL = new HashSet<OPCION_NIVEL>();
         }
     
         public decimal IDOPCION { get; set; }
-        public string CODOPCION { get; set; }
         public string NOMBREOPCION { get; set; }
     
-        public virtual ICollection<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
         public virtual ICollection<OPCION_NIVEL> OPCION_NIVEL { get; set; }
     }
 }

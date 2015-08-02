@@ -16,12 +16,12 @@ namespace SIGVIDAPS_DAT
     {
         public EMPLEADO()
         {
-            this.SOLICITUD__ANTICIPO = new HashSet<SOLICITUD__ANTICIPO>();
+            this.FORMULARIO__ANTICIPO = new HashSet<FORMULARIO__ANTICIPO>();
+            this.USUARIOs = new HashSet<USUARIO>();
         }
     
         public decimal IDEMP { get; set; }
         public Nullable<decimal> IDCARGO { get; set; }
-        public string CODEMP { get; set; }
         public string CEDULAEMP { get; set; }
         public string NOMBREEMP { get; set; }
         public string APELLIDOEMP { get; set; }
@@ -30,6 +30,7 @@ namespace SIGVIDAPS_DAT
         public Nullable<bool> ESTEMP { get; set; }
     
         public virtual CARGO CARGO { get; set; }
-        public virtual ICollection<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }
+        public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
+        public virtual ICollection<USUARIO> USUARIOs { get; set; }
     }
 }

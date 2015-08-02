@@ -12,16 +12,15 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class RUTA
+    public partial class USUARIO
     {
-        public RUTA()
-        {
-            this.DETALLE_FORMULARIO = new HashSet<DETALLE_FORMULARIO>();
-        }
+        public decimal IDUSUARIO { get; set; }
+        public Nullable<decimal> IDEMP { get; set; }
+        public Nullable<decimal> IDPERFIL { get; set; }
+        public string NOMBREUSUARIO { get; set; }
+        public string CONTRASENAUSUARIO { get; set; }
     
-        public decimal IDRUTA { get; set; }
-        public string NOMRUTA { get; set; }
-    
-        public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
+        public virtual EMPLEADO EMPLEADO { get; set; }
+        public virtual PERFIL PERFIL { get; set; }
     }
 }

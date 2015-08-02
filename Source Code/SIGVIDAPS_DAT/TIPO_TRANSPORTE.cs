@@ -16,12 +16,12 @@ namespace SIGVIDAPS_DAT
     {
         public TIPO_TRANSPORTE()
         {
-            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
+            this.DETALLE_FORMULARIO = new HashSet<DETALLE_FORMULARIO>();
         }
     
         public decimal IDTIPOTRANSPORTE { get; set; }
         public string TIPOTRANSPORTE { get; set; }
     
-        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
+        public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
     }
 }

@@ -23,6 +23,6 @@ namespace SIGVIDAPS_DAT
         public Nullable<decimal> IDSOLICLIQ { get; set; }
     
         public virtual ICollection<DETALLE_FACTURACION> DETALLE_FACTURACION { get; set; }
-        public virtual SOLICITUD_LIQUIDACION SOLICITUD_LIQUIDACION { get; set; }
+        public virtual FORMULARIO_LIQUIDACION FORMULARIO_LIQUIDACION { get; set; }
     }
 }

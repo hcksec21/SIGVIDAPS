@@ -16,13 +16,12 @@ namespace SIGVIDAPS_DAT
     {
         public COMBINACION_VIATICOS()
         {
-            this.SOLICITUD__ANTICIPO = new HashSet<SOLICITUD__ANTICIPO>();
+            this.FORMULARIO__ANTICIPO = new HashSet<FORMULARIO__ANTICIPO>();
         }
     
         public decimal IDCOMBINACION { get; set; }
-        public string CODCOMBINACION { get; set; }
         public string NOMCOMBINACION { get; set; }
     
-        public virtual ICollection<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }
+        public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
     }
 }

@@ -13,7 +13,6 @@
     </Key>
     <Property Name="IDCARGO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="CODCARGO" Type="varchar" MaxLength="10" />
     <Property Name="NOMCARGO" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="COMBINACION_VIATICOS">
@@ -21,7 +20,6 @@
       <PropertyRef Name="IDCOMBINACION" />
     </Key>
     <Property Name="IDCOMBINACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CODCOMBINACION" Type="varchar" MaxLength="15" />
     <Property Name="NOMCOMBINACION" Type="varchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="DETALLE_CALCULO">
@@ -29,8 +27,8 @@
       <PropertyRef Name="IDDETALLECALCULO" />
     </Key>
     <Property Name="IDDETALLECALCULO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDOPCION" Type="numeric" Precision="18" Scale="0" />
     <Property Name="IDCALCULO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="IDOPCIONN" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="DETALLE_FACTURACION">
     <Key>
@@ -39,7 +37,7 @@
     <Property Name="IDDETALLEFAC" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDFACTURACION" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
-  <EntityType Name="DETALLE_SOLICITUD">
+  <EntityType Name="DETALLE_FORMULARIO">
     <Key>
       <PropertyRef Name="IDDETSOLIC" />
     </Key>
@@ -59,7 +57,6 @@
     </Key>
     <Property Name="IDEMP" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDCARGO" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="CODEMP" Type="varchar" MaxLength="10" />
     <Property Name="CEDULAEMP" Type="varchar" MaxLength="10" />
     <Property Name="NOMBREEMP" Type="varchar" MaxLength="100" />
     <Property Name="APELLIDOEMP" Type="varchar" MaxLength="100" />
@@ -81,41 +78,7 @@
     <Property Name="IDFACTURACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDSOLICLIQ" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
-  <EntityType Name="NIVEL">
-    <Key>
-      <PropertyRef Name="IDNIVEL" />
-    </Key>
-    <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="COD_NIVEL" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="NIVEL" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="OPCION_NIVEL">
-    <Key>
-      <PropertyRef Name="IDOPCIONN" />
-    </Key>
-    <Property Name="IDOPCIONN" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDOPCION" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" />
-    <Property Name="CODOPCIONN" Type="varchar" MaxLength="15" />
-    <Property Name="VALOROPCION" Type="decimal" Precision="18" Scale="0" />
-  </EntityType>
-  <EntityType Name="OPCIONES_VIATICOS">
-    <Key>
-      <PropertyRef Name="IDOPCION" />
-    </Key>
-    <Property Name="IDOPCION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CODOPCION" Type="varchar" MaxLength="15" />
-    <Property Name="NOMBREOPCION" Type="varchar" MaxLength="30" />
-  </EntityType>
-  <EntityType Name="RUTA">
-    <Key>
-      <PropertyRef Name="IDRUTA" />
-    </Key>
-    <Property Name="IDRUTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CODRUTA" Type="varchar" MaxLength="15" />
-    <Property Name="NOMRUTA" Type="varchar" MaxLength="30" />
-  </EntityType>
-  <EntityType Name="SOLICITUD__ANTICIPO">
+  <EntityType Name="FORMULARIO__ANTICIPO">
     <Key>
       <PropertyRef Name="IDSOLICANT" />
     </Key>
@@ -127,7 +90,7 @@
     <Property Name="NUMSOLICANT" Type="varchar" MaxLength="30" />
     <Property Name="FECSOLICANT" Type="datetime" />
   </EntityType>
-  <EntityType Name="SOLICITUD_LIQUIDACION">
+  <EntityType Name="FORMULARIO_LIQUIDACION">
     <Key>
       <PropertyRef Name="IDSOLICLIQ" />
     </Key>
@@ -136,6 +99,45 @@
     <Property Name="NUMSOLICLIQ" Type="varchar" MaxLength="15" />
     <Property Name="FECSOLICLIQ" Type="datetime" />
   </EntityType>
+  <EntityType Name="NIVEL">
+    <Key>
+      <PropertyRef Name="IDNIVEL" />
+    </Key>
+    <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COD_NIVEL" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="NIVEL" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPCION_NIVEL">
+    <Key>
+      <PropertyRef Name="IDOPCIONN" />
+    </Key>
+    <Property Name="IDOPCIONN" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDOPCION" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOROPCION" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="OPCIONES_VIATICOS">
+    <Key>
+      <PropertyRef Name="IDOPCION" />
+    </Key>
+    <Property Name="IDOPCION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBREOPCION" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="PERFIL">
+    <Key>
+      <PropertyRef Name="IDPERFIL" />
+    </Key>
+    <Property Name="IDPERFIL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBREPERFIL" Type="varchar" MaxLength="30" />
+    <Property Name="MENUSACCESO" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="RUTA">
+    <Key>
+      <PropertyRef Name="IDRUTA" />
+    </Key>
+    <Property Name="IDRUTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMRUTA" Type="varchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="TIPO_TRANSPORTE">
     <Key>
       <PropertyRef Name="IDTIPOTRANSPORTE" />
@@ -143,11 +145,21 @@
     <Property Name="IDTIPOTRANSPORTE" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TIPOTRANSPORTE" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_CALCULO_RELATIONS_SOLICITU">
-    <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="0..1" />
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDEMP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="IDPERFIL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NOMBREUSUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTRASENAUSUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CALCULO_RELATIONS_FORMULAR">
+    <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="0..1" />
     <End Role="CALCULO" Type="Self.CALCULO" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SOLICITUD__ANTICIPO">
+      <Principal Role="FORMULARIO__ANTICIPO">
         <PropertyRef Name="IDSOLICANT" />
       </Principal>
       <Dependent Role="CALCULO">
@@ -191,62 +203,62 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DETALLE__RELATIONS_OPCIONES">
-    <End Role="OPCIONES_VIATICOS" Type="Self.OPCIONES_VIATICOS" Multiplicity="0..1" />
+  <Association Name="FK_DETALLE__RELATIONS_FORMULAR1">
+    <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="0..1" />
+    <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO__ANTICIPO">
+        <PropertyRef Name="IDSOLICANT" />
+      </Principal>
+      <Dependent Role="DETALLE_FORMULARIO">
+        <PropertyRef Name="IDSOLICANT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_FORMULAR2">
+    <End Role="FORMULARIO_LIQUIDACION" Type="Self.FORMULARIO_LIQUIDACION" Multiplicity="0..1" />
+    <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FORMULARIO_LIQUIDACION">
+        <PropertyRef Name="IDSOLICLIQ" />
+      </Principal>
+      <Dependent Role="DETALLE_FORMULARIO">
+        <PropertyRef Name="IDSOLICLIQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETALLE__RELATIONS_OPCION_N">
+    <End Role="OPCION_NIVEL" Type="Self.OPCION_NIVEL" Multiplicity="0..1" />
     <End Role="DETALLE_CALCULO" Type="Self.DETALLE_CALCULO" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="OPCIONES_VIATICOS">
-        <PropertyRef Name="IDOPCION" />
+      <Principal Role="OPCION_NIVEL">
+        <PropertyRef Name="IDOPCIONN" />
       </Principal>
       <Dependent Role="DETALLE_CALCULO">
-        <PropertyRef Name="IDOPCION" />
+        <PropertyRef Name="IDOPCIONN" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DETALLE__RELATIONS_RUTA">
     <End Role="RUTA" Type="Self.RUTA" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
+    <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RUTA">
         <PropertyRef Name="IDRUTA" />
       </Principal>
-      <Dependent Role="DETALLE_SOLICITUD">
+      <Dependent Role="DETALLE_FORMULARIO">
         <PropertyRef Name="IDRUTA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DETALLE__RELATIONS_SOLICITU1">
-    <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD__ANTICIPO">
-        <PropertyRef Name="IDSOLICANT" />
-      </Principal>
-      <Dependent Role="DETALLE_SOLICITUD">
-        <PropertyRef Name="IDSOLICANT" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DETALLE__RELATIONS_SOLICITU2">
-    <End Role="SOLICITUD_LIQUIDACION" Type="Self.SOLICITUD_LIQUIDACION" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD_LIQUIDACION">
-        <PropertyRef Name="IDSOLICLIQ" />
-      </Principal>
-      <Dependent Role="DETALLE_SOLICITUD">
-        <PropertyRef Name="IDSOLICLIQ" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DETALLE__RELATIONS_TIPO_TRA">
     <End Role="TIPO_TRANSPORTE" Type="Self.TIPO_TRANSPORTE" Multiplicity="0..1" />
-    <End Role="DETALLE_SOLICITUD" Type="Self.DETALLE_SOLICITUD" Multiplicity="*" />
+    <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TIPO_TRANSPORTE">
         <PropertyRef Name="IDTIPOTRANSPORTE" />
       </Principal>
-      <Dependent Role="DETALLE_SOLICITUD">
+      <Dependent Role="DETALLE_FORMULARIO">
         <PropertyRef Name="IDTIPOTRANSPORTE" />
       </Dependent>
     </ReferentialConstraint>
@@ -263,15 +275,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_FACTURAC_RELATIONS_SOLICITU">
-    <End Role="SOLICITUD_LIQUIDACION" Type="Self.SOLICITUD_LIQUIDACION" Multiplicity="0..1" />
+  <Association Name="FK_FACTURAC_RELATIONS_FORMULAR">
+    <End Role="FORMULARIO_LIQUIDACION" Type="Self.FORMULARIO_LIQUIDACION" Multiplicity="0..1" />
     <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SOLICITUD_LIQUIDACION">
+      <Principal Role="FORMULARIO_LIQUIDACION">
         <PropertyRef Name="IDSOLICLIQ" />
       </Principal>
       <Dependent Role="FACTURACION">
         <PropertyRef Name="IDSOLICLIQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR_RELATIONS_COMBINAC">
+    <End Role="COMBINACION_VIATICOS" Type="Self.COMBINACION_VIATICOS" Multiplicity="0..1" />
+    <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMBINACION_VIATICOS">
+        <PropertyRef Name="IDCOMBINACION" />
+      </Principal>
+      <Dependent Role="FORMULARIO__ANTICIPO">
+        <PropertyRef Name="IDCOMBINACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR_RELATIONS_EMPLEADO">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="IDEMP" />
+      </Principal>
+      <Dependent Role="FORMULARIO__ANTICIPO">
+        <PropertyRef Name="IDEMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FORMULAR_RELATIONS_ESTADO_S">
+    <End Role="ESTADO_SOLICITUD_ANTICIPO" Type="Self.ESTADO_SOLICITUD_ANTICIPO" Multiplicity="0..1" />
+    <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_SOLICITUD_ANTICIPO">
+        <PropertyRef Name="IDESTSOLICANT" />
+      </Principal>
+      <Dependent Role="FORMULARIO__ANTICIPO">
+        <PropertyRef Name="IDESTSOLICANT" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -299,39 +347,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_SOLICITU_RELATIONS_COMBINAC">
-    <End Role="COMBINACION_VIATICOS" Type="Self.COMBINACION_VIATICOS" Multiplicity="0..1" />
-    <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="COMBINACION_VIATICOS">
-        <PropertyRef Name="IDCOMBINACION" />
-      </Principal>
-      <Dependent Role="SOLICITUD__ANTICIPO">
-        <PropertyRef Name="IDCOMBINACION" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SOLICITU_RELATIONS_EMPLEADO">
+  <Association Name="FK_USUARIO_RELATIONS_EMPLEADO">
     <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
-    <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="*" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EMPLEADO">
         <PropertyRef Name="IDEMP" />
       </Principal>
-      <Dependent Role="SOLICITUD__ANTICIPO">
+      <Dependent Role="USUARIO">
         <PropertyRef Name="IDEMP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_SOLICITU_RELATIONS_ESTADO_S">
-    <End Role="ESTADO_SOLICITUD_ANTICIPO" Type="Self.ESTADO_SOLICITUD_ANTICIPO" Multiplicity="0..1" />
-    <End Role="SOLICITUD__ANTICIPO" Type="Self.SOLICITUD__ANTICIPO" Multiplicity="*" />
+  <Association Name="FK_USUARIO_RELATIONS_PERFIL">
+    <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ESTADO_SOLICITUD_ANTICIPO">
-        <PropertyRef Name="IDESTSOLICANT" />
+      <Principal Role="PERFIL">
+        <PropertyRef Name="IDPERFIL" />
       </Principal>
-      <Dependent Role="SOLICITUD__ANTICIPO">
-        <PropertyRef Name="IDESTSOLICANT" />
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="IDPERFIL" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -341,19 +377,21 @@
     <EntitySet Name="COMBINACION_VIATICOS" EntityType="Self.COMBINACION_VIATICOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLE_CALCULO" EntityType="Self.DETALLE_CALCULO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DETALLE_FACTURACION" EntityType="Self.DETALLE_FACTURACION" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DETALLE_SOLICITUD" EntityType="Self.DETALLE_SOLICITUD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_FORMULARIO" EntityType="Self.DETALLE_FORMULARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ESTADO_SOLICITUD_ANTICIPO" EntityType="Self.ESTADO_SOLICITUD_ANTICIPO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FACTURACION" EntityType="Self.FACTURACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FORMULARIO__ANTICIPO" EntityType="Self.FORMULARIO__ANTICIPO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FORMULARIO_LIQUIDACION" EntityType="Self.FORMULARIO_LIQUIDACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NIVEL" EntityType="Self.NIVEL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OPCION_NIVEL" EntityType="Self.OPCION_NIVEL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OPCIONES_VIATICOS" EntityType="Self.OPCIONES_VIATICOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RUTA" EntityType="Self.RUTA" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SOLICITUD__ANTICIPO" EntityType="Self.SOLICITUD__ANTICIPO" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SOLICITUD_LIQUIDACION" EntityType="Self.SOLICITUD_LIQUIDACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPO_TRANSPORTE" EntityType="Self.TIPO_TRANSPORTE" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_CALCULO_RELATIONS_SOLICITU" Association="Self.FK_CALCULO_RELATIONS_SOLICITU">
-      <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CALCULO_RELATIONS_FORMULAR" Association="Self.FK_CALCULO_RELATIONS_FORMULAR">
+      <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
       <End Role="CALCULO" EntitySet="CALCULO" />
     </AssociationSet>
     <AssociationSet Name="FK_CARGO_RELATIONS_NIVEL" Association="Self.FK_CARGO_RELATIONS_NIVEL">
@@ -368,33 +406,45 @@
       <End Role="FACTURACION" EntitySet="FACTURACION" />
       <End Role="DETALLE_FACTURACION" EntitySet="DETALLE_FACTURACION" />
     </AssociationSet>
-    <AssociationSet Name="FK_DETALLE__RELATIONS_OPCIONES" Association="Self.FK_DETALLE__RELATIONS_OPCIONES">
-      <End Role="OPCIONES_VIATICOS" EntitySet="OPCIONES_VIATICOS" />
+    <AssociationSet Name="FK_DETALLE__RELATIONS_FORMULAR1" Association="Self.FK_DETALLE__RELATIONS_FORMULAR1">
+      <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
+      <End Role="DETALLE_FORMULARIO" EntitySet="DETALLE_FORMULARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_FORMULAR2" Association="Self.FK_DETALLE__RELATIONS_FORMULAR2">
+      <End Role="FORMULARIO_LIQUIDACION" EntitySet="FORMULARIO_LIQUIDACION" />
+      <End Role="DETALLE_FORMULARIO" EntitySet="DETALLE_FORMULARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETALLE__RELATIONS_OPCION_N" Association="Self.FK_DETALLE__RELATIONS_OPCION_N">
+      <End Role="OPCION_NIVEL" EntitySet="OPCION_NIVEL" />
       <End Role="DETALLE_CALCULO" EntitySet="DETALLE_CALCULO" />
     </AssociationSet>
     <AssociationSet Name="FK_DETALLE__RELATIONS_RUTA" Association="Self.FK_DETALLE__RELATIONS_RUTA">
       <End Role="RUTA" EntitySet="RUTA" />
-      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITU1" Association="Self.FK_DETALLE__RELATIONS_SOLICITU1">
-      <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
-      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DETALLE__RELATIONS_SOLICITU2" Association="Self.FK_DETALLE__RELATIONS_SOLICITU2">
-      <End Role="SOLICITUD_LIQUIDACION" EntitySet="SOLICITUD_LIQUIDACION" />
-      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
+      <End Role="DETALLE_FORMULARIO" EntitySet="DETALLE_FORMULARIO" />
     </AssociationSet>
     <AssociationSet Name="FK_DETALLE__RELATIONS_TIPO_TRA" Association="Self.FK_DETALLE__RELATIONS_TIPO_TRA">
       <End Role="TIPO_TRANSPORTE" EntitySet="TIPO_TRANSPORTE" />
-      <End Role="DETALLE_SOLICITUD" EntitySet="DETALLE_SOLICITUD" />
+      <End Role="DETALLE_FORMULARIO" EntitySet="DETALLE_FORMULARIO" />
     </AssociationSet>
     <AssociationSet Name="FK_EMPLEADO_RELATIONS_CARGO" Association="Self.FK_EMPLEADO_RELATIONS_CARGO">
       <End Role="CARGO" EntitySet="CARGO" />
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
     </AssociationSet>
-    <AssociationSet Name="FK_FACTURAC_RELATIONS_SOLICITU" Association="Self.FK_FACTURAC_RELATIONS_SOLICITU">
-      <End Role="SOLICITUD_LIQUIDACION" EntitySet="SOLICITUD_LIQUIDACION" />
+    <AssociationSet Name="FK_FACTURAC_RELATIONS_FORMULAR" Association="Self.FK_FACTURAC_RELATIONS_FORMULAR">
+      <End Role="FORMULARIO_LIQUIDACION" EntitySet="FORMULARIO_LIQUIDACION" />
       <End Role="FACTURACION" EntitySet="FACTURACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULAR_RELATIONS_COMBINAC" Association="Self.FK_FORMULAR_RELATIONS_COMBINAC">
+      <End Role="COMBINACION_VIATICOS" EntitySet="COMBINACION_VIATICOS" />
+      <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULAR_RELATIONS_EMPLEADO" Association="Self.FK_FORMULAR_RELATIONS_EMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FORMULAR_RELATIONS_ESTADO_S" Association="Self.FK_FORMULAR_RELATIONS_ESTADO_S">
+      <End Role="ESTADO_SOLICITUD_ANTICIPO" EntitySet="ESTADO_SOLICITUD_ANTICIPO" />
+      <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
     </AssociationSet>
     <AssociationSet Name="FK_OPCION_N_RELATIONS_NIVEL" Association="Self.FK_OPCION_N_RELATIONS_NIVEL">
       <End Role="NIVEL" EntitySet="NIVEL" />
@@ -404,17 +454,13 @@
       <End Role="OPCIONES_VIATICOS" EntitySet="OPCIONES_VIATICOS" />
       <End Role="OPCION_NIVEL" EntitySet="OPCION_NIVEL" />
     </AssociationSet>
-    <AssociationSet Name="FK_SOLICITU_RELATIONS_COMBINAC" Association="Self.FK_SOLICITU_RELATIONS_COMBINAC">
-      <End Role="COMBINACION_VIATICOS" EntitySet="COMBINACION_VIATICOS" />
-      <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SOLICITU_RELATIONS_EMPLEADO" Association="Self.FK_SOLICITU_RELATIONS_EMPLEADO">
+    <AssociationSet Name="FK_USUARIO_RELATIONS_EMPLEADO" Association="Self.FK_USUARIO_RELATIONS_EMPLEADO">
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-      <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
-    <AssociationSet Name="FK_SOLICITU_RELATIONS_ESTADO_S" Association="Self.FK_SOLICITU_RELATIONS_ESTADO_S">
-      <End Role="ESTADO_SOLICITUD_ANTICIPO" EntitySet="ESTADO_SOLICITUD_ANTICIPO" />
-      <End Role="SOLICITUD__ANTICIPO" EntitySet="SOLICITUD__ANTICIPO" />
+    <AssociationSet Name="FK_USUARIO_RELATIONS_PERFIL" Association="Self.FK_USUARIO_RELATIONS_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

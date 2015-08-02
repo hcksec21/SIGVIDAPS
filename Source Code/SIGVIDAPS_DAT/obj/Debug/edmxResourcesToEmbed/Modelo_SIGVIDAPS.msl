@@ -14,7 +14,6 @@
         <MappingFragment StoreEntitySet="CARGO">
           <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
           <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
-          <ScalarProperty Name="CODCARGO" ColumnName="CODCARGO" />
           <ScalarProperty Name="NOMCARGO" ColumnName="NOMCARGO" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -23,7 +22,6 @@
       <EntityTypeMapping TypeName="SIGVIDAPSModel.COMBINACION_VIATICOS">
         <MappingFragment StoreEntitySet="COMBINACION_VIATICOS">
           <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
-          <ScalarProperty Name="CODCOMBINACION" ColumnName="CODCOMBINACION" />
           <ScalarProperty Name="NOMCOMBINACION" ColumnName="NOMCOMBINACION" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -32,8 +30,8 @@
       <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_CALCULO">
         <MappingFragment StoreEntitySet="DETALLE_CALCULO">
           <ScalarProperty Name="IDDETALLECALCULO" ColumnName="IDDETALLECALCULO" />
-          <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
           <ScalarProperty Name="IDCALCULO" ColumnName="IDCALCULO" />
+          <ScalarProperty Name="IDOPCIONN" ColumnName="IDOPCIONN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -45,9 +43,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DETALLE_SOLICITUD">
-      <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_SOLICITUD">
-        <MappingFragment StoreEntitySet="DETALLE_SOLICITUD">
+    <EntitySetMapping Name="DETALLE_FORMULARIO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_FORMULARIO">
+        <MappingFragment StoreEntitySet="DETALLE_FORMULARIO">
           <ScalarProperty Name="IDDETSOLIC" ColumnName="IDDETSOLIC" />
           <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
           <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
@@ -65,7 +63,6 @@
         <MappingFragment StoreEntitySet="EMPLEADO">
           <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
           <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
-          <ScalarProperty Name="CODEMP" ColumnName="CODEMP" />
           <ScalarProperty Name="CEDULAEMP" ColumnName="CEDULAEMP" />
           <ScalarProperty Name="NOMBREEMP" ColumnName="NOMBREEMP" />
           <ScalarProperty Name="APELLIDOEMP" ColumnName="APELLIDOEMP" />
@@ -91,6 +88,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FORMULARIO__ANTICIPO">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.FORMULARIO__ANTICIPO">
+        <MappingFragment StoreEntitySet="FORMULARIO__ANTICIPO">
+          <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
+          <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
+          <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
+          <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
+          <ScalarProperty Name="CODSOLICANT" ColumnName="CODSOLICANT" />
+          <ScalarProperty Name="NUMSOLICANT" ColumnName="NUMSOLICANT" />
+          <ScalarProperty Name="FECSOLICANT" ColumnName="FECSOLICANT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FORMULARIO_LIQUIDACION">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.FORMULARIO_LIQUIDACION">
+        <MappingFragment StoreEntitySet="FORMULARIO_LIQUIDACION">
+          <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+          <ScalarProperty Name="CODSOLICLIQ" ColumnName="CODSOLICLIQ" />
+          <ScalarProperty Name="NUMSOLICLIQ" ColumnName="NUMSOLICLIQ" />
+          <ScalarProperty Name="FECSOLICLIQ" ColumnName="FECSOLICLIQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="NIVELs">
       <EntityTypeMapping TypeName="SIGVIDAPSModel.NIVEL">
         <MappingFragment StoreEntitySet="NIVEL">
@@ -106,7 +126,6 @@
           <ScalarProperty Name="IDOPCIONN" ColumnName="IDOPCIONN" />
           <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
           <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
-          <ScalarProperty Name="CODOPCIONN" ColumnName="CODOPCIONN" />
           <ScalarProperty Name="VALOROPCION" ColumnName="VALOROPCION" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -115,8 +134,16 @@
       <EntityTypeMapping TypeName="SIGVIDAPSModel.OPCIONES_VIATICOS">
         <MappingFragment StoreEntitySet="OPCIONES_VIATICOS">
           <ScalarProperty Name="IDOPCION" ColumnName="IDOPCION" />
-          <ScalarProperty Name="CODOPCION" ColumnName="CODOPCION" />
           <ScalarProperty Name="NOMBREOPCION" ColumnName="NOMBREOPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFILs">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.PERFIL">
+        <MappingFragment StoreEntitySet="PERFIL">
+          <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
+          <ScalarProperty Name="NOMBREPERFIL" ColumnName="NOMBREPERFIL" />
+          <ScalarProperty Name="MENUSACCESO" ColumnName="MENUSACCESO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -124,31 +151,7 @@
       <EntityTypeMapping TypeName="SIGVIDAPSModel.RUTA">
         <MappingFragment StoreEntitySet="RUTA">
           <ScalarProperty Name="IDRUTA" ColumnName="IDRUTA" />
-          <ScalarProperty Name="CODRUTA" ColumnName="CODRUTA" />
           <ScalarProperty Name="NOMRUTA" ColumnName="NOMRUTA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SOLICITUD__ANTICIPO">
-      <EntityTypeMapping TypeName="SIGVIDAPSModel.SOLICITUD__ANTICIPO">
-        <MappingFragment StoreEntitySet="SOLICITUD__ANTICIPO">
-          <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
-          <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
-          <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
-          <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
-          <ScalarProperty Name="CODSOLICANT" ColumnName="CODSOLICANT" />
-          <ScalarProperty Name="NUMSOLICANT" ColumnName="NUMSOLICANT" />
-          <ScalarProperty Name="FECSOLICANT" ColumnName="FECSOLICANT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SOLICITUD_LIQUIDACION">
-      <EntityTypeMapping TypeName="SIGVIDAPSModel.SOLICITUD_LIQUIDACION">
-        <MappingFragment StoreEntitySet="SOLICITUD_LIQUIDACION">
-          <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
-          <ScalarProperty Name="CODSOLICLIQ" ColumnName="CODSOLICLIQ" />
-          <ScalarProperty Name="NUMSOLICLIQ" ColumnName="NUMSOLICLIQ" />
-          <ScalarProperty Name="FECSOLICLIQ" ColumnName="FECSOLICLIQ" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -157,6 +160,17 @@
         <MappingFragment StoreEntitySet="TIPO_TRANSPORTE">
           <ScalarProperty Name="IDTIPOTRANSPORTE" ColumnName="IDTIPOTRANSPORTE" />
           <ScalarProperty Name="TIPOTRANSPORTE" ColumnName="TIPOTRANSPORTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOs">
+      <EntityTypeMapping TypeName="SIGVIDAPSModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
+          <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
+          <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+          <ScalarProperty Name="CONTRASENAUSUARIO" ColumnName="CONTRASENAUSUARIO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

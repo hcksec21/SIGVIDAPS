@@ -15,10 +15,10 @@ namespace SIGVIDAPS_DAT
     public partial class DETALLE_CALCULO
     {
         public decimal IDDETALLECALCULO { get; set; }
-        public Nullable<decimal> IDOPCION { get; set; }
         public Nullable<decimal> IDCALCULO { get; set; }
+        public Nullable<decimal> IDOPCIONN { get; set; }
     
         public virtual CALCULO CALCULO { get; set; }
-        public virtual OPCIONES_VIATICOS OPCIONES_VIATICOS { get; set; }
+        public virtual OPCION_NIVEL OPCION_NIVEL { get; set; }
     }
 }

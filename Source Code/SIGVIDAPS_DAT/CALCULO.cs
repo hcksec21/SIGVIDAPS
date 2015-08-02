@@ -22,7 +22,7 @@ namespace SIGVIDAPS_DAT
         public decimal IDCALCULO { get; set; }
         public Nullable<decimal> IDSOLICANT { get; set; }
     
-        public virtual SOLICITUD__ANTICIPO SOLICITUD__ANTICIPO { get; set; }
+        public virtual FORMULARIO__ANTICIPO FORMULARIO__ANTICIPO { get; set; }
         public virtual ICollection<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
     }
 }

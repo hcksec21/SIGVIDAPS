@@ -12,11 +12,11 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class SOLICITUD_LIQUIDACION
+    public partial class FORMULARIO_LIQUIDACION
     {
-        public SOLICITUD_LIQUIDACION()
+        public FORMULARIO_LIQUIDACION()
         {
-            this.DETALLE_SOLICITUD = new HashSet<DETALLE_SOLICITUD>();
+            this.DETALLE_FORMULARIO = new HashSet<DETALLE_FORMULARIO>();
             this.FACTURACIONs = new HashSet<FACTURACION>();
         }
     
@@ -25,7 +25,7 @@ namespace SIGVIDAPS_DAT
         public string NUMSOLICLIQ { get; set; }
         public Nullable<System.DateTime> FECSOLICLIQ { get; set; }
     
-        public virtual ICollection<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
+        public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
         public virtual ICollection<FACTURACION> FACTURACIONs { get; set; }
     }
 }

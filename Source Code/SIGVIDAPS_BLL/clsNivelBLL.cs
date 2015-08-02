@@ -12,7 +12,7 @@ namespace SIGVIDAPS_BLL
     public class clsNivelBLL
     {
         //BUSCAR CON ID
-        public NIVEL BuscarConId(int id)
+        public NIVEL buscarConId(int id)
         {
             return (new SIGVIDAPS_entidades()).NIVELs.Where(e => e.IDNIVEL == id).First();
         }

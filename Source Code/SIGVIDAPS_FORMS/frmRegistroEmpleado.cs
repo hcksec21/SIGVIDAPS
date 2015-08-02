@@ -84,7 +84,7 @@ namespace SIGVIDAPS_FORMS
                     tempRow.Cells.Add(cellCedula);
 
                     //NIVEL
-                    CARGO objCargo = (new clsCargoBLL()).BuscarConId(Convert.ToInt32(empleado.IDCARGO));
+                    CARGO objCargo = (new clsCargoBLL()).buscarConId(Convert.ToInt32(empleado.IDCARGO));
                     DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
                     cellNivel.Value = objCargo.IDNIVEL;
                     tempRow.Cells.Add(cellNivel);
@@ -268,8 +268,8 @@ namespace SIGVIDAPS_FORMS
                 String strId = cmbCargos.SelectedValue.ToString();
                 int idCargo = Int32.Parse(strId.ToString());
 
-                CARGO objCargo = (new clsCargoBLL()).BuscarConId(idCargo);
-                NIVEL objNivel = (new clsNivelBLL()).BuscarConId((int)objCargo.IDNIVEL);
+                CARGO objCargo = (new clsCargoBLL()).buscarConId(idCargo);
+                NIVEL objNivel = (new clsNivelBLL()).buscarConId((int)objCargo.IDNIVEL);
 
                 lblNivel.Text = objNivel.COD_NIVEL;
             }

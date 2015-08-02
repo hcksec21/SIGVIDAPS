@@ -55,8 +55,6 @@
             this.lblNivel = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
             this.SuspendLayout();
@@ -198,10 +196,10 @@
             this.Cargo,
             this.Dirección,
             this.Teléfono});
-            this.dgvEmpleado.Location = new System.Drawing.Point(12, 400);
+            this.dgvEmpleado.Location = new System.Drawing.Point(12, 365);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.ReadOnly = true;
-            this.dgvEmpleado.Size = new System.Drawing.Size(960, 171);
+            this.dgvEmpleado.Size = new System.Drawing.Size(960, 206);
             this.dgvEmpleado.TabIndex = 18;
             // 
             // ID
@@ -322,29 +320,6 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "Cédula";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ACTIVO",
-            "INACTIVO"});
-            this.comboBox1.Location = new System.Drawing.Point(322, 352);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 35;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.SlateGray;
-            this.label9.Location = new System.Drawing.Point(175, 348);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 25);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "Estado";
-            // 
             // frmRegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,8 +327,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
             this.ClientSize = new System.Drawing.Size(984, 648);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblNivel);
@@ -414,7 +387,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono;
         private System.Windows.Forms.MaskedTextBox txtCedula;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label9;
     }
 }

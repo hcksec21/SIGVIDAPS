@@ -69,7 +69,7 @@ namespace SIGVIDAPS_FORMS
                     tempRow.Cells.Add(cellCedula);
 
                     //NIVEL
-                    CARGO objCargo = (new clsCargoBLL()).BuscarConId(Convert.ToInt32(empleado.IDCARGO));
+                    CARGO objCargo = (new clsCargoBLL()).buscarConId(Convert.ToInt32(empleado.IDCARGO));
                     DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
                     cellNivel.Value = objCargo.IDNIVEL;
                     tempRow.Cells.Add(cellNivel);
@@ -148,7 +148,10 @@ namespace SIGVIDAPS_FORMS
         private void button4_Click(object sender, EventArgs e)
         {
             habilitarControles(true);
+        }
 
+        private void bttnGuardar_Click(object sender, EventArgs e)
+        {
             String strError = "";
             Boolean bolError = false;
 
@@ -192,12 +195,12 @@ namespace SIGVIDAPS_FORMS
                     empleado.IDCARGO = (new clsCargoBLL()).buscarConNombreCargo(cmbCargos.SelectedItem.ToString()).IDCARGO;
                     empleado.CEDULAEMP = txtCedula.Text;
                     empleado.DIREMP = txtDireccion.Text;
-                    empleado.ESTEMP = (cmbEstado.SelectedItem=="ACTIVO") ? true : false;
+                    empleado.ESTEMP = (cmbEstado.SelectedItem == "ACTIVO") ? true : false;
                     empleado.NOMBREEMP = txtNombres.Text;
                     empleado.TELEMP = txtTelefono.Text;
 
                     (new clsEmpleadoBLL()).actualizarEmpleado(Int32.Parse(dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[0].Value.ToString()), empleado);
-                    
+
                 }
 
                 MessageBox.Show("El empleado ha sido registrado satisfactoriamente");

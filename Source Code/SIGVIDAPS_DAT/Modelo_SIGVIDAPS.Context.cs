@@ -30,16 +30,18 @@ namespace SIGVIDAPS_DAT
         public virtual DbSet<COMBINACION_VIATICOS> COMBINACION_VIATICOS { get; set; }
         public virtual DbSet<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
         public virtual DbSet<DETALLE_FACTURACION> DETALLE_FACTURACION { get; set; }
-        public virtual DbSet<DETALLE_SOLICITUD> DETALLE_SOLICITUD { get; set; }
+        public virtual DbSet<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
         public virtual DbSet<ESTADO_SOLICITUD_ANTICIPO> ESTADO_SOLICITUD_ANTICIPO { get; set; }
         public virtual DbSet<FACTURACION> FACTURACIONs { get; set; }
+        public virtual DbSet<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
+        public virtual DbSet<FORMULARIO_LIQUIDACION> FORMULARIO_LIQUIDACION { get; set; }
         public virtual DbSet<NIVEL> NIVELs { get; set; }
         public virtual DbSet<OPCION_NIVEL> OPCION_NIVEL { get; set; }
         public virtual DbSet<OPCIONES_VIATICOS> OPCIONES_VIATICOS { get; set; }
+        public virtual DbSet<PERFIL> PERFILs { get; set; }
         public virtual DbSet<RUTA> RUTAs { get; set; }
-        public virtual DbSet<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }
-        public virtual DbSet<SOLICITUD_LIQUIDACION> SOLICITUD_LIQUIDACION { get; set; }
         public virtual DbSet<TIPO_TRANSPORTE> TIPO_TRANSPORTE { get; set; }
+        public virtual DbSet<USUARIO> USUARIOs { get; set; }
     }
 }

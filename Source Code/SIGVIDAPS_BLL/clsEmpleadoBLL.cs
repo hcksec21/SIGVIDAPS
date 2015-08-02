@@ -34,11 +34,16 @@ namespace SIGVIDAPS_BLL
                 using (SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades())
                 {
                     EMPLEADO objEmpleado = buscarConId(indice);                    
+
                     modeloEntidades.Entry(objEmpleado).Property(u => u.NOMBREEMP).CurrentValue = empleado.NOMBREEMP;
                     modeloEntidades.Entry(objEmpleado).Property(u => u.APELLIDOEMP).CurrentValue = empleado.APELLIDOEMP;
                     modeloEntidades.Entry(objEmpleado).Property(u => u.CEDULAEMP).CurrentValue = empleado.CEDULAEMP;
-                    
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.DIREMP).CurrentValue = empleado.DIREMP;
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.ESTEMP).CurrentValue = empleado.ESTEMP;
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.IDCARGO).CurrentValue = empleado.IDCARGO;
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.CEDULAEMP).CurrentValue = empleado.CEDULAEMP;
 
+                    modeloEntidades.SaveChanges();
 
                 }
             }

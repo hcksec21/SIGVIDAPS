@@ -1,14 +1,14 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     01/08/2015 19:37:28                          */
+/* Created on:     01/08/2015 23:36:39                          */
 /*==============================================================*/
 
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CALCULO') and o.name = 'FK_CALCULO_RELATIONS_SOLICITU')
+   where r.fkeyid = object_id('CALCULO') and o.name = 'FK_CALCULO_RELATIONS_FORMULAR')
 alter table CALCULO
-   drop constraint FK_CALCULO_RELATIONS_SOLICITU
+   drop constraint FK_CALCULO_RELATIONS_FORMULAR
 go
 
 if exists (select 1
@@ -27,9 +27,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_CALCULO') and o.name = 'FK_DETALLE__RELATIONS_OPCIONES')
+   where r.fkeyid = object_id('DETALLE_CALCULO') and o.name = 'FK_DETALLE__RELATIONS_OPCION_N')
 alter table DETALLE_CALCULO
-   drop constraint FK_DETALLE__RELATIONS_OPCIONES
+   drop constraint FK_DETALLE__RELATIONS_OPCION_N
 go
 
 if exists (select 1
@@ -41,30 +41,30 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_TIPO_TRA')
-alter table DETALLE_SOLICITUD
+   where r.fkeyid = object_id('DETALLE_FORMULARIO') and o.name = 'FK_DETALLE__RELATIONS_TIPO_TRA')
+alter table DETALLE_FORMULARIO
    drop constraint FK_DETALLE__RELATIONS_TIPO_TRA
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_SOLICITU1')
-alter table DETALLE_SOLICITUD
-   drop constraint FK_DETALLE__RELATIONS_SOLICITU1
+   where r.fkeyid = object_id('DETALLE_FORMULARIO') and o.name = 'FK_DETALLE__RELATIONS_FORMULAR1')
+alter table DETALLE_FORMULARIO
+   drop constraint FK_DETALLE__RELATIONS_FORMULAR1
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_RUTA')
-alter table DETALLE_SOLICITUD
+   where r.fkeyid = object_id('DETALLE_FORMULARIO') and o.name = 'FK_DETALLE__RELATIONS_RUTA')
+alter table DETALLE_FORMULARIO
    drop constraint FK_DETALLE__RELATIONS_RUTA
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_SOLICITUD') and o.name = 'FK_DETALLE__RELATIONS_SOLICITU2')
-alter table DETALLE_SOLICITUD
-   drop constraint FK_DETALLE__RELATIONS_SOLICITU2
+   where r.fkeyid = object_id('DETALLE_FORMULARIO') and o.name = 'FK_DETALLE__RELATIONS_FORMULAR2')
+alter table DETALLE_FORMULARIO
+   drop constraint FK_DETALLE__RELATIONS_FORMULAR2
 go
 
 if exists (select 1
@@ -76,9 +76,30 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FACTURACION') and o.name = 'FK_FACTURAC_RELATIONS_SOLICITU')
+   where r.fkeyid = object_id('FACTURACION') and o.name = 'FK_FACTURAC_RELATIONS_FORMULAR')
 alter table FACTURACION
-   drop constraint FK_FACTURAC_RELATIONS_SOLICITU
+   drop constraint FK_FACTURAC_RELATIONS_FORMULAR
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_EMPLEADO')
+alter table FORMULARIO__ANTICIPO
+   drop constraint FK_FORMULAR_RELATIONS_EMPLEADO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_ESTADO_S')
+alter table FORMULARIO__ANTICIPO
+   drop constraint FK_FORMULAR_RELATIONS_ESTADO_S
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_COMBINAC')
+alter table FORMULARIO__ANTICIPO
+   drop constraint FK_FORMULAR_RELATIONS_COMBINAC
 go
 
 if exists (select 1
@@ -97,23 +118,16 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SOLICITUD__ANTICIPO') and o.name = 'FK_SOLICITU_RELATIONS_EMPLEADO')
-alter table SOLICITUD__ANTICIPO
-   drop constraint FK_SOLICITU_RELATIONS_EMPLEADO
+   where r.fkeyid = object_id('USUARIO') and o.name = 'FK_USUARIO_RELATIONS_EMPLEADO')
+alter table USUARIO
+   drop constraint FK_USUARIO_RELATIONS_EMPLEADO
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SOLICITUD__ANTICIPO') and o.name = 'FK_SOLICITU_RELATIONS_ESTADO_S')
-alter table SOLICITUD__ANTICIPO
-   drop constraint FK_SOLICITU_RELATIONS_ESTADO_S
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SOLICITUD__ANTICIPO') and o.name = 'FK_SOLICITU_RELATIONS_COMBINAC')
-alter table SOLICITUD__ANTICIPO
-   drop constraint FK_SOLICITU_RELATIONS_COMBINAC
+   where r.fkeyid = object_id('USUARIO') and o.name = 'FK_USUARIO_RELATIONS_PERFIL')
+alter table USUARIO
+   drop constraint FK_USUARIO_RELATIONS_PERFIL
 go
 
 if exists (select 1
@@ -198,45 +212,45 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD')
+           where  id    = object_id('DETALLE_FORMULARIO')
             and   name  = 'RELATIONSHIP_20_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD.RELATIONSHIP_20_FK
+   drop index DETALLE_FORMULARIO.RELATIONSHIP_20_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD')
+           where  id    = object_id('DETALLE_FORMULARIO')
             and   name  = 'RELATIONSHIP_8_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD.RELATIONSHIP_8_FK
+   drop index DETALLE_FORMULARIO.RELATIONSHIP_8_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD')
+           where  id    = object_id('DETALLE_FORMULARIO')
             and   name  = 'RELATIONSHIP_6_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD.RELATIONSHIP_6_FK
+   drop index DETALLE_FORMULARIO.RELATIONSHIP_6_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_SOLICITUD')
+           where  id    = object_id('DETALLE_FORMULARIO')
             and   name  = 'RELATIONSHIP_5_FK'
             and   indid > 0
             and   indid < 255)
-   drop index DETALLE_SOLICITUD.RELATIONSHIP_5_FK
+   drop index DETALLE_FORMULARIO.RELATIONSHIP_5_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('DETALLE_SOLICITUD')
+           where  id = object_id('DETALLE_FORMULARIO')
             and   type = 'U')
-   drop table DETALLE_SOLICITUD
+   drop table DETALLE_FORMULARIO
 go
 
 if exists (select 1
@@ -280,6 +294,47 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('FORMULARIO_LIQUIDACION')
+            and   type = 'U')
+   drop table FORMULARIO_LIQUIDACION
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO__ANTICIPO')
+            and   name  = 'RELATIONSHIP_19_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO__ANTICIPO.RELATIONSHIP_19_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO__ANTICIPO')
+            and   name  = 'RELATIONSHIP_4_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO__ANTICIPO.RELATIONSHIP_4_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO__ANTICIPO')
+            and   name  = 'RELATIONSHIP_1_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO__ANTICIPO.RELATIONSHIP_1_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('FORMULARIO__ANTICIPO')
+            and   type = 'U')
+   drop table FORMULARIO__ANTICIPO
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('NIVEL')
             and   type = 'U')
    drop table NIVEL
@@ -319,6 +374,13 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('PERFIL')
+            and   type = 'U')
+   drop table PERFIL
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('RUTA')
             and   type = 'U')
    drop table RUTA
@@ -326,50 +388,34 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('SOLICITUD_LIQUIDACION')
-            and   type = 'U')
-   drop table SOLICITUD_LIQUIDACION
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('SOLICITUD__ANTICIPO')
-            and   name  = 'RELATIONSHIP_19_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index SOLICITUD__ANTICIPO.RELATIONSHIP_19_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('SOLICITUD__ANTICIPO')
-            and   name  = 'RELATIONSHIP_4_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index SOLICITUD__ANTICIPO.RELATIONSHIP_4_FK
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('SOLICITUD__ANTICIPO')
-            and   name  = 'RELATIONSHIP_1_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index SOLICITUD__ANTICIPO.RELATIONSHIP_1_FK
-go
-
-if exists (select 1
-            from  sysobjects
-           where  id = object_id('SOLICITUD__ANTICIPO')
-            and   type = 'U')
-   drop table SOLICITUD__ANTICIPO
-go
-
-if exists (select 1
-            from  sysobjects
            where  id = object_id('TIPO_TRANSPORTE')
             and   type = 'U')
    drop table TIPO_TRANSPORTE
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('USUARIO')
+            and   name  = 'RELATIONSHIP_22_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index USUARIO.RELATIONSHIP_22_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('USUARIO')
+            and   name  = 'RELATIONSHIP_21_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index USUARIO.RELATIONSHIP_21_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('USUARIO')
+            and   type = 'U')
+   drop table USUARIO
 go
 
 /*==============================================================*/
@@ -396,7 +442,6 @@ go
 create table CARGO (
    IDCARGO              numeric              identity,
    IDNIVEL              numeric              null,
-   CODCARGO             varchar(10)          null,
    NOMCARGO             varchar(30)          null,
    constraint PK_CARGO primary key nonclustered (IDCARGO)
 )
@@ -415,7 +460,6 @@ go
 /*==============================================================*/
 create table COMBINACION_VIATICOS (
    IDCOMBINACION        numeric              identity,
-   CODCOMBINACION       varchar(15)          null,
    NOMCOMBINACION       varchar(40)          null,
    constraint PK_COMBINACION_VIATICOS primary key nonclustered (IDCOMBINACION)
 )
@@ -426,8 +470,8 @@ go
 /*==============================================================*/
 create table DETALLE_CALCULO (
    IDDETALLECALCULO     numeric              identity,
-   IDOPCION             numeric              null,
    IDCALCULO            numeric              null,
+   IDOPCIONN            numeric              null,
    constraint PK_DETALLE_CALCULO primary key nonclustered (IDDETALLECALCULO)
 )
 go
@@ -444,7 +488,7 @@ go
 /* Index: RELATIONSHIP_17_FK                                    */
 /*==============================================================*/
 create index RELATIONSHIP_17_FK on DETALLE_CALCULO (
-IDOPCION ASC
+IDOPCIONN ASC
 )
 go
 
@@ -467,9 +511,9 @@ IDFACTURACION ASC
 go
 
 /*==============================================================*/
-/* Table: DETALLE_SOLICITUD                                     */
+/* Table: DETALLE_FORMULARIO                                    */
 /*==============================================================*/
-create table DETALLE_SOLICITUD (
+create table DETALLE_FORMULARIO (
    IDDETSOLIC           numeric              identity,
    IDSOLICANT           numeric              null,
    IDSOLICLIQ           numeric              null,
@@ -479,14 +523,14 @@ create table DETALLE_SOLICITUD (
    HORASALIDA           int                  null,
    FECLLEGADA           datetime             null,
    HORALLEGADA          int                  null,
-   constraint PK_DETALLE_SOLICITUD primary key nonclustered (IDDETSOLIC)
+   constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETSOLIC)
 )
 go
 
 /*==============================================================*/
 /* Index: RELATIONSHIP_5_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_5_FK on DETALLE_SOLICITUD (
+create index RELATIONSHIP_5_FK on DETALLE_FORMULARIO (
 IDSOLICANT ASC
 )
 go
@@ -494,7 +538,7 @@ go
 /*==============================================================*/
 /* Index: RELATIONSHIP_6_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_6_FK on DETALLE_SOLICITUD (
+create index RELATIONSHIP_6_FK on DETALLE_FORMULARIO (
 IDRUTA ASC
 )
 go
@@ -502,7 +546,7 @@ go
 /*==============================================================*/
 /* Index: RELATIONSHIP_8_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_8_FK on DETALLE_SOLICITUD (
+create index RELATIONSHIP_8_FK on DETALLE_FORMULARIO (
 IDSOLICLIQ ASC
 )
 go
@@ -510,7 +554,7 @@ go
 /*==============================================================*/
 /* Index: RELATIONSHIP_20_FK                                    */
 /*==============================================================*/
-create index RELATIONSHIP_20_FK on DETALLE_SOLICITUD (
+create index RELATIONSHIP_20_FK on DETALLE_FORMULARIO (
 IDTIPOTRANSPORTE ASC
 )
 go
@@ -521,7 +565,6 @@ go
 create table EMPLEADO (
    IDEMP                numeric              identity,
    IDCARGO              numeric              null,
-   CODEMP               varchar(10)          null,
    CEDULAEMP            varchar(10)          null,
    NOMBREEMP            varchar(100)         null,
    APELLIDOEMP          varchar(100)         null,
@@ -569,11 +612,62 @@ IDSOLICLIQ ASC
 go
 
 /*==============================================================*/
+/* Table: FORMULARIO_LIQUIDACION                                */
+/*==============================================================*/
+create table FORMULARIO_LIQUIDACION (
+   IDSOLICLIQ           numeric              identity,
+   CODSOLICLIQ          varchar(15)          null,
+   NUMSOLICLIQ          varchar(15)          null,
+   FECSOLICLIQ          datetime             null,
+   constraint PK_FORMULARIO_LIQUIDACION primary key nonclustered (IDSOLICLIQ)
+)
+go
+
+/*==============================================================*/
+/* Table: FORMULARIO__ANTICIPO                                  */
+/*==============================================================*/
+create table FORMULARIO__ANTICIPO (
+   IDSOLICANT           numeric              identity,
+   IDESTSOLICANT        numeric              null,
+   IDCOMBINACION        numeric              null,
+   IDEMP                numeric              null,
+   CODSOLICANT          varchar(10)          null,
+   NUMSOLICANT          varchar(30)          null,
+   FECSOLICANT          datetime             null,
+   constraint PK_FORMULARIO__ANTICIPO primary key nonclustered (IDSOLICANT)
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_1_FK                                     */
+/*==============================================================*/
+create index RELATIONSHIP_1_FK on FORMULARIO__ANTICIPO (
+IDEMP ASC
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_4_FK                                     */
+/*==============================================================*/
+create index RELATIONSHIP_4_FK on FORMULARIO__ANTICIPO (
+IDCOMBINACION ASC
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_19_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_19_FK on FORMULARIO__ANTICIPO (
+IDESTSOLICANT ASC
+)
+go
+
+/*==============================================================*/
 /* Table: NIVEL                                                 */
 /*==============================================================*/
 create table NIVEL (
    IDNIVEL              numeric              identity,
-   COD_NIVEL            varchar(10)          not null,
+   COD_NIVEL            varchar(30)          not null,
    NIVEL                int                  not null,
    constraint PK_NIVEL primary key nonclustered (IDNIVEL)
 )
@@ -584,7 +678,6 @@ go
 /*==============================================================*/
 create table OPCIONES_VIATICOS (
    IDOPCION             numeric              identity,
-   CODOPCION            varchar(15)          null,
    NOMBREOPCION         varchar(30)          null,
    constraint PK_OPCIONES_VIATICOS primary key nonclustered (IDOPCION)
 )
@@ -597,7 +690,6 @@ create table OPCION_NIVEL (
    IDOPCIONN            numeric              identity,
    IDOPCION             numeric              null,
    IDNIVEL              numeric              null,
-   CODOPCIONN           varchar(15)          null,
    VALOROPCION          decimal              null,
    constraint PK_OPCION_NIVEL primary key nonclustered (IDOPCIONN)
 )
@@ -620,64 +712,23 @@ IDOPCION ASC
 go
 
 /*==============================================================*/
+/* Table: PERFIL                                                */
+/*==============================================================*/
+create table PERFIL (
+   IDPERFIL             numeric              identity,
+   NOMBREPERFIL         varchar(30)          null,
+   MENUSACCESO          varchar(300)         null,
+   constraint PK_PERFIL primary key nonclustered (IDPERFIL)
+)
+go
+
+/*==============================================================*/
 /* Table: RUTA                                                  */
 /*==============================================================*/
 create table RUTA (
    IDRUTA               numeric              identity,
-   CODRUTA              varchar(15)          null,
    NOMRUTA              varchar(30)          null,
    constraint PK_RUTA primary key nonclustered (IDRUTA)
-)
-go
-
-/*==============================================================*/
-/* Table: SOLICITUD_LIQUIDACION                                 */
-/*==============================================================*/
-create table SOLICITUD_LIQUIDACION (
-   IDSOLICLIQ           numeric              identity,
-   CODSOLICLIQ          varchar(15)          null,
-   NUMSOLICLIQ          varchar(15)          null,
-   FECSOLICLIQ          datetime             null,
-   constraint PK_SOLICITUD_LIQUIDACION primary key nonclustered (IDSOLICLIQ)
-)
-go
-
-/*==============================================================*/
-/* Table: SOLICITUD__ANTICIPO                                   */
-/*==============================================================*/
-create table SOLICITUD__ANTICIPO (
-   IDSOLICANT           numeric              identity,
-   IDESTSOLICANT        numeric              null,
-   IDCOMBINACION        numeric              null,
-   IDEMP                numeric              null,
-   CODSOLICANT          varchar(10)          null,
-   NUMSOLICANT          varchar(30)          null,
-   FECSOLICANT          datetime             null,
-   constraint PK_SOLICITUD__ANTICIPO primary key nonclustered (IDSOLICANT)
-)
-go
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_1_FK                                     */
-/*==============================================================*/
-create index RELATIONSHIP_1_FK on SOLICITUD__ANTICIPO (
-IDEMP ASC
-)
-go
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_4_FK                                     */
-/*==============================================================*/
-create index RELATIONSHIP_4_FK on SOLICITUD__ANTICIPO (
-IDCOMBINACION ASC
-)
-go
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_19_FK                                    */
-/*==============================================================*/
-create index RELATIONSHIP_19_FK on SOLICITUD__ANTICIPO (
-IDESTSOLICANT ASC
 )
 go
 
@@ -691,9 +742,38 @@ create table TIPO_TRANSPORTE (
 )
 go
 
+/*==============================================================*/
+/* Table: USUARIO                                               */
+/*==============================================================*/
+create table USUARIO (
+   IDUSUARIO            numeric              identity,
+   IDEMP                numeric              null,
+   IDPERFIL             numeric              null,
+   NOMBREUSUARIO        varchar(30)          not null,
+   CONTRASENAUSUARIO    varchar(30)          not null,
+   constraint PK_USUARIO primary key nonclustered (IDUSUARIO)
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_21_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_21_FK on USUARIO (
+IDEMP ASC
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_22_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_22_FK on USUARIO (
+IDPERFIL ASC
+)
+go
+
 alter table CALCULO
-   add constraint FK_CALCULO_RELATIONS_SOLICITU foreign key (IDSOLICANT)
-      references SOLICITUD__ANTICIPO (IDSOLICANT)
+   add constraint FK_CALCULO_RELATIONS_FORMULAR foreign key (IDSOLICANT)
+      references FORMULARIO__ANTICIPO (IDSOLICANT)
 go
 
 alter table CARGO
@@ -707,8 +787,8 @@ alter table DETALLE_CALCULO
 go
 
 alter table DETALLE_CALCULO
-   add constraint FK_DETALLE__RELATIONS_OPCIONES foreign key (IDOPCION)
-      references OPCIONES_VIATICOS (IDOPCION)
+   add constraint FK_DETALLE__RELATIONS_OPCION_N foreign key (IDOPCIONN)
+      references OPCION_NIVEL (IDOPCIONN)
 go
 
 alter table DETALLE_FACTURACION
@@ -716,24 +796,24 @@ alter table DETALLE_FACTURACION
       references FACTURACION (IDFACTURACION)
 go
 
-alter table DETALLE_SOLICITUD
+alter table DETALLE_FORMULARIO
    add constraint FK_DETALLE__RELATIONS_TIPO_TRA foreign key (IDTIPOTRANSPORTE)
       references TIPO_TRANSPORTE (IDTIPOTRANSPORTE)
 go
 
-alter table DETALLE_SOLICITUD
-   add constraint FK_DETALLE__RELATIONS_SOLICITU1 foreign key (IDSOLICANT)
-      references SOLICITUD__ANTICIPO (IDSOLICANT)
+alter table DETALLE_FORMULARIO
+   add constraint FK_DETALLE__RELATIONS_FORMULAR1 foreign key (IDSOLICANT)
+      references FORMULARIO__ANTICIPO (IDSOLICANT)
 go
 
-alter table DETALLE_SOLICITUD
+alter table DETALLE_FORMULARIO
    add constraint FK_DETALLE__RELATIONS_RUTA foreign key (IDRUTA)
       references RUTA (IDRUTA)
 go
 
-alter table DETALLE_SOLICITUD
-   add constraint FK_DETALLE__RELATIONS_SOLICITU2 foreign key (IDSOLICLIQ)
-      references SOLICITUD_LIQUIDACION (IDSOLICLIQ)
+alter table DETALLE_FORMULARIO
+   add constraint FK_DETALLE__RELATIONS_FORMULAR2 foreign key (IDSOLICLIQ)
+      references FORMULARIO_LIQUIDACION (IDSOLICLIQ)
 go
 
 alter table EMPLEADO
@@ -742,8 +822,23 @@ alter table EMPLEADO
 go
 
 alter table FACTURACION
-   add constraint FK_FACTURAC_RELATIONS_SOLICITU foreign key (IDSOLICLIQ)
-      references SOLICITUD_LIQUIDACION (IDSOLICLIQ)
+   add constraint FK_FACTURAC_RELATIONS_FORMULAR foreign key (IDSOLICLIQ)
+      references FORMULARIO_LIQUIDACION (IDSOLICLIQ)
+go
+
+alter table FORMULARIO__ANTICIPO
+   add constraint FK_FORMULAR_RELATIONS_EMPLEADO foreign key (IDEMP)
+      references EMPLEADO (IDEMP)
+go
+
+alter table FORMULARIO__ANTICIPO
+   add constraint FK_FORMULAR_RELATIONS_ESTADO_S foreign key (IDESTSOLICANT)
+      references ESTADO_SOLICITUD_ANTICIPO (IDESTSOLICANT)
+go
+
+alter table FORMULARIO__ANTICIPO
+   add constraint FK_FORMULAR_RELATIONS_COMBINAC foreign key (IDCOMBINACION)
+      references COMBINACION_VIATICOS (IDCOMBINACION)
 go
 
 alter table OPCION_NIVEL
@@ -756,18 +851,13 @@ alter table OPCION_NIVEL
       references OPCIONES_VIATICOS (IDOPCION)
 go
 
-alter table SOLICITUD__ANTICIPO
-   add constraint FK_SOLICITU_RELATIONS_EMPLEADO foreign key (IDEMP)
+alter table USUARIO
+   add constraint FK_USUARIO_RELATIONS_EMPLEADO foreign key (IDEMP)
       references EMPLEADO (IDEMP)
 go
 
-alter table SOLICITUD__ANTICIPO
-   add constraint FK_SOLICITU_RELATIONS_ESTADO_S foreign key (IDESTSOLICANT)
-      references ESTADO_SOLICITUD_ANTICIPO (IDESTSOLICANT)
-go
-
-alter table SOLICITUD__ANTICIPO
-   add constraint FK_SOLICITU_RELATIONS_COMBINAC foreign key (IDCOMBINACION)
-      references COMBINACION_VIATICOS (IDCOMBINACION)
+alter table USUARIO
+   add constraint FK_USUARIO_RELATIONS_PERFIL foreign key (IDPERFIL)
+      references PERFIL (IDPERFIL)
 go
 
