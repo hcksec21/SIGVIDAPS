@@ -83,6 +83,12 @@
     <Compile Include="frmEliminarCargo.Designer.cs">
       <DependentUpon>frmEliminarCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEliminarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarEmpleado.Designer.cs">
+      <DependentUpon>frmEliminarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="frmEliminarCargo.resx">
       <DependentUpon>frmEliminarCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarEmpleado.resx">
+      <DependentUpon>frmEliminarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificarCargo.resx">
       <DependentUpon>frmModificarCargo.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,7 +222,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

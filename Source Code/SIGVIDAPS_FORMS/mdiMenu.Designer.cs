@@ -176,22 +176,23 @@
             // registrarEmpleadoToolStripMenuItem
             // 
             this.registrarEmpleadoToolStripMenuItem.Name = "registrarEmpleadoToolStripMenuItem";
-            this.registrarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.registrarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.registrarEmpleadoToolStripMenuItem.Text = "Registrar Empleado";
             this.registrarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.registrarEmpleadoToolStripMenuItem_Click);
             // 
             // modificarEliminarEmpleadoToolStripMenuItem
             // 
             this.modificarEliminarEmpleadoToolStripMenuItem.Name = "modificarEliminarEmpleadoToolStripMenuItem";
-            this.modificarEliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.modificarEliminarEmpleadoToolStripMenuItem.Text = "Modificar Empleado";
+            this.modificarEliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.modificarEliminarEmpleadoToolStripMenuItem.Text = "Actualizar Empleado";
             this.modificarEliminarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.modificarEliminarEmpleadoToolStripMenuItem_Click);
             // 
             // eliminarEmpleadoToolStripMenuItem
             // 
             this.eliminarEmpleadoToolStripMenuItem.Name = "eliminarEmpleadoToolStripMenuItem";
-            this.eliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.eliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.eliminarEmpleadoToolStripMenuItem.Text = "Eliminar Empleado";
+            this.eliminarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.eliminarEmpleadoToolStripMenuItem_Click_1);
             // 
             // mnuAdministracion
             // 
@@ -217,21 +218,21 @@
             // registrarCargoDeEmpleadoToolStripMenuItem
             // 
             this.registrarCargoDeEmpleadoToolStripMenuItem.Name = "registrarCargoDeEmpleadoToolStripMenuItem";
-            this.registrarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.registrarCargoDeEmpleadoToolStripMenuItem.Text = "Registrar Cargo de Empleado";
             this.registrarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.registrarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
             // editarCargoDeEmpleadoToolStripMenuItem
             // 
             this.editarCargoDeEmpleadoToolStripMenuItem.Name = "editarCargoDeEmpleadoToolStripMenuItem";
-            this.editarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.editarCargoDeEmpleadoToolStripMenuItem.Text = "Editar Cargo de Empleado";
+            this.editarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.editarCargoDeEmpleadoToolStripMenuItem.Text = "Actualizar Cargo de Empleado";
             this.editarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.editarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
             // eliminarCargoDeEmpleadoToolStripMenuItem
             // 
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Name = "eliminarCargoDeEmpleadoToolStripMenuItem";
-            this.eliminarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Text = "Eliminar Cargo de Empleado";
             this.eliminarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.eliminarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
@@ -248,19 +249,19 @@
             // registrarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Name = "registrarRutaDeMovilizaciónToolStripMenuItem";
-            this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Text = "Registrar Ruta de Movilización";
             // 
             // editarRutaDeMovilizacionToolStripMenuItem
             // 
             this.editarRutaDeMovilizacionToolStripMenuItem.Name = "editarRutaDeMovilizacionToolStripMenuItem";
-            this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Editar Ruta de Movilización";
+            this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Actualizar Ruta de Movilización";
             // 
             // eliminarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Name = "eliminarRutaDeMovilizaciónToolStripMenuItem";
-            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Text = "Eliminar Ruta de Movilización";
             // 
             // administrarUsuariosToolStripMenuItem
@@ -276,20 +277,20 @@
             // registrarUsuariosToolStripMenuItem
             // 
             this.registrarUsuariosToolStripMenuItem.Name = "registrarUsuariosToolStripMenuItem";
-            this.registrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.registrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.registrarUsuariosToolStripMenuItem.Text = "Registrar Usuario";
             this.registrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuariosToolStripMenuItem_Click);
             // 
             // editarUsuariosToolStripMenuItem
             // 
             this.editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
-            this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.editarUsuariosToolStripMenuItem.Text = "Editar Usuario";
+            this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.editarUsuariosToolStripMenuItem.Text = "Actualizar Usuario";
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             // 
             // ayudaToolStripMenuItem

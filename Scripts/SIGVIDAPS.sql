@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     01/08/2015 23:36:39                          */
+/* Created on:     02/08/2015 4:33:53                           */
 /*==============================================================*/
 
 
@@ -83,9 +83,16 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_EMPLEADO')
+   where r.fkeyid = object_id('FORMULARIO_LIQUIDACION') and o.name = 'FK_FORMULAR_RELATIONS_EMPLEADO2')
+alter table FORMULARIO_LIQUIDACION
+   drop constraint FK_FORMULAR_RELATIONS_EMPLEADO2
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_EMPLEADO1')
 alter table FORMULARIO__ANTICIPO
-   drop constraint FK_FORMULAR_RELATIONS_EMPLEADO
+   drop constraint FK_FORMULAR_RELATIONS_EMPLEADO1
 go
 
 if exists (select 1
@@ -290,6 +297,15 @@ if exists (select 1
            where  id = object_id('FACTURACION')
             and   type = 'U')
    drop table FACTURACION
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('FORMULARIO_LIQUIDACION')
+            and   name  = 'RELATIONSHIP_23_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index FORMULARIO_LIQUIDACION.RELATIONSHIP_23_FK
 go
 
 if exists (select 1
@@ -616,10 +632,19 @@ go
 /*==============================================================*/
 create table FORMULARIO_LIQUIDACION (
    IDSOLICLIQ           numeric              identity,
+   IDEMP                numeric              null,
    CODSOLICLIQ          varchar(15)          null,
    NUMSOLICLIQ          varchar(15)          null,
    FECSOLICLIQ          datetime             null,
    constraint PK_FORMULARIO_LIQUIDACION primary key nonclustered (IDSOLICLIQ)
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_23_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_23_FK on FORMULARIO_LIQUIDACION (
+IDEMP ASC
 )
 go
 
@@ -826,8 +851,13 @@ alter table FACTURACION
       references FORMULARIO_LIQUIDACION (IDSOLICLIQ)
 go
 
+alter table FORMULARIO_LIQUIDACION
+   add constraint FK_FORMULAR_RELATIONS_EMPLEADO2 foreign key (IDEMP)
+      references EMPLEADO (IDEMP)
+go
+
 alter table FORMULARIO__ANTICIPO
-   add constraint FK_FORMULAR_RELATIONS_EMPLEADO foreign key (IDEMP)
+   add constraint FK_FORMULAR_RELATIONS_EMPLEADO1 foreign key (IDEMP)
       references EMPLEADO (IDEMP)
 go
 

@@ -177,5 +177,11 @@ namespace SIGVIDAPS_FORMS
             frmEliminarCargo eliminarCargo = new frmEliminarCargo();
             ValidarForm(eliminarCargo);
         }
+
+        private void eliminarEmpleadoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmEliminarEmpleado eliminarEmpleado = new frmEliminarEmpleado();
+            ValidarForm(eliminarEmpleado);
+        }
     }
 }
