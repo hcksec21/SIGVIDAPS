@@ -52,6 +52,7 @@
             this.btnGuardar.TabIndex = 61;
             this.btnGuardar.Text = "CANCELAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnModificar
             // 
@@ -82,6 +83,7 @@
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(723, 236);
             this.dgvUsuarios.TabIndex = 59;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // ID
             // 
@@ -154,8 +156,10 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dgvUsuarios);
+            this.MinimizeBox = false;
             this.Name = "frmEliminarUsuario";
-            this.Text = "Eliminacion de Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Eliminación de Usuario";
             this.Load += new System.EventHandler(this.frmEliminarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

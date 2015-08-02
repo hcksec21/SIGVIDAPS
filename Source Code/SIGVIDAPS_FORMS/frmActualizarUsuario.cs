@@ -30,6 +30,7 @@ namespace SIGVIDAPS_FORMS
             btnGuardar.Enabled = flag;
             chkCambiarContraseña.Enabled = flag;
             chkMostrarCon.Enabled = flag;
+            cmbEstado.Enabled = flag;
         }
 
         private void frmActualizarUsuario_Load(object sender, EventArgs e)
@@ -38,7 +39,9 @@ namespace SIGVIDAPS_FORMS
             mskTextBox.Enabled = false;
             cargarEmpleados();
             cargarPerfiles();
+            dgvUsuarios.ClearSelection();
             cargarUsuariosDataGridView();
+            limpiarInfo();
         }
 
         private void cargarEmpleados()
@@ -106,6 +109,11 @@ namespace SIGVIDAPS_FORMS
                     cellPerfil.Value = usuario.PERFIL.NOMBREPERFIL;
                     tempRow.Cells.Add(cellPerfil);
 
+                    //ESTADO
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = usuario.ESTUSUARIO == true ? "ACTIVO" : "INACTIVO";
+                    tempRow.Cells.Add(cellEstado);
+
                     tempRow.Tag = usuario.IDUSUARIO;
                     dgvUsuarios.Rows.Add(tempRow);
                 }
@@ -123,12 +131,16 @@ namespace SIGVIDAPS_FORMS
                 txtNombreUsuario.Text = dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[1].Value.ToString();
                 cmbEmpleados.Text = dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[2].Value.ToString();
                 cmbPerfil.Text = dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[3].Value.ToString();
+                cmbEstado.Text = dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[4].Value.ToString();
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            habilitarControles(true);
+            if (dgvUsuarios.SelectedRows.Count > 0)
+                habilitarControles(true);
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -158,6 +170,16 @@ namespace SIGVIDAPS_FORMS
                 strError += "La contraseña debe tener al menos 6 caracteres y un número\n";
                 bolError = true;
             }
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                strError += "El Estado es obligatorio\n";
+                bolError = true;
+            }
+            if (cmbPerfil.SelectedIndex == -1)
+            {
+                strError += "El Perfil es obligatorio\n";
+                bolError = true;
+            }
 
             if (!bolError)
             {
@@ -168,10 +190,10 @@ namespace SIGVIDAPS_FORMS
                     usuario.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
                     usuario.CONTRASENAUSUARIO = ComputeHash(mskTextBox.Text, "MD5", null);
                     usuario.IDPERFIL = (new clsPerfilBLL()).buscarConId(Convert.ToInt32((Object)cmbPerfil.SelectedValue)).IDPERFIL;
+                    usuario.ESTUSUARIO = ((string)cmbEstado.SelectedItem == "ACTIVO") ? true : false;
+                    (new clsUsuarioBLL()).actualizarUsuario(Int32.Parse(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString()), usuario);
 
-                    (new clsUsuarioBLL()).actualizarUsuario(Int32.Parse(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString()),usuario);
-
-                    MessageBox.Show("El empleado ha sido actualizado satisfactoriamente");
+                    MessageBox.Show("El usuario ha sido actualizado satisfactoriamente");
                     cargarUsuariosDataGridView();
                     habilitarControles(false);
                     mskTextBox.Enabled = false;
@@ -192,6 +214,8 @@ namespace SIGVIDAPS_FORMS
             mskTextBox.Text = "";
             chkCambiarContraseña.Checked = false;
             chkMostrarCon.Checked = false;
+            cmbEstado.SelectedIndex = -1;
+            dgvUsuarios.ClearSelection();
         }
 
         public static string ComputeHash(string plainText,
@@ -301,7 +325,7 @@ namespace SIGVIDAPS_FORMS
                 mskTextBox.Enabled = false;
                 cambioContraseña = false;
             }
-            
+
         }
 
         private void chkMostrarCon_CheckedChanged(object sender, EventArgs e)

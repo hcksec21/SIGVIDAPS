@@ -14,6 +14,8 @@ namespace SIGVIDAPS_FORMS
 {
     public partial class frmEliminarUsuario : Form
     {
+        int? indice = null;
+
         public frmEliminarUsuario()
         {
             InitializeComponent();
@@ -67,13 +69,33 @@ namespace SIGVIDAPS_FORMS
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Eliminar el usuario?", "Eliminar usuario", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (indice != null)
             {
-                (new clsUsuarioBLL()).eliminarUsuario(Int32.Parse(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString()));
+                if (MessageBox.Show("¿Eliminar el usuario?", "Eliminar usuario", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    (new clsUsuarioBLL()).eliminarUsuario(Int32.Parse(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString()));
 
-                MessageBox.Show("El usuario ha sido eliminado satisfactoriamente");
-                cargarUsuariosDataGridView();
-            }  
+                    MessageBox.Show("El cargo ha sido eliminado satisfactoriamente");
+                    cargarUsuariosDataGridView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un registro");
+            }
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvUsuarios.SelectedRows.Count != 0)
+            {
+                indice = Convert.ToInt32(dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells[0].Value.ToString());
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

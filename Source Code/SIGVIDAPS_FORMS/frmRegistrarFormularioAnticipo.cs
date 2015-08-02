@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SIGVIDAPS_FORMS
 {
-    public partial class frmFormularioAnticipo : Form
+    public partial class frmRegistrarFormularioAnticipo : Form
     {
-        public frmFormularioAnticipo()
+        public frmRegistrarFormularioAnticipo()
         {
             InitializeComponent();
         }

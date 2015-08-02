@@ -45,13 +45,13 @@ namespace SIGVIDAPS_BLL
         }
 
         //ACTUALIZAR
-        public void actualizarUsuario(int indice, USUARIO usario)
+        public void actualizarUsuario(int indice, USUARIO usuario)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                usario.IDUSUARIO = indice;
-                USUARIO objCargo = buscarConId(indice);
-                entityContext.Entry(objCargo).CurrentValues.SetValues(usario);
+                var objUsuario = entityContext.USUARIOs.Where(qq => qq.IDUSUARIO == indice).Single();
+                usuario.IDUSUARIO = indice;
+                entityContext.Entry(objUsuario).CurrentValues.SetValues(usuario);
                 entityContext.SaveChanges();
                 transaction.Complete();
             }

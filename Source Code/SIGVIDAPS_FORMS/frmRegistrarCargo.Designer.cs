@@ -40,6 +40,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
             this.SuspendLayout();
@@ -92,13 +93,14 @@
             this.dgvCargos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.NombreCargo,
-            this.Nivel});
-            this.dgvCargos.Location = new System.Drawing.Point(61, 216);
+            this.Nivel,
+            this.Estado});
+            this.dgvCargos.Location = new System.Drawing.Point(24, 218);
             this.dgvCargos.MultiSelect = false;
             this.dgvCargos.Name = "dgvCargos";
             this.dgvCargos.ReadOnly = true;
             this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargos.Size = new System.Drawing.Size(522, 240);
+            this.dgvCargos.Size = new System.Drawing.Size(604, 240);
             this.dgvCargos.TabIndex = 18;
             // 
             // btnCancelar
@@ -139,6 +141,9 @@
             // cmbNivel
             // 
             this.cmbNivel.FormattingEnabled = true;
+            this.cmbNivel.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
             this.cmbNivel.Location = new System.Drawing.Point(298, 175);
             this.cmbNivel.Name = "cmbNivel";
             this.cmbNivel.Size = new System.Drawing.Size(205, 21);
@@ -167,6 +172,13 @@
             this.Nivel.Name = "Nivel";
             this.Nivel.ReadOnly = true;
             this.Nivel.Width = 200;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 80;
             // 
             // frmRegistrarCargo
             // 
@@ -210,5 +222,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

@@ -38,7 +38,7 @@ namespace SIGVIDAPS_FORMS
 
         private void sbmnuformAnticipo_Click(object sender, EventArgs e)
         {
-            frmFormularioAnticipo anticipo = new frmFormularioAnticipo();
+            frmRegistrarFormularioAnticipo anticipo = new frmRegistrarFormularioAnticipo();
             ValidarForm(anticipo);
         }
 
@@ -73,7 +73,7 @@ namespace SIGVIDAPS_FORMS
 
         private void sbmnuformAnticipo_Click_1(object sender, EventArgs e)
         {
-            frmFormularioAnticipo anticipo = new frmFormularioAnticipo();
+            frmRegistrarFormularioAnticipo anticipo = new frmRegistrarFormularioAnticipo();
             ValidarForm(anticipo);
         }
 
@@ -216,6 +216,12 @@ namespace SIGVIDAPS_FORMS
         {
             frmEliminarRuta ruta = new frmEliminarRuta();
             ValidarForm(ruta);
+        }
+
+        private void registrarFormularioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRegistrarFormularioAnticipo registrarFormularioAnticipo = new frmRegistrarFormularioAnticipo();
+            ValidarForm(registrarFormularioAnticipo);
         }
     }
 }

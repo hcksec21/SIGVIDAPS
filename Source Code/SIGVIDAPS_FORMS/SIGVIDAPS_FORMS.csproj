@@ -119,11 +119,11 @@
     <Compile Include="frmFormularioLiquidacion.Designer.cs">
       <DependentUpon>frmFormularioLiquidacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFormularioAnticipo.cs">
+    <Compile Include="frmRegistrarFormularioAnticipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFormularioAnticipo.Designer.cs">
-      <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
+    <Compile Include="frmRegistrarFormularioAnticipo.Designer.cs">
+      <DependentUpon>frmRegistrarFormularioAnticipo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarRuta.cs">
       <SubType>Form</SubType>
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="frmFormularioLiquidacion.resx">
       <DependentUpon>frmFormularioLiquidacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFormularioAnticipo.resx">
-      <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegistrarFormularioAnticipo.resx">
+      <DependentUpon>frmRegistrarFormularioAnticipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarRuta.resx">
       <DependentUpon>frmModificarRuta.cs</DependentUpon>

@@ -24,6 +24,7 @@ namespace SIGVIDAPS_FORMS
             txbNombreCargo.Enabled = flag;
             cmbNivel.Enabled = flag;
             btnGuardar.Enabled = flag;
+            cmbEstado.Enabled = flag;
         }
 
         private void dgvCargos_SelectionChanged(object sender, EventArgs e)
@@ -32,12 +33,16 @@ namespace SIGVIDAPS_FORMS
             {
                 txbNombreCargo.Text = dgvCargos.Rows[dgvCargos.SelectedRows[0].Index].Cells[1].Value.ToString();
                 cmbNivel.Text = dgvCargos.Rows[dgvCargos.SelectedRows[0].Index].Cells[2].Value.ToString();
+                cmbEstado.Text = dgvCargos.Rows[dgvCargos.SelectedRows[0].Index].Cells[3].Value.ToString();
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            habilitarControles(true);
+            if (dgvCargos.SelectedRows.Count > 0)
+                habilitarControles(true);
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void frmModificarCargo_Load(object sender, EventArgs e)
@@ -48,6 +53,7 @@ namespace SIGVIDAPS_FORMS
 
             cmbNivel.SelectedIndex = -1;
             dgvCargos.ClearSelection();
+            limpiarInfo();
         }
 
         //Cargar lista de Niveles
@@ -83,18 +89,24 @@ namespace SIGVIDAPS_FORMS
                 strError += "El Nivel es obligatorio\n";
                 bolError = true;
             }
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                strError += "El Estado es obligatorio\n";
+                bolError = true;
+            }
 
             if (!bolError)
             {
-                if (MessageBox.Show("¿Actualizar el registro de empleado?", "Actualizar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Actualizar el Cargo?", "Actualizar cargo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     CARGO cargo = new CARGO();
                     cargo.NOMCARGO = txbNombreCargo.Text;
                     cargo.IDNIVEL = (new clsNivelBLL()).buscarConId(Convert.ToInt32((Object)cmbNivel.SelectedValue)).IDNIVEL;
+                    cargo.ESTCARGO = ((string)cmbEstado.SelectedItem == "ACTIVO") ? true : false;
 
                     (new clsCargoBLL()).actualizarCargo(Int32.Parse(dgvCargos.Rows[dgvCargos.SelectedRows[0].Index].Cells[0].Value.ToString()), cargo);
                     
-                    MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
+                    MessageBox.Show("El cargo ha sido registrado satisfactoriamente");
                     cargarCargosDataGridView();
                     habilitarControles(false);
                     limpiarInfo();
@@ -110,6 +122,7 @@ namespace SIGVIDAPS_FORMS
         private void limpiarInfo() {
             txbNombreCargo.Text = "";
             cmbNivel.SelectedIndex = -1;
+            cmbEstado.SelectedIndex = -1;
         }
 
         //CARGAR CARGOS EN DATAGRIDVIEW
@@ -138,6 +151,10 @@ namespace SIGVIDAPS_FORMS
                     DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
                     cellNivel.Value = cargo.NIVEL.IDNIVEL;
                     tempRow.Cells.Add(cellNivel);
+
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = cargo.ESTCARGO == true ? "ACTIVO" : "INACTIVO";
+                    tempRow.Cells.Add(cellEstado);
 
                     tempRow.Tag = cargo.IDCARGO;
                     dgvCargos.Rows.Add(tempRow);
