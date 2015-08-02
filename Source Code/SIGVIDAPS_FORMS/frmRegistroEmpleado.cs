@@ -27,7 +27,7 @@ namespace SIGVIDAPS_FORMS
         private void frmEmpleado_Load(object sender, EventArgs e)
         {
             cargarCargosEmpleado();
-            cargarEmpleados();
+            cargarEmpleadosDataGridView();
 
         }
 
@@ -52,7 +52,7 @@ namespace SIGVIDAPS_FORMS
 
 
         //CARGAR EMPLEADOS EN DATAGRIDVIEW
-        private void cargarEmpleados()
+        private void cargarEmpleadosDataGridView()
         {
             try
             {
@@ -122,47 +122,76 @@ namespace SIGVIDAPS_FORMS
 
         }
 
-        
+
 
         private void button2_Click(object sender, EventArgs e)
         {
+            String strError = "";
+            Boolean bolError = false;
 
-            if(txtNombres.Text == "")
+            if (txtNombres.Text == "")
             {
-                if (txtApellidos.Text == "")
-                {
+                strError += "El nombre es obligatorio\n";
+                bolError = true;
+            }
+            if (txtApellidos.Text == "")
+            {
+                strError += "El apellido es obligatorio\n";
+                bolError = true;
+            }
+            if (txtCedula.Text == "")
+            {
+                strError += "La cédula es obligatoria\n";
+                bolError = true;
+            }
+            if (cmbCargos.SelectedIndex==-1)
+            {
+                strError += "El cargo es obligatorio\n";
+                bolError = true;
+            }
+            if (txtDireccion.Text=="")
+            {
+                strError += "La dirección es obligatoria\n";
+                bolError = true;
+            }
+            if (txtTelefono.Text=="")
+            {
+                strError += "El teléfono es obligatorio\n";
+                bolError = true;
+            }
 
-                }
-                else
+            if(!bolError)
+            {
+                if (MessageBox.Show("¿Guardar el registro de empleado?", "Guardar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("El campo Apellidos se encuentra vacío");
+                    new clsEmpleadoBLL().insertarEmpleado(
+                        new EMPLEADO
+                        {
+                            IDCARGO = Convert.ToInt32(cmbCargos.SelectedValue),
+                            CEDULAEMP = txtCedula.Text,
+                            ESTEMP = true,
+                            NOMBREEMP = this.txtNombres.Text,
+                            APELLIDOEMP = this.txtApellidos.Text,
+                            DIREMP = this.txtDireccion.Text,
+                            TELEMP = this.txtTelefono.Text
+                        }
+                    );
                 }
+
+                MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
+                cargarEmpleadosDataGridView();
             }
             else
             {
-                MessageBox.Show("El  se encuentra vacío");
+                MessageBox.Show(strError);
             }
 
 
-            if (MessageBox.Show("¿Desea guardar el registro?", "Guardar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
 
-                new clsEmpleadoBLL().insertarEmpleado(
-                    new EMPLEADO
-                    {
-                        IDCARGO = Convert.ToInt32(cmbCargos.SelectedValue),
-                        CEDULAEMP = txtCedula.Text,
-                        ESTEMP = true,
-                        NOMBREEMP = this.txtNombres.Text,
-                        APELLIDOEMP = this.txtApellidos.Text,
-                        DIREMP = this.txtDireccion.Text,
-                        TELEMP = this.txtTelefono.Text
-                    }
-                );
-            }
 
-            MessageBox.Show("Elemento registrado satisfactoriamente");
-            cargarEmpleados();
+
+
+            
 
         }
 

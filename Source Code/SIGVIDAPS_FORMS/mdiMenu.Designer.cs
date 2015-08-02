@@ -44,10 +44,9 @@
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarEliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdministracion = new System.Windows.Forms.ToolStripMenuItem();
             this.sbmnuCargo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.combinaciónDeViáticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarRutasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,7 +157,8 @@
             // 
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarEmpleadoToolStripMenuItem,
-            this.modificarEliminarEmpleadoToolStripMenuItem});
+            this.modificarEliminarEmpleadoToolStripMenuItem,
+            this.eliminarEmpleadoToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
             this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.empleadosToolStripMenuItem.Text = "Empleados";
@@ -178,12 +178,16 @@
             this.modificarEliminarEmpleadoToolStripMenuItem.Text = "Modificar Empleado";
             this.modificarEliminarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.modificarEliminarEmpleadoToolStripMenuItem_Click);
             // 
+            // eliminarEmpleadoToolStripMenuItem
+            // 
+            this.eliminarEmpleadoToolStripMenuItem.Name = "eliminarEmpleadoToolStripMenuItem";
+            this.eliminarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.eliminarEmpleadoToolStripMenuItem.Text = "Eliminar Empleado";
+            // 
             // mnuAdministracion
             // 
             this.mnuAdministracion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sbmnuCargo,
-            this.toolStripMenuItem2,
-            this.combinaciónDeViáticoToolStripMenuItem,
             this.administrarRutasToolStripMenuItem,
             this.administrarUsuariosToolStripMenuItem});
             this.mnuAdministracion.Name = "mnuAdministracion";
@@ -193,34 +197,20 @@
             // sbmnuCargo
             // 
             this.sbmnuCargo.Name = "sbmnuCargo";
-            this.sbmnuCargo.Size = new System.Drawing.Size(282, 22);
+            this.sbmnuCargo.Size = new System.Drawing.Size(254, 22);
             this.sbmnuCargo.Text = "Administrar Cargos de Empleado";
             this.sbmnuCargo.Click += new System.EventHandler(this.sbmnuCargo_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(282, 22);
-            this.toolStripMenuItem2.Text = "Administrar Opciones de Viáticos";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // combinaciónDeViáticoToolStripMenuItem
-            // 
-            this.combinaciónDeViáticoToolStripMenuItem.Name = "combinaciónDeViáticoToolStripMenuItem";
-            this.combinaciónDeViáticoToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
-            this.combinaciónDeViáticoToolStripMenuItem.Text = "Administrar Combinaciones de Viáticos";
-            this.combinaciónDeViáticoToolStripMenuItem.Click += new System.EventHandler(this.combinaciónDeViáticoToolStripMenuItem_Click);
             // 
             // administrarRutasToolStripMenuItem
             // 
             this.administrarRutasToolStripMenuItem.Name = "administrarRutasToolStripMenuItem";
-            this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.administrarRutasToolStripMenuItem.Text = "Administrar Rutas de Movilización";
             // 
             // administrarUsuariosToolStripMenuItem
             // 
             this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios";
             // 
             // ayudaToolStripMenuItem
@@ -234,7 +224,7 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
             // 
             // mdiMenu
@@ -267,8 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFormularios;
         private System.Windows.Forms.ToolStripMenuItem mnuAdministracion;
         private System.Windows.Forms.ToolStripMenuItem sbmnuCargo;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem combinaciónDeViáticoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarEliminarEmpleadoToolStripMenuItem;
@@ -287,5 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem consultarFormularioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aprobarFormularioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFormularioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarEmpleadoToolStripMenuItem;
     }
 }

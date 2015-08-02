@@ -43,7 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +53,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SIGVIDAPS_FORMS.Properties.Resources.sigtierras;
-            this.pictureBox1.Location = new System.Drawing.Point(427, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(705, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(289, 109);
             this.pictureBox1.TabIndex = 21;
@@ -197,22 +196,11 @@
             this.label2.TabIndex = 36;
             this.label2.Text = "Nombres";
             // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button6.Location = new System.Drawing.Point(298, 577);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 49);
-            this.button6.TabIndex = 51;
-            this.button6.Text = "ELIMINAR";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button5.Location = new System.Drawing.Point(444, 577);
+            this.button5.Location = new System.Drawing.Point(357, 577);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(128, 49);
             this.button5.TabIndex = 50;
@@ -223,7 +211,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button4.Location = new System.Drawing.Point(150, 577);
+            this.button4.Location = new System.Drawing.Point(209, 577);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(142, 49);
             this.button4.TabIndex = 49;
@@ -236,8 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
-            this.ClientSize = new System.Drawing.Size(714, 656);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(994, 656);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.checkBox1);
@@ -282,7 +269,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtNombres;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
     }

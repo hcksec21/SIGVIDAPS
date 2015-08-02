@@ -26,10 +26,34 @@ namespace SIGVIDAPS_BLL
             }
         }
 
+        //ACTUALIZAR
+        public void actualizarEmpleado(int indice, EMPLEADO empleado)
+        {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                using (SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades())
+                {
+                    EMPLEADO objEmpleado = buscarConId(indice);                    
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.NOMBREEMP).CurrentValue = empleado.NOMBREEMP;
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.APELLIDOEMP).CurrentValue = empleado.APELLIDOEMP;
+                    modeloEntidades.Entry(objEmpleado).Property(u => u.CEDULAEMP).CurrentValue = empleado.CEDULAEMP;
+                    
+
+
+                }
+            }
+        }
+
         public List<EMPLEADO> obtenerTodosEmpleados()
         {
             List<EMPLEADO> lstEmpleados = (new SIGVIDAPS_entidades()).EMPLEADOes.ToList();
             return lstEmpleados;
+        }
+
+        //BUSCAR CON ID
+        public EMPLEADO buscarConId(int id)
+        {
+            return (new SIGVIDAPS_entidades()).EMPLEADOes.Where(e => e.IDEMP == id).First();
         }
     }
 }

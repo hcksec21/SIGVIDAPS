@@ -18,9 +18,15 @@ namespace SIGVIDAPS_BLL
         }
 
         //BUSCAR CON ID
-        public CARGO BuscarConId(int id)
+        public CARGO buscarConId(int id)
         {
             return (new SIGVIDAPS_entidades()).CARGOes.Where(e => e.IDCARGO == id).First();
+        }
+
+        //BUSCAR CON NOMBRE DE CARGO
+        public CARGO buscarConNombreCargo(String nombreCargo)
+        {
+            return (new SIGVIDAPS_entidades()).CARGOes.Where(e => e.NOMCARGO == nombreCargo).First();
         }
     }
 }
