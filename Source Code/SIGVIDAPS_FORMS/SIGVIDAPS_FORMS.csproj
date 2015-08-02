@@ -95,6 +95,12 @@
     <Compile Include="frmEliminarEmpleado.Designer.cs">
       <DependentUpon>frmEliminarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEliminarRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarRuta.Designer.cs">
+      <DependentUpon>frmEliminarRuta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="frmFormularioAnticipo.Designer.cs">
       <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarRuta.Designer.cs">
+      <DependentUpon>frmModificarRuta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistrarCargo.cs">
       <SubType>Form</SubType>
@@ -184,6 +196,9 @@
     <EmbeddedResource Include="frmEliminarEmpleado.resx">
       <DependentUpon>frmEliminarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarRuta.resx">
+      <DependentUpon>frmEliminarRuta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificarCargo.resx">
       <DependentUpon>frmModificarCargo.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFormularioAnticipo.resx">
       <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarRuta.resx">
+      <DependentUpon>frmModificarRuta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarCargo.resx">
       <DependentUpon>frmRegistrarCargo.cs</DependentUpon>

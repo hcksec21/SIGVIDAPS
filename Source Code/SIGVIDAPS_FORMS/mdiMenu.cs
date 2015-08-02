@@ -193,5 +193,17 @@ namespace SIGVIDAPS_FORMS
             frmCrearRuta frmRuta = new frmCrearRuta();
             ValidarForm(frmRuta);
         }
+
+        private void editarRutaDeMovilizacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarRuta frmRuta = new frmModificarRuta();
+            ValidarForm(frmRuta);
+        }
+
+        private void eliminarRutaDeMovilizaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminarRuta ruta = new frmEliminarRuta();
+            ValidarForm(ruta);
+        }
     }
 }

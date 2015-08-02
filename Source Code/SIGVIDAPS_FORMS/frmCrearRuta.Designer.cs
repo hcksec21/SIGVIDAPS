@@ -57,6 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(12, 32);
@@ -67,7 +68,7 @@
             // 
             // txtLugarLlegada
             // 
-            this.txtLugarLlegada.Location = new System.Drawing.Point(329, 162);
+            this.txtLugarLlegada.Location = new System.Drawing.Point(329, 171);
             this.txtLugarLlegada.Name = "txtLugarLlegada";
             this.txtLugarLlegada.PromptChar = ' ';
             this.txtLugarLlegada.Size = new System.Drawing.Size(290, 20);
@@ -76,9 +77,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SlateGray;
-            this.label3.Location = new System.Drawing.Point(118, 157);
+            this.label3.Location = new System.Drawing.Point(118, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(196, 25);
             this.label3.TabIndex = 11;
@@ -86,7 +88,7 @@
             // 
             // txtLugarSalida
             // 
-            this.txtLugarSalida.Location = new System.Drawing.Point(329, 132);
+            this.txtLugarSalida.Location = new System.Drawing.Point(329, 141);
             this.txtLugarSalida.Name = "txtLugarSalida";
             this.txtLugarSalida.PromptChar = ' ';
             this.txtLugarSalida.Size = new System.Drawing.Size(290, 20);
@@ -95,9 +97,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SlateGray;
-            this.label2.Location = new System.Drawing.Point(118, 127);
+            this.label2.Location = new System.Drawing.Point(118, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 25);
             this.label2.TabIndex = 9;
@@ -123,23 +126,27 @@
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Width = 25;
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // LugarSalida
             // 
             this.LugarSalida.HeaderText = "Lugar Salida";
             this.LugarSalida.Name = "LugarSalida";
+            this.LugarSalida.ReadOnly = true;
             this.LugarSalida.Width = 265;
             // 
             // LugarLlegada
             // 
             this.LugarLlegada.HeaderText = "Lugar Llegada";
             this.LugarLlegada.Name = "LugarLlegada";
+            this.LugarLlegada.ReadOnly = true;
             this.LugarLlegada.Width = 265;
             // 
             // btnCancelar
@@ -164,11 +171,13 @@
             this.btnGuardar.TabIndex = 31;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmCrearRuta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
             this.ClientSize = new System.Drawing.Size(738, 466);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -180,7 +189,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmCrearRuta";
-            this.Text = "frmCrearRuta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro de Rutas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRutas)).EndInit();
             this.ResumeLayout(false);

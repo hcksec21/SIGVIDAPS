@@ -19,6 +19,7 @@ namespace SIGVIDAPS_DAT
         public Nullable<decimal> IDPERFIL { get; set; }
         public string NOMBREUSUARIO { get; set; }
         public string CONTRASENAUSUARIO { get; set; }
+        public Nullable<bool> ESTUSUARIO { get; set; }
     
         public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual PERFIL PERFIL { get; set; }

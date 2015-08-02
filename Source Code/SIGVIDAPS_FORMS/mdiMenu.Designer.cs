@@ -260,12 +260,14 @@
             this.editarRutaDeMovilizacionToolStripMenuItem.Name = "editarRutaDeMovilizacionToolStripMenuItem";
             this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Actualizar Ruta de Movilización";
+            this.editarRutaDeMovilizacionToolStripMenuItem.Click += new System.EventHandler(this.editarRutaDeMovilizacionToolStripMenuItem_Click);
             // 
             // eliminarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Name = "eliminarRutaDeMovilizaciónToolStripMenuItem";
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Text = "Eliminar Ruta de Movilización";
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Click += new System.EventHandler(this.eliminarRutaDeMovilizaciónToolStripMenuItem_Click);
             // 
             // administrarUsuariosToolStripMenuItem
             // 

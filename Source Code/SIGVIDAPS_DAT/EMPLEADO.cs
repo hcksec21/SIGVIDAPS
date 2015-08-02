@@ -34,6 +34,7 @@ namespace SIGVIDAPS_DAT
         public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
         public virtual ICollection<FORMULARIO_LIQUIDACION> FORMULARIO_LIQUIDACION { get; set; }
         public virtual ICollection<USUARIO> USUARIOs { get; set; }
+
         public string NOMBRECOMPLETO
         {
             get
@@ -41,6 +42,5 @@ namespace SIGVIDAPS_DAT
                 return NOMBREEMP + " " + APELLIDOEMP;
             }
         }
-
     }
 }
