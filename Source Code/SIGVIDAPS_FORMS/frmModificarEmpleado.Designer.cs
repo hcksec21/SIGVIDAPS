@@ -200,6 +200,7 @@
             this.txtCedula.PromptChar = ' ';
             this.txtCedula.Size = new System.Drawing.Size(200, 20);
             this.txtCedula.TabIndex = 58;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label2
             // 
@@ -228,6 +229,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(464, 20);
             this.txtTelefono.TabIndex = 55;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
@@ -297,6 +299,7 @@
             this.txtApellidos.PromptChar = ' ';
             this.txtApellidos.Size = new System.Drawing.Size(464, 20);
             this.txtApellidos.TabIndex = 48;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             // 
             // label3
             // 

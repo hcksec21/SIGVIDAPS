@@ -94,6 +94,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(322, 137);
+            this.txtNombres.Mask = "LLLLLLLLLLLLLLLLLLLL";
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.PromptChar = ' ';
             this.txtNombres.Size = new System.Drawing.Size(464, 20);

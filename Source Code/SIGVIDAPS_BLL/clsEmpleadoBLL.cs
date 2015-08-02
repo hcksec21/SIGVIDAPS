@@ -11,13 +11,15 @@ namespace SIGVIDAPS_BLL
 {
     public class clsEmpleadoBLL
     {
-        
+
+        SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
+
         //INSERTAR 
         public void insertarEmpleado(EMPLEADO empleado)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                using (SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades())
+                using (modeloEntidades)
                 {
                     modeloEntidades.EMPLEADOes.Add(empleado);
                     modeloEntidades.SaveChanges();
@@ -31,22 +33,11 @@ namespace SIGVIDAPS_BLL
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                using (SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades())
-                {
-                    EMPLEADO objEmpleado = buscarConId(indice);                    
-
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.NOMBREEMP).CurrentValue = empleado.NOMBREEMP;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.APELLIDOEMP).CurrentValue = empleado.APELLIDOEMP;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.CEDULAEMP).CurrentValue = empleado.CEDULAEMP;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.DIREMP).CurrentValue = empleado.DIREMP;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.ESTEMP).CurrentValue = empleado.ESTEMP;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.IDCARGO).CurrentValue = empleado.IDCARGO;
-                    modeloEntidades.Entry(objEmpleado).Property(u => u.CEDULAEMP).CurrentValue = empleado.CEDULAEMP;
-
-                    modeloEntidades.SaveChanges();
-
-                }
-            }
+                var objEmpleado = modeloEntidades.EMPLEADOes.Where(qq => qq.IDEMP == indice).Single();                
+                modeloEntidades.Entry(objEmpleado).CurrentValues.SetValues(empleado);
+                modeloEntidades.SaveChanges();
+                transaction.Complete();
+            }            
         }
 
         public List<EMPLEADO> obtenerTodosEmpleados()

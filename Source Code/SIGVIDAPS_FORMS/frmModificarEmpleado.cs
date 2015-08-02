@@ -111,10 +111,6 @@ namespace SIGVIDAPS_FORMS
                 txtDireccion.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[6].Value.ToString();
                 txtTelefono.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[7].Value.ToString();
             }
-
-
-
-
         }
 
         private void habilitarControles(Boolean flag)
@@ -192,14 +188,19 @@ namespace SIGVIDAPS_FORMS
                 {
                     EMPLEADO empleado = new EMPLEADO();
                     empleado.APELLIDOEMP = txtApellidos.Text;
-                    empleado.IDCARGO = (new clsCargoBLL()).buscarConNombreCargo(cmbCargos.SelectedItem.ToString()).IDCARGO;
+
+                    object id = cmbCargos.SelectedValue;
+                    int selectedId = Convert.ToInt32(id);
+
+                    empleado.IDCARGO = (new clsCargoBLL()).buscarConId(selectedId).IDCARGO;
                     empleado.CEDULAEMP = txtCedula.Text;
                     empleado.DIREMP = txtDireccion.Text;
-                    empleado.ESTEMP = (cmbEstado.SelectedItem == "ACTIVO") ? true : false;
+                    empleado.ESTEMP = ((string)cmbEstado.SelectedItem == "ACTIVO") ? true : false;
                     empleado.NOMBREEMP = txtNombres.Text;
                     empleado.TELEMP = txtTelefono.Text;
+                    empleado.IDEMP = Int32.Parse(dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[0].Value.ToString());
 
-                    (new clsEmpleadoBLL()).actualizarEmpleado(Int32.Parse(dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[0].Value.ToString()), empleado);
+                    (new clsEmpleadoBLL()).actualizarEmpleado((int)empleado.IDEMP, empleado);
 
                 }
 
@@ -210,6 +211,38 @@ namespace SIGVIDAPS_FORMS
             {
                 MessageBox.Show(strError);
             }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else
+                e.Handled = true;
+
+            if (txtCedula.Text.Length == 10)
+                e.Handled = true;
+            else
+                e.Handled = false;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
         }
 
     }
