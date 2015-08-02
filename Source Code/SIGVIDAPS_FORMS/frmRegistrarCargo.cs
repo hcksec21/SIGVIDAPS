@@ -65,7 +65,7 @@ namespace SIGVIDAPS_FORMS
 
             if (!bolError)
             {
-                if (MessageBox.Show("¿Guardar el registro de cargo?", "Guardar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Guardar el cargo?", "Guardar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     new clsCargoBLL().insertarCargo(
                         new CARGO
@@ -75,10 +75,9 @@ namespace SIGVIDAPS_FORMS
                             
                         }
                     );
+                    MessageBox.Show("El cargo ha sido registrado satisfactoriamente");
+                    cargarCargosDataGridView();
                 }
-
-                MessageBox.Show("El cargo ha sido registrado satisfactoriamente");
-                cargarCargosDataGridView();
             }
             else
             {

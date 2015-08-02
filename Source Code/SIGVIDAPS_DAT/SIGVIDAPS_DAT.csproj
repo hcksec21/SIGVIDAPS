@@ -91,6 +91,9 @@
     <Compile Include="FORMULARIO__ANTICIPO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
+    <Compile Include="MENU_PERFIL.cs">
+      <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo_SIGVIDAPS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

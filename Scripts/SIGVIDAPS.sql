@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 6:00:22                           */
+/* Created on:     02/08/2015 6:58:42                           */
 /*==============================================================*/
 
 
@@ -107,6 +107,13 @@ if exists (select 1
    where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_COMBINAC')
 alter table FORMULARIO__ANTICIPO
    drop constraint FK_FORMULAR_RELATIONS_COMBINAC
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('MENU_PERFIL') and o.name = 'FK_MENU_PER_RELATIONS_PERFIL')
+alter table MENU_PERFIL
+   drop constraint FK_MENU_PER_RELATIONS_PERFIL
 go
 
 if exists (select 1
@@ -347,6 +354,22 @@ if exists (select 1
            where  id = object_id('FORMULARIO__ANTICIPO')
             and   type = 'U')
    drop table FORMULARIO__ANTICIPO
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('MENU_PERFIL')
+            and   name  = 'RELATIONSHIP_24_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index MENU_PERFIL.RELATIONSHIP_24_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('MENU_PERFIL')
+            and   type = 'U')
+   drop table MENU_PERFIL
 go
 
 if exists (select 1
@@ -688,6 +711,25 @@ IDESTSOLICANT ASC
 go
 
 /*==============================================================*/
+/* Table: MENU_PERFIL                                           */
+/*==============================================================*/
+create table MENU_PERFIL (
+   IDMENUPERFIL         numeric              identity,
+   IDPERFIL             numeric              null,
+   MENUPERFIL           varchar(50)          null,
+   constraint PK_MENU_PERFIL primary key nonclustered (IDMENUPERFIL)
+)
+go
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_24_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_24_FK on MENU_PERFIL (
+IDPERFIL ASC
+)
+go
+
+/*==============================================================*/
 /* Table: NIVEL                                                 */
 /*==============================================================*/
 create table NIVEL (
@@ -742,7 +784,6 @@ go
 create table PERFIL (
    IDPERFIL             numeric              identity,
    NOMBREPERFIL         varchar(30)          null,
-   MENUSACCESO          varchar(300)         null,
    constraint PK_PERFIL primary key nonclustered (IDPERFIL)
 )
 go
@@ -871,6 +912,11 @@ go
 alter table FORMULARIO__ANTICIPO
    add constraint FK_FORMULAR_RELATIONS_COMBINAC foreign key (IDCOMBINACION)
       references COMBINACION_VIATICOS (IDCOMBINACION)
+go
+
+alter table MENU_PERFIL
+   add constraint FK_MENU_PER_RELATIONS_PERFIL foreign key (IDPERFIL)
+      references PERFIL (IDPERFIL)
 go
 
 alter table OPCION_NIVEL

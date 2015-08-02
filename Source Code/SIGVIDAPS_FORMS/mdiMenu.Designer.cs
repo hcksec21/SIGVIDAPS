@@ -159,8 +159,9 @@
             // editarFormularioToolStripMenuItem
             // 
             this.editarFormularioToolStripMenuItem.Name = "editarFormularioToolStripMenuItem";
-            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.editarFormularioToolStripMenuItem.Text = "Editar Formulario";
+            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.editarFormularioToolStripMenuItem.Text = "Actualizar Formulario";
+            this.editarFormularioToolStripMenuItem.Click += new System.EventHandler(this.editarFormularioToolStripMenuItem_Click);
             // 
             // mnuEmpleados
             // 
@@ -213,7 +214,6 @@
             this.sbmnuCargo.Name = "sbmnuCargo";
             this.sbmnuCargo.Size = new System.Drawing.Size(189, 22);
             this.sbmnuCargo.Text = "Cargos de Empleado";
-            this.sbmnuCargo.Click += new System.EventHandler(this.sbmnuCargo_Click);
             // 
             // registrarCargoDeEmpleadoToolStripMenuItem
             // 
@@ -305,7 +305,7 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
             // 
             // mdiMenu

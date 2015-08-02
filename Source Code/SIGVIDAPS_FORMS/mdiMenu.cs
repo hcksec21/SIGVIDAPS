@@ -46,13 +46,6 @@ namespace SIGVIDAPS_FORMS
         {
             frmRegistroEmpleado objEmpleado = new frmRegistroEmpleado();
             ValidarForm(objEmpleado);
-
-        }
-
-        private void sbmnuCargo_Click(object sender, EventArgs e)
-        {
-            frmRegistrarCargo objCargo = new frmRegistrarCargo();
-            ValidarForm(objCargo);
         }
 
         private void sbmnuNivel_Click(object sender, EventArgs e)
@@ -108,12 +101,6 @@ namespace SIGVIDAPS_FORMS
             ValidarForm(combinacionViatico);
         }
 
-        private void registrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmRegistroUsuario registroUsuario = new frmRegistroUsuario();
-            ValidarForm(registroUsuario);
-
-        }
 
         private void modificarEliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -155,11 +142,6 @@ namespace SIGVIDAPS_FORMS
 
         }
 
-        private void registrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void registrarCargoDeEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRegistrarCargo registrarCargo = new frmRegistrarCargo();
@@ -178,6 +160,13 @@ namespace SIGVIDAPS_FORMS
             ValidarForm(eliminarCargo);
         }
 
+
+        private void registrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistrarUsuario registrarUsuario = new frmRegistrarUsuario();
+            ValidarForm(registrarUsuario);
+        }
+
         private void eliminarEmpleadoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmEliminarEmpleado eliminarEmpleado = new frmEliminarEmpleado();
@@ -185,6 +174,11 @@ namespace SIGVIDAPS_FORMS
         }
 
         private void administrarRutasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editarFormularioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

@@ -12,18 +12,12 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class PERFIL
+    public partial class MENU_PERFIL
     {
-        public PERFIL()
-        {
-            this.MENU_PERFIL = new HashSet<MENU_PERFIL>();
-            this.USUARIOs = new HashSet<USUARIO>();
-        }
+        public decimal IDMENUPERFIL { get; set; }
+        public Nullable<decimal> IDPERFIL { get; set; }
+        public string MENUPERFIL { get; set; }
     
-        public decimal IDPERFIL { get; set; }
-        public string NOMBREPERFIL { get; set; }
-    
-        public virtual ICollection<MENU_PERFIL> MENU_PERFIL { get; set; }
-        public virtual ICollection<USUARIO> USUARIOs { get; set; }
+        public virtual PERFIL PERFIL { get; set; }
     }
 }
