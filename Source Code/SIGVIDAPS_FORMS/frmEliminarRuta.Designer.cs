@@ -76,8 +76,10 @@
             this.LugarSalida,
             this.LugarLlegada});
             this.dgvRutas.Location = new System.Drawing.Point(23, 132);
+            this.dgvRutas.MultiSelect = false;
             this.dgvRutas.Name = "dgvRutas";
             this.dgvRutas.ReadOnly = true;
+            this.dgvRutas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRutas.Size = new System.Drawing.Size(699, 193);
             this.dgvRutas.TabIndex = 39;
             this.dgvRutas.SelectionChanged += new System.EventHandler(this.dgvRutas_SelectionChanged);

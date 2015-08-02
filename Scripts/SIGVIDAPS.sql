@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 12:19:33                          */
+/* Created on:     02/08/2015 15:04:38                          */
 /*==============================================================*/
 
 
@@ -93,13 +93,6 @@ if exists (select 1
    where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_EMPLEADO1')
 alter table FORMULARIO__ANTICIPO
    drop constraint FK_FORMULAR_RELATIONS_EMPLEADO1
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FORMULARIO__ANTICIPO') and o.name = 'FK_FORMULAR_RELATIONS_ESTADO_S')
-alter table FORMULARIO__ANTICIPO
-   drop constraint FK_FORMULAR_RELATIONS_ESTADO_S
 go
 
 if exists (select 1
@@ -284,13 +277,6 @@ if exists (select 1
 go
 
 if exists (select 1
-            from  sysobjects
-           where  id = object_id('ESTADO_SOLICITUD_ANTICIPO')
-            and   type = 'U')
-   drop table ESTADO_SOLICITUD_ANTICIPO
-go
-
-if exists (select 1
             from  sysindexes
            where  id    = object_id('FACTURACION')
             and   name  = 'RELATIONSHIP_9_FK'
@@ -320,15 +306,6 @@ if exists (select 1
            where  id = object_id('FORMULARIO_LIQUIDACION')
             and   type = 'U')
    drop table FORMULARIO_LIQUIDACION
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('FORMULARIO__ANTICIPO')
-            and   name  = 'RELATIONSHIP_19_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index FORMULARIO__ANTICIPO.RELATIONSHIP_19_FK
 go
 
 if exists (select 1
@@ -462,7 +439,7 @@ go
 /*==============================================================*/
 create table CALCULO (
    IDCALCULO            numeric              identity,
-   IDSOLICANT           numeric              null,
+   IDFORMANTICIPO       numeric              null,
    constraint PK_CALCULO primary key nonclustered (IDCALCULO)
 )
 go
@@ -471,7 +448,7 @@ go
 /* Index: RELATIONSHIP_11_FK                                    */
 /*==============================================================*/
 create index RELATIONSHIP_11_FK on CALCULO (
-IDSOLICANT ASC
+IDFORMANTICIPO ASC
 )
 go
 
@@ -554,16 +531,17 @@ go
 /* Table: DETALLE_FORMULARIO                                    */
 /*==============================================================*/
 create table DETALLE_FORMULARIO (
-   IDDETSOLIC           numeric              identity,
-   IDSOLICANT           numeric              null,
-   IDSOLICLIQ           numeric              null,
+   IDDETFORM            numeric              identity,
+   IDFORMANTICIPO       numeric              null,
+   IDFORMLIQ            numeric              null,
    IDTIPOTRANSPORTE     numeric              null,
    IDRUTA               numeric              null,
+   NOMBRETRANSPORTE     varchar(50)          null,
    FECSALIDA            datetime             null,
    HORASALIDA           int                  null,
    FECLLEGADA           datetime             null,
    HORALLEGADA          int                  null,
-   constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETSOLIC)
+   constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETFORM)
 )
 go
 
@@ -571,7 +549,7 @@ go
 /* Index: RELATIONSHIP_5_FK                                     */
 /*==============================================================*/
 create index RELATIONSHIP_5_FK on DETALLE_FORMULARIO (
-IDSOLICANT ASC
+IDFORMANTICIPO ASC
 )
 go
 
@@ -587,7 +565,7 @@ go
 /* Index: RELATIONSHIP_8_FK                                     */
 /*==============================================================*/
 create index RELATIONSHIP_8_FK on DETALLE_FORMULARIO (
-IDSOLICLIQ ASC
+IDFORMLIQ ASC
 )
 go
 
@@ -624,21 +602,11 @@ IDCARGO ASC
 go
 
 /*==============================================================*/
-/* Table: ESTADO_SOLICITUD_ANTICIPO                             */
-/*==============================================================*/
-create table ESTADO_SOLICITUD_ANTICIPO (
-   IDESTSOLICANT        numeric              identity,
-   ESTSOLICANT          varchar(20)          null,
-   constraint PK_ESTADO_SOLICITUD_ANTICIPO primary key nonclustered (IDESTSOLICANT)
-)
-go
-
-/*==============================================================*/
 /* Table: FACTURACION                                           */
 /*==============================================================*/
 create table FACTURACION (
    IDFACTURACION        numeric              identity,
-   IDSOLICLIQ           numeric              null,
+   IDFORMLIQ            numeric              null,
    constraint PK_FACTURACION primary key nonclustered (IDFACTURACION)
 )
 go
@@ -647,7 +615,7 @@ go
 /* Index: RELATIONSHIP_9_FK                                     */
 /*==============================================================*/
 create index RELATIONSHIP_9_FK on FACTURACION (
-IDSOLICLIQ ASC
+IDFORMLIQ ASC
 )
 go
 
@@ -655,12 +623,19 @@ go
 /* Table: FORMULARIO_LIQUIDACION                                */
 /*==============================================================*/
 create table FORMULARIO_LIQUIDACION (
-   IDSOLICLIQ           numeric              identity,
+   IDFORMLIQ            numeric              identity,
    IDEMP                numeric              null,
-   CODSOLICLIQ          varchar(15)          null,
-   NUMSOLICLIQ          varchar(15)          null,
-   FECSOLICLIQ          datetime             null,
-   constraint PK_FORMULARIO_LIQUIDACION primary key nonclustered (IDSOLICLIQ)
+   NUMFORMLIQ           varchar(15)          null,
+   FECHAFORMLIQ         datetime             null,
+   CIUDADFORMLIQ        varchar(50)          null,
+   UNIDADFORMLIQ        varchar(50)          null,
+   DESCRIPCIONFORMLIQ   varchar(500)         null,
+   FECHASALIDAITINFORMLIQ datetime             null,
+   FECHALLEGADAITINFORMLIQ datetime             null,
+   HORASALIDAITINFORMLIQ datetime             null,
+   HORALLEGADAITINFORMLIQ datetime             null,
+   ESTADOFORMLIQ        varchar(30)          null,
+   constraint PK_FORMULARIO_LIQUIDACION primary key nonclustered (IDFORMLIQ)
 )
 go
 
@@ -676,14 +651,23 @@ go
 /* Table: FORMULARIO__ANTICIPO                                  */
 /*==============================================================*/
 create table FORMULARIO__ANTICIPO (
-   IDSOLICANT           numeric              identity,
-   IDESTSOLICANT        numeric              null,
+   IDFORMANTICIPO       numeric              identity,
    IDCOMBINACION        numeric              null,
    IDEMP                numeric              null,
-   CODSOLICANT          varchar(10)          null,
-   NUMSOLICANT          varchar(30)          null,
-   FECSOLICANT          datetime             null,
-   constraint PK_FORMULARIO__ANTICIPO primary key nonclustered (IDSOLICANT)
+   NUMFORMANTICIPO      varchar(30)          null,
+   FECFORMANTICIPO      datetime             null,
+   CIUDADFORMANTICIPO   varchar(50)          null,
+   UNIDADFORMANTICIPO   varchar(50)          null,
+   HORASALIDAFORMANTICIPO datetime             null,
+   FECHASALIDAFORMANTICIPO datetime             null,
+   HORALLEGADAFORMANTICIPO datetime             null,
+   FECHALLEGADAFORMANTICIPO datetime             null,
+   DESCRIPCIONFORMANTICIPO varchar(500)         null,
+   BANCOFORMANTICIPO    varchar(50)          null,
+   TIPOCUENTAFORMANTICIPO varchar(50)          null,
+   NUMCUENTAFORMANTICIPO varchar(30)          null,
+   ESTADOFORMANTICIPO   varchar(30)          null,
+   constraint PK_FORMULARIO__ANTICIPO primary key nonclustered (IDFORMANTICIPO)
 )
 go
 
@@ -700,14 +684,6 @@ go
 /*==============================================================*/
 create index RELATIONSHIP_4_FK on FORMULARIO__ANTICIPO (
 IDCOMBINACION ASC
-)
-go
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_19_FK                                    */
-/*==============================================================*/
-create index RELATIONSHIP_19_FK on FORMULARIO__ANTICIPO (
-IDESTSOLICANT ASC
 )
 go
 
@@ -843,8 +819,8 @@ IDPERFIL ASC
 go
 
 alter table CALCULO
-   add constraint FK_CALCULO_RELATIONS_FORMULAR foreign key (IDSOLICANT)
-      references FORMULARIO__ANTICIPO (IDSOLICANT)
+   add constraint FK_CALCULO_RELATIONS_FORMULAR foreign key (IDFORMANTICIPO)
+      references FORMULARIO__ANTICIPO (IDFORMANTICIPO)
 go
 
 alter table CARGO
@@ -873,8 +849,8 @@ alter table DETALLE_FORMULARIO
 go
 
 alter table DETALLE_FORMULARIO
-   add constraint FK_DETALLE__RELATIONS_FORMULAR1 foreign key (IDSOLICANT)
-      references FORMULARIO__ANTICIPO (IDSOLICANT)
+   add constraint FK_DETALLE__RELATIONS_FORMULAR1 foreign key (IDFORMANTICIPO)
+      references FORMULARIO__ANTICIPO (IDFORMANTICIPO)
 go
 
 alter table DETALLE_FORMULARIO
@@ -883,8 +859,8 @@ alter table DETALLE_FORMULARIO
 go
 
 alter table DETALLE_FORMULARIO
-   add constraint FK_DETALLE__RELATIONS_FORMULAR2 foreign key (IDSOLICLIQ)
-      references FORMULARIO_LIQUIDACION (IDSOLICLIQ)
+   add constraint FK_DETALLE__RELATIONS_FORMULAR2 foreign key (IDFORMLIQ)
+      references FORMULARIO_LIQUIDACION (IDFORMLIQ)
 go
 
 alter table EMPLEADO
@@ -893,8 +869,8 @@ alter table EMPLEADO
 go
 
 alter table FACTURACION
-   add constraint FK_FACTURAC_RELATIONS_FORMULAR foreign key (IDSOLICLIQ)
-      references FORMULARIO_LIQUIDACION (IDSOLICLIQ)
+   add constraint FK_FACTURAC_RELATIONS_FORMULAR foreign key (IDFORMLIQ)
+      references FORMULARIO_LIQUIDACION (IDFORMLIQ)
 go
 
 alter table FORMULARIO_LIQUIDACION
@@ -905,11 +881,6 @@ go
 alter table FORMULARIO__ANTICIPO
    add constraint FK_FORMULAR_RELATIONS_EMPLEADO1 foreign key (IDEMP)
       references EMPLEADO (IDEMP)
-go
-
-alter table FORMULARIO__ANTICIPO
-   add constraint FK_FORMULAR_RELATIONS_ESTADO_S foreign key (IDESTSOLICANT)
-      references ESTADO_SOLICITUD_ANTICIPO (IDESTSOLICANT)
 go
 
 alter table FORMULARIO__ANTICIPO

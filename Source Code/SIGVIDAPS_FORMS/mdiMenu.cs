@@ -220,8 +220,8 @@ namespace SIGVIDAPS_FORMS
 
         private void registrarFormularioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmRegistrarFormularioAnticipo registrarFormularioAnticipo = new frmRegistrarFormularioAnticipo();
-            ValidarForm(registrarFormularioAnticipo);
+            frmFormularioLiquidacion formLiq = new frmFormularioLiquidacion();
+            ValidarForm(formLiq);
         }
     }
 }

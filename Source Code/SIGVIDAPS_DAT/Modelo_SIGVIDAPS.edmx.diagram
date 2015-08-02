@@ -4,26 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e6db1d8cc5a84246b7c4e262af149215" Name="Diagrama1">
-        <EntityTypeShape EntityType="SIGVIDAPSModel.CALCULO" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.CARGO" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.COMBINACION_VIATICOS" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_CALCULO" Width="1.5" PointX="12" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_FACTURACION" Width="1.5" PointX="12" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_FORMULARIO" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.EMPLEADO" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.ESTADO_SOLICITUD_ANTICIPO" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.FACTURACION" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+      <Diagram DiagramId="8c883daf607345abb8b87d2c0e8ebac3" Name="Diagram1">
+        <EntityTypeShape EntityType="SIGVIDAPSModel.CALCULO" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.CARGO" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.COMBINACION_VIATICOS" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_CALCULO" Width="1.5" PointX="13" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_FACTURACION" Width="1.5" PointX="12" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.DETALLE_FORMULARIO" Width="1.5" PointX="14.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.EMPLEADO" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.FACTURACION" Width="1.5" PointX="9.75" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SIGVIDAPSModel.FORMULARIO__ANTICIPO" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.FORMULARIO_LIQUIDACION" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.MENU_PERFIL" Width="1.5" PointX="10.5" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.NIVEL" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.OPCION_NIVEL" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.OPCIONES_VIATICOS" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.PERFIL" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.RUTA" Width="1.5" PointX="12.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.TIPO_TRANSPORTE" Width="1.5" PointX="12.5" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SIGVIDAPSModel.USUARIO" Width="1.5" PointX="10.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.FORMULARIO_LIQUIDACION" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.MENU_PERFIL" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.NIVEL" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.OPCION_NIVEL" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.OPCIONES_VIATICOS" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.PERFIL" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.RUTA" Width="1.5" PointX="12.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.TIPO_TRANSPORTE" Width="1.5" PointX="12.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGVIDAPSModel.USUARIO" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_CALCULO_RELATIONS_FORMULAR" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_DETALLE__RELATIONS_CALCULO" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_CARGO_RELATIONS_NIVEL" ManuallyRouted="false" />
@@ -38,7 +37,6 @@
         <AssociationConnector Association="SIGVIDAPSModel.FK_FORMULAR_RELATIONS_EMPLEADO1" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_FORMULAR_RELATIONS_EMPLEADO2" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_USUARIO_RELATIONS_EMPLEADO" ManuallyRouted="false" />
-        <AssociationConnector Association="SIGVIDAPSModel.FK_FORMULAR_RELATIONS_ESTADO_S" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_FACTURAC_RELATIONS_FORMULAR" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_MENU_PER_RELATIONS_PERFIL" ManuallyRouted="false" />
         <AssociationConnector Association="SIGVIDAPSModel.FK_OPCION_N_RELATIONS_NIVEL" ManuallyRouted="false" />
