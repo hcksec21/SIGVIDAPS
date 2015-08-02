@@ -308,7 +308,7 @@
             this.Actividades.Location = new System.Drawing.Point(4, 22);
             this.Actividades.Name = "Actividades";
             this.Actividades.Padding = new System.Windows.Forms.Padding(3);
-            this.Actividades.Size = new System.Drawing.Size(821, 462);
+            this.Actividades.Size = new System.Drawing.Size(821, 449);
             this.Actividades.TabIndex = 1;
             this.Actividades.Text = "Informe de Actividades";
             this.Actividades.UseVisualStyleBackColor = true;
@@ -759,7 +759,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
-            this.ClientSize = new System.Drawing.Size(854, 662);
+            this.ClientSize = new System.Drawing.Size(854, 645);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);

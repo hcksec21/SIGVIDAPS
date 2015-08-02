@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using SIGVIDAPS_DAT;
 using System.Data.Entity;
 using System.Transactions;
-using SIGVIDAPS_DAT;
-using System.Data.Entity;
 
 namespace SIGVIDAPS_BLL
 {

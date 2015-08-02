@@ -58,7 +58,7 @@ namespace SIGVIDAPS_BLL
         }
 
         //Eliminar
-        public void eliminarUsuarios(int indice)
+        public void eliminarUsuario(int indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {

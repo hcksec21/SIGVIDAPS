@@ -1,6 +1,6 @@
 ﻿namespace SIGVIDAPS_FORMS
 {
-    partial class frmModificarCargo
+    partial class frmActualizarCargo
     {
         /// <summary>
         /// Required designer variable.
@@ -67,7 +67,7 @@
             // 
             this.btnModificar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnModificar.Location = new System.Drawing.Point(197, 489);
+            this.btnModificar.Location = new System.Drawing.Point(163, 479);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(142, 49);
             this.btnModificar.TabIndex = 36;
@@ -79,7 +79,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(345, 489);
+            this.btnGuardar.Location = new System.Drawing.Point(311, 479);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(137, 49);
             this.btnGuardar.TabIndex = 35;
@@ -94,9 +94,11 @@
             this.ID,
             this.NombreCargo,
             this.Nivel});
-            this.dgvCargos.Location = new System.Drawing.Point(14, 228);
+            this.dgvCargos.Location = new System.Drawing.Point(61, 223);
+            this.dgvCargos.MultiSelect = false;
             this.dgvCargos.Name = "dgvCargos";
-            this.dgvCargos.Size = new System.Drawing.Size(688, 240);
+            this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCargos.Size = new System.Drawing.Size(523, 240);
             this.dgvCargos.TabIndex = 34;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvCargos_SelectionChanged);
             // 
@@ -106,6 +108,7 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Width = 80;
             // 
             // NombreCargo
             // 
@@ -113,6 +116,7 @@
             this.NombreCargo.HeaderText = "Nombre Cargo";
             this.NombreCargo.Name = "NombreCargo";
             this.NombreCargo.ReadOnly = true;
+            this.NombreCargo.Width = 200;
             // 
             // Nivel
             // 
@@ -120,6 +124,7 @@
             this.Nivel.HeaderText = "Nivel";
             this.Nivel.Name = "Nivel";
             this.Nivel.ReadOnly = true;
+            this.Nivel.Width = 200;
             // 
             // txbNombreCargo
             // 
@@ -148,14 +153,14 @@
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 43);
+            this.label1.Size = new System.Drawing.Size(356, 43);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Cargos de Empleado";
+            this.label1.Text = "Actualizacion de Cargo";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SIGVIDAPS_FORMS.Properties.Resources.sigtierras;
-            this.pictureBox1.Location = new System.Drawing.Point(431, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(368, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(289, 109);
             this.pictureBox1.TabIndex = 30;
@@ -166,7 +171,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
-            this.ClientSize = new System.Drawing.Size(720, 550);
+            this.ClientSize = new System.Drawing.Size(654, 550);
             this.Controls.Add(this.cmbNivel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnModificar);
@@ -176,8 +181,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "frmModificarCargo";
-            this.Text = "Editar Cargo de Empleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Actualizacion de Cargo";
             this.Load += new System.EventHandler(this.frmModificarCargo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -193,12 +200,12 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvCargos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCargo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
         private System.Windows.Forms.MaskedTextBox txbNombreCargo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
     }
 }

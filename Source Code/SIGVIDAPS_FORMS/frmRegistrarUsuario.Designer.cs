@@ -29,29 +29,31 @@
         private void InitializeComponent()
         {
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkMostrarCon = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.mskTextBox = new System.Windows.Forms.MaskedTextBox();
             this.cmbEmpleados = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPerfil = new System.Windows.Forms.ComboBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -59,9 +61,40 @@
             this.NombreEmpleado,
             this.Perfil});
             this.dgvUsuarios.Location = new System.Drawing.Point(33, 274);
+            this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(723, 236);
             this.dgvUsuarios.TabIndex = 34;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 80;
+            // 
+            // NombreUsuario
+            // 
+            this.NombreUsuario.HeaderText = "Nombre de Usuario";
+            this.NombreUsuario.Name = "NombreUsuario";
+            this.NombreUsuario.ReadOnly = true;
+            this.NombreUsuario.Width = 200;
+            // 
+            // NombreEmpleado
+            // 
+            this.NombreEmpleado.HeaderText = "Nombre Empleado";
+            this.NombreEmpleado.Name = "NombreEmpleado";
+            this.NombreEmpleado.ReadOnly = true;
+            this.NombreEmpleado.Width = 200;
+            // 
+            // Perfil
+            // 
+            this.Perfil.HeaderText = "Perfil";
+            this.Perfil.Name = "Perfil";
+            this.Perfil.ReadOnly = true;
+            this.Perfil.Width = 200;
             // 
             // label5
             // 
@@ -88,7 +121,6 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(328, 125);
-            this.txtNombreUsuario.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLL";
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.PromptChar = ' ';
             this.txtNombreUsuario.Size = new System.Drawing.Size(236, 20);
@@ -125,15 +157,16 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBox1
+            // chkMostrarCon
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(581, 183);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 17);
-            this.checkBox1.TabIndex = 35;
-            this.checkBox1.Text = "Mostrar Contraseña";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkMostrarCon.AutoSize = true;
+            this.chkMostrarCon.Location = new System.Drawing.Point(581, 183);
+            this.chkMostrarCon.Name = "chkMostrarCon";
+            this.chkMostrarCon.Size = new System.Drawing.Size(118, 17);
+            this.chkMostrarCon.TabIndex = 35;
+            this.chkMostrarCon.Text = "Mostrar Contraseña";
+            this.chkMostrarCon.UseVisualStyleBackColor = true;
+            this.chkMostrarCon.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnCancelar
             // 
@@ -161,7 +194,6 @@
             // mskTextBox
             // 
             this.mskTextBox.Location = new System.Drawing.Point(328, 183);
-            this.mskTextBox.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLL";
             this.mskTextBox.Name = "mskTextBox";
             this.mskTextBox.PasswordChar = '*';
             this.mskTextBox.PromptChar = ' ';
@@ -195,34 +227,6 @@
             this.cmbPerfil.Size = new System.Drawing.Size(236, 21);
             this.cmbPerfil.TabIndex = 42;
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 80;
-            // 
-            // NombreUsuario
-            // 
-            this.NombreUsuario.HeaderText = "Nombre de Usuario";
-            this.NombreUsuario.Name = "NombreUsuario";
-            this.NombreUsuario.ReadOnly = true;
-            this.NombreUsuario.Width = 200;
-            // 
-            // NombreEmpleado
-            // 
-            this.NombreEmpleado.HeaderText = "Nombre Empleado";
-            this.NombreEmpleado.Name = "NombreEmpleado";
-            this.NombreEmpleado.ReadOnly = true;
-            this.NombreEmpleado.Width = 200;
-            // 
-            // Perfil
-            // 
-            this.Perfil.HeaderText = "Perfil";
-            this.Perfil.Name = "Perfil";
-            this.Perfil.ReadOnly = true;
-            this.Perfil.Width = 200;
-            // 
             // frmRegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,7 +240,7 @@
             this.Controls.Add(this.mskTextBox);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chkMostrarCon);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -244,8 +248,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegistrarUsuario";
-            this.Text = "Registar Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro Usuario";
             this.Load += new System.EventHandler(this.frmRegistrarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -263,7 +270,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkMostrarCon;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.MaskedTextBox mskTextBox;

@@ -292,12 +292,14 @@
             this.editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
             this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.editarUsuariosToolStripMenuItem.Text = "Actualizar Usuario";
+            this.editarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.editarUsuariosToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
             this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
+            this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
             // mnuAyuda
             // 
