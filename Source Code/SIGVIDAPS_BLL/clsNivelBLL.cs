@@ -17,5 +17,11 @@ namespace SIGVIDAPS_BLL
             return (new SIGVIDAPS_entidades()).NIVELs.Where(e => e.IDNIVEL == id).First();
         }
 
+        public List<NIVEL> obtenerTodosNiveles()
+        {
+            List<NIVEL> lstNiveles = (new SIGVIDAPS_entidades()).NIVELs.ToList();
+            return  lstNiveles;
+        }
+
     }
 }

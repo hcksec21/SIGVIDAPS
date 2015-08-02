@@ -42,7 +42,6 @@ E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PRO
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServer.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServerCompact.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\System.Data.SqlServerCe.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.xml
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServer.xml
@@ -50,9 +49,3 @@ E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PRO
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.csprojResolveAssemblyReference.cache
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.pdb
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\Newtonsoft.Json.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\TrackableEntities.Common.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\TrackableEntities.EF.6.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\Newtonsoft.Json.xml
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\TrackableEntities.Common.xml
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\PROYECTO FINAL\Source Code\SIGVIDAPS_DAT\bin\Debug\TrackableEntities.EF.6.xml

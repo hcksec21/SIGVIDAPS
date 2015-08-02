@@ -43,6 +43,9 @@
     <Reference Include="EntityFramework.SqlServerCompact">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -74,6 +77,18 @@
     <Compile Include="frmCombinacionViaticos.Designer.cs">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEliminarCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarCargo.Designer.cs">
+      <DependentUpon>frmEliminarCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCargo.Designer.cs">
+      <DependentUpon>frmModificarCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFormularioLiquidacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,11 +101,11 @@
     <Compile Include="frmFormularioAnticipo.Designer.cs">
       <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCargo.cs">
+    <Compile Include="frmRegistrarCargo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCargo.Designer.cs">
-      <DependentUpon>frmCargo.cs</DependentUpon>
+    <Compile Include="frmRegistrarCargo.Designer.cs">
+      <DependentUpon>frmRegistrarCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarEmpleado.cs">
       <SubType>Form</SubType>
@@ -148,14 +163,20 @@
     <EmbeddedResource Include="frmCombinacionViaticos.resx">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarCargo.resx">
+      <DependentUpon>frmEliminarCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCargo.resx">
+      <DependentUpon>frmModificarCargo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFormularioLiquidacion.resx">
       <DependentUpon>frmFormularioLiquidacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFormularioAnticipo.resx">
       <DependentUpon>frmFormularioAnticipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCargo.resx">
-      <DependentUpon>frmCargo.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegistrarCargo.resx">
+      <DependentUpon>frmRegistrarCargo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarEmpleado.resx">
@@ -192,7 +213,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

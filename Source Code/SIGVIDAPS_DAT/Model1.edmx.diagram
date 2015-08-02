@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="df96214100074f9cbe5d038091ed08be" Name="Diagram1">
+      <Diagram DiagramId="dd3b3998f37a42dc8adcdb45a1d247bb" Name="Diagrama1" ZoomLevel="47">
         <EntityTypeShape EntityType="SIGVIDAPSModel.CALCULO" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SIGVIDAPSModel.CARGO" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SIGVIDAPSModel.COMBINACION_VIATICOS" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
