@@ -137,11 +137,11 @@
     <Compile Include="frmFacturaCombustible.Designer.cs">
       <DependentUpon>frmFacturaCombustible.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroUsuario.cs">
+    <Compile Include="frmRegistrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistroUsuario.Designer.cs">
-      <DependentUpon>frmRegistroUsuario.cs</DependentUpon>
+    <Compile Include="frmRegistrarUsuario.Designer.cs">
+      <DependentUpon>frmRegistrarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViatico.cs">
       <SubType>Form</SubType>
@@ -194,8 +194,8 @@
     <EmbeddedResource Include="frmFacturaCombustible.resx">
       <DependentUpon>frmFacturaCombustible.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroUsuario.resx">
-      <DependentUpon>frmRegistroUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegistrarUsuario.resx">
+      <DependentUpon>frmRegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViatico.resx">
       <DependentUpon>frmViatico.cs</DependentUpon>

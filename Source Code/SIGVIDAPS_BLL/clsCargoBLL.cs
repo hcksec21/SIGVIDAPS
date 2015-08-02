@@ -51,6 +51,7 @@ namespace SIGVIDAPS_BLL
         {
             using (TransactionScope transaction = new TransactionScope())
             {
+                    cargo.IDCARGO = indice;
                     CARGO objCargo = buscarConId(indice);
                     entityContext.Entry(objCargo).CurrentValues.SetValues(cargo);                    
                     entityContext.SaveChanges();

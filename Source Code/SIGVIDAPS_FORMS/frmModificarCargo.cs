@@ -23,6 +23,7 @@ namespace SIGVIDAPS_FORMS
         {
             txbNombreCargo.Enabled = flag;
             cmbNivel.Enabled = flag;
+            btnGuardar.Enabled = flag;
         }
 
         private void dgvCargos_SelectionChanged(object sender, EventArgs e)
@@ -37,7 +38,6 @@ namespace SIGVIDAPS_FORMS
         private void btnModificar_Click(object sender, EventArgs e)
         {
             habilitarControles(true);
-
         }
 
         private void frmModificarCargo_Load(object sender, EventArgs e)

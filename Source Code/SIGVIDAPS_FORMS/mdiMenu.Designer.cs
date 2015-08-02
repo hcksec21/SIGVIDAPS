@@ -212,7 +212,6 @@
             this.sbmnuCargo.Name = "sbmnuCargo";
             this.sbmnuCargo.Size = new System.Drawing.Size(189, 22);
             this.sbmnuCargo.Text = "Cargos de Empleado";
-            this.sbmnuCargo.Click += new System.EventHandler(this.sbmnuCargo_Click);
             // 
             // registrarCargoDeEmpleadoToolStripMenuItem
             // 

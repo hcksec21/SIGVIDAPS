@@ -28,6 +28,13 @@ namespace SIGVIDAPS_DAT
         public string DIREMP { get; set; }
         public string TELEMP { get; set; }
         public Nullable<bool> ESTEMP { get; set; }
+        public string NOMBRECOMPLETO
+        {
+            get
+            {
+                return NOMBREEMP + " " + APELLIDOEMP;
+            }
+        }
     
         public virtual CARGO CARGO { get; set; }
         public virtual ICollection<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
