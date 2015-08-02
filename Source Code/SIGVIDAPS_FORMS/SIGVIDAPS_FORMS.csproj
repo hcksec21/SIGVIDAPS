@@ -77,6 +77,12 @@
     <Compile Include="frmCombinacionViaticos.Designer.cs">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCrearRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrearRuta.Designer.cs">
+      <DependentUpon>frmCrearRuta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEliminarCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCombinacionViaticos.resx">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCrearRuta.resx">
+      <DependentUpon>frmCrearRuta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEliminarCargo.resx">
       <DependentUpon>frmEliminarCargo.cs</DependentUpon>
