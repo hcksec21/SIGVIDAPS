@@ -135,25 +135,25 @@
             // registrarFormularioToolStripMenuItem1
             // 
             this.registrarFormularioToolStripMenuItem1.Name = "registrarFormularioToolStripMenuItem1";
-            this.registrarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.registrarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.registrarFormularioToolStripMenuItem1.Text = "Registrar Formulario";
             // 
             // anularFormularioToolStripMenuItem1
             // 
             this.anularFormularioToolStripMenuItem1.Name = "anularFormularioToolStripMenuItem1";
-            this.anularFormularioToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.anularFormularioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.anularFormularioToolStripMenuItem1.Text = "Anular Formulario";
             // 
             // consultarFormularioToolStripMenuItem1
             // 
             this.consultarFormularioToolStripMenuItem1.Name = "consultarFormularioToolStripMenuItem1";
-            this.consultarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.consultarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.consultarFormularioToolStripMenuItem1.Text = "Consultar Formulario";
             // 
             // aprobarFormularioToolStripMenuItem
             // 
             this.aprobarFormularioToolStripMenuItem.Name = "aprobarFormularioToolStripMenuItem";
-            this.aprobarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.aprobarFormularioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.aprobarFormularioToolStripMenuItem.Text = "Aprobar Formulario";
             // 
             // editarFormularioToolStripMenuItem
@@ -287,12 +287,14 @@
             this.editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
             this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.editarUsuariosToolStripMenuItem.Text = "Actualizar Usuario";
+            this.editarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.editarUsuariosToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
             this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
+            this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
             // mnuAyuda
             // 

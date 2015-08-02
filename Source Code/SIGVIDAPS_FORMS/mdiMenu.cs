@@ -104,7 +104,7 @@ namespace SIGVIDAPS_FORMS
 
         private void modificarEliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmModificarUsuario modificarUsuario = new frmModificarUsuario();
+            frmActualizarUsuario modificarUsuario = new frmActualizarUsuario();
             ValidarForm(modificarUsuario);
         }
 
@@ -150,7 +150,7 @@ namespace SIGVIDAPS_FORMS
 
         private void editarCargoDeEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmModificarCargo modificarCargo = new frmModificarCargo();
+            frmActualizarCargo modificarCargo = new frmActualizarCargo();
             ValidarForm(modificarCargo);
         }
 
@@ -181,6 +181,18 @@ namespace SIGVIDAPS_FORMS
         private void editarFormularioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void editarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmActualizarUsuario actualizarUsuario = new frmActualizarUsuario();
+            ValidarForm(actualizarUsuario);
+        }
+
+        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminarUsuario eliminarUsuario = new frmEliminarUsuario();
+            ValidarForm(eliminarUsuario);
         }
     }
 }

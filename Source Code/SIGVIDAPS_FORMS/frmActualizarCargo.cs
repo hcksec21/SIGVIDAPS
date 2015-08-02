@@ -12,9 +12,9 @@ using SIGVIDAPS_DAT;
 
 namespace SIGVIDAPS_FORMS
 {
-    public partial class frmModificarCargo : Form
+    public partial class frmActualizarCargo : Form
     {
-        public frmModificarCargo()
+        public frmActualizarCargo()
         {
             InitializeComponent();
         }
@@ -96,12 +96,20 @@ namespace SIGVIDAPS_FORMS
                     
                     MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
                     cargarCargosDataGridView();
+                    habilitarControles(false);
+                    limpiarInfo();
                 }                
             }
             else
             {
                 MessageBox.Show(strError);
             }
+        }
+
+
+        private void limpiarInfo() {
+            txbNombreCargo.Text = "";
+            cmbNivel.SelectedIndex = -1;
         }
 
         //CARGAR CARGOS EN DATAGRIDVIEW
