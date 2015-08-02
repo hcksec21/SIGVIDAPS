@@ -255,6 +255,7 @@
             this.cmbCargos.Name = "cmbCargos";
             this.cmbCargos.Size = new System.Drawing.Size(200, 21);
             this.cmbCargos.TabIndex = 53;
+            this.cmbCargos.SelectedIndexChanged += new System.EventHandler(this.cmbCargos_SelectedIndexChanged);
             // 
             // label7
             // 

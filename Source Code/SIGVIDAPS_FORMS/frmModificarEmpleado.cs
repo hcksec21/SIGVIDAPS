@@ -17,6 +17,7 @@ namespace SIGVIDAPS_FORMS
         public frmModificarEmpleado()
         {
             InitializeComponent();
+            limpiarTodo();
 
         }
 
@@ -28,9 +29,9 @@ namespace SIGVIDAPS_FORMS
         private void frmModificarEmpleado_Load(object sender, EventArgs e)
         {
             habilitarControles(false);
-            
+
             cargarEmpleadosDataGridView();
-            cargarCargosEmpleado();            
+            cargarCargosEmpleado();
 
             cmbCargos.SelectedIndex = -1;
             dgvEmpleado.ClearSelection();
@@ -91,8 +92,8 @@ namespace SIGVIDAPS_FORMS
                     tempRow.Cells.Add(cellTelefono);
 
                     //ESTADO
-                    DataGridViewCell cellEstado= new DataGridViewTextBoxCell();
-                    cellEstado.Value = ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO"; 
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO";
                     tempRow.Cells.Add(cellEstado);
 
                     tempRow.Tag = empleado.IDEMP;
@@ -151,7 +152,10 @@ namespace SIGVIDAPS_FORMS
 
         private void button4_Click(object sender, EventArgs e)
         {
-            habilitarControles(true);
+            if (dgvEmpleado.SelectedRows.Count > 0)
+                habilitarControles(true);
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void bttnGuardar_Click(object sender, EventArgs e)
@@ -221,6 +225,7 @@ namespace SIGVIDAPS_FORMS
                 cargarEmpleadosDataGridView();
                 limpiarTodo();
                 habilitarControles(false);
+                dgvEmpleado.ClearSelection();
             }
             else
             {
@@ -305,6 +310,20 @@ namespace SIGVIDAPS_FORMS
             txtDireccion.Text = "";
             txtTelefono.Text = "";
             cmbEstado.SelectedIndex = -1;
+        }
+
+        private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCargos.SelectedIndex >= 0)
+            {
+                String strId = cmbCargos.SelectedValue.ToString();
+                int idCargo = Int32.Parse(strId.ToString());
+
+                CARGO objCargo = (new clsCargoBLL()).buscarConId(idCargo);
+                NIVEL objNivel = (new clsNivelBLL()).buscarConId((int)objCargo.IDNIVEL);
+
+                lblNivel.Text = objNivel.COD_NIVEL;
+            }
         }
 
 

@@ -29,6 +29,8 @@ namespace SIGVIDAPS_FORMS
             cargarCargosEmpleado();
             cargarEmpleadosDataGridView();
 
+            limpiarTodo();
+
         }
 
         //METODO PARA OBTENER LOS CARGOS
@@ -106,7 +108,7 @@ namespace SIGVIDAPS_FORMS
 
                     //ESTADO
                     DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
-                    cellEstado.Value =  ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO";
+                    cellEstado.Value = ((Boolean)empleado.ESTEMP) ? "ACTIVO" : "INACTIVO";
                     tempRow.Cells.Add(cellEstado);
 
                     tempRow.Tag = empleado.IDEMP;
@@ -241,11 +243,12 @@ namespace SIGVIDAPS_FORMS
                 e.Handled = true;
 
             if (txtCedula.Text.Length == 10)
-                e.Handled = true;
-            else
-                e.Handled = false;
-
-
+            {
+                if (Char.IsControl(e.KeyChar))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
         }
 
         private void txtDireccion_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -266,8 +269,8 @@ namespace SIGVIDAPS_FORMS
 
         private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (cmbCargos.SelectedIndex >= 1)
+            
+            if (cmbCargos.SelectedIndex >= 0)
             {
                 String strId = cmbCargos.SelectedValue.ToString();
                 int idCargo = Int32.Parse(strId.ToString());
@@ -319,7 +322,7 @@ namespace SIGVIDAPS_FORMS
         {
             txtNombres.Text = "";
             txtApellidos.Text = "";
-            txtCedula.Text="";
+            txtCedula.Text = "";
             cmbCargos.SelectedIndex = -1;
             lblNivel.Text = "";
             txtDireccion.Text = "";

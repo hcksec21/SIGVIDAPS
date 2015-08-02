@@ -1,18 +1,4 @@
 
-
-
-formulario registrar empleado -> 
-	cuando la cedula llega a 10 caracteres, backspace no funciona
-	cargar nivel cuando se seleccciona cargo
-	al inicio si me muestra el nivel asociado al cargo del combobox
-	el datagridview debe permitir selecccionar todo el row
-	verificar que no existan registros atados al momento de eliminar
-
-
-formulario modificar empleado -> 
-	verificar que no existan registros atados al momento de eliminar
-	no se sube la opción de estado desde el dgv
-
 formulario eliminar empleado -> 
 	probar las dependencias
 
