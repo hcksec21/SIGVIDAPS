@@ -79,9 +79,6 @@
     <Compile Include="EMPLEADO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
-    <Compile Include="ESTADO_SOLICITUD_ANTICIPO.cs">
-      <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
-    </Compile>
     <Compile Include="FACTURACION.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>

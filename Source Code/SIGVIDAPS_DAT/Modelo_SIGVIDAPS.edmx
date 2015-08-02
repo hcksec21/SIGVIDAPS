@@ -10,7 +10,7 @@
             <PropertyRef Name="IDCALCULO" />
           </Key>
           <Property Name="IDCALCULO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDSOLICANT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IDFORMANTICIPO" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="CARGO">
           <Key>
@@ -45,13 +45,14 @@
         </EntityType>
         <EntityType Name="DETALLE_FORMULARIO">
           <Key>
-            <PropertyRef Name="IDDETSOLIC" />
+            <PropertyRef Name="IDDETFORM" />
           </Key>
-          <Property Name="IDDETSOLIC" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDSOLICANT" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="IDSOLICLIQ" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IDDETFORM" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDFORMANTICIPO" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IDFORMLIQ" Type="numeric" Precision="18" Scale="0" />
           <Property Name="IDTIPOTRANSPORTE" Type="numeric" Precision="18" Scale="0" />
           <Property Name="IDRUTA" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="NOMBRETRANSPORTE" Type="varchar" MaxLength="50" />
           <Property Name="FECSALIDA" Type="datetime" />
           <Property Name="HORASALIDA" Type="int" />
           <Property Name="FECLLEGADA" Type="datetime" />
@@ -70,41 +71,50 @@
           <Property Name="TELEMP" Type="varchar" MaxLength="15" />
           <Property Name="ESTEMP" Type="bit" />
         </EntityType>
-        <EntityType Name="ESTADO_SOLICITUD_ANTICIPO">
-          <Key>
-            <PropertyRef Name="IDESTSOLICANT" />
-          </Key>
-          <Property Name="IDESTSOLICANT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ESTSOLICANT" Type="varchar" MaxLength="20" />
-        </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
             <PropertyRef Name="IDFACTURACION" />
           </Key>
           <Property Name="IDFACTURACION" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDSOLICLIQ" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IDFORMLIQ" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="FORMULARIO__ANTICIPO">
           <Key>
-            <PropertyRef Name="IDSOLICANT" />
+            <PropertyRef Name="IDFORMANTICIPO" />
           </Key>
-          <Property Name="IDSOLICANT" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDESTSOLICANT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IDFORMANTICIPO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDCOMBINACION" Type="numeric" Precision="18" Scale="0" />
           <Property Name="IDEMP" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="CODSOLICANT" Type="varchar" MaxLength="10" />
-          <Property Name="NUMSOLICANT" Type="varchar" MaxLength="30" />
-          <Property Name="FECSOLICANT" Type="datetime" />
+          <Property Name="NUMFORMANTICIPO" Type="varchar" MaxLength="30" />
+          <Property Name="FECFORMANTICIPO" Type="datetime" />
+          <Property Name="CIUDADFORMANTICIPO" Type="varchar" MaxLength="50" />
+          <Property Name="UNIDADFORMANTICIPO" Type="varchar" MaxLength="50" />
+          <Property Name="HORASALIDAFORMANTICIPO" Type="datetime" />
+          <Property Name="FECHASALIDAFORMANTICIPO" Type="datetime" />
+          <Property Name="HORALLEGADAFORMANTICIPO" Type="datetime" />
+          <Property Name="FECHALLEGADAFORMANTICIPO" Type="datetime" />
+          <Property Name="DESCRIPCIONFORMANTICIPO" Type="varchar" MaxLength="500" />
+          <Property Name="BANCOFORMANTICIPO" Type="varchar" MaxLength="50" />
+          <Property Name="TIPOCUENTAFORMANTICIPO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMCUENTAFORMANTICIPO" Type="varchar" MaxLength="30" />
+          <Property Name="ESTADOFORMANTICIPO" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="FORMULARIO_LIQUIDACION">
           <Key>
-            <PropertyRef Name="IDSOLICLIQ" />
+            <PropertyRef Name="IDFORMLIQ" />
           </Key>
-          <Property Name="IDSOLICLIQ" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDFORMLIQ" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDEMP" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="CODSOLICLIQ" Type="varchar" MaxLength="15" />
-          <Property Name="NUMSOLICLIQ" Type="varchar" MaxLength="15" />
-          <Property Name="FECSOLICLIQ" Type="datetime" />
+          <Property Name="NUMFORMLIQ" Type="varchar" MaxLength="15" />
+          <Property Name="FECHAFORMLIQ" Type="datetime" />
+          <Property Name="CIUDADFORMLIQ" Type="varchar" MaxLength="50" />
+          <Property Name="UNIDADFORMLIQ" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCIONFORMLIQ" Type="varchar" MaxLength="500" />
+          <Property Name="FECHASALIDAITINFORMLIQ" Type="datetime" />
+          <Property Name="FECHALLEGADAITINFORMLIQ" Type="datetime" />
+          <Property Name="HORASALIDAITINFORMLIQ" Type="datetime" />
+          <Property Name="HORALLEGADAITINFORMLIQ" Type="datetime" />
+          <Property Name="ESTADOFORMLIQ" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="MENU_PERFIL">
           <Key>
@@ -178,10 +188,10 @@
           <End Role="CALCULO" Type="Self.CALCULO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Principal>
             <Dependent Role="CALCULO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -226,10 +236,10 @@
           <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Principal>
             <Dependent Role="DETALLE_FORMULARIO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -238,10 +248,10 @@
           <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO_LIQUIDACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Principal>
             <Dependent Role="DETALLE_FORMULARIO">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -298,10 +308,10 @@
           <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO_LIQUIDACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Principal>
             <Dependent Role="FACTURACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -338,18 +348,6 @@
             </Principal>
             <Dependent Role="FORMULARIO_LIQUIDACION">
               <PropertyRef Name="IDEMP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FORMULAR_RELATIONS_ESTADO_S">
-          <End Role="ESTADO_SOLICITUD_ANTICIPO" Type="Self.ESTADO_SOLICITUD_ANTICIPO" Multiplicity="0..1" />
-          <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ESTADO_SOLICITUD_ANTICIPO">
-              <PropertyRef Name="IDESTSOLICANT" />
-            </Principal>
-            <Dependent Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDESTSOLICANT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -421,7 +419,6 @@
           <EntitySet Name="DETALLE_FACTURACION" EntityType="Self.DETALLE_FACTURACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLE_FORMULARIO" EntityType="Self.DETALLE_FORMULARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ESTADO_SOLICITUD_ANTICIPO" EntityType="Self.ESTADO_SOLICITUD_ANTICIPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FACTURACION" EntityType="Self.FACTURACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORMULARIO__ANTICIPO" EntityType="Self.FORMULARIO__ANTICIPO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORMULARIO_LIQUIDACION" EntityType="Self.FORMULARIO_LIQUIDACION" Schema="dbo" store:Type="Tables" />
@@ -489,10 +486,6 @@
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="FORMULARIO_LIQUIDACION" EntitySet="FORMULARIO_LIQUIDACION" />
           </AssociationSet>
-          <AssociationSet Name="FK_FORMULAR_RELATIONS_ESTADO_S" Association="Self.FK_FORMULAR_RELATIONS_ESTADO_S">
-            <End Role="ESTADO_SOLICITUD_ANTICIPO" EntitySet="ESTADO_SOLICITUD_ANTICIPO" />
-            <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
-          </AssociationSet>
           <AssociationSet Name="FK_MENU_PER_RELATIONS_PERFIL" Association="Self.FK_MENU_PER_RELATIONS_PERFIL">
             <End Role="PERFIL" EntitySet="PERFIL" />
             <End Role="MENU_PERFIL" EntitySet="MENU_PERFIL" />
@@ -524,7 +517,7 @@
             <PropertyRef Name="IDCALCULO" />
           </Key>
           <Property Name="IDCALCULO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDSOLICANT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDFORMANTICIPO" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="FORMULARIO__ANTICIPO" Relationship="Self.FK_CALCULO_RELATIONS_FORMULAR" FromRole="CALCULO" ToRole="FORMULARIO__ANTICIPO" />
           <NavigationProperty Name="DETALLE_CALCULO" Relationship="Self.FK_DETALLE__RELATIONS_CALCULO" FromRole="CALCULO" ToRole="DETALLE_CALCULO" />
         </EntityType>
@@ -567,13 +560,14 @@
         </EntityType>
         <EntityType Name="DETALLE_FORMULARIO">
           <Key>
-            <PropertyRef Name="IDDETSOLIC" />
+            <PropertyRef Name="IDDETFORM" />
           </Key>
-          <Property Name="IDDETSOLIC" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDSOLICANT" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="IDSOLICLIQ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDDETFORM" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDFORMANTICIPO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDFORMLIQ" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IDTIPOTRANSPORTE" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IDRUTA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NOMBRETRANSPORTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FECSALIDA" Type="DateTime" Precision="3" />
           <Property Name="HORASALIDA" Type="Int32" />
           <Property Name="FECLLEGADA" Type="DateTime" Precision="3" />
@@ -600,49 +594,56 @@
           <NavigationProperty Name="FORMULARIO_LIQUIDACION" Relationship="Self.FK_FORMULAR_RELATIONS_EMPLEADO2" FromRole="EMPLEADO" ToRole="FORMULARIO_LIQUIDACION" />
           <NavigationProperty Name="USUARIOs" Relationship="Self.FK_USUARIO_RELATIONS_EMPLEADO" FromRole="EMPLEADO" ToRole="USUARIO" />
         </EntityType>
-        <EntityType Name="ESTADO_SOLICITUD_ANTICIPO">
-          <Key>
-            <PropertyRef Name="IDESTSOLICANT" />
-          </Key>
-          <Property Name="IDESTSOLICANT" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ESTSOLICANT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FORMULARIO__ANTICIPO" Relationship="Self.FK_FORMULAR_RELATIONS_ESTADO_S" FromRole="ESTADO_SOLICITUD_ANTICIPO" ToRole="FORMULARIO__ANTICIPO" />
-        </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
             <PropertyRef Name="IDFACTURACION" />
           </Key>
           <Property Name="IDFACTURACION" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDSOLICLIQ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDFORMLIQ" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="DETALLE_FACTURACION" Relationship="Self.FK_DETALLE__RELATIONS_FACTURAC" FromRole="FACTURACION" ToRole="DETALLE_FACTURACION" />
           <NavigationProperty Name="FORMULARIO_LIQUIDACION" Relationship="Self.FK_FACTURAC_RELATIONS_FORMULAR" FromRole="FACTURACION" ToRole="FORMULARIO_LIQUIDACION" />
         </EntityType>
         <EntityType Name="FORMULARIO__ANTICIPO">
           <Key>
-            <PropertyRef Name="IDSOLICANT" />
+            <PropertyRef Name="IDFORMANTICIPO" />
           </Key>
-          <Property Name="IDSOLICANT" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDESTSOLICANT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDFORMANTICIPO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDCOMBINACION" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IDEMP" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CODSOLICANT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NUMSOLICANT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="FECSOLICANT" Type="DateTime" Precision="3" />
+          <Property Name="NUMFORMANTICIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FECFORMANTICIPO" Type="DateTime" Precision="3" />
+          <Property Name="CIUDADFORMANTICIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNIDADFORMANTICIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HORASALIDAFORMANTICIPO" Type="DateTime" Precision="3" />
+          <Property Name="FECHASALIDAFORMANTICIPO" Type="DateTime" Precision="3" />
+          <Property Name="HORALLEGADAFORMANTICIPO" Type="DateTime" Precision="3" />
+          <Property Name="FECHALLEGADAFORMANTICIPO" Type="DateTime" Precision="3" />
+          <Property Name="DESCRIPCIONFORMANTICIPO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BANCOFORMANTICIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIPOCUENTAFORMANTICIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMCUENTAFORMANTICIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADOFORMANTICIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CALCULOes" Relationship="Self.FK_CALCULO_RELATIONS_FORMULAR" FromRole="FORMULARIO__ANTICIPO" ToRole="CALCULO" />
           <NavigationProperty Name="COMBINACION_VIATICOS" Relationship="Self.FK_FORMULAR_RELATIONS_COMBINAC" FromRole="FORMULARIO__ANTICIPO" ToRole="COMBINACION_VIATICOS" />
           <NavigationProperty Name="DETALLE_FORMULARIO" Relationship="Self.FK_DETALLE__RELATIONS_FORMULAR1" FromRole="FORMULARIO__ANTICIPO" ToRole="DETALLE_FORMULARIO" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_FORMULAR_RELATIONS_EMPLEADO1" FromRole="FORMULARIO__ANTICIPO" ToRole="EMPLEADO" />
-          <NavigationProperty Name="ESTADO_SOLICITUD_ANTICIPO" Relationship="Self.FK_FORMULAR_RELATIONS_ESTADO_S" FromRole="FORMULARIO__ANTICIPO" ToRole="ESTADO_SOLICITUD_ANTICIPO" />
         </EntityType>
         <EntityType Name="FORMULARIO_LIQUIDACION">
           <Key>
-            <PropertyRef Name="IDSOLICLIQ" />
+            <PropertyRef Name="IDFORMLIQ" />
           </Key>
-          <Property Name="IDSOLICLIQ" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDFORMLIQ" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDEMP" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CODSOLICLIQ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="NUMSOLICLIQ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="FECSOLICLIQ" Type="DateTime" Precision="3" />
+          <Property Name="NUMFORMLIQ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAFORMLIQ" Type="DateTime" Precision="3" />
+          <Property Name="CIUDADFORMLIQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNIDADFORMLIQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCIONFORMLIQ" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FECHASALIDAITINFORMLIQ" Type="DateTime" Precision="3" />
+          <Property Name="FECHALLEGADAITINFORMLIQ" Type="DateTime" Precision="3" />
+          <Property Name="HORASALIDAITINFORMLIQ" Type="DateTime" Precision="3" />
+          <Property Name="HORALLEGADAITINFORMLIQ" Type="DateTime" Precision="3" />
+          <Property Name="ESTADOFORMLIQ" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DETALLE_FORMULARIO" Relationship="Self.FK_DETALLE__RELATIONS_FORMULAR2" FromRole="FORMULARIO_LIQUIDACION" ToRole="DETALLE_FORMULARIO" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_FORMULAR_RELATIONS_EMPLEADO2" FromRole="FORMULARIO_LIQUIDACION" ToRole="EMPLEADO" />
           <NavigationProperty Name="FACTURACIONs" Relationship="Self.FK_FACTURAC_RELATIONS_FORMULAR" FromRole="FORMULARIO_LIQUIDACION" ToRole="FACTURACION" />
@@ -732,10 +733,10 @@
           <End Role="CALCULO" Type="Self.CALCULO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Principal>
             <Dependent Role="CALCULO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -816,10 +817,10 @@
           <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Principal>
             <Dependent Role="DETALLE_FORMULARIO">
-              <PropertyRef Name="IDSOLICANT" />
+              <PropertyRef Name="IDFORMANTICIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -828,10 +829,10 @@
           <End Role="DETALLE_FORMULARIO" Type="Self.DETALLE_FORMULARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO_LIQUIDACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Principal>
             <Dependent Role="DETALLE_FORMULARIO">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -895,27 +896,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FORMULAR_RELATIONS_ESTADO_S">
-          <End Role="ESTADO_SOLICITUD_ANTICIPO" Type="Self.ESTADO_SOLICITUD_ANTICIPO" Multiplicity="0..1" />
-          <End Role="FORMULARIO__ANTICIPO" Type="Self.FORMULARIO__ANTICIPO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ESTADO_SOLICITUD_ANTICIPO">
-              <PropertyRef Name="IDESTSOLICANT" />
-            </Principal>
-            <Dependent Role="FORMULARIO__ANTICIPO">
-              <PropertyRef Name="IDESTSOLICANT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_FACTURAC_RELATIONS_FORMULAR">
           <End Role="FORMULARIO_LIQUIDACION" Type="Self.FORMULARIO_LIQUIDACION" Multiplicity="0..1" />
           <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIO_LIQUIDACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Principal>
             <Dependent Role="FACTURACION">
-              <PropertyRef Name="IDSOLICLIQ" />
+              <PropertyRef Name="IDFORMLIQ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -975,7 +964,6 @@
           <EntitySet Name="DETALLE_FACTURACION" EntityType="Self.DETALLE_FACTURACION" />
           <EntitySet Name="DETALLE_FORMULARIO" EntityType="Self.DETALLE_FORMULARIO" />
           <EntitySet Name="EMPLEADOes" EntityType="Self.EMPLEADO" />
-          <EntitySet Name="ESTADO_SOLICITUD_ANTICIPO" EntityType="Self.ESTADO_SOLICITUD_ANTICIPO" />
           <EntitySet Name="FACTURACIONs" EntityType="Self.FACTURACION" />
           <EntitySet Name="FORMULARIO__ANTICIPO" EntityType="Self.FORMULARIO__ANTICIPO" />
           <EntitySet Name="FORMULARIO_LIQUIDACION" EntityType="Self.FORMULARIO_LIQUIDACION" />
@@ -1043,10 +1031,6 @@
             <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
             <End Role="USUARIO" EntitySet="USUARIOs" />
           </AssociationSet>
-          <AssociationSet Name="FK_FORMULAR_RELATIONS_ESTADO_S" Association="Self.FK_FORMULAR_RELATIONS_ESTADO_S">
-            <End Role="ESTADO_SOLICITUD_ANTICIPO" EntitySet="ESTADO_SOLICITUD_ANTICIPO" />
-            <End Role="FORMULARIO__ANTICIPO" EntitySet="FORMULARIO__ANTICIPO" />
-          </AssociationSet>
           <AssociationSet Name="FK_FACTURAC_RELATIONS_FORMULAR" Association="Self.FK_FACTURAC_RELATIONS_FORMULAR">
             <End Role="FORMULARIO_LIQUIDACION" EntitySet="FORMULARIO_LIQUIDACION" />
             <End Role="FACTURACION" EntitySet="FACTURACIONs" />
@@ -1078,7 +1062,7 @@
             <EntityTypeMapping TypeName="SIGVIDAPSModel.CALCULO">
               <MappingFragment StoreEntitySet="CALCULO">
                 <ScalarProperty Name="IDCALCULO" ColumnName="IDCALCULO" />
-                <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
+                <ScalarProperty Name="IDFORMANTICIPO" ColumnName="IDFORMANTICIPO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1120,11 +1104,12 @@
           <EntitySetMapping Name="DETALLE_FORMULARIO">
             <EntityTypeMapping TypeName="SIGVIDAPSModel.DETALLE_FORMULARIO">
               <MappingFragment StoreEntitySet="DETALLE_FORMULARIO">
-                <ScalarProperty Name="IDDETSOLIC" ColumnName="IDDETSOLIC" />
-                <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
-                <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+                <ScalarProperty Name="IDDETFORM" ColumnName="IDDETFORM" />
+                <ScalarProperty Name="IDFORMANTICIPO" ColumnName="IDFORMANTICIPO" />
+                <ScalarProperty Name="IDFORMLIQ" ColumnName="IDFORMLIQ" />
                 <ScalarProperty Name="IDTIPOTRANSPORTE" ColumnName="IDTIPOTRANSPORTE" />
                 <ScalarProperty Name="IDRUTA" ColumnName="IDRUTA" />
+                <ScalarProperty Name="NOMBRETRANSPORTE" ColumnName="NOMBRETRANSPORTE" />
                 <ScalarProperty Name="FECSALIDA" ColumnName="FECSALIDA" />
                 <ScalarProperty Name="HORASALIDA" ColumnName="HORASALIDA" />
                 <ScalarProperty Name="FECLLEGADA" ColumnName="FECLLEGADA" />
@@ -1146,43 +1131,51 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ESTADO_SOLICITUD_ANTICIPO">
-            <EntityTypeMapping TypeName="SIGVIDAPSModel.ESTADO_SOLICITUD_ANTICIPO">
-              <MappingFragment StoreEntitySet="ESTADO_SOLICITUD_ANTICIPO">
-                <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
-                <ScalarProperty Name="ESTSOLICANT" ColumnName="ESTSOLICANT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FACTURACIONs">
             <EntityTypeMapping TypeName="SIGVIDAPSModel.FACTURACION">
               <MappingFragment StoreEntitySet="FACTURACION">
                 <ScalarProperty Name="IDFACTURACION" ColumnName="IDFACTURACION" />
-                <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+                <ScalarProperty Name="IDFORMLIQ" ColumnName="IDFORMLIQ" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMULARIO__ANTICIPO">
             <EntityTypeMapping TypeName="SIGVIDAPSModel.FORMULARIO__ANTICIPO">
               <MappingFragment StoreEntitySet="FORMULARIO__ANTICIPO">
-                <ScalarProperty Name="IDSOLICANT" ColumnName="IDSOLICANT" />
-                <ScalarProperty Name="IDESTSOLICANT" ColumnName="IDESTSOLICANT" />
+                <ScalarProperty Name="IDFORMANTICIPO" ColumnName="IDFORMANTICIPO" />
                 <ScalarProperty Name="IDCOMBINACION" ColumnName="IDCOMBINACION" />
                 <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
-                <ScalarProperty Name="CODSOLICANT" ColumnName="CODSOLICANT" />
-                <ScalarProperty Name="NUMSOLICANT" ColumnName="NUMSOLICANT" />
-                <ScalarProperty Name="FECSOLICANT" ColumnName="FECSOLICANT" />
+                <ScalarProperty Name="NUMFORMANTICIPO" ColumnName="NUMFORMANTICIPO" />
+                <ScalarProperty Name="FECFORMANTICIPO" ColumnName="FECFORMANTICIPO" />
+                <ScalarProperty Name="CIUDADFORMANTICIPO" ColumnName="CIUDADFORMANTICIPO" />
+                <ScalarProperty Name="UNIDADFORMANTICIPO" ColumnName="UNIDADFORMANTICIPO" />
+                <ScalarProperty Name="HORASALIDAFORMANTICIPO" ColumnName="HORASALIDAFORMANTICIPO" />
+                <ScalarProperty Name="FECHASALIDAFORMANTICIPO" ColumnName="FECHASALIDAFORMANTICIPO" />
+                <ScalarProperty Name="HORALLEGADAFORMANTICIPO" ColumnName="HORALLEGADAFORMANTICIPO" />
+                <ScalarProperty Name="FECHALLEGADAFORMANTICIPO" ColumnName="FECHALLEGADAFORMANTICIPO" />
+                <ScalarProperty Name="DESCRIPCIONFORMANTICIPO" ColumnName="DESCRIPCIONFORMANTICIPO" />
+                <ScalarProperty Name="BANCOFORMANTICIPO" ColumnName="BANCOFORMANTICIPO" />
+                <ScalarProperty Name="TIPOCUENTAFORMANTICIPO" ColumnName="TIPOCUENTAFORMANTICIPO" />
+                <ScalarProperty Name="NUMCUENTAFORMANTICIPO" ColumnName="NUMCUENTAFORMANTICIPO" />
+                <ScalarProperty Name="ESTADOFORMANTICIPO" ColumnName="ESTADOFORMANTICIPO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FORMULARIO_LIQUIDACION">
             <EntityTypeMapping TypeName="SIGVIDAPSModel.FORMULARIO_LIQUIDACION">
               <MappingFragment StoreEntitySet="FORMULARIO_LIQUIDACION">
-                <ScalarProperty Name="IDSOLICLIQ" ColumnName="IDSOLICLIQ" />
+                <ScalarProperty Name="IDFORMLIQ" ColumnName="IDFORMLIQ" />
                 <ScalarProperty Name="IDEMP" ColumnName="IDEMP" />
-                <ScalarProperty Name="CODSOLICLIQ" ColumnName="CODSOLICLIQ" />
-                <ScalarProperty Name="NUMSOLICLIQ" ColumnName="NUMSOLICLIQ" />
-                <ScalarProperty Name="FECSOLICLIQ" ColumnName="FECSOLICLIQ" />
+                <ScalarProperty Name="NUMFORMLIQ" ColumnName="NUMFORMLIQ" />
+                <ScalarProperty Name="FECHAFORMLIQ" ColumnName="FECHAFORMLIQ" />
+                <ScalarProperty Name="CIUDADFORMLIQ" ColumnName="CIUDADFORMLIQ" />
+                <ScalarProperty Name="UNIDADFORMLIQ" ColumnName="UNIDADFORMLIQ" />
+                <ScalarProperty Name="DESCRIPCIONFORMLIQ" ColumnName="DESCRIPCIONFORMLIQ" />
+                <ScalarProperty Name="FECHASALIDAITINFORMLIQ" ColumnName="FECHASALIDAITINFORMLIQ" />
+                <ScalarProperty Name="FECHALLEGADAITINFORMLIQ" ColumnName="FECHALLEGADAITINFORMLIQ" />
+                <ScalarProperty Name="HORASALIDAITINFORMLIQ" ColumnName="HORASALIDAITINFORMLIQ" />
+                <ScalarProperty Name="HORALLEGADAITINFORMLIQ" ColumnName="HORALLEGADAITINFORMLIQ" />
+                <ScalarProperty Name="ESTADOFORMLIQ" ColumnName="ESTADOFORMLIQ" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

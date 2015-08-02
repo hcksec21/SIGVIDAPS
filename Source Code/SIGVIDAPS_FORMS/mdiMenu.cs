@@ -205,5 +205,11 @@ namespace SIGVIDAPS_FORMS
             frmEliminarRuta ruta = new frmEliminarRuta();
             ValidarForm(ruta);
         }
+
+        private void registrarFormularioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmFormularioLiquidacion formLiq = new frmFormularioLiquidacion();
+            ValidarForm(formLiq);
+        }
     }
 }

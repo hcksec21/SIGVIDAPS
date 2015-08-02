@@ -14,11 +14,12 @@ namespace SIGVIDAPS_DAT
     
     public partial class DETALLE_FORMULARIO
     {
-        public decimal IDDETSOLIC { get; set; }
-        public Nullable<decimal> IDSOLICANT { get; set; }
-        public Nullable<decimal> IDSOLICLIQ { get; set; }
+        public decimal IDDETFORM { get; set; }
+        public Nullable<decimal> IDFORMANTICIPO { get; set; }
+        public Nullable<decimal> IDFORMLIQ { get; set; }
         public Nullable<decimal> IDTIPOTRANSPORTE { get; set; }
         public Nullable<decimal> IDRUTA { get; set; }
+        public string NOMBRETRANSPORTE { get; set; }
         public Nullable<System.DateTime> FECSALIDA { get; set; }
         public Nullable<int> HORASALIDA { get; set; }
         public Nullable<System.DateTime> FECLLEGADA { get; set; }

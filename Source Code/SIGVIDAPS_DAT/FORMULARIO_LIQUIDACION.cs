@@ -20,11 +20,18 @@ namespace SIGVIDAPS_DAT
             this.FACTURACIONs = new HashSet<FACTURACION>();
         }
     
-        public decimal IDSOLICLIQ { get; set; }
+        public decimal IDFORMLIQ { get; set; }
         public Nullable<decimal> IDEMP { get; set; }
-        public string CODSOLICLIQ { get; set; }
-        public string NUMSOLICLIQ { get; set; }
-        public Nullable<System.DateTime> FECSOLICLIQ { get; set; }
+        public string NUMFORMLIQ { get; set; }
+        public Nullable<System.DateTime> FECHAFORMLIQ { get; set; }
+        public string CIUDADFORMLIQ { get; set; }
+        public string UNIDADFORMLIQ { get; set; }
+        public string DESCRIPCIONFORMLIQ { get; set; }
+        public Nullable<System.DateTime> FECHASALIDAITINFORMLIQ { get; set; }
+        public Nullable<System.DateTime> FECHALLEGADAITINFORMLIQ { get; set; }
+        public Nullable<System.DateTime> HORASALIDAITINFORMLIQ { get; set; }
+        public Nullable<System.DateTime> HORALLEGADAITINFORMLIQ { get; set; }
+        public string ESTADOFORMLIQ { get; set; }
     
         public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }

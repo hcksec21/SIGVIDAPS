@@ -20,7 +20,7 @@ namespace SIGVIDAPS_DAT
         }
     
         public decimal IDFACTURACION { get; set; }
-        public Nullable<decimal> IDSOLICLIQ { get; set; }
+        public Nullable<decimal> IDFORMLIQ { get; set; }
     
         public virtual ICollection<DETALLE_FACTURACION> DETALLE_FACTURACION { get; set; }
         public virtual FORMULARIO_LIQUIDACION FORMULARIO_LIQUIDACION { get; set; }

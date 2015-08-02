@@ -32,7 +32,6 @@ namespace SIGVIDAPS_DAT
         public virtual DbSet<DETALLE_FACTURACION> DETALLE_FACTURACION { get; set; }
         public virtual DbSet<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
-        public virtual DbSet<ESTADO_SOLICITUD_ANTICIPO> ESTADO_SOLICITUD_ANTICIPO { get; set; }
         public virtual DbSet<FACTURACION> FACTURACIONs { get; set; }
         public virtual DbSet<FORMULARIO__ANTICIPO> FORMULARIO__ANTICIPO { get; set; }
         public virtual DbSet<FORMULARIO_LIQUIDACION> FORMULARIO_LIQUIDACION { get; set; }
