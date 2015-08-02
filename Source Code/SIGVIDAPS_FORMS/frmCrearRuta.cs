@@ -17,16 +17,18 @@ namespace SIGVIDAPS_FORMS
         public frmCrearRuta()
         {
             InitializeComponent();
+            cargarRutasDataGridView();
         }
 
 
         //CARGAR EMPLEADOS EN DATAGRIDVIEW
-        private void cargarEmpleadosDataGridView()
+        private void cargarRutasDataGridView()
         {
             try
             {
                 this.dgvRutas.Rows.Clear();
                 List<RUTA> lstRuta = (new clsRutaBLL()).obtenerTodasRutas();
+                MessageBox.Show("ruta.size():" + lstRuta.Count);
 
                 foreach (RUTA ruta in lstRuta)
                 {
@@ -60,6 +62,11 @@ namespace SIGVIDAPS_FORMS
             {
                 MessageBox.Show("Error al cargar la lista de Rutas\n" + ex.Message);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

@@ -105,6 +105,8 @@
             // 
             // dgvRutas
             // 
+            this.dgvRutas.AllowUserToAddRows = false;
+            this.dgvRutas.AllowUserToDeleteRows = false;
             this.dgvRutas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRutas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -113,6 +115,7 @@
             this.LugarLlegada});
             this.dgvRutas.Location = new System.Drawing.Point(20, 207);
             this.dgvRutas.Name = "dgvRutas";
+            this.dgvRutas.ReadOnly = true;
             this.dgvRutas.Size = new System.Drawing.Size(699, 180);
             this.dgvRutas.TabIndex = 13;
             // 
@@ -149,6 +152,7 @@
             this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
