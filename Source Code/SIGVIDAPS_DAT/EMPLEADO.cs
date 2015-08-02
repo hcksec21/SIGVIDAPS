@@ -27,6 +27,7 @@ namespace SIGVIDAPS_DAT
         public string APELLIDOEMP { get; set; }
         public string DIREMP { get; set; }
         public string TELEMP { get; set; }
+        public Nullable<bool> ESTEMP { get; set; }
     
         public virtual CARGO CARGO { get; set; }
         public virtual ICollection<SOLICITUD__ANTICIPO> SOLICITUD__ANTICIPO { get; set; }

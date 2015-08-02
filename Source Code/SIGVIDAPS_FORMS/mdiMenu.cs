@@ -141,5 +141,15 @@ namespace SIGVIDAPS_FORMS
         {
 
         }
+
+        private void eliminarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -132,7 +132,7 @@ namespace SIGVIDAPS_FORMS
                     {                        
                         IDCARGO = Convert.ToInt32(cmbCargos.SelectedValue),
                         CEDULAEMP = txtCedula.Text,
-                        CODEMP = "EMP",
+                        ESTEMP = true,
                         NOMBREEMP = this.txtNombres.Text ,
                         APELLIDOEMP = this.txtApellidos.Text,
                         DIREMP = this.txtDireccion.Text,
@@ -209,6 +209,13 @@ namespace SIGVIDAPS_FORMS
         {
             if (Char.IsDigit(e.KeyChar))
                 e.Handled = false;
+        }
+
+        private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idCargo = (int)cmbCargos.SelectedValue;
+
+
         }
     }
 }

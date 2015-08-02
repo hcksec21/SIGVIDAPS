@@ -23,6 +23,7 @@ namespace SIGVIDAPS_DAT
         public decimal IDNIVEL { get; set; }
         public string COD_NIVEL { get; set; }
         public int NIVEL1 { get; set; }
+        public decimal VALORNIVEL { get; set; }
     
         public virtual ICollection<CARGO> CARGOes { get; set; }
         public virtual ICollection<OPCION_NIVEL> OPCION_NIVEL { get; set; }

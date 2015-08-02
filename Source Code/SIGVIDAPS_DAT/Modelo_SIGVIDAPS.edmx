@@ -65,10 +65,11 @@
           <Property Name="IDCARGO" Type="numeric" Precision="18" Scale="0" />
           <Property Name="CODEMP" Type="varchar" MaxLength="10" />
           <Property Name="CEDULAEMP" Type="varchar" MaxLength="10" />
-          <Property Name="NOMBREEMP" Type="varchar" MaxLength="50" />
-          <Property Name="APELLIDOEMP" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBREEMP" Type="varchar" MaxLength="100" />
+          <Property Name="APELLIDOEMP" Type="varchar" MaxLength="100" />
           <Property Name="DIREMP" Type="varchar" MaxLength="50" />
           <Property Name="TELEMP" Type="varchar" MaxLength="15" />
+          <Property Name="ESTEMP" Type="bit" />
         </EntityType>
         <EntityType Name="ESTADO_SOLICITUD_ANTICIPO">
           <Key>
@@ -91,6 +92,7 @@
           <Property Name="IDNIVEL" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="COD_NIVEL" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NIVEL" Type="int" Nullable="false" />
+          <Property Name="VALORNIVEL" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="OPCION_NIVEL">
           <Key>
@@ -472,10 +474,11 @@
           <Property Name="IDCARGO" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="CODEMP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CEDULAEMP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBREEMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="APELLIDOEMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBREEMP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOEMP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DIREMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TELEMP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ESTEMP" Type="Boolean" />
           <NavigationProperty Name="CARGO" Relationship="Self.FK_EMPLEADO_RELATIONS_CARGO" FromRole="EMPLEADO" ToRole="CARGO" />
           <NavigationProperty Name="SOLICITUD__ANTICIPO" Relationship="Self.FK_SOLICITU_RELATIONS_EMPLEADO" FromRole="EMPLEADO" ToRole="SOLICITUD__ANTICIPO" />
         </EntityType>
@@ -503,6 +506,7 @@
           <Property Name="IDNIVEL" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="COD_NIVEL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NIVEL1" Type="Int32" Nullable="false" />
+          <Property Name="VALORNIVEL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="CARGOes" Relationship="Self.FK_CARGO_RELATIONS_NIVEL" FromRole="NIVEL" ToRole="CARGO" />
           <NavigationProperty Name="OPCION_NIVEL" Relationship="Self.FK_OPCION_N_RELATIONS_NIVEL" FromRole="NIVEL" ToRole="OPCION_NIVEL" />
         </EntityType>
@@ -897,6 +901,7 @@
                 <ScalarProperty Name="APELLIDOEMP" ColumnName="APELLIDOEMP" />
                 <ScalarProperty Name="DIREMP" ColumnName="DIREMP" />
                 <ScalarProperty Name="TELEMP" ColumnName="TELEMP" />
+                <ScalarProperty Name="ESTEMP" ColumnName="ESTEMP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -922,6 +927,7 @@
                 <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
                 <ScalarProperty Name="COD_NIVEL" ColumnName="COD_NIVEL" />
                 <ScalarProperty Name="NIVEL1" ColumnName="NIVEL" />
+                <ScalarProperty Name="VALORNIVEL" ColumnName="VALORNIVEL" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

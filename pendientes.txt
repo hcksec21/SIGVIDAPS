@@ -1,0 +1,5 @@
+Los formularios no forman parte del MDI
+
+formulario registrar empleado -> 
+	cuando la cedula llega a 10 caracteres, backspace no funciona
+	cargar nivel cuando se seleccciona cargo
