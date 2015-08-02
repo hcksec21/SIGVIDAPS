@@ -142,7 +142,9 @@
             <PropertyRef Name="IDRUTA" />
           </Key>
           <Property Name="IDRUTA" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMRUTA" Type="varchar" MaxLength="30" />
+          <Property Name="LUGARSALIDA" Type="varchar" MaxLength="30" />
+          <Property Name="LUGARLLEGADA" Type="varchar" MaxLength="30" />
+          <Property Name="CODRUTA" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="TIPO_TRANSPORTE">
           <Key>
@@ -661,7 +663,9 @@
             <PropertyRef Name="IDRUTA" />
           </Key>
           <Property Name="IDRUTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMRUTA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LUGARSALIDA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LUGARLLEGADA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CODRUTA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DETALLE_FORMULARIO" Relationship="Self.FK_DETALLE__RELATIONS_RUTA" FromRole="RUTA" ToRole="DETALLE_FORMULARIO" />
         </EntityType>
         <EntityType Name="TIPO_TRANSPORTE">
@@ -1165,7 +1169,9 @@
             <EntityTypeMapping TypeName="SIGVIDAPSModel.RUTA">
               <MappingFragment StoreEntitySet="RUTA">
                 <ScalarProperty Name="IDRUTA" ColumnName="IDRUTA" />
-                <ScalarProperty Name="NOMRUTA" ColumnName="NOMRUTA" />
+                <ScalarProperty Name="LUGARSALIDA" ColumnName="LUGARSALIDA" />
+                <ScalarProperty Name="LUGARLLEGADA" ColumnName="LUGARLLEGADA" />
+                <ScalarProperty Name="CODRUTA" ColumnName="CODRUTA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

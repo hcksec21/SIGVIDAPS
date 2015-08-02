@@ -183,5 +183,10 @@ namespace SIGVIDAPS_FORMS
             frmEliminarEmpleado eliminarEmpleado = new frmEliminarEmpleado();
             ValidarForm(eliminarEmpleado);
         }
+
+        private void administrarRutasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

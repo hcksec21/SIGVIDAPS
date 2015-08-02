@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 4:33:53                           */
+/* Created on:     02/08/2015 6:00:22                           */
 /*==============================================================*/
 
 
@@ -752,7 +752,9 @@ go
 /*==============================================================*/
 create table RUTA (
    IDRUTA               numeric              identity,
-   NOMRUTA              varchar(30)          null,
+   LUGARSALIDA          varchar(30)          null,
+   LUGARLLEGADA         varchar(30)          null,
+   CODRUTA              varchar(15)          null,
    constraint PK_RUTA primary key nonclustered (IDRUTA)
 )
 go
