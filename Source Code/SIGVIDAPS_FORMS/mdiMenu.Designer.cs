@@ -47,8 +47,17 @@
             this.eliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdministracion = new System.Windows.Forms.ToolStripMenuItem();
             this.sbmnuCargo = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarCargoDeEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarCargoDeEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarCargoDeEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarRutasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarRutaDeMovilizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarRutaDeMovilizacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -196,22 +205,92 @@
             // 
             // sbmnuCargo
             // 
+            this.sbmnuCargo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarCargoDeEmpleadoToolStripMenuItem,
+            this.editarCargoDeEmpleadoToolStripMenuItem,
+            this.eliminarCargoDeEmpleadoToolStripMenuItem});
             this.sbmnuCargo.Name = "sbmnuCargo";
-            this.sbmnuCargo.Size = new System.Drawing.Size(254, 22);
-            this.sbmnuCargo.Text = "Administrar Cargos de Empleado";
+            this.sbmnuCargo.Size = new System.Drawing.Size(189, 22);
+            this.sbmnuCargo.Text = "Cargos de Empleado";
             this.sbmnuCargo.Click += new System.EventHandler(this.sbmnuCargo_Click);
+            // 
+            // registrarCargoDeEmpleadoToolStripMenuItem
+            // 
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Name = "registrarCargoDeEmpleadoToolStripMenuItem";
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Text = "Registrar Cargo de Empleado";
+            this.registrarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.registrarCargoDeEmpleadoToolStripMenuItem_Click);
+            // 
+            // editarCargoDeEmpleadoToolStripMenuItem
+            // 
+            this.editarCargoDeEmpleadoToolStripMenuItem.Name = "editarCargoDeEmpleadoToolStripMenuItem";
+            this.editarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.editarCargoDeEmpleadoToolStripMenuItem.Text = "Editar Cargo de Empleado";
+            this.editarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.editarCargoDeEmpleadoToolStripMenuItem_Click);
+            // 
+            // eliminarCargoDeEmpleadoToolStripMenuItem
+            // 
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Name = "eliminarCargoDeEmpleadoToolStripMenuItem";
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Text = "Eliminar Cargo de Empleado";
+            this.eliminarCargoDeEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.eliminarCargoDeEmpleadoToolStripMenuItem_Click);
             // 
             // administrarRutasToolStripMenuItem
             // 
+            this.administrarRutasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarRutaDeMovilizaciónToolStripMenuItem,
+            this.editarRutaDeMovilizacionToolStripMenuItem,
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem});
             this.administrarRutasToolStripMenuItem.Name = "administrarRutasToolStripMenuItem";
-            this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
-            this.administrarRutasToolStripMenuItem.Text = "Administrar Rutas de Movilización";
+            this.administrarRutasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.administrarRutasToolStripMenuItem.Text = "Rutas de Movilización";
+            // 
+            // registrarRutaDeMovilizaciónToolStripMenuItem
+            // 
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Name = "registrarRutaDeMovilizaciónToolStripMenuItem";
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Text = "Registrar Ruta de Movilización";
+            // 
+            // editarRutaDeMovilizacionToolStripMenuItem
+            // 
+            this.editarRutaDeMovilizacionToolStripMenuItem.Name = "editarRutaDeMovilizacionToolStripMenuItem";
+            this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Editar Ruta de Movilización";
+            // 
+            // eliminarRutaDeMovilizaciónToolStripMenuItem
+            // 
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Name = "eliminarRutaDeMovilizaciónToolStripMenuItem";
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Text = "Eliminar Ruta de Movilización";
             // 
             // administrarUsuariosToolStripMenuItem
             // 
+            this.administrarUsuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarUsuariosToolStripMenuItem,
+            this.editarUsuariosToolStripMenuItem,
+            this.eliminarUsuarioToolStripMenuItem});
             this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
-            this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios";
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.administrarUsuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // registrarUsuariosToolStripMenuItem
+            // 
+            this.registrarUsuariosToolStripMenuItem.Name = "registrarUsuariosToolStripMenuItem";
+            this.registrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.registrarUsuariosToolStripMenuItem.Text = "Registrar Usuario";
+            this.registrarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuariosToolStripMenuItem_Click);
+            // 
+            // editarUsuariosToolStripMenuItem
+            // 
+            this.editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
+            this.editarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.editarUsuariosToolStripMenuItem.Text = "Editar Usuario";
+            // 
+            // eliminarUsuarioToolStripMenuItem
+            // 
+            this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -224,7 +303,7 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
             // 
             // mdiMenu
@@ -276,5 +355,14 @@
         private System.Windows.Forms.ToolStripMenuItem aprobarFormularioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarFormularioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarEmpleadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarCargoDeEmpleadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarCargoDeEmpleadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarCargoDeEmpleadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarRutaDeMovilizaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarRutaDeMovilizacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarRutaDeMovilizaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
     }
 }

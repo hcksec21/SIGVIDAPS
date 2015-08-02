@@ -51,7 +51,7 @@ namespace SIGVIDAPS_FORMS
 
         private void sbmnuCargo_Click(object sender, EventArgs e)
         {
-            frmCargo objCargo = new frmCargo();
+            frmRegistrarCargo objCargo = new frmRegistrarCargo();
             ValidarForm(objCargo);
         }
 
@@ -153,6 +153,29 @@ namespace SIGVIDAPS_FORMS
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void registrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registrarCargoDeEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistrarCargo registrarCargo = new frmRegistrarCargo();
+            ValidarForm(registrarCargo);
+        }
+
+        private void editarCargoDeEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarCargo modificarCargo = new frmModificarCargo();
+            ValidarForm(modificarCargo);
+        }
+
+        private void eliminarCargoDeEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminarCargo eliminarCargo = new frmEliminarCargo();
+            ValidarForm(eliminarCargo);
         }
     }
 }
