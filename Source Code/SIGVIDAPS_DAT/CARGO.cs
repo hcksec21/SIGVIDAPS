@@ -22,6 +22,7 @@ namespace SIGVIDAPS_DAT
         public decimal IDCARGO { get; set; }
         public Nullable<decimal> IDNIVEL { get; set; }
         public string NOMCARGO { get; set; }
+        public Nullable<bool> ESTCARGO { get; set; }
     
         public virtual NIVEL NIVEL { get; set; }
         public virtual ICollection<EMPLEADO> EMPLEADOes { get; set; }

@@ -139,7 +139,7 @@ namespace SIGVIDAPS_FORMS
 
                     //Empleado
                     DataGridViewCell cellEmpleado = new DataGridViewTextBoxCell();
-                    cellEmpleado.Value = usuario.EMPLEADO.NOMBRECOMPLETO;
+                    cellEmpleado.Value = usuario.EMPLEADO.NOMBREEMP;
                     tempRow.Cells.Add(cellEmpleado);
 
                     //Empleado
@@ -252,7 +252,7 @@ namespace SIGVIDAPS_FORMS
             // Return the result.
             return hashValue;
         }
-
+        
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (chkMostrarCon.Checked)
@@ -264,6 +264,5 @@ namespace SIGVIDAPS_FORMS
                 mskTextBox.PasswordChar = '*';
             }
         }
-
     }
 }

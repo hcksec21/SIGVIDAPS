@@ -120,6 +120,7 @@
           <Property Name="IDCARGO" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDNIVEL" Type="numeric" />
           <Property Name="NOMCARGO" Type="varchar" MaxLength="30" />
+          <Property Name="ESTCARGO" Type="bit" />
         </EntityType>
         <EntityType Name="COMBINACION_VIATICOS">
           <Key>
@@ -253,6 +254,7 @@
           <Property Name="LUGARSALIDA" Type="varchar" MaxLength="30" />
           <Property Name="LUGARLLEGADA" Type="varchar" MaxLength="30" />
           <Property Name="CODRUTA" Type="varchar" MaxLength="15" />
+          <Property Name="ESTRUTA" Type="bit" />
         </EntityType>
         <EntityType Name="TIPO_TRANSPORTE">
           <Key>
@@ -270,6 +272,7 @@
           <Property Name="IDPERFIL" Type="numeric" />
           <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="CONTRASENAUSUARIO" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ESTUSUARIO" Type="bit" />
         </EntityType>
         <Association Name="FK_CALCULO_RELATIONS_FORMULAR">
           <End Role="FORMULARIO__ANTICIPO" Type="SIGVIDAPSModel.Store.FORMULARIO__ANTICIPO" Multiplicity="0..1" />
@@ -633,6 +636,7 @@
           <Property Name="IDCARGO" Type="Decimal" Nullable="false" Precision="18" Scale="0" p1:StoreGeneratedPattern="Identity" />
           <Property Name="IDNIVEL" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NOMCARGO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ESTCARGO" Type="Boolean" />
           <NavigationProperty Name="NIVEL" Relationship="SIGVIDAPSModel.FK_CARGO_RELATIONS_NIVEL" FromRole="CARGO" ToRole="NIVEL" />
           <NavigationProperty Name="EMPLEADOes" Relationship="SIGVIDAPSModel.FK_EMPLEADO_RELATIONS_CARGO" FromRole="CARGO" ToRole="EMPLEADO" />
         </EntityType>
@@ -800,6 +804,7 @@
           <Property Name="LUGARSALIDA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="LUGARLLEGADA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CODRUTA" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="ESTRUTA" Type="Boolean" />
           <NavigationProperty Name="DETALLE_FORMULARIO" Relationship="SIGVIDAPSModel.FK_DETALLE__RELATIONS_RUTA" FromRole="RUTA" ToRole="DETALLE_FORMULARIO" />
         </EntityType>
         <EntityType Name="TIPO_TRANSPORTE">
@@ -819,6 +824,7 @@
           <Property Name="IDPERFIL" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NOMBREUSUARIO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="CONTRASENAUSUARIO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ESTUSUARIO" Type="Boolean" />
           <NavigationProperty Name="EMPLEADO" Relationship="SIGVIDAPSModel.FK_USUARIO_RELATIONS_EMPLEADO" FromRole="USUARIO" ToRole="EMPLEADO" />
           <NavigationProperty Name="PERFIL" Relationship="SIGVIDAPSModel.FK_USUARIO_RELATIONS_PERFIL" FromRole="USUARIO" ToRole="PERFIL" />
         </EntityType>
@@ -1082,6 +1088,7 @@
                 <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
                 <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
                 <ScalarProperty Name="NOMCARGO" ColumnName="NOMCARGO" />
+                <ScalarProperty Name="ESTCARGO" ColumnName="ESTCARGO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1230,6 +1237,7 @@
                 <ScalarProperty Name="LUGARSALIDA" ColumnName="LUGARSALIDA" />
                 <ScalarProperty Name="LUGARLLEGADA" ColumnName="LUGARLLEGADA" />
                 <ScalarProperty Name="CODRUTA" ColumnName="CODRUTA" />
+                <ScalarProperty Name="ESTRUTA" ColumnName="ESTRUTA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1249,6 +1257,7 @@
                 <ScalarProperty Name="IDPERFIL" ColumnName="IDPERFIL" />
                 <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
                 <ScalarProperty Name="CONTRASENAUSUARIO" ColumnName="CONTRASENAUSUARIO" />
+                <ScalarProperty Name="ESTUSUARIO" ColumnName="ESTUSUARIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

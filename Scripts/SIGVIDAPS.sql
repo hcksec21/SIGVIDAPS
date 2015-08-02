@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 6:58:42                           */
+/* Created on:     02/08/2015 12:19:33                          */
 /*==============================================================*/
 
 
@@ -482,6 +482,7 @@ create table CARGO (
    IDCARGO              numeric              identity,
    IDNIVEL              numeric              null,
    NOMCARGO             varchar(30)          null,
+   ESTCARGO             bit                  null,
    constraint PK_CARGO primary key nonclustered (IDCARGO)
 )
 go
@@ -796,6 +797,7 @@ create table RUTA (
    LUGARSALIDA          varchar(30)          null,
    LUGARLLEGADA         varchar(30)          null,
    CODRUTA              varchar(15)          null,
+   ESTRUTA              bit                  null,
    constraint PK_RUTA primary key nonclustered (IDRUTA)
 )
 go
@@ -819,6 +821,7 @@ create table USUARIO (
    IDPERFIL             numeric              null,
    NOMBREUSUARIO        varchar(30)          not null,
    CONTRASENAUSUARIO    varchar(30)          not null,
+   ESTUSUARIO           bit                  null,
    constraint PK_USUARIO primary key nonclustered (IDUSUARIO)
 )
 go

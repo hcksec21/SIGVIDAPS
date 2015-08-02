@@ -214,6 +214,7 @@
             this.sbmnuCargo.Name = "sbmnuCargo";
             this.sbmnuCargo.Size = new System.Drawing.Size(189, 22);
             this.sbmnuCargo.Text = "Cargos de Empleado";
+            this.sbmnuCargo.Click += new System.EventHandler(this.sbmnuCargo_Click);
             // 
             // registrarCargoDeEmpleadoToolStripMenuItem
             // 
@@ -252,18 +253,21 @@
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Name = "registrarRutaDeMovilizaciónToolStripMenuItem";
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.registrarRutaDeMovilizaciónToolStripMenuItem.Text = "Registrar Ruta de Movilización";
+            this.registrarRutaDeMovilizaciónToolStripMenuItem.Click += new System.EventHandler(this.registrarRutaDeMovilizaciónToolStripMenuItem_Click);
             // 
             // editarRutaDeMovilizacionToolStripMenuItem
             // 
             this.editarRutaDeMovilizacionToolStripMenuItem.Name = "editarRutaDeMovilizacionToolStripMenuItem";
             this.editarRutaDeMovilizacionToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.editarRutaDeMovilizacionToolStripMenuItem.Text = "Actualizar Ruta de Movilización";
+            this.editarRutaDeMovilizacionToolStripMenuItem.Click += new System.EventHandler(this.editarRutaDeMovilizacionToolStripMenuItem_Click);
             // 
             // eliminarRutaDeMovilizaciónToolStripMenuItem
             // 
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Name = "eliminarRutaDeMovilizaciónToolStripMenuItem";
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.eliminarRutaDeMovilizaciónToolStripMenuItem.Text = "Eliminar Ruta de Movilización";
+            this.eliminarRutaDeMovilizaciónToolStripMenuItem.Click += new System.EventHandler(this.eliminarRutaDeMovilizaciónToolStripMenuItem_Click);
             // 
             // administrarUsuariosToolStripMenuItem
             // 

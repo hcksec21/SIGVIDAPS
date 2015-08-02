@@ -12,22 +12,42 @@ using SIGVIDAPS_DAT;
 
 namespace SIGVIDAPS_FORMS
 {
-    public partial class frmCrearRuta : Form
+    public partial class frmModificarRuta : Form
     {
-        public frmCrearRuta()
+        public frmModificarRuta()
         {
             InitializeComponent();
-            cargarRutasDataGridView();
+            limpiarTodo();
         }
 
+        private void frmModificarRuta_Load(object sender, EventArgs e)
+        {
+            habilitarControles(false);
+            cargarRutasDataGridView();
+            limpiarTodo();
 
-        //CARGAR RUTAS EN DATAGRIDVIEW
+        }
+
+        private void habilitarControles(Boolean flag)
+        {
+            txtLugarLlegada.Enabled = flag;
+            txtLugarSalida.Enabled = flag;
+        }
+
+        private void limpiarTodo()
+        {
+            txtLugarLlegada.Text = "";
+            txtLugarSalida.Text = "";
+            dgvRutas.ClearSelection();
+        }
+
+        //CARGAR EMPLEADOS EN DATAGRIDVIEW
         private void cargarRutasDataGridView()
         {
             try
             {
                 this.dgvRutas.Rows.Clear();
-                List<RUTA> lstRuta = (new clsRutaBLL()).obtenerTodasRutas();                
+                List<RUTA> lstRuta = (new clsRutaBLL()).obtenerTodasRutas();
 
                 foreach (RUTA ruta in lstRuta)
                 {
@@ -63,9 +83,22 @@ namespace SIGVIDAPS_FORMS
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void dgvRutas_SelectionChanged(object sender, EventArgs e)
         {
-            this.Close();
+            if (dgvRutas.SelectedRows.Count > 0)
+            {
+                habilitarControles(false);
+                txtLugarLlegada.Text = dgvRutas.Rows[dgvRutas.SelectedRows[0].Index].Cells[2].Value.ToString();
+                txtLugarSalida.Text = dgvRutas.Rows[dgvRutas.SelectedRows[0].Index].Cells[3].Value.ToString();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvRutas.SelectedRows.Count > 0)
+                habilitarControles(true);
+            else
+                MessageBox.Show("Seleccione un registro");
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -84,25 +117,24 @@ namespace SIGVIDAPS_FORMS
                 bolError = true;
             }
 
-
             if (!bolError)
             {
-                if (MessageBox.Show("¿Guardar nueva Ruta?", "Guardar Ruta", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {                    
-                    new clsRutaBLL().insertarRuta(
-                        new RUTA
-                        {
-                            
-                            CODRUTA = txtLugarLlegada.Text.Substring(0,3) + "-" + txtLugarSalida.Text.Substring(0,3),
-                            LUGARLLEGADA = txtLugarLlegada.Text,
-                            LUGARSALIDA = txtLugarSalida.Text
-                        }
-                    );
+                if (MessageBox.Show("¿Actualizar la Ruta?", "Actualizar Ruta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    RUTA ruta = new RUTA();
+                    ruta.IDRUTA = Int32.Parse(dgvRutas.Rows[dgvRutas.SelectedRows[0].Index].Cells[0].Value.ToString());
+                    ruta.LUGARLLEGADA = txtLugarLlegada.Text;
+                    ruta.LUGARSALIDA = txtLugarSalida.Text;
+                    ruta.CODRUTA = txtLugarLlegada.Text.Substring(0, 3) + "-" + txtLugarSalida.Text.Substring(0, 3);
+                    (new clsRutaBLL()).actualizarRuta((int) ruta.IDRUTA, ruta);                    
+
                 }
 
-                MessageBox.Show("La ruta ha sido registrada satisfactoriamente");
+                MessageBox.Show("La ruta ha sido actualizada satisfactoriamente");
                 cargarRutasDataGridView();
                 limpiarTodo();
+                habilitarControles(false);
+                //dgvEmpleado.ClearSelection();
             }
             else
             {
@@ -110,13 +142,7 @@ namespace SIGVIDAPS_FORMS
             }
         }
 
-        private void limpiarTodo()
-        {
-            txtLugarLlegada.Text = "";
-            txtLugarSalida.Text = "";
-            dgvRutas.ClearSelection();
-        }
-
+        
 
     }
 }

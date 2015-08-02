@@ -23,6 +23,7 @@ namespace SIGVIDAPS_DAT
         public string LUGARSALIDA { get; set; }
         public string LUGARLLEGADA { get; set; }
         public string CODRUTA { get; set; }
+        public Nullable<bool> ESTRUTA { get; set; }
     
         public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
     }

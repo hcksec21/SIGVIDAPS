@@ -108,8 +108,12 @@ namespace SIGVIDAPS_FORMS
 
         private void dgvEmpleado_SelectionChanged(object sender, EventArgs e)
         {
+
+
             if (dgvEmpleado.SelectedRows.Count != 0)
             {
+                habilitarControles(false);
+
                 txtNombres.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[1].Value.ToString();
                 txtApellidos.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[2].Value.ToString();
                 txtCedula.Text = dgvEmpleado.Rows[dgvEmpleado.SelectedRows[0].Index].Cells[3].Value.ToString();
@@ -221,7 +225,7 @@ namespace SIGVIDAPS_FORMS
 
                 }
 
-                MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
+                MessageBox.Show("El empleado ha sido actualizado satisfactoriamente");
                 cargarEmpleadosDataGridView();
                 limpiarTodo();
                 habilitarControles(false);
