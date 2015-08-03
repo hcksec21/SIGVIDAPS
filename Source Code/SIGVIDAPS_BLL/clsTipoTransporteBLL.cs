@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SIGVIDAPS_DAT;
 using System.Data.Entity;
 using System.Transactions;
+using SIGVIDAPS_DAT;
 
 namespace SIGVIDAPS_BLL
 {
-    public class clsRutaBLL
+    public class clsTipoTransporteBLL
     {
         SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
 
-        public List<RUTA> obtenerTodasRutas()
+        public List<TIPO_TRANSPORTE> obtenerTodasTipoTrasnportes()
         {
-            List<RUTA> lstRutas = modeloEntidades.RUTAs.ToList();
-            return lstRutas;
+            List<TIPO_TRANSPORTE> lstTipoTrasnportes = modeloEntidades.TIPO_TRANSPORTE.ToList();
+            return lstTipoTrasnportes;
         }
 
         //INSERTAR 
-        public void insertarRuta(RUTA ruta)
+        public void insertarTipoTrasnporte(TIPO_TRANSPORTE tipoTransporte)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 using (modeloEntidades)
                 {
-                    modeloEntidades.RUTAs.Add(ruta);
+                    modeloEntidades.TIPO_TRANSPORTE.Add(tipoTransporte);
                     modeloEntidades.SaveChanges();
                     transaction.Complete();
                 }
@@ -34,46 +34,41 @@ namespace SIGVIDAPS_BLL
         }
 
         //ACTUALIZAR
-        public void actualizarRuta(int indice, RUTA ruta)
+        public void actualizarTipoTrasnporte(int indice, TIPO_TRANSPORTE tipoTransporte)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objRuta = modeloEntidades.RUTAs.Where(qq => qq.IDRUTA == indice).Single();
-                modeloEntidades.Entry(objRuta).CurrentValues.SetValues(ruta);
+                var objTipoTrasnporte = modeloEntidades.TIPO_TRANSPORTE.Where(qq => qq.IDTIPOTRANSPORTE == indice).Single();
+                modeloEntidades.Entry(objTipoTrasnporte).CurrentValues.SetValues(tipoTransporte);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }
-        }        
+        }
 
         //ELIMINAR EMPLEADO
-        public void eliminarRuta(int? indice)
+        public void eliminarTipoTrasnporte(int? indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 int indice1 = (int)indice;
-                RUTA objRuta = buscarConId(indice1);
-                modeloEntidades.RUTAs.Remove(objRuta);
+                TIPO_TRANSPORTE objTipoTrasnporte = buscarConId(indice1);
+                modeloEntidades.TIPO_TRANSPORTE.Remove(objTipoTrasnporte);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }
         }
 
         //BUSCAR CON ID
-        public RUTA buscarConId(int id)
+        public TIPO_TRANSPORTE buscarConId(int id)
         {
-            return modeloEntidades.RUTAs.Where(e => e.IDRUTA == id).First();
-        }
-
-        public RUTA buscarConId(int? id)
-        {
-            return modeloEntidades.RUTAs.Where(e => e.IDRUTA == id).First();
+            return modeloEntidades.TIPO_TRANSPORTE.Where(e => e.IDTIPOTRANSPORTE == id).First();
         }
 
         //VERIFICAR DEPENDENCIAS
-        public bool verificarDependencias(int? idRuta)
+        public bool verificarDependencias(int? idTipoTrasnporte)
         {
             Boolean retorno = false;
-            var lstDetalles = modeloEntidades.DETALLE_FORMULARIO.Where(e => e.IDRUTA == idRuta).ToList();            
+            var lstDetalles = modeloEntidades.DETALLE_FORMULARIO.Where(e => e.IDTIPOTRANSPORTE == idTipoTrasnporte).ToList();
 
             if (lstDetalles.Count > 0)
             {

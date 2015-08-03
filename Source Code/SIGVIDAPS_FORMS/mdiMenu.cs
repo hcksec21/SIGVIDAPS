@@ -223,5 +223,11 @@ namespace SIGVIDAPS_FORMS
             frmFormularioLiquidacion formLiq = new frmFormularioLiquidacion();
             ValidarForm(formLiq);
         }
+
+        private void registrarFormularioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistrarFormularioAnticipo registrarFormularioAnticipo = new frmRegistrarFormularioAnticipo();
+            ValidarForm(registrarFormularioAnticipo);
+        }
     }
 }

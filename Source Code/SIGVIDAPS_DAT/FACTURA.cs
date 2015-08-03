@@ -12,17 +12,13 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class CALCULO
+    public partial class FACTURA
     {
-        public CALCULO()
-        {
-            this.DETALLE_CALCULO = new HashSet<DETALLE_CALCULO>();
-        }
+        public decimal IDFACTURA { get; set; }
+        public Nullable<decimal> IDFORMLIQ { get; set; }
+        public string PATHIMAGENFAC { get; set; }
+        public Nullable<decimal> MONTOFAC { get; set; }
     
-        public decimal IDCALCULO { get; set; }
-        public Nullable<decimal> IDFORMANTICIPO { get; set; }
-    
-        public virtual FORMULARIO__ANTICIPO FORMULARIO__ANTICIPO { get; set; }
-        public virtual ICollection<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }
+        public virtual FORMULARIO_LIQUIDACION FORMULARIO_LIQUIDACION { get; set; }
     }
 }
