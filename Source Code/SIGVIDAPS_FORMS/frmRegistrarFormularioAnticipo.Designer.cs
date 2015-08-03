@@ -66,6 +66,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDetalleActividades = new System.Windows.Forms.TextBox();
             this.tbpTransporte = new System.Windows.Forms.TabPage();
+            this.mskMontoTransporte = new System.Windows.Forms.MaskedTextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnEliminarTrans = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dtpHoraSalidaTrans = new System.Windows.Forms.DateTimePicker();
@@ -91,6 +93,7 @@
             this.Ruta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Llegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbpTransferencia = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cmbTipoCuenta = new System.Windows.Forms.ComboBox();
@@ -100,9 +103,6 @@
             this.txtNombreBanco = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.mskMontoTransporte = new System.Windows.Forms.MaskedTextBox();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcFormulario.SuspendLayout();
             this.DatosGenerales.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -187,7 +187,7 @@
             this.DatosGenerales.Location = new System.Drawing.Point(4, 22);
             this.DatosGenerales.Name = "DatosGenerales";
             this.DatosGenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.DatosGenerales.Size = new System.Drawing.Size(821, 449);
+            this.DatosGenerales.Size = new System.Drawing.Size(856, 449);
             this.DatosGenerales.TabIndex = 0;
             this.DatosGenerales.Text = "Datos Generales";
             this.DatosGenerales.UseVisualStyleBackColor = true;
@@ -508,7 +508,7 @@
             this.Actividades.Location = new System.Drawing.Point(4, 22);
             this.Actividades.Name = "Actividades";
             this.Actividades.Padding = new System.Windows.Forms.Padding(3);
-            this.Actividades.Size = new System.Drawing.Size(821, 449);
+            this.Actividades.Size = new System.Drawing.Size(856, 449);
             this.Actividades.TabIndex = 1;
             this.Actividades.Text = "Informe de Actividades";
             this.Actividades.UseVisualStyleBackColor = true;
@@ -569,6 +569,27 @@
             this.tbpTransporte.Text = "Transporte";
             this.tbpTransporte.UseVisualStyleBackColor = true;
             // 
+            // mskMontoTransporte
+            // 
+            this.mskMontoTransporte.Location = new System.Drawing.Point(366, 117);
+            this.mskMontoTransporte.Mask = "99.99";
+            this.mskMontoTransporte.Name = "mskMontoTransporte";
+            this.mskMontoTransporte.Size = new System.Drawing.Size(136, 20);
+            this.mskMontoTransporte.TabIndex = 76;
+            // 
+            // label24
+            // 
+            this.label24.AccessibleName = "lblNumeroSolicitud";
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.White;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.SlateGray;
+            this.label24.Location = new System.Drawing.Point(144, 112);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(67, 25);
+            this.label24.TabIndex = 75;
+            this.label24.Text = "Valor";
+            // 
             // btnEliminarTrans
             // 
             this.btnEliminarTrans.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.delete;
@@ -610,6 +631,7 @@
             this.dtpFechaSalidaTrans.Name = "dtpFechaSalidaTrans";
             this.dtpFechaSalidaTrans.Size = new System.Drawing.Size(246, 22);
             this.dtpFechaSalidaTrans.TabIndex = 57;
+            this.dtpFechaSalidaTrans.Value = new System.DateTime(2015, 8, 3, 2, 54, 17, 0);
             // 
             // label11
             // 
@@ -665,7 +687,7 @@
             this.dtpFechaLlegadaTrans.Name = "dtpFechaLlegadaTrans";
             this.dtpFechaLlegadaTrans.Size = new System.Drawing.Size(246, 22);
             this.dtpFechaLlegadaTrans.TabIndex = 57;
-            this.dtpFechaLlegadaTrans.Value = new System.DateTime(2015, 8, 2, 0, 0, 0, 0);
+            this.dtpFechaLlegadaTrans.Value = new System.DateTime(2015, 8, 3, 0, 0, 0, 0);
             this.dtpFechaLlegadaTrans.ValueChanged += new System.EventHandler(this.dtpFechaLlegadaTrans_ValueChanged);
             // 
             // label8
@@ -707,7 +729,7 @@
             // cmbRuta
             // 
             this.cmbRuta.FormattingEnabled = true;
-            this.cmbRuta.Location = new System.Drawing.Point(393, 74);
+            this.cmbRuta.Location = new System.Drawing.Point(366, 78);
             this.cmbRuta.Name = "cmbRuta";
             this.cmbRuta.Size = new System.Drawing.Size(377, 21);
             this.cmbRuta.TabIndex = 73;
@@ -719,7 +741,7 @@
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.SlateGray;
-            this.label7.Location = new System.Drawing.Point(171, 74);
+            this.label7.Location = new System.Drawing.Point(144, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 25);
             this.label7.TabIndex = 70;
@@ -728,7 +750,7 @@
             // cmbTipoTransporte
             // 
             this.cmbTipoTransporte.FormattingEnabled = true;
-            this.cmbTipoTransporte.Location = new System.Drawing.Point(394, 41);
+            this.cmbTipoTransporte.Location = new System.Drawing.Point(367, 45);
             this.cmbTipoTransporte.Name = "cmbTipoTransporte";
             this.cmbTipoTransporte.Size = new System.Drawing.Size(377, 21);
             this.cmbTipoTransporte.TabIndex = 69;
@@ -740,7 +762,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.SlateGray;
-            this.label6.Location = new System.Drawing.Point(171, 5);
+            this.label6.Location = new System.Drawing.Point(144, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(214, 25);
             this.label6.TabIndex = 68;
@@ -753,7 +775,7 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.SlateGray;
-            this.label5.Location = new System.Drawing.Point(171, 41);
+            this.label5.Location = new System.Drawing.Point(144, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 25);
             this.label5.TabIndex = 67;
@@ -762,7 +784,7 @@
             // txtNombreTransporte
             // 
             this.txtNombreTransporte.AccessibleName = "inpNumeroSolicitud";
-            this.txtNombreTransporte.Location = new System.Drawing.Point(393, 5);
+            this.txtNombreTransporte.Location = new System.Drawing.Point(366, 9);
             this.txtNombreTransporte.Name = "txtNombreTransporte";
             this.txtNombreTransporte.Size = new System.Drawing.Size(378, 20);
             this.txtNombreTransporte.TabIndex = 66;
@@ -834,12 +856,18 @@
             this.Llegada.ReadOnly = true;
             this.Llegada.Width = 125;
             // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            // 
             // tbpTransferencia
             // 
             this.tbpTransferencia.Controls.Add(this.groupBox5);
             this.tbpTransferencia.Location = new System.Drawing.Point(4, 22);
             this.tbpTransferencia.Name = "tbpTransferencia";
-            this.tbpTransferencia.Size = new System.Drawing.Size(821, 449);
+            this.tbpTransferencia.Size = new System.Drawing.Size(856, 449);
             this.tbpTransferencia.TabIndex = 5;
             this.tbpTransferencia.Text = "Transferencia";
             this.tbpTransferencia.UseVisualStyleBackColor = true;
@@ -934,33 +962,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(289, 109);
             this.pictureBox1.TabIndex = 84;
             this.pictureBox1.TabStop = false;
-            // 
-            // label24
-            // 
-            this.label24.AccessibleName = "lblNumeroSolicitud";
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.White;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.Color.SlateGray;
-            this.label24.Location = new System.Drawing.Point(171, 108);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(67, 25);
-            this.label24.TabIndex = 75;
-            this.label24.Text = "Valor";
-            // 
-            // mskMontoTransporte
-            // 
-            this.mskMontoTransporte.Location = new System.Drawing.Point(393, 113);
-            this.mskMontoTransporte.Mask = "99,99";
-            this.mskMontoTransporte.Name = "mskMontoTransporte";
-            this.mskMontoTransporte.Size = new System.Drawing.Size(136, 20);
-            this.mskMontoTransporte.TabIndex = 76;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
             // 
             // frmRegistrarFormularioAnticipo
             // 

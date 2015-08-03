@@ -10,33 +10,28 @@ using System.Data.Entity;
 
 namespace SIGVIDAPS_BLL
 {
-    public class clsUsuarioBLL
+    public class clsMenuPerfilBLL
     {
         SIGVIDAPS_entidades entityContext = new SIGVIDAPS_entidades();
 
-        public List<USUARIO> obtenerTodosLosUsuarios()
+        public List<MENU_PERFIL> obtenerTodosLosMenuPerfiles()
         {
-            List<USUARIO> lstUsuarios = entityContext.USUARIOs.ToList();
-            return lstUsuarios;
+            List<MENU_PERFIL> lstMenuPerfils = entityContext.MENU_PERFIL.ToList();
+            return lstMenuPerfils;
         }
 
+        public List<MENU_PERFIL> obtenerTodosLosMenuPerfilesDeUsuario(USUARIO user)
+        {
+            PERFIL perfil = (new clsPerfilBLL()).buscarConId(Convert.ToInt32(user.IDPERFIL));
+            List<MENU_PERFIL> lstMenuPerfils = entityContext.MENU_PERFIL.Where(e => e.IDPERFIL == perfil.IDPERFIL).ToList();
+            return lstMenuPerfils;
+        }
 
 
         //BUSCAR CON ID
-        public USUARIO buscarByNombre(string nombreUsuario)
+        public MENU_PERFIL buscarConId(int id)
         {
-            return entityContext.USUARIOs.Where(e => e.NOMBREUSUARIO == nombreUsuario).First();
-        }
-
-        public bool loggin(string nombreUsuario,string password)
-        {
-            return entityContext.USUARIOs.Where(e => e.NOMBREUSUARIO == nombreUsuario && e.CONTRASENAUSUARIO == password).Any();
-        }
-
-        //BUSCAR CON ID
-        public USUARIO buscarConId(int id)
-        {
-            return entityContext.USUARIOs.Where(e => e.IDUSUARIO == id).First();
+            return entityContext.MENU_PERFIL.Where(e => e.IDMENUPERFIL == id).First();
         }
 
 
@@ -47,36 +42,36 @@ namespace SIGVIDAPS_BLL
         //    }
 
         //INSERTAR CARGO
-        public void insertarUsuario(USUARIO usuario)
+        public void insertarMenuPerfil(MENU_PERFIL menuPerfil)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                entityContext.USUARIOs.Add(usuario);
+                entityContext.MENU_PERFIL.Add(menuPerfil);
                 entityContext.SaveChanges();
                 transaction.Complete();
             }
         }
 
         //ACTUALIZAR
-        public void actualizarUsuario(int indice, USUARIO usuario)
+        public void actualizarMenuPerfil(int indice, MENU_PERFIL menuPerfil)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objUsuario = entityContext.USUARIOs.Where(qq => qq.IDUSUARIO == indice).Single();
-                usuario.IDUSUARIO = indice;
-                entityContext.Entry(objUsuario).CurrentValues.SetValues(usuario);
+                var objMenuPerfil = entityContext.MENU_PERFIL.Where(qq => qq.IDMENUPERFIL == indice).Single();
+                menuPerfil.IDMENUPERFIL = indice;
+                entityContext.Entry(objMenuPerfil).CurrentValues.SetValues(menuPerfil);
                 entityContext.SaveChanges();
                 transaction.Complete();
             }
         }
 
         //Eliminar
-        public void eliminarUsuario(int indice)
+        public void eliminarMenuPerfil(int indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                USUARIO objCargo = buscarConId(indice);
-                entityContext.USUARIOs.Remove(objCargo);
+                MENU_PERFIL objCargo = buscarConId(indice);
+                entityContext.MENU_PERFIL.Remove(objCargo);
                 entityContext.SaveChanges();
                 transaction.Complete();
             }

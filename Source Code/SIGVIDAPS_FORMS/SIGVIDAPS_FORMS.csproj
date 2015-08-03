@@ -65,6 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAnularFormularioAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnularFormularioAnticipo.Designer.cs">
+      <DependentUpon>frmAnularFormularioAnticipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAprobarFormularioAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAprobarFormularioAnticipo.Designer.cs">
+      <DependentUpon>frmAprobarFormularioAnticipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCalculoMontoAnticipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +88,12 @@
     </Compile>
     <Compile Include="frmCombinacionViaticos.Designer.cs">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarFormularioAnticipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarFormularioAnticipo.Designer.cs">
+      <DependentUpon>frmConsultarFormularioAnticipo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCrearRuta.cs">
       <SubType>Form</SubType>
@@ -118,6 +136,12 @@
     </Compile>
     <Compile Include="frmFormularioLiquidacion.Designer.cs">
       <DependentUpon>frmFormularioLiquidacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIngresoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresoUsuarios.Designer.cs">
+      <DependentUpon>frmIngresoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistrarFormularioAnticipo.cs">
       <SubType>Form</SubType>
@@ -187,11 +211,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAnularFormularioAnticipo.resx">
+      <DependentUpon>frmAnularFormularioAnticipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAprobarFormularioAnticipo.resx">
+      <DependentUpon>frmAprobarFormularioAnticipo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCalculoMontoAnticipo.resx">
       <DependentUpon>frmCalculoMontoAnticipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCombinacionViaticos.resx">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarFormularioAnticipo.resx">
+      <DependentUpon>frmConsultarFormularioAnticipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrearRuta.resx">
       <DependentUpon>frmCrearRuta.cs</DependentUpon>
@@ -213,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFormularioLiquidacion.resx">
       <DependentUpon>frmFormularioLiquidacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresoUsuarios.resx">
+      <DependentUpon>frmIngresoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarFormularioAnticipo.resx">
       <DependentUpon>frmRegistrarFormularioAnticipo.cs</DependentUpon>

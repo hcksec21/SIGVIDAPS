@@ -14,6 +14,18 @@ namespace SIGVIDAPS_BLL
 
         SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
 
+        //BUSCAR CON ID
+        public List<FORMULARIO__ANTICIPO> buscarFormulariosEmitidosPorFecha()
+        {
+            return modeloEntidades.FORMULARIO__ANTICIPO.Where(e => e.ESTADOFORMANTICIPO == "EMITIDO").OrderByDescending(e => e.FECFORMANTICIPO).ToList();
+        }
+
+        //BUSCAR CON ID
+        public List<FORMULARIO__ANTICIPO> buscarFormulariosPorFecha()
+        {
+            return modeloEntidades.FORMULARIO__ANTICIPO.OrderByDescending(e => e.FECFORMANTICIPO).ToList();
+        }
+
         //INSERTAR 
         public void insertarFormulario_anticipo(FORMULARIO__ANTICIPO formulario_anticipo)
         {
@@ -33,7 +45,7 @@ namespace SIGVIDAPS_BLL
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objFormulario_anticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(qq => qq.IDEMP == indice).Single();
+                var objFormulario_anticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(qq => qq.IDFORMANTICIPO == indice).Single();
                 modeloEntidades.Entry(objFormulario_anticipo).CurrentValues.SetValues(formulario_anticipo);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
@@ -80,9 +92,5 @@ namespace SIGVIDAPS_BLL
                 transaction.Complete();
             }
         }
-
-
-
-
     }
 }

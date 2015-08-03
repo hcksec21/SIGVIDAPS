@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     03/08/2015 1:18:25                           */
+/* Created on:     03/08/2015 6:18:26                           */
 /*==============================================================*/
 
 
@@ -756,7 +756,7 @@ create table USUARIO (
    IDEMP                numeric              null,
    IDPERFIL             numeric              null,
    NOMBREUSUARIO        varchar(30)          not null,
-   CONTRASENAUSUARIO    varchar(30)          not null,
+   CONTRASENAUSUARIO    varchar(100)         not null,
    ESTUSUARIO           bit                  null,
    constraint PK_USUARIO primary key nonclustered (IDUSUARIO)
 )

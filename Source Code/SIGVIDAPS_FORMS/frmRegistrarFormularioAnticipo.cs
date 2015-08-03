@@ -115,11 +115,6 @@ namespace SIGVIDAPS_FORMS
                 strError += "El numero de Solicitud es obligatorio\n";
                 bolError = true;
             }
-            if (DateTime.Compare(dtpFechaSolicitud.Value, DateTime.Now) > 0)
-            {
-                strError += "La Fecha de Solicitud no es Valida\n";
-                bolError = true;
-            }
             if (txtCiudad.Text == "")
             {
                 strError += "La Ciudad es Obligatoria\n";
@@ -145,16 +140,16 @@ namespace SIGVIDAPS_FORMS
                 strError += "El Tipo de Cuenta es Obligatoria\n";
                 bolError = true;
             }
-            if (DateTime.Compare(dtpFechaSalidaGen.Value, dtpFechaSolicitud.Value) < 0)
-            {
-                strError += "La Fecha de Salida no es Valida\n";
-                bolError = true;
-            }
-            if (DateTime.Compare(dtpFechaLlegadaGen.Value, dtpFechaSalidaGen.Value) < 0)
-            {
-                strError += "La Fecha de Llegada no es Valida\n";
-                bolError = true;
-            }
+            //if (DateTime.Compare(dtpFechaSalidaGen.Value, DateTime.Now) < 0 )
+            //{
+            //    strError += "La Fecha de Salida no es valida\n";
+            //    bolError = true;
+            //}
+            //if (DateTime.Compare(dtpFechaLlegadaGen.Value, dtpFechaSalidaGen.Value) < 0)
+            //{
+            //    strError += "La Fecha de Llegada no puede se antes de la de Salida\n";
+            //    bolError = true;
+            //}
             if (cmbCombinacionViaticos.SelectedIndex == 0 && ((Int32)(dtpFechaLlegadaGen.Value).Subtract(dtpFechaSalidaGen.Value).TotalHours) > 8)
             {
                 strError += "La Subsistencia solo puede durar menos de 8 Horas\n";
@@ -176,10 +171,10 @@ namespace SIGVIDAPS_FORMS
                 formularioAnticipo.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
                 formularioAnticipo.NUMCUENTAFORMANTICIPO = txtNumCuenta.Text;
                 formularioAnticipo.NUMFORMANTICIPO = mskNumeroSolicitud.Text;
-                formularioAnticipo.TIPOCUENTAFORMANTICIPO = cmbTipoCuenta.DisplayMember;
-                formularioAnticipo.UNIDADFORMANTICIPO = cmbUnidad.DisplayMember;
+                formularioAnticipo.TIPOCUENTAFORMANTICIPO = cmbTipoCuenta.SelectedItem.ToString();
+                formularioAnticipo.UNIDADFORMANTICIPO = cmbUnidad.SelectedItem.ToString();
                 formularioAnticipo.ESTADOFORMANTICIPO = "EMITIDO";
-                formularioAnticipo.FECFORMANTICIPO = dtpFechaSolicitud.Value;
+                formularioAnticipo.FECFORMANTICIPO = DateTime.Now;
 
                 DateTime llegada = dtpFechaLlegadaGen.Value.Date + dtpHoraLlegadaGen.Value.TimeOfDay;
                 formularioAnticipo.LLEGADAFORMANTICIPO = llegada;
@@ -218,6 +213,8 @@ namespace SIGVIDAPS_FORMS
         {
             String strError = "";
             Boolean bolError = false;
+            decimal value;
+            Decimal.TryParse(mskMontoTransporte.Text, NumberStyles.Currency, null, out value);
 
             if (txtNombreTransporte.Text == "")
             {
@@ -239,12 +236,17 @@ namespace SIGVIDAPS_FORMS
                 strError += "La fechas de transporte no son Validas\n";
                 bolError = true;
             }
+            if(value > 16){
+                strError += "El Monto máximo es de $16\n";
+                bolError = true;
+            }
+                
+
             if (!bolError)
             {
                 DateTime llegada = dtpFechaLlegadaTrans.Value.Date + dtpHoraLlegadaTrans.Value.TimeOfDay;
                 DateTime salida = dtpFechaSalidaTrans.Value.Date + dtpHoraSalidaTrans.Value.TimeOfDay;
-                decimal value;
-                Decimal.TryParse(mskMontoTransporte.Text, NumberStyles.Currency, null, out value);
+
                 listaDetalleFormulario.Add(new DETALLE_FORMULARIO
                 {
                     IDRUTA = Convert.ToInt32(cmbRuta.SelectedValue),
@@ -269,10 +271,10 @@ namespace SIGVIDAPS_FORMS
             txtNombreTransporte.Text = "";
             cmbTipoTransporte.SelectedIndex = -1;
             cmbRuta.SelectedIndex = -1;
-            dtpFechaLlegadaTrans.Value = DateTime.Now;
-            dtpFechaSalidaTrans.Value = DateTime.Now;
+            dtpFechaSalidaTrans.Value = dtpFechaLlegadaTrans.Value;      
             dtpHoraLlegadaTrans.Value = DateTime.Now;
             dtpHoraSalidaTrans.Value = DateTime.Now;
+            mskMontoTransporte.Text = "";
         }
 
 
@@ -306,6 +308,11 @@ namespace SIGVIDAPS_FORMS
             DataGridViewCell cellLlegada = new DataGridViewTextBoxCell();
             cellLlegada.Value = detalle.LLEGADATRANSPORTE;
             tempRow.Cells.Add(cellLlegada);
+
+            //NIVEL
+            DataGridViewCell cellMonto = new DataGridViewTextBoxCell();
+            cellMonto.Value = detalle.MONTOTRANSPORTE;
+            tempRow.Cells.Add(cellMonto);
 
             tempRow.Tag = detalle.IDDETFORM;
             dtgTransporte.Rows.Add(tempRow);

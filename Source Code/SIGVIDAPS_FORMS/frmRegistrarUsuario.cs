@@ -103,18 +103,18 @@ namespace SIGVIDAPS_FORMS
 
             if (!bolError)
             {
-                if (MessageBox.Show("¿Guardar el empleado?", "Guardar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Guardar el usuario?", "Guardar usuario", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     USUARIO usuario = new USUARIO();
                     usuario.NOMBREUSUARIO = txtNombreUsuario.Text;
                     usuario.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
-                    usuario.CONTRASENAUSUARIO = ComputeHash(mskTextBox.Text, "MD5", null);
+                    usuario.CONTRASENAUSUARIO = ComputeHash(mskTextBox.Text);
                     usuario.IDPERFIL = (new clsPerfilBLL()).buscarConId(Convert.ToInt32((Object)cmbPerfil.SelectedValue)).IDPERFIL;
                     usuario.ESTUSUARIO = true;
 
                     (new clsUsuarioBLL()).insertarUsuario(usuario);
 
-                    MessageBox.Show("El empleado ha sido registrado satisfactoriamente");
+                    MessageBox.Show("El usuarios ha sido registrado satisfactoriamente");
                     cargarUsuariosDataGridView();
                 }
             }
@@ -177,101 +177,22 @@ namespace SIGVIDAPS_FORMS
                 MessageBox.Show("Error al cargar la lista de Cargos\n" + ex.Message);
             }        
         }
-            
 
-        public static string ComputeHash(string plainText,
-                                     string hashAlgorithm,
-                                     byte[] saltBytes)
+
+        public string ComputeHash(string input)
         {
-            // If salt is not specified, generate it on the fly.
-            if (saltBytes == null)
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
             {
-                // Define min and max salt sizes.
-                int minSaltSize = 4;
-                int maxSaltSize = 8;
-
-                // Generate a random number for the size of the salt.
-                Random random = new Random();
-                int saltSize = random.Next(minSaltSize, maxSaltSize);
-
-                // Allocate a byte array, which will hold the salt.
-                saltBytes = new byte[saltSize];
-
-                // Initialize a random number generator.
-                RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-
-                // Fill the salt with cryptographically strong byte values.
-                rng.GetNonZeroBytes(saltBytes);
+                sb.Append(hash[i].ToString("X2"));
             }
-
-            // Convert plain text into a byte array.
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-
-            // Allocate array, which will hold plain text and salt.
-            byte[] plainTextWithSaltBytes =
-                    new byte[plainTextBytes.Length + saltBytes.Length];
-
-            // Copy plain text bytes into resulting array.
-            for (int i = 0; i < plainTextBytes.Length; i++)
-                plainTextWithSaltBytes[i] = plainTextBytes[i];
-
-            // Append salt bytes to the resulting array.
-            for (int i = 0; i < saltBytes.Length; i++)
-                plainTextWithSaltBytes[plainTextBytes.Length + i] = saltBytes[i];
-
-            // Because we support multiple hashing algorithms, we must define
-            // hash object as a common (abstract) base class. We will specify the
-            // actual hashing algorithm class later during object creation.
-            HashAlgorithm hash;
-
-            // Make sure hashing algorithm name is specified.
-            if (hashAlgorithm == null)
-                hashAlgorithm = "";
-
-            // Initialize appropriate hashing algorithm class.
-            switch (hashAlgorithm.ToUpper())
-            {
-                case "SHA1":
-                    hash = new SHA1Managed();
-                    break;
-
-                case "SHA256":
-                    hash = new SHA256Managed();
-                    break;
-
-                case "SHA384":
-                    hash = new SHA384Managed();
-                    break;
-
-                case "SHA512":
-                    hash = new SHA512Managed();
-                    break;
-
-                default:
-                    hash = new MD5CryptoServiceProvider();
-                    break;
-            }
-
-            // Compute hash value of our plain text with appended salt.
-            byte[] hashBytes = hash.ComputeHash(plainTextWithSaltBytes);
-
-            // Create array which will hold hash and original salt bytes.
-            byte[] hashWithSaltBytes = new byte[hashBytes.Length +
-                                                saltBytes.Length];
-
-            // Copy hash bytes into resulting array.
-            for (int i = 0; i < hashBytes.Length; i++)
-                hashWithSaltBytes[i] = hashBytes[i];
-
-            // Append salt bytes to the result.
-            for (int i = 0; i < saltBytes.Length; i++)
-                hashWithSaltBytes[hashBytes.Length + i] = saltBytes[i];
-
-            // Convert result into a base64-encoded string.
-            string hashValue = Convert.ToBase64String(hashWithSaltBytes);
-
-            // Return the result.
-            return hashValue;
+            return sb.ToString();
         }
         
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

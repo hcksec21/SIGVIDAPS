@@ -265,7 +265,7 @@
           <Property Name="IDEMP" Type="numeric" />
           <Property Name="IDPERFIL" Type="numeric" />
           <Property Name="NOMBREUSUARIO" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="CONTRASENAUSUARIO" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="CONTRASENAUSUARIO" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ESTUSUARIO" Type="bit" />
         </EntityType>
         <Association Name="FK_CALCULO_RELATIONS_FORMULAR">
@@ -783,7 +783,7 @@
           <Property Name="IDEMP" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IDPERFIL" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NOMBREUSUARIO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-          <Property Name="CONTRASENAUSUARIO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CONTRASENAUSUARIO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="ESTUSUARIO" Type="Boolean" />
           <NavigationProperty Name="EMPLEADO" Relationship="SIGVIDAPSModel.FK_USUARIO_RELATIONS_EMPLEADO" FromRole="USUARIO" ToRole="EMPLEADO" />
           <NavigationProperty Name="PERFIL" Relationship="SIGVIDAPSModel.FK_USUARIO_RELATIONS_PERFIL" FromRole="USUARIO" ToRole="PERFIL" />

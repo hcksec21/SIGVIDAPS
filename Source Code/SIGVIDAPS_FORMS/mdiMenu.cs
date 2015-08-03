@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SIGVIDAPS_DAT;
+using SIGVIDAPS_BLL;
 
 namespace SIGVIDAPS_FORMS
 {
     public partial class mdiMenu : Form
     {
         Form Forma = new Form();
+        string user;
 
-        public mdiMenu()
+        public mdiMenu(string user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void ValidarForm(Form forma)
@@ -69,6 +73,48 @@ namespace SIGVIDAPS_FORMS
         {
             //FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
+            MessageBox.Show("Bienvenido al Sistema SIGVIDAPS : " + user);
+            disableControls();
+        }
+
+        private void disableControls()
+        {
+            USUARIO user = (new clsUsuarioBLL()).buscarByNombre(this.user);
+            List<MENU_PERFIL> listPerfiles = (new clsMenuPerfilBLL()).obtenerTodosLosMenuPerfilesDeUsuario(user);
+            foreach(MENU_PERFIL menu_perfil in listPerfiles){
+                if (mnuAdministracion.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuAdministracion.Enabled = false;
+                }
+                if (mnuEmpleados.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuEmpleados.Enabled = false;
+                }
+                if (mnuAprobarFormularioAnticipo.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuAprobarFormularioAnticipo.Enabled = false;
+                }
+                if (mnuAprobarFormularioLiquidacion.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuAprobarFormularioLiquidacion.Enabled = false;
+                }
+                if (mnuFormularios.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuFormularios.Enabled = false;
+                }
+                if (mnuRegistrarFormularioAnticipo.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuRegistrarFormularioAnticipo.Enabled = false;
+                }
+                if (mnuRegistrarFormularioLiquidacion.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuRegistrarFormularioLiquidacion.Enabled = false;
+                }
+                if (mnuEditarFormularioLiquidacion.Name == menu_perfil.MENUPERFIL)
+                {
+                    mnuEditarFormularioLiquidacion.Enabled = false;
+                }
+            }
         }
 
         private void sbmnuformAnticipo_Click_1(object sender, EventArgs e)
@@ -222,6 +268,30 @@ namespace SIGVIDAPS_FORMS
         {
             frmRegistrarFormularioAnticipo registrarFormularioAnticipo = new frmRegistrarFormularioAnticipo();
             ValidarForm(registrarFormularioAnticipo);
+        }
+
+        private void anularFormularioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAnularFormularioAnticipo anularFormularioAnticipo = new frmAnularFormularioAnticipo();
+            ValidarForm(anularFormularioAnticipo);
+        }
+
+        private void aprobarFormualrioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAprobarFormularioAnticipo aprobarFormulario = new frmAprobarFormularioAnticipo();
+            ValidarForm(aprobarFormulario);
+        }
+
+        private void consultarFormulariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            frmConsultarFormularioAnticipo consultarFormulario = new frmConsultarFormularioAnticipo();
+            ValidarForm(consultarFormulario);
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            base.Show();
+            this.Close();
         }
     }
 }

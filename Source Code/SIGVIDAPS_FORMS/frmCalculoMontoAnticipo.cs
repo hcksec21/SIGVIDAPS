@@ -48,7 +48,8 @@ namespace SIGVIDAPS_FORMS
         private void calcularMontoViatico()
         {
             int opcion = Convert.ToInt32(formularioAnticipo.IDCOMBINACION);
-            diasViatico = ((Int32)((DateTime)formularioAnticipo.LLEGADAFORMANTICIPO).Subtract((DateTime)formularioAnticipo.SALIDAFORMANTICIPO).TotalDays);
+            diasViatico = Convert.ToInt32((((DateTime)formularioAnticipo.LLEGADAFORMANTICIPO) - ((DateTime)formularioAnticipo.SALIDAFORMANTICIPO)).TotalDays);
+            //diasViatico = ((Int32)((DateTime)formularioAnticipo.LLEGADAFORMANTICIPO).Subtract((DateTime)formularioAnticipo.SALIDAFORMANTICIPO).TotalDays);
             nivelEmpleado = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NIVEL.NIVEL1;
 
             switch (opcion)
@@ -167,12 +168,14 @@ namespace SIGVIDAPS_FORMS
                     dgvMonto.Rows.Add(tempRow);
                 }
                 {
-                    foreach(DETALLE_FORMULARIO d in formularioAnticipo.DETALLE_FORMULARIO){
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(4).IDOPCION);
+                    foreach (DETALLE_FORMULARIO d in formularioAnticipo.DETALLE_FORMULARIO)
+                    {
                         DataGridViewRow tempRow = new DataGridViewRow();
 
                         //TipoViatico
                         DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
-                        cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(2).NOMBREOPCION;
+                        cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(4).NOMBREOPCION;
                         tempRow.Cells.Add(cellTipoViatico);
 
                         //Nivel
@@ -187,7 +190,7 @@ namespace SIGVIDAPS_FORMS
 
                         //Subtotal
                         DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
-                        subtotal = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                        subtotal = d.MONTOTRANSPORTE;
                         cellSubtotal.Value = subtotal;
                         tempRow.Cells.Add(cellSubtotal);
 
@@ -198,8 +201,9 @@ namespace SIGVIDAPS_FORMS
                         });
 
                         calculo.MONTOCALCULO += subtotal;
+                        dgvMonto.Rows.Add(tempRow);
                     }
-                    
+
                     calculo.DETALLE_CALCULO = listDetalle;
                     listCalculo.Add(calculo);
                 }
@@ -207,7 +211,7 @@ namespace SIGVIDAPS_FORMS
                 formularioAnticipo.CALCULOes = listCalculo;
                 formularioAnticipo.MONTOTOTAL = calculo.MONTOCALCULO;
 
-                lblTotal.Text = calculo.MONTOCALCULO.ToString();                
+                lblTotal.Text = calculo.MONTOCALCULO.ToString();
             }
             catch (Exception ex)
             {
@@ -217,27 +221,374 @@ namespace SIGVIDAPS_FORMS
 
         private void cargarViaticoSubsistencia()
         {
+            try
+            {
+                this.dgvMonto.Rows.Clear();
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(2).IDOPCION);
+                    DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //TipoViatico
+                    DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                    cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(2).NOMBREOPCION;
+                    tempRow.Cells.Add(cellTipoViatico);
+
+                    //Nivel
+                    DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                    cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                    tempRow.Cells.Add(cellNivel);
+
+                    //DIAS
+                    DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                    cellDias.Value = diasViatico;
+                    tempRow.Cells.Add(cellDias);
+
+                    //Subtotal
+                    DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                    subtotal = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                    cellSubtotal.Value = subtotal;
+                    tempRow.Cells.Add(cellSubtotal);
+
+                    listDetalle.Add(new DETALLE_CALCULO()
+                    {
+                        IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                        SUBTOTALMONTO = subtotal
+                    });
+
+                    calculo.MONTOCALCULO = subtotal;
+                    dgvMonto.Rows.Add(tempRow);
+                }
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(1).IDOPCION);
+                    DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //TipoViatico
+                    DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                    cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(1).NOMBREOPCION;
+                    tempRow.Cells.Add(cellTipoViatico);
+
+                    //Nivel
+                    DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                    cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                    tempRow.Cells.Add(cellNivel);
+
+                    //DIAS
+                    DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                    cellDias.Value = diasViatico;
+                    tempRow.Cells.Add(cellDias);
+
+                    //Subtotal
+                    DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                    subtotal = (diasViatico)*opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                    cellSubtotal.Value = subtotal;
+                    tempRow.Cells.Add(cellSubtotal);
+
+                    listDetalle.Add(new DETALLE_CALCULO()
+                    {
+                        IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                        SUBTOTALMONTO = subtotal
+                    });
+
+                    calculo.MONTOCALCULO += subtotal;
+                    dgvMonto.Rows.Add(tempRow);
+
+                }
+                calculo.DETALLE_CALCULO = listDetalle;
+                listCalculo.Add(calculo);
+
+                formularioAnticipo.CALCULOes = listCalculo;
+                formularioAnticipo.MONTOTOTAL = calculo.MONTOCALCULO;
+
+                lblTotal.Text = calculo.MONTOCALCULO.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
         }
 
         private void cargarViaticoSubsistenciaMovilizacion()
         {
+            try
+            {
+                this.dgvMonto.Rows.Clear();
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(2).IDOPCION);
+                    DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //TipoViatico
+                    DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                    cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(2).NOMBREOPCION;
+                    tempRow.Cells.Add(cellTipoViatico);
+
+                    //Nivel
+                    DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                    cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                    tempRow.Cells.Add(cellNivel);
+
+                    //DIAS
+                    DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                    cellDias.Value = diasViatico;
+                    tempRow.Cells.Add(cellDias);
+
+                    //Subtotal
+                    DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                    subtotal = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                    cellSubtotal.Value = subtotal;
+                    tempRow.Cells.Add(cellSubtotal);
+
+                    listDetalle.Add(new DETALLE_CALCULO()
+                    {
+                        IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                        SUBTOTALMONTO = subtotal
+                    });
+
+                    calculo.MONTOCALCULO = subtotal;
+                    dgvMonto.Rows.Add(tempRow);
+                }
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(1).IDOPCION);
+                    DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //TipoViatico
+                    DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                    cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(1).NOMBREOPCION;
+                    tempRow.Cells.Add(cellTipoViatico);
+
+                    //Nivel
+                    DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                    cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                    tempRow.Cells.Add(cellNivel);
+
+                    //DIAS
+                    DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                    cellDias.Value = diasViatico;
+                    tempRow.Cells.Add(cellDias);
+
+                    //Subtotal
+                    DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                    subtotal = (diasViatico) * opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                    cellSubtotal.Value = subtotal;
+                    tempRow.Cells.Add(cellSubtotal);
+
+                    listDetalle.Add(new DETALLE_CALCULO()
+                    {
+                        IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                        SUBTOTALMONTO = subtotal
+                    });
+
+                    calculo.MONTOCALCULO += subtotal;
+                    dgvMonto.Rows.Add(tempRow);
+
+                }
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(4).IDOPCION);
+                    foreach (DETALLE_FORMULARIO d in formularioAnticipo.DETALLE_FORMULARIO)
+                    {
+                        DataGridViewRow tempRow = new DataGridViewRow();
+
+                        //TipoViatico
+                        DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                        cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(4).NOMBREOPCION;
+                        tempRow.Cells.Add(cellTipoViatico);
+
+                        //Nivel
+                        DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                        cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                        tempRow.Cells.Add(cellNivel);
+
+                        //DIAS
+                        DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                        cellDias.Value = diasViatico;
+                        tempRow.Cells.Add(cellDias);
+
+                        //Subtotal
+                        DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                        subtotal = d.MONTOTRANSPORTE;
+                        cellSubtotal.Value = subtotal;
+                        tempRow.Cells.Add(cellSubtotal);
+
+                        listDetalle.Add(new DETALLE_CALCULO()
+                        {
+                            IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                            SUBTOTALMONTO = subtotal
+                        });
+
+                        calculo.MONTOCALCULO += subtotal;
+                        dgvMonto.Rows.Add(tempRow);
+                    }
+
+                    calculo.DETALLE_CALCULO = listDetalle;
+                    listCalculo.Add(calculo);
+                }
+                calculo.DETALLE_CALCULO = listDetalle;
+                listCalculo.Add(calculo);
+
+                formularioAnticipo.CALCULOes = listCalculo;
+                formularioAnticipo.MONTOTOTAL = calculo.MONTOCALCULO;
+
+                lblTotal.Text = calculo.MONTOCALCULO.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
+
+
         }
 
         private void cargarAlimentacion()
         {
+            try
+            {
+                this.dgvMonto.Rows.Clear();
+                opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(3).IDOPCION);
+
+                DataGridViewRow tempRow = new DataGridViewRow();
+
+                //TipoViatico
+                DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(3).NOMBREOPCION;
+                tempRow.Cells.Add(cellTipoViatico);
+
+                //Nivel
+                DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                tempRow.Cells.Add(cellNivel);
+
+                //DIAS
+                DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                cellDias.Value = diasViatico;
+                tempRow.Cells.Add(cellDias);
+
+                //Subtotal
+                DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                subtotal = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                cellSubtotal.Value = subtotal;
+                tempRow.Cells.Add(cellSubtotal);
+
+                listDetalle.Add(new DETALLE_CALCULO()
+                {
+                    IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                    SUBTOTALMONTO = subtotal
+                });
+
+                calculo.MONTOCALCULO = detalle.SUBTOTALMONTO;
+                calculo.DETALLE_CALCULO = listDetalle;
+                listCalculo.Add(calculo);
+
+                formularioAnticipo.CALCULOes = listCalculo;
+                formularioAnticipo.MONTOTOTAL = calculo.MONTOCALCULO;
+
+                lblTotal.Text = calculo.MONTOCALCULO.ToString();
+
+                dgvMonto.Rows.Add(tempRow);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
         }
 
         private void cargarAlimentacionMovilizacion()
         {
+            try
+            {                
+                {
+                    this.dgvMonto.Rows.Clear();
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(3).IDOPCION);
+
+                    DataGridViewRow tempRow = new DataGridViewRow();
+
+                    //TipoViatico
+                    DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                    cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(3).NOMBREOPCION;
+                    tempRow.Cells.Add(cellTipoViatico);
+
+                    //Nivel
+                    DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                    cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                    tempRow.Cells.Add(cellNivel);
+
+                    //DIAS
+                    DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                    cellDias.Value = diasViatico;
+                    tempRow.Cells.Add(cellDias);
+
+                    //Subtotal
+                    DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                    subtotal = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).VALOROPCION;
+                    cellSubtotal.Value = subtotal;
+                    tempRow.Cells.Add(cellSubtotal);
+
+                    listDetalle.Add(new DETALLE_CALCULO()
+                    {
+                        IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                        SUBTOTALMONTO = subtotal
+                    });
+
+                    calculo.MONTOCALCULO = subtotal;
+                    dgvMonto.Rows.Add(tempRow);
+                }
+                {
+                    opcionViatico = Convert.ToInt32(opcionesViaticosBLL.buscarConId(4).IDOPCION);
+                    foreach (DETALLE_FORMULARIO d in formularioAnticipo.DETALLE_FORMULARIO)
+                    {
+                        DataGridViewRow tempRow = new DataGridViewRow();
+                        //TipoViatico
+                        DataGridViewCell cellTipoViatico = new DataGridViewTextBoxCell();
+                        cellTipoViatico.Value = opcionesViaticosBLL.buscarConId(4).NOMBREOPCION;
+                        tempRow.Cells.Add(cellTipoViatico);
+
+                        //Nivel
+                        DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
+                        cellNivel.Value = empleadoBLL.buscarConId(Convert.ToInt32(formularioAnticipo.IDEMP)).CARGO.NOMCARGO;
+                        tempRow.Cells.Add(cellNivel);
+
+                        //DIAS
+                        DataGridViewCell cellDias = new DataGridViewTextBoxCell();
+                        cellDias.Value = diasViatico;
+                        tempRow.Cells.Add(cellDias);
+
+                        //Subtotal
+                        DataGridViewCell cellSubtotal = new DataGridViewTextBoxCell();
+                        subtotal = d.MONTOTRANSPORTE;
+                        cellSubtotal.Value = subtotal;
+                        tempRow.Cells.Add(cellSubtotal);
+
+                        listDetalle.Add(new DETALLE_CALCULO()
+                        {
+                            IDOPCIONN = opcionesNivelBLL.buscarConOpcionNivel(opcionViatico, nivelEmpleado).IDOPCIONN,
+                            SUBTOTALMONTO = subtotal
+                        });
+
+                        calculo.MONTOCALCULO += subtotal;
+                        dgvMonto.Rows.Add(tempRow);
+                    }
+
+                    calculo.DETALLE_CALCULO = listDetalle;
+                    listCalculo.Add(calculo);
+                }
+
+                formularioAnticipo.CALCULOes = listCalculo;
+                formularioAnticipo.MONTOTOTAL = calculo.MONTOCALCULO;
+
+                lblTotal.Text = calculo.MONTOCALCULO.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Guardar Todo?", "Guardar Formulario", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                formularioAnticipoBLL.insertarFormulario_anticipo(formularioAnticipo);
-                base.Close();
+                formularioAnticipo.ESTADOFORMANTICIPO = "EMITIDO";
+                formularioAnticipoBLL.insertarFormulario_anticipo(formularioAnticipo);                                
                 this.Close();
+                base.Close();
             }
         }
 

@@ -16,7 +16,7 @@ namespace SIGVIDAPS_FORMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mdiMenu());
+            Application.Run(new frmIngresoUsuarios());
         }
     }
 }

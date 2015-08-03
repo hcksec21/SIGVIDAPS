@@ -31,16 +31,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuFormularios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFormularioAnticipo = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRegistrarFormularioAnticipo = new System.Windows.Forms.ToolStripMenuItem();
             this.anularFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aprobarFormualrioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarFormulariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAprobarFormularioAnticipo = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioDeLiquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRegistrarFormularioLiquidacion = new System.Windows.Forms.ToolStripMenuItem();
             this.anularFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarFormularioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aprobarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarFormularioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAprobarFormularioLiquidacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEditarFormularioLiquidacion = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarEliminarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +60,7 @@
             this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,8 @@
             this.mnuFormularios,
             this.mnuEmpleados,
             this.mnuAdministracion,
-            this.mnuAyuda});
+            this.mnuAyuda,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(840, 24);
@@ -88,57 +90,60 @@
             // mnuFormularioAnticipo
             // 
             this.mnuFormularioAnticipo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarFormularioToolStripMenuItem,
+            this.mnuRegistrarFormularioAnticipo,
             this.anularFormularioToolStripMenuItem,
-            this.consultarFormularioToolStripMenuItem,
-            this.aprobarFormualrioToolStripMenuItem});
+            this.consultarFormulariosToolStripMenuItem,
+            this.mnuAprobarFormularioAnticipo});
             this.mnuFormularioAnticipo.Name = "mnuFormularioAnticipo";
             this.mnuFormularioAnticipo.Size = new System.Drawing.Size(213, 22);
             this.mnuFormularioAnticipo.Text = "Formulario de Anticipo";
             // 
-            // registrarFormularioToolStripMenuItem
+            // mnuRegistrarFormularioAnticipo
             // 
-            this.registrarFormularioToolStripMenuItem.Name = "registrarFormularioToolStripMenuItem";
-            this.registrarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.registrarFormularioToolStripMenuItem.Text = "Registrar Formulario";
-            this.registrarFormularioToolStripMenuItem.Click += new System.EventHandler(this.registrarFormularioToolStripMenuItem_Click);
+            this.mnuRegistrarFormularioAnticipo.Name = "mnuRegistrarFormularioAnticipo";
+            this.mnuRegistrarFormularioAnticipo.Size = new System.Drawing.Size(186, 22);
+            this.mnuRegistrarFormularioAnticipo.Text = "Registrar Formulario";
+            this.mnuRegistrarFormularioAnticipo.Click += new System.EventHandler(this.registrarFormularioToolStripMenuItem_Click);
             // 
             // anularFormularioToolStripMenuItem
             // 
             this.anularFormularioToolStripMenuItem.Name = "anularFormularioToolStripMenuItem";
             this.anularFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.anularFormularioToolStripMenuItem.Text = "Anular Formulario";
+            this.anularFormularioToolStripMenuItem.Click += new System.EventHandler(this.anularFormularioToolStripMenuItem_Click);
             // 
-            // consultarFormularioToolStripMenuItem
+            // consultarFormulariosToolStripMenuItem
             // 
-            this.consultarFormularioToolStripMenuItem.Name = "consultarFormularioToolStripMenuItem";
-            this.consultarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.consultarFormularioToolStripMenuItem.Text = "Consultar Formulario";
+            this.consultarFormulariosToolStripMenuItem.Name = "consultarFormulariosToolStripMenuItem";
+            this.consultarFormulariosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.consultarFormulariosToolStripMenuItem.Text = "Consultar Formulario";
+            this.consultarFormulariosToolStripMenuItem.Click += new System.EventHandler(this.consultarFormulariosToolStripMenuItem_Click);
             // 
-            // aprobarFormualrioToolStripMenuItem
+            // mnuAprobarFormularioAnticipo
             // 
-            this.aprobarFormualrioToolStripMenuItem.Name = "aprobarFormualrioToolStripMenuItem";
-            this.aprobarFormualrioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.aprobarFormualrioToolStripMenuItem.Text = "Aprobar Formulario";
+            this.mnuAprobarFormularioAnticipo.Name = "mnuAprobarFormularioAnticipo";
+            this.mnuAprobarFormularioAnticipo.Size = new System.Drawing.Size(186, 22);
+            this.mnuAprobarFormularioAnticipo.Text = "Aprobar Formulario";
+            this.mnuAprobarFormularioAnticipo.Click += new System.EventHandler(this.aprobarFormualrioToolStripMenuItem_Click);
             // 
             // formularioDeLiquidaciónToolStripMenuItem
             // 
             this.formularioDeLiquidaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarFormularioToolStripMenuItem1,
+            this.mnuRegistrarFormularioLiquidacion,
             this.anularFormularioToolStripMenuItem1,
             this.consultarFormularioToolStripMenuItem1,
-            this.aprobarFormularioToolStripMenuItem,
-            this.editarFormularioToolStripMenuItem});
+            this.mnuAprobarFormularioLiquidacion,
+            this.mnuEditarFormularioLiquidacion});
             this.formularioDeLiquidaciónToolStripMenuItem.Name = "formularioDeLiquidaciónToolStripMenuItem";
             this.formularioDeLiquidaciónToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.formularioDeLiquidaciónToolStripMenuItem.Text = "Formulario de Liquidación";
             // 
-            // registrarFormularioToolStripMenuItem1
+            // mnuRegistrarFormularioLiquidacion
             // 
-            this.registrarFormularioToolStripMenuItem1.Name = "registrarFormularioToolStripMenuItem1";
-            this.registrarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
-            this.registrarFormularioToolStripMenuItem1.Text = "Registrar Formulario";
-            this.registrarFormularioToolStripMenuItem1.Click += new System.EventHandler(this.registrarFormularioToolStripMenuItem1_Click);
+            this.mnuRegistrarFormularioLiquidacion.Name = "mnuRegistrarFormularioLiquidacion";
+            this.mnuRegistrarFormularioLiquidacion.Size = new System.Drawing.Size(187, 22);
+            this.mnuRegistrarFormularioLiquidacion.Text = "Registrar Formulario";
+            this.mnuRegistrarFormularioLiquidacion.Click += new System.EventHandler(this.registrarFormularioToolStripMenuItem1_Click);
             // 
             // anularFormularioToolStripMenuItem1
             // 
@@ -152,18 +157,18 @@
             this.consultarFormularioToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.consultarFormularioToolStripMenuItem1.Text = "Consultar Formulario";
             // 
-            // aprobarFormularioToolStripMenuItem
+            // mnuAprobarFormularioLiquidacion
             // 
-            this.aprobarFormularioToolStripMenuItem.Name = "aprobarFormularioToolStripMenuItem";
-            this.aprobarFormularioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.aprobarFormularioToolStripMenuItem.Text = "Aprobar Formulario";
+            this.mnuAprobarFormularioLiquidacion.Name = "mnuAprobarFormularioLiquidacion";
+            this.mnuAprobarFormularioLiquidacion.Size = new System.Drawing.Size(187, 22);
+            this.mnuAprobarFormularioLiquidacion.Text = "Aprobar Formulario";
             // 
-            // editarFormularioToolStripMenuItem
+            // mnuEditarFormularioLiquidacion
             // 
-            this.editarFormularioToolStripMenuItem.Name = "editarFormularioToolStripMenuItem";
-            this.editarFormularioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.editarFormularioToolStripMenuItem.Text = "Actualizar Formulario";
-            this.editarFormularioToolStripMenuItem.Click += new System.EventHandler(this.editarFormularioToolStripMenuItem_Click);
+            this.mnuEditarFormularioLiquidacion.Name = "mnuEditarFormularioLiquidacion";
+            this.mnuEditarFormularioLiquidacion.Size = new System.Drawing.Size(187, 22);
+            this.mnuEditarFormularioLiquidacion.Text = "Actualizar Formulario";
+            this.mnuEditarFormularioLiquidacion.Click += new System.EventHandler(this.editarFormularioToolStripMenuItem_Click);
             // 
             // mnuEmpleados
             // 
@@ -316,6 +321,13 @@
             this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
             // mdiMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,16 +366,15 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAyuda;
         private System.Windows.Forms.ToolStripMenuItem verAyudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuFormularioAnticipo;
-        private System.Windows.Forms.ToolStripMenuItem registrarFormularioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuRegistrarFormularioAnticipo;
         private System.Windows.Forms.ToolStripMenuItem anularFormularioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarFormularioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aprobarFormualrioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAprobarFormularioAnticipo;
         private System.Windows.Forms.ToolStripMenuItem formularioDeLiquidaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registrarFormularioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mnuRegistrarFormularioLiquidacion;
         private System.Windows.Forms.ToolStripMenuItem anularFormularioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarFormularioToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aprobarFormularioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarFormularioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAprobarFormularioLiquidacion;
+        private System.Windows.Forms.ToolStripMenuItem mnuEditarFormularioLiquidacion;
         private System.Windows.Forms.ToolStripMenuItem eliminarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarCargoDeEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarCargoDeEmpleadoToolStripMenuItem;
@@ -374,5 +385,7 @@
         private System.Windows.Forms.ToolStripMenuItem registrarUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarFormulariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
