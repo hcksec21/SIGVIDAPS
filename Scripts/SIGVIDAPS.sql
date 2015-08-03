@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 23:40:11                          */
+/* Created on:     02/08/2015 23:45:20                          */
 /*==============================================================*/
 
 
@@ -498,6 +498,7 @@ create table DETALLE_FORMULARIO (
    NOMBRETRANSPORTE     varchar(50)          null,
    SALIDATRANSPORTE     datetime             null,
    LLEGADATRANSPORTE    datetime             null,
+   MONTOTRANSPORTE      money                null,
    constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETFORM)
 )
 go
