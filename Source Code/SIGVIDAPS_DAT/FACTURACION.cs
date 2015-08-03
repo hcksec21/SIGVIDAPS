@@ -12,12 +12,14 @@ namespace SIGVIDAPS_DAT
     using System;
     using System.Collections.Generic;
     
-    public partial class FACTURA
+    public partial class FACTURACION
     {
-        public decimal IDFACTURA { get; set; }
+        public decimal IDFACTURACION { get; set; }
         public Nullable<decimal> IDFORMLIQ { get; set; }
-        public string PATHIMAGENFAC { get; set; }
-        public Nullable<decimal> MONTOFAC { get; set; }
+        public string PATHIMAGENFACTURA { get; set; }
+        public Nullable<System.DateTime> FECHAFACTURA { get; set; }
+        public string EMISORFACTURA { get; set; }
+        public Nullable<decimal> MONTOFACTURA { get; set; }
     
         public virtual FORMULARIO_LIQUIDACION FORMULARIO_LIQUIDACION { get; set; }
     }

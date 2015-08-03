@@ -83,12 +83,6 @@ namespace SIGVIDAPS_FORMS
             ValidarForm(liquidacion);
         }
 
-        private void cálculoMontoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCalculoMontoAnticipo calculoMonto = new frmCalculoMontoAnticipo();
-            ValidarForm(calculoMonto);
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmViatico opcionViatico = new frmViatico();

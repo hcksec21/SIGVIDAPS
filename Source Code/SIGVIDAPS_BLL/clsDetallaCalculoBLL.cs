@@ -9,47 +9,47 @@ using System.Data.Entity;
 
 namespace SIGVIDAPS_BLL
 {
-    public class clsFormularioAnticipoBLL
+    public class clsDetalleCalculoBLL
     {
 
         SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
 
         //INSERTAR 
-        public void insertarFormulario_anticipo(FORMULARIO__ANTICIPO formulario_anticipo)
+        public void insertarDetalleCalculo(DETALLE_CALCULO detalleCalculo)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 using (modeloEntidades)
                 {
-                    modeloEntidades.FORMULARIO__ANTICIPO.Add(formulario_anticipo);
-                    modeloEntidades.SaveChanges();                    
+                    modeloEntidades.DETALLE_CALCULO.Add(detalleCalculo);
+                    modeloEntidades.SaveChanges();
                     transaction.Complete();
                 }
             }
         }
 
         //ACTUALIZAR
-        public void actualizarFormulario_anticipo(int indice, FORMULARIO__ANTICIPO formulario_anticipo)
+        public void actualizarDetalleCalculo(int indice, DETALLE_CALCULO detalleCalculo)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objFormulario_anticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(qq => qq.IDEMP == indice).Single();
-                modeloEntidades.Entry(objFormulario_anticipo).CurrentValues.SetValues(formulario_anticipo);
+                var objDetalleCalculo = modeloEntidades.DETALLE_CALCULO.Where(qq => qq.IDDETALLECALCULO == indice).Single();
+                modeloEntidades.Entry(objDetalleCalculo).CurrentValues.SetValues(detalleCalculo);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }
         }
 
-        public List<FORMULARIO__ANTICIPO> obtenerTodosFormulario_anticipos()
+        public List<DETALLE_CALCULO> obtenerTodosDetalleCalculos()
         {
-            List<FORMULARIO__ANTICIPO> lstFormulario_anticipos = modeloEntidades.FORMULARIO__ANTICIPO.ToList();
-            return lstFormulario_anticipos;
+            List<DETALLE_CALCULO> lstDetalleCalculos = modeloEntidades.DETALLE_CALCULO.ToList();
+            return lstDetalleCalculos;
         }
 
         //BUSCAR CON ID
-        public FORMULARIO__ANTICIPO buscarConId(int id)
+        public DETALLE_CALCULO buscarConId(int id)
         {
-            return modeloEntidades.FORMULARIO__ANTICIPO.Where(e => e.IDFORMANTICIPO == id).First();
+            return modeloEntidades.DETALLE_CALCULO.Where(e => e.IDDETALLECALCULO == id).First();
         }
 
         //VERIFICAR DEPENDENCIAS
@@ -68,14 +68,14 @@ namespace SIGVIDAPS_BLL
             return retorno;
         }
 
-        //ELIMINAR FORMULARIO__ANTICIPO
-        public void eliminarFormulario_anticipo(int? indice)
+        //ELIMINAR DETALLE_CALCULO
+        public void eliminarDetalleCalculo(int? indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 int indice1 = (int)indice;
-                FORMULARIO__ANTICIPO objFormulario_anticipo = buscarConId(indice1);
-                modeloEntidades.FORMULARIO__ANTICIPO.Remove(objFormulario_anticipo);
+                DETALLE_CALCULO objDetalleCalculo = buscarConId(indice1);
+                modeloEntidades.DETALLE_CALCULO.Remove(objDetalleCalculo);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }

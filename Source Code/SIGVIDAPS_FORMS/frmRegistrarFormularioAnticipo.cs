@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIGVIDAPS_BLL;
 using SIGVIDAPS_DAT;
+using System.Globalization;
 
 namespace SIGVIDAPS_FORMS
 {
@@ -106,9 +107,6 @@ namespace SIGVIDAPS_FORMS
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Form frmAbout = new frmCalculoMontoAnticipo();
-            frmAbout.Show(this);
-
             String strError = "";
             Boolean bolError = false;
 
@@ -157,40 +155,45 @@ namespace SIGVIDAPS_FORMS
                 strError += "La Fecha de Llegada no es Valida\n";
                 bolError = true;
             }
+            if (cmbCombinacionViaticos.SelectedIndex == 0 && ((Int32)(dtpFechaLlegadaGen.Value).Subtract(dtpFechaSalidaGen.Value).TotalHours) > 8)
+            {
+                strError += "La Subsistencia solo puede durar menos de 8 Horas\n";
+                bolError = true;
+            }
+            if (cmbCombinacionViaticos.SelectedIndex == 1 && ((Int32)(dtpFechaLlegadaGen.Value).Subtract(dtpFechaSalidaGen.Value).TotalHours) > 8)
+            {
+                strError += "La Subsistencia/Movilizacion solo puede durar menos de 8 Horas\n";
+                bolError = true;
+            }
 
             if (!bolError)
             {
-                if (MessageBox.Show("¿Guardar el Formulario de Anticipo?", "Guardar Formulario", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FORMULARIO__ANTICIPO formularioAnticipo = new FORMULARIO__ANTICIPO();
+                formularioAnticipo.BANCOFORMANTICIPO = txtNombreBanco.Text;
+                formularioAnticipo.CIUDADFORMANTICIPO = txtCiudad.Text;
+                formularioAnticipo.IDCOMBINACION = Convert.ToInt32(cmbCombinacionViaticos.SelectedValue);
+                formularioAnticipo.DESCRIPCIONFORMANTICIPO = txtDetalleActividades.Text;
+                formularioAnticipo.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
+                formularioAnticipo.NUMCUENTAFORMANTICIPO = txtNumCuenta.Text;
+                formularioAnticipo.NUMFORMANTICIPO = mskNumeroSolicitud.Text;
+                formularioAnticipo.TIPOCUENTAFORMANTICIPO = cmbTipoCuenta.DisplayMember;
+                formularioAnticipo.UNIDADFORMANTICIPO = cmbUnidad.DisplayMember;
+                formularioAnticipo.ESTADOFORMANTICIPO = "EMITIDO";
+                formularioAnticipo.FECFORMANTICIPO = dtpFechaSolicitud.Value;
+
+                DateTime llegada = dtpFechaLlegadaGen.Value.Date + dtpHoraLlegadaGen.Value.TimeOfDay;
+                formularioAnticipo.LLEGADAFORMANTICIPO = llegada;
+
+                DateTime salida = dtpFechaSalidaGen.Value.Date + dtpHoraSalidaGen.Value.TimeOfDay;
+                formularioAnticipo.SALIDAFORMANTICIPO = salida;
+
+                if (listaDetalleFormulario.Any())
                 {
-                    FORMULARIO__ANTICIPO formularioAnticipo = new FORMULARIO__ANTICIPO();
-                    formularioAnticipo.BANCOFORMANTICIPO = txtNombreBanco.Text;
-                    formularioAnticipo.CIUDADFORMANTICIPO = txtCiudad.Text;
-                    formularioAnticipo.IDCOMBINACION = Convert.ToInt32(cmbCombinacionViaticos.SelectedValue);
-                    formularioAnticipo.DESCRIPCIONFORMANTICIPO = txtDetalleActividades.Text;
-                    formularioAnticipo.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
-                    formularioAnticipo.NUMCUENTAFORMANTICIPO = txtNumCuenta.Text;
-                    formularioAnticipo.NUMFORMANTICIPO = mskNumeroSolicitud.Text;
-                    formularioAnticipo.TIPOCUENTAFORMANTICIPO = cmbTipoCuenta.DisplayMember;
-                    formularioAnticipo.UNIDADFORMANTICIPO = cmbUnidad.DisplayMember;
-                    formularioAnticipo.ESTADOFORMANTICIPO = "EMITIDO";
-                    formularioAnticipo.FECFORMANTICIPO = dtpFechaSolicitud.Value;
-
-                    DateTime llegada = dtpFechaLlegadaGen.Value.Date + dtpHoraLlegadaGen.Value.TimeOfDay;
-                    formularioAnticipo.LLEGADAFORMANTICIPO = llegada;
-
-                    DateTime salida = dtpFechaSalidaGen.Value.Date + dtpHoraSalidaGen.Value.TimeOfDay;
-                    formularioAnticipo.SALIDAFORMANTICIPO = salida;
-
-                    if (listaDetalleFormulario.Any())
-                    {                        
-                        formularioAnticipo.DETALLE_FORMULARIO = listaDetalleFormulario;
-                        MessageBox.Show("El formulario ha sido registrado satisfactoriamente {0}" + formularioAnticipo.IDFORMANTICIPO);
-                    }
-
-                    (new clsFormularioAnticipo()).insertarFormulario_anticipo(formularioAnticipo);
-
-                    MessageBox.Show("El formulario ha sido registrado satisfactoriamente {0}" + formularioAnticipo.IDFORMANTICIPO);
+                    formularioAnticipo.DETALLE_FORMULARIO = listaDetalleFormulario;
                 }
+
+                Form frmCalculo = new frmCalculoMontoAnticipo(formularioAnticipo);
+                frmCalculo.ShowDialog(this);
             }
             else
             {
@@ -239,17 +242,20 @@ namespace SIGVIDAPS_FORMS
             if (!bolError)
             {
                 DateTime llegada = dtpFechaLlegadaTrans.Value.Date + dtpHoraLlegadaTrans.Value.TimeOfDay;
-                DateTime salida = dtpFechaSalidaTrans.Value.Date + dtpHoraSalidaTrans.Value.TimeOfDay; 
+                DateTime salida = dtpFechaSalidaTrans.Value.Date + dtpHoraSalidaTrans.Value.TimeOfDay;
+                decimal value;
+                Decimal.TryParse(mskMontoTransporte.Text, NumberStyles.Currency, null, out value);
                 listaDetalleFormulario.Add(new DETALLE_FORMULARIO
-                {                                       
+                {
                     IDRUTA = Convert.ToInt32(cmbRuta.SelectedValue),
                     IDTIPOTRANSPORTE = Convert.ToInt32(cmbTipoTransporte.SelectedValue),
                     LLEGADATRANSPORTE = llegada,
                     NOMBRETRANSPORTE = txtNombreTransporte.Text,
-                    SALIDATRANSPORTE = salida                    
+                    SALIDATRANSPORTE = salida,
+                    MONTOTRANSPORTE = value                                       
                 });
                 var lastItem = listaDetalleFormulario.LastOrDefault();
-                addListaDetalleFormulario((DETALLE_FORMULARIO) lastItem);
+                addListaDetalleFormulario((DETALLE_FORMULARIO)lastItem);
                 limpiarTransporte();
             }
             else
@@ -320,6 +326,25 @@ namespace SIGVIDAPS_FORMS
             else
                 MessageBox.Show("Seleccione un registro");
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCombinacionViaticos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCombinacionViaticos.SelectedIndex == 0 || cmbCombinacionViaticos.SelectedIndex == 2 || cmbCombinacionViaticos.SelectedIndex == 4)
+            {
+                tbpTransporte.Enabled = false;
+                //tbcFormulario.TabPages.Remove(tbpTransporte);
+            }
+            else
+            {
+                tbpTransporte.Enabled = true;
+                //tbcFormulario.TabPages.Insert(2,tbpTransporte);
+            }
         }
     }
 }

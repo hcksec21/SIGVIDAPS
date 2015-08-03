@@ -17,6 +17,7 @@ namespace SIGVIDAPS_DAT
         public decimal IDDETALLECALCULO { get; set; }
         public Nullable<decimal> IDCALCULO { get; set; }
         public Nullable<decimal> IDOPCIONN { get; set; }
+        public Nullable<decimal> SUBTOTALMONTO { get; set; }
     
         public virtual CALCULO CALCULO { get; set; }
         public virtual OPCION_NIVEL OPCION_NIVEL { get; set; }

@@ -34,6 +34,7 @@ namespace SIGVIDAPS_DAT
         public string TIPOCUENTAFORMANTICIPO { get; set; }
         public string NUMCUENTAFORMANTICIPO { get; set; }
         public string ESTADOFORMANTICIPO { get; set; }
+        public Nullable<decimal> MONTOTOTAL { get; set; }
     
         public virtual ICollection<CALCULO> CALCULOes { get; set; }
         public virtual COMBINACION_VIATICOS COMBINACION_VIATICOS { get; set; }

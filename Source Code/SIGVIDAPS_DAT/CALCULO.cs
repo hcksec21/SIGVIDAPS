@@ -21,6 +21,7 @@ namespace SIGVIDAPS_DAT
     
         public decimal IDCALCULO { get; set; }
         public Nullable<decimal> IDFORMANTICIPO { get; set; }
+        public Nullable<decimal> MONTOCALCULO { get; set; }
     
         public virtual FORMULARIO__ANTICIPO FORMULARIO__ANTICIPO { get; set; }
         public virtual ICollection<DETALLE_CALCULO> DETALLE_CALCULO { get; set; }

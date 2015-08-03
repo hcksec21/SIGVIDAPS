@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 23:45:20                          */
+/* Created on:     03/08/2015 1:18:25                           */
 /*==============================================================*/
 
 
@@ -417,6 +417,7 @@ go
 create table CALCULO (
    IDCALCULO            numeric              identity,
    IDFORMANTICIPO       numeric              null,
+   MONTOCALCULO         money                null,
    constraint PK_CALCULO primary key nonclustered (IDCALCULO)
 )
 go
@@ -466,6 +467,7 @@ create table DETALLE_CALCULO (
    IDDETALLECALCULO     numeric              identity,
    IDCALCULO            numeric              null,
    IDOPCIONN            numeric              null,
+   SUBTOTALMONTO        money                null,
    constraint PK_DETALLE_CALCULO primary key nonclustered (IDDETALLECALCULO)
 )
 go
@@ -624,6 +626,7 @@ create table FORMULARIO__ANTICIPO (
    TIPOCUENTAFORMANTICIPO varchar(50)          null,
    NUMCUENTAFORMANTICIPO varchar(30)          null,
    ESTADOFORMANTICIPO   varchar(30)          null,
+   MONTOTOTAL           money                null,
    constraint PK_FORMULARIO__ANTICIPO primary key nonclustered (IDFORMANTICIPO)
 )
 go

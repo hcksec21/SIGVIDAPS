@@ -17,7 +17,7 @@ namespace SIGVIDAPS_DAT
         public FORMULARIO_LIQUIDACION()
         {
             this.DETALLE_FORMULARIO = new HashSet<DETALLE_FORMULARIO>();
-            this.FACTURAs = new HashSet<FACTURA>();
+            this.FACTURACIONs = new HashSet<FACTURACION>();
         }
     
         public decimal IDFORMLIQ { get; set; }
@@ -26,13 +26,12 @@ namespace SIGVIDAPS_DAT
         public Nullable<System.DateTime> FECHAFORMLIQ { get; set; }
         public string CIUDADFORMLIQ { get; set; }
         public string UNIDADFORMLIQ { get; set; }
-        public string DESCRIPCIONFORMLIQ { get; set; }
         public Nullable<System.DateTime> SALIDAITINFORMLIQ { get; set; }
         public Nullable<System.DateTime> LLEGADAITINFORMLIQ { get; set; }
         public string ESTADOFORMLIQ { get; set; }
     
         public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
+        public virtual ICollection<FACTURACION> FACTURACIONs { get; set; }
     }
 }

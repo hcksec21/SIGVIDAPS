@@ -76,7 +76,7 @@
     <Compile Include="EMPLEADO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
-    <Compile Include="FACTURA.cs">
+    <Compile Include="FACTURACION.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIO_LIQUIDACION.cs">

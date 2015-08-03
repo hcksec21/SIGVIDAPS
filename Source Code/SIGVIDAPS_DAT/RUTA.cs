@@ -31,7 +31,6 @@ namespace SIGVIDAPS_DAT
                 return LUGARSALIDA + " - " + LUGARLLEGADA;
             }
         }
-
     
         public virtual ICollection<DETALLE_FORMULARIO> DETALLE_FORMULARIO { get; set; }
     }

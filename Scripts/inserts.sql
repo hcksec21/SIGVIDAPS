@@ -86,3 +86,69 @@ INSERT INTO [dbo].[OPCIONES_VIATICOS]
            ([NOMBREOPCION])
      VALUES
            ('Movilización');
+
+--Opcion_Nivel Viatico
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (1
+           ,1
+           ,130.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (1
+           ,2
+           ,80.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (2
+           ,1
+           ,65.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (2
+           ,2
+           ,40.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (3
+           ,1
+           ,4.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (3
+           ,2
+           ,4.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (4
+           ,1
+           ,16.00)
+INSERT INTO [dbo].[OPCION_NIVEL]
+           ([IDOPCION]
+           ,[IDNIVEL]
+           ,[VALOROPCION])
+     VALUES
+           (4
+           ,1
+           ,16.00)

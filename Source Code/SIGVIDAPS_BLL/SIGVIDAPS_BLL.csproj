@@ -55,13 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCalculoBLL.cs" />
     <Compile Include="clsCargoBLL.cs" />
     <Compile Include="clsCombinacionViaticosBLL.cs" />
+    <Compile Include="clsDetallaCalculoBLL.cs" />
     <Compile Include="clsDetalleFormularioBLL.cs" />
     <Compile Include="clsEmpleadoBLL.cs" />
     <Compile Include="clsFormLiquidacionBLL.cs" />
     <Compile Include="clsFormularioAnticipoBLL.cs" />
     <Compile Include="clsNivelBLL.cs" />
+    <Compile Include="clsOpcioneNivel.cs" />
+    <Compile Include="clsOpcionesViaticosBLL.cs" />
     <Compile Include="clsPerfilBLL.cs" />
     <Compile Include="clsTipoTransporteBLL.cs" />
     <Compile Include="clsUsuarioBLL.cs" />

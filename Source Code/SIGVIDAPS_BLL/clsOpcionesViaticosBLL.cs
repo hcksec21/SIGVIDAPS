@@ -9,47 +9,47 @@ using System.Data.Entity;
 
 namespace SIGVIDAPS_BLL
 {
-    public class clsFormularioAnticipoBLL
+    public class clsOpcionesViaticosBLL
     {
 
         SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
 
         //INSERTAR 
-        public void insertarFormulario_anticipo(FORMULARIO__ANTICIPO formulario_anticipo)
+        public void insertarOpcionViatico(OPCIONES_VIATICOS opcionViatico)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 using (modeloEntidades)
                 {
-                    modeloEntidades.FORMULARIO__ANTICIPO.Add(formulario_anticipo);
-                    modeloEntidades.SaveChanges();                    
+                    modeloEntidades.OPCIONES_VIATICOS.Add(opcionViatico);
+                    modeloEntidades.SaveChanges();
                     transaction.Complete();
                 }
             }
         }
 
         //ACTUALIZAR
-        public void actualizarFormulario_anticipo(int indice, FORMULARIO__ANTICIPO formulario_anticipo)
+        public void actualizarOpcionViatico(int indice, OPCIONES_VIATICOS opcionViatico)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objFormulario_anticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(qq => qq.IDEMP == indice).Single();
-                modeloEntidades.Entry(objFormulario_anticipo).CurrentValues.SetValues(formulario_anticipo);
+                var objOpcionViatico = modeloEntidades.OPCIONES_VIATICOS.Where(qq => qq.IDOPCION == indice).Single();
+                modeloEntidades.Entry(objOpcionViatico).CurrentValues.SetValues(opcionViatico);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }
         }
 
-        public List<FORMULARIO__ANTICIPO> obtenerTodosFormulario_anticipos()
+        public List<OPCIONES_VIATICOS> obtenerTodosOpcionViaticos()
         {
-            List<FORMULARIO__ANTICIPO> lstFormulario_anticipos = modeloEntidades.FORMULARIO__ANTICIPO.ToList();
-            return lstFormulario_anticipos;
+            List<OPCIONES_VIATICOS> lstOpcionViaticos = modeloEntidades.OPCIONES_VIATICOS.ToList();
+            return lstOpcionViaticos;
         }
 
         //BUSCAR CON ID
-        public FORMULARIO__ANTICIPO buscarConId(int id)
+        public OPCIONES_VIATICOS buscarConId(int id)
         {
-            return modeloEntidades.FORMULARIO__ANTICIPO.Where(e => e.IDFORMANTICIPO == id).First();
+            return modeloEntidades.OPCIONES_VIATICOS.Where(e => e.IDOPCION == id).First();
         }
 
         //VERIFICAR DEPENDENCIAS
@@ -68,14 +68,14 @@ namespace SIGVIDAPS_BLL
             return retorno;
         }
 
-        //ELIMINAR FORMULARIO__ANTICIPO
-        public void eliminarFormulario_anticipo(int? indice)
+        //ELIMINAR OPCION_VIATICO
+        public void eliminarOpcionViatico(int? indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 int indice1 = (int)indice;
-                FORMULARIO__ANTICIPO objFormulario_anticipo = buscarConId(indice1);
-                modeloEntidades.FORMULARIO__ANTICIPO.Remove(objFormulario_anticipo);
+                OPCIONES_VIATICOS objOpcionViatico = buscarConId(indice1);
+                modeloEntidades.OPCIONES_VIATICOS.Remove(objOpcionViatico);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }

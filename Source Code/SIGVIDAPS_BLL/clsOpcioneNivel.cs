@@ -9,47 +9,53 @@ using System.Data.Entity;
 
 namespace SIGVIDAPS_BLL
 {
-    public class clsFormularioAnticipoBLL
+    public class clsOpcionNivelBLL
     {
 
         SIGVIDAPS_entidades modeloEntidades = new SIGVIDAPS_entidades();
 
         //INSERTAR 
-        public void insertarFormulario_anticipo(FORMULARIO__ANTICIPO formulario_anticipo)
+        public void insertarOpcionNivel(OPCION_NIVEL opcionNivel)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 using (modeloEntidades)
                 {
-                    modeloEntidades.FORMULARIO__ANTICIPO.Add(formulario_anticipo);
-                    modeloEntidades.SaveChanges();                    
+                    modeloEntidades.OPCION_NIVEL.Add(opcionNivel);
+                    modeloEntidades.SaveChanges();
                     transaction.Complete();
                 }
             }
         }
 
         //ACTUALIZAR
-        public void actualizarFormulario_anticipo(int indice, FORMULARIO__ANTICIPO formulario_anticipo)
+        public void actualizarOpcionNivel(int indice, OPCION_NIVEL opcionNivel)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
-                var objFormulario_anticipo = modeloEntidades.FORMULARIO__ANTICIPO.Where(qq => qq.IDEMP == indice).Single();
-                modeloEntidades.Entry(objFormulario_anticipo).CurrentValues.SetValues(formulario_anticipo);
+                var objOpcionNivel = modeloEntidades.OPCION_NIVEL.Where(qq => qq.IDOPCIONN == indice).Single();
+                modeloEntidades.Entry(objOpcionNivel).CurrentValues.SetValues(opcionNivel);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }
         }
 
-        public List<FORMULARIO__ANTICIPO> obtenerTodosFormulario_anticipos()
+        public List<OPCION_NIVEL> obtenerTodosOpcionNivels()
         {
-            List<FORMULARIO__ANTICIPO> lstFormulario_anticipos = modeloEntidades.FORMULARIO__ANTICIPO.ToList();
-            return lstFormulario_anticipos;
+            List<OPCION_NIVEL> lstOpcionNivels = modeloEntidades.OPCION_NIVEL.ToList();
+            return lstOpcionNivels;
+        }
+
+        //BUSCAR CON IDOPCION y IDNIVEL
+        public OPCION_NIVEL buscarConOpcionNivel(int idOpcion, int idNivel)
+        {
+            return modeloEntidades.OPCION_NIVEL.Where(e => e.IDOPCION == idOpcion && e.IDNIVEL == idNivel).First();
         }
 
         //BUSCAR CON ID
-        public FORMULARIO__ANTICIPO buscarConId(int id)
+        public OPCION_NIVEL buscarConId(int id)
         {
-            return modeloEntidades.FORMULARIO__ANTICIPO.Where(e => e.IDFORMANTICIPO == id).First();
+            return modeloEntidades.OPCION_NIVEL.Where(e => e.IDOPCIONN == id).First();
         }
 
         //VERIFICAR DEPENDENCIAS
@@ -68,14 +74,14 @@ namespace SIGVIDAPS_BLL
             return retorno;
         }
 
-        //ELIMINAR FORMULARIO__ANTICIPO
-        public void eliminarFormulario_anticipo(int? indice)
+        //ELIMINAR OPCION_NIVEL
+        public void eliminarOpcionNivel(int? indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
                 int indice1 = (int)indice;
-                FORMULARIO__ANTICIPO objFormulario_anticipo = buscarConId(indice1);
-                modeloEntidades.FORMULARIO__ANTICIPO.Remove(objFormulario_anticipo);
+                OPCION_NIVEL objOpcionNivel = buscarConId(indice1);
+                modeloEntidades.OPCION_NIVEL.Remove(objOpcionNivel);
                 modeloEntidades.SaveChanges();
                 transaction.Complete();
             }

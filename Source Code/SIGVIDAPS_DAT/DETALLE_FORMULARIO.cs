@@ -22,6 +22,7 @@ namespace SIGVIDAPS_DAT
         public string NOMBRETRANSPORTE { get; set; }
         public Nullable<System.DateTime> SALIDATRANSPORTE { get; set; }
         public Nullable<System.DateTime> LLEGADATRANSPORTE { get; set; }
+        public Nullable<decimal> MONTOTRANSPORTE { get; set; }
     
         public virtual FORMULARIO__ANTICIPO FORMULARIO__ANTICIPO { get; set; }
         public virtual FORMULARIO_LIQUIDACION FORMULARIO_LIQUIDACION { get; set; }
