@@ -36,16 +36,3 @@ E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\SIG
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.csprojResolveAssemblyReference.cache
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.dll
 E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.pdb
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.csprojResolveAssemblyReference.cache
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\SIGVIDAPS_DAT.dll.config
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\SIGVIDAPS_DAT.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\SIGVIDAPS_DAT.pdb
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServer.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServerCompact.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\System.Data.SqlServerCe.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.xml
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServer.xml
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\bin\Debug\EntityFramework.SqlServerCompact.xml
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.dll
-E:\My stuff\Computer Science\Resources\APLICACIONES EN AMBIENTE PROPIETARIOS\NUEVO\SIGVIDAPS\Source Code\SIGVIDAPS_DAT\obj\Debug\SIGVIDAPS_DAT.pdb
