@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SIGVIDAPS_DAT;
+using SIGVIDAPS_BLL;
 
 namespace SIGVIDAPS_FORMS
 {
@@ -22,11 +24,6 @@ namespace SIGVIDAPS_FORMS
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -35,6 +32,40 @@ namespace SIGVIDAPS_FORMS
         private void btnGuardarTrans_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmFormularioLiquidacion_Load(object sender, EventArgs e)
+        {
+            //dtpFechaSolicitud.Format = DateTimePickerFormat.Custom;
+            //dtpFechaSolicitud.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            //dtpFechaSolicitud.Value.TimeOfDay;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("time: " + dtpHoraSalidaInf.Value.ToShortTimeString());
+            if (MessageBox.Show("¿Guardar el Formulario?", "Guardar formulario", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                (new clsFormLiquidacionBLL()).crearFormulario(
+
+                    new FORMULARIO_LIQUIDACION
+                    {
+                        CIUDADFORMLIQ=txtCiudad.Text,
+                        ESTADOFORMLIQ="EMITIDO",
+                        FECHAFORMLIQ= dtpFechaSolicitud.Value.Date,
+                        FECHALLEGADAITINFORMLIQ=dtpFechaLlegadaInf.Value.Date,
+                        FECHASALIDAITINFORMLIQ=dtpFechaSalidaInf.Value.Date,
+                        //HORALLEGADAITINFORMLIQ=dtpHoraLlegadaInf.Value.ToShortTimeString(),
+                        HORASALIDAITINFORMLIQ=dtpHoraSalidaInf.Value,
+                        NUMFORMLIQ=txtNumeroSolicitud.Text,
+                        //UNIDADFORMLIQ=txt     dato quemado
+                    }
+
+                );
+
+
+                
+            }
         }
     }
 }

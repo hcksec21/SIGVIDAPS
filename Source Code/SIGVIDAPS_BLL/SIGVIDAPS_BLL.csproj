@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="clsCargoBLL.cs" />
     <Compile Include="clsEmpleadoBLL.cs" />
+    <Compile Include="clsFormLiquidacionBLL.cs" />
     <Compile Include="clsNivelBLL.cs" />
     <Compile Include="clsPerfilBLL.cs" />
     <Compile Include="clsUsuarioBLL.cs" />

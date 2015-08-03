@@ -73,7 +73,7 @@ namespace SIGVIDAPS_FORMS
 
                 MessageBox.Show("El usuario ha sido eliminado satisfactoriamente");
                 cargarUsuariosDataGridView();
-            }  
+            }
         }
     }
 }

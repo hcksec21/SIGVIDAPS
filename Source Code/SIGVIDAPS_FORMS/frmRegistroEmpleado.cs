@@ -269,7 +269,7 @@ namespace SIGVIDAPS_FORMS
 
         private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cmbCargos.SelectedIndex >= 0)
             {
                 String strId = cmbCargos.SelectedValue.ToString();
