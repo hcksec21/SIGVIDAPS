@@ -65,11 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCalculoMonto.cs">
+    <Compile Include="frmCalculoMontoAnticipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCalculoMonto.Designer.cs">
-      <DependentUpon>frmCalculoMonto.cs</DependentUpon>
+    <Compile Include="frmCalculoMontoAnticipo.Designer.cs">
+      <DependentUpon>frmCalculoMontoAnticipo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCombinacionViaticos.cs">
       <SubType>Form</SubType>
@@ -187,8 +187,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCalculoMonto.resx">
-      <DependentUpon>frmCalculoMonto.cs</DependentUpon>
+    <EmbeddedResource Include="frmCalculoMontoAnticipo.resx">
+      <DependentUpon>frmCalculoMontoAnticipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCombinacionViaticos.resx">
       <DependentUpon>frmCombinacionViaticos.cs</DependentUpon>

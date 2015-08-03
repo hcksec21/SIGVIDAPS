@@ -106,8 +106,8 @@ namespace SIGVIDAPS_FORMS
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Form frmAbout = new Form();
-            frmAbout.ShowDialog();
+            Form frmAbout = new frmCalculoMontoAnticipo();
+            frmAbout.Show(this);
 
             String strError = "";
             Boolean bolError = false;

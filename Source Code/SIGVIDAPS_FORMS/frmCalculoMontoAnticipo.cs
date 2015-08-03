@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SIGVIDAPS_FORMS
 {
-    public partial class frmCalculoMonto : Form
+    public partial class frmCalculoMontoAnticipo : Form
     {
-        public frmCalculoMonto()
+        public frmCalculoMontoAnticipo()
         {
             InitializeComponent();
         }

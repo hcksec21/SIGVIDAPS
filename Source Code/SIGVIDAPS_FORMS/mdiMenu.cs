@@ -85,7 +85,7 @@ namespace SIGVIDAPS_FORMS
 
         private void cálculoMontoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCalculoMonto calculoMonto = new frmCalculoMonto();
+            frmCalculoMontoAnticipo calculoMonto = new frmCalculoMontoAnticipo();
             ValidarForm(calculoMonto);
         }
 
