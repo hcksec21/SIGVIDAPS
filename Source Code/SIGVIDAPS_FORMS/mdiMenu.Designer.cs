@@ -101,6 +101,7 @@
             this.registrarFormularioToolStripMenuItem.Name = "registrarFormularioToolStripMenuItem";
             this.registrarFormularioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.registrarFormularioToolStripMenuItem.Text = "Registrar Formulario";
+            this.registrarFormularioToolStripMenuItem.Click += new System.EventHandler(this.registrarFormularioToolStripMenuItem_Click);
             // 
             // anularFormularioToolStripMenuItem
             // 

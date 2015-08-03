@@ -28,6 +28,7 @@ namespace SIGVIDAPS_FORMS
         {
             cargarNivel();
             cargarCargosDataGridView();
+            
         }
 
         private void cargarNivel()
@@ -85,6 +86,12 @@ namespace SIGVIDAPS_FORMS
             }
         }
 
+        private void limpiarInfo()
+        {
+            txbNombreCargo.Text = "";
+            cmbNivel.SelectedIndex = -1;           
+        }
+
         //CARGAR CARGOS EN DATAGRIDVIEW
         private void cargarCargosDataGridView()
         {
@@ -111,6 +118,11 @@ namespace SIGVIDAPS_FORMS
                     DataGridViewCell cellNivel = new DataGridViewTextBoxCell();
                     cellNivel.Value = cargo.NIVEL.IDNIVEL;
                     tempRow.Cells.Add(cellNivel);
+
+                    //NIVEL
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = cargo.ESTCARGO == true ? "ACTIVO" : "INACTIVO";
+                    tempRow.Cells.Add(cellEstado);
 
                     tempRow.Tag = cargo.IDCARGO;
                     dgvCargos.Rows.Add(tempRow);

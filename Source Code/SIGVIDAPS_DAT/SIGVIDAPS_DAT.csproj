@@ -70,16 +70,13 @@
     <Compile Include="DETALLE_CALCULO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
-    <Compile Include="DETALLE_FACTURACION.cs">
-      <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
-    </Compile>
     <Compile Include="DETALLE_FORMULARIO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLEADO.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
-    <Compile Include="FACTURACION.cs">
+    <Compile Include="FACTURA.cs">
       <DependentUpon>Modelo_SIGVIDAPS.tt</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIO_LIQUIDACION.cs">

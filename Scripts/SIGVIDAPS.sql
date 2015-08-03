@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 15:04:38                          */
+/* Created on:     02/08/2015 19:25:13                          */
 /*==============================================================*/
 
 
@@ -30,13 +30,6 @@ if exists (select 1
    where r.fkeyid = object_id('DETALLE_CALCULO') and o.name = 'FK_DETALLE__RELATIONS_OPCION_N')
 alter table DETALLE_CALCULO
    drop constraint FK_DETALLE__RELATIONS_OPCION_N
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('DETALLE_FACTURACION') and o.name = 'FK_DETALLE__RELATIONS_FACTURAC')
-alter table DETALLE_FACTURACION
-   drop constraint FK_DETALLE__RELATIONS_FACTURAC
 go
 
 if exists (select 1
@@ -76,9 +69,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FACTURACION') and o.name = 'FK_FACTURAC_RELATIONS_FORMULAR')
-alter table FACTURACION
-   drop constraint FK_FACTURAC_RELATIONS_FORMULAR
+   where r.fkeyid = object_id('FACTURA') and o.name = 'FK_FACTURA_RELATIONS_FORMULAR')
+alter table FACTURA
+   drop constraint FK_FACTURA_RELATIONS_FORMULAR
 go
 
 if exists (select 1
@@ -203,22 +196,6 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('DETALLE_FACTURACION')
-            and   name  = 'RELATIONSHIP_10_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index DETALLE_FACTURACION.RELATIONSHIP_10_FK
-go
-
-if exists (select 1
-            from  sysobjects
-           where  id = object_id('DETALLE_FACTURACION')
-            and   type = 'U')
-   drop table DETALLE_FACTURACION
-go
-
-if exists (select 1
-            from  sysindexes
            where  id    = object_id('DETALLE_FORMULARIO')
             and   name  = 'RELATIONSHIP_20_FK'
             and   indid > 0
@@ -278,18 +255,18 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('FACTURACION')
+           where  id    = object_id('FACTURA')
             and   name  = 'RELATIONSHIP_9_FK'
             and   indid > 0
             and   indid < 255)
-   drop index FACTURACION.RELATIONSHIP_9_FK
+   drop index FACTURA.RELATIONSHIP_9_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('FACTURACION')
+           where  id = object_id('FACTURA')
             and   type = 'U')
-   drop table FACTURACION
+   drop table FACTURA
 go
 
 if exists (select 1
@@ -510,24 +487,6 @@ IDOPCIONN ASC
 go
 
 /*==============================================================*/
-/* Table: DETALLE_FACTURACION                                   */
-/*==============================================================*/
-create table DETALLE_FACTURACION (
-   IDDETALLEFAC         numeric              identity,
-   IDFACTURACION        numeric              null,
-   constraint PK_DETALLE_FACTURACION primary key nonclustered (IDDETALLEFAC)
-)
-go
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_10_FK                                    */
-/*==============================================================*/
-create index RELATIONSHIP_10_FK on DETALLE_FACTURACION (
-IDFACTURACION ASC
-)
-go
-
-/*==============================================================*/
 /* Table: DETALLE_FORMULARIO                                    */
 /*==============================================================*/
 create table DETALLE_FORMULARIO (
@@ -537,10 +496,8 @@ create table DETALLE_FORMULARIO (
    IDTIPOTRANSPORTE     numeric              null,
    IDRUTA               numeric              null,
    NOMBRETRANSPORTE     varchar(50)          null,
-   FECSALIDA            datetime             null,
-   HORASALIDA           int                  null,
-   FECLLEGADA           datetime             null,
-   HORALLEGADA          int                  null,
+   SALIDATRANSPORTE     datetime             null,
+   LLEGADATRANSPORTE    datetime             null,
    constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETFORM)
 )
 go
@@ -602,19 +559,21 @@ IDCARGO ASC
 go
 
 /*==============================================================*/
-/* Table: FACTURACION                                           */
+/* Table: FACTURA                                               */
 /*==============================================================*/
-create table FACTURACION (
-   IDFACTURACION        numeric              identity,
+create table FACTURA (
+   IDFACTURA            numeric              identity,
    IDFORMLIQ            numeric              null,
-   constraint PK_FACTURACION primary key nonclustered (IDFACTURACION)
+   PATHIMAGENFAC        varchar(200)         null,
+   MONTOFAC             money                null,
+   constraint PK_FACTURA primary key nonclustered (IDFACTURA)
 )
 go
 
 /*==============================================================*/
 /* Index: RELATIONSHIP_9_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_9_FK on FACTURACION (
+create index RELATIONSHIP_9_FK on FACTURA (
 IDFORMLIQ ASC
 )
 go
@@ -630,10 +589,8 @@ create table FORMULARIO_LIQUIDACION (
    CIUDADFORMLIQ        varchar(50)          null,
    UNIDADFORMLIQ        varchar(50)          null,
    DESCRIPCIONFORMLIQ   varchar(500)         null,
-   FECHASALIDAITINFORMLIQ datetime             null,
-   FECHALLEGADAITINFORMLIQ datetime             null,
-   HORASALIDAITINFORMLIQ datetime             null,
-   HORALLEGADAITINFORMLIQ datetime             null,
+   SALIDAITINFORMLIQ    datetime             null,
+   LLEGADAITINFORMLIQ   datetime             null,
    ESTADOFORMLIQ        varchar(30)          null,
    constraint PK_FORMULARIO_LIQUIDACION primary key nonclustered (IDFORMLIQ)
 )
@@ -658,10 +615,8 @@ create table FORMULARIO__ANTICIPO (
    FECFORMANTICIPO      datetime             null,
    CIUDADFORMANTICIPO   varchar(50)          null,
    UNIDADFORMANTICIPO   varchar(50)          null,
-   HORASALIDAFORMANTICIPO datetime             null,
-   FECHASALIDAFORMANTICIPO datetime             null,
-   HORALLEGADAFORMANTICIPO datetime             null,
-   FECHALLEGADAFORMANTICIPO datetime             null,
+   SALIDAFORMANTICIPO   datetime             null,
+   LLEGADAFORMANTICIPO  datetime             null,
    DESCRIPCIONFORMANTICIPO varchar(500)         null,
    BANCOFORMANTICIPO    varchar(50)          null,
    TIPOCUENTAFORMANTICIPO varchar(50)          null,
@@ -838,11 +793,6 @@ alter table DETALLE_CALCULO
       references OPCION_NIVEL (IDOPCIONN)
 go
 
-alter table DETALLE_FACTURACION
-   add constraint FK_DETALLE__RELATIONS_FACTURAC foreign key (IDFACTURACION)
-      references FACTURACION (IDFACTURACION)
-go
-
 alter table DETALLE_FORMULARIO
    add constraint FK_DETALLE__RELATIONS_TIPO_TRA foreign key (IDTIPOTRANSPORTE)
       references TIPO_TRANSPORTE (IDTIPOTRANSPORTE)
@@ -868,8 +818,8 @@ alter table EMPLEADO
       references CARGO (IDCARGO)
 go
 
-alter table FACTURACION
-   add constraint FK_FACTURAC_RELATIONS_FORMULAR foreign key (IDFORMLIQ)
+alter table FACTURA
+   add constraint FK_FACTURA_RELATIONS_FORMULAR foreign key (IDFORMLIQ)
       references FORMULARIO_LIQUIDACION (IDFORMLIQ)
 go
 

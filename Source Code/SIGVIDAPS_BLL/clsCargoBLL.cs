@@ -20,11 +20,15 @@ namespace SIGVIDAPS_BLL
         }
 
         //BUSCAR CON ID
-        public CARGO buscarConId(int id)
+        public CARGO buscarConId(int? id)
         {
             return entityContext.CARGOes.Where(e => e.IDCARGO == id).First();
         }
 
+        public CARGO buscarConId(int id)
+        {
+            return entityContext.CARGOes.Where(e => e.IDCARGO == id).First();
+        }
 
         //BUSCAR CON NOMBRE DE CARGO
         public CARGO buscarConNombreCargo(String nombreCargo)
@@ -60,7 +64,7 @@ namespace SIGVIDAPS_BLL
         }
 
         //Eliminar
-        public void eliminarCargo(int indice)
+        public void eliminarCargo(int? indice)
         {
             using (TransactionScope transaction = new TransactionScope())
             {
@@ -69,6 +73,20 @@ namespace SIGVIDAPS_BLL
                     entityContext.SaveChanges();
                     transaction.Complete();
             }
+        }
+
+        //VERIFICAR DEPENDENCIAS
+        public bool verificarDependencias(int? idCargo)
+        {
+            Boolean retorno = false;
+            var lstUsuarios = entityContext.USUARIOs.Where(e => e.IDEMP == idCargo).ToList();          
+
+            if (lstUsuarios.Count > 0)
+            {
+                retorno = true; //Si hay dependencias
+            }
+
+            return retorno;
         }
     }
 }

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.MaskedTextBox();
@@ -46,6 +42,11 @@
             this.cmbEmpleados = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPerfil = new System.Windows.Forms.ComboBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,14 +60,147 @@
             this.ID,
             this.NombreUsuario,
             this.NombreEmpleado,
-            this.Perfil});
-            this.dgvUsuarios.Location = new System.Drawing.Point(33, 274);
+            this.Perfil,
+            this.Estado});
+            this.dgvUsuarios.Location = new System.Drawing.Point(20, 262);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(723, 236);
+            this.dgvUsuarios.Size = new System.Drawing.Size(803, 236);
             this.dgvUsuarios.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.SlateGray;
+            this.label5.Location = new System.Drawing.Point(118, 185);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 25);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Contraseña";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.SlateGray;
+            this.label4.Location = new System.Drawing.Point(118, 154);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 25);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Empleado";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Location = new System.Drawing.Point(359, 127);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.PromptChar = ' ';
+            this.txtNombreUsuario.Size = new System.Drawing.Size(236, 20);
+            this.txtNombreUsuario.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SlateGray;
+            this.label2.Location = new System.Drawing.Point(118, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(214, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Nombre de Usuario";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(408, 43);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Registro de nuevo Usuario";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SIGVIDAPS_FORMS.Properties.Resources.sigtierras;
+            this.pictureBox1.Location = new System.Drawing.Point(549, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 109);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // chkMostrarCon
+            // 
+            this.chkMostrarCon.AutoSize = true;
+            this.chkMostrarCon.Location = new System.Drawing.Point(612, 185);
+            this.chkMostrarCon.Name = "chkMostrarCon";
+            this.chkMostrarCon.Size = new System.Drawing.Size(118, 17);
+            this.chkMostrarCon.TabIndex = 35;
+            this.chkMostrarCon.Text = "Mostrar Contraseña";
+            this.chkMostrarCon.UseVisualStyleBackColor = true;
+            this.chkMostrarCon.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnCancelar.Location = new System.Drawing.Point(419, 514);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(136, 49);
+            this.btnCancelar.TabIndex = 38;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnGuardar.Location = new System.Drawing.Point(285, 514);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(128, 49);
+            this.btnGuardar.TabIndex = 36;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // mskTextBox
+            // 
+            this.mskTextBox.Location = new System.Drawing.Point(359, 185);
+            this.mskTextBox.Name = "mskTextBox";
+            this.mskTextBox.PasswordChar = '*';
+            this.mskTextBox.PromptChar = ' ';
+            this.mskTextBox.Size = new System.Drawing.Size(236, 20);
+            this.mskTextBox.TabIndex = 39;
+            // 
+            // cmbEmpleados
+            // 
+            this.cmbEmpleados.FormattingEnabled = true;
+            this.cmbEmpleados.Location = new System.Drawing.Point(359, 154);
+            this.cmbEmpleados.Name = "cmbEmpleados";
+            this.cmbEmpleados.Size = new System.Drawing.Size(236, 21);
+            this.cmbEmpleados.TabIndex = 40;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SlateGray;
+            this.label3.Location = new System.Drawing.Point(118, 216);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 25);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Perfil";
+            // 
+            // cmbPerfil
+            // 
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Location = new System.Drawing.Point(359, 216);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(236, 21);
+            this.cmbPerfil.TabIndex = 42;
             // 
             // ID
             // 
@@ -96,136 +230,12 @@
             this.Perfil.ReadOnly = true;
             this.Perfil.Width = 200;
             // 
-            // label5
+            // Estado
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.SlateGray;
-            this.label5.Location = new System.Drawing.Point(87, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 25);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Contraseña";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SlateGray;
-            this.label4.Location = new System.Drawing.Point(87, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 25);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Empleado";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(328, 125);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.PromptChar = ' ';
-            this.txtNombreUsuario.Size = new System.Drawing.Size(236, 20);
-            this.txtNombreUsuario.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SlateGray;
-            this.label2.Location = new System.Drawing.Point(87, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 25);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Nombre de Usuario";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(408, 43);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Registro de nuevo Usuario";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SIGVIDAPS_FORMS.Properties.Resources.sigtierras;
-            this.pictureBox1.Location = new System.Drawing.Point(493, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 109);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
-            // chkMostrarCon
-            // 
-            this.chkMostrarCon.AutoSize = true;
-            this.chkMostrarCon.Location = new System.Drawing.Point(581, 183);
-            this.chkMostrarCon.Name = "chkMostrarCon";
-            this.chkMostrarCon.Size = new System.Drawing.Size(118, 17);
-            this.chkMostrarCon.TabIndex = 35;
-            this.chkMostrarCon.Text = "Mostrar Contraseña";
-            this.chkMostrarCon.UseVisualStyleBackColor = true;
-            this.chkMostrarCon.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelar.Location = new System.Drawing.Point(385, 516);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(136, 49);
-            this.btnCancelar.TabIndex = 38;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(251, 516);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(128, 49);
-            this.btnGuardar.TabIndex = 36;
-            this.btnGuardar.Text = "GUARDAR";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // mskTextBox
-            // 
-            this.mskTextBox.Location = new System.Drawing.Point(328, 183);
-            this.mskTextBox.Name = "mskTextBox";
-            this.mskTextBox.PasswordChar = '*';
-            this.mskTextBox.PromptChar = ' ';
-            this.mskTextBox.Size = new System.Drawing.Size(236, 20);
-            this.mskTextBox.TabIndex = 39;
-            // 
-            // cmbEmpleados
-            // 
-            this.cmbEmpleados.FormattingEnabled = true;
-            this.cmbEmpleados.Location = new System.Drawing.Point(328, 152);
-            this.cmbEmpleados.Name = "cmbEmpleados";
-            this.cmbEmpleados.Size = new System.Drawing.Size(236, 21);
-            this.cmbEmpleados.TabIndex = 40;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.SlateGray;
-            this.label3.Location = new System.Drawing.Point(87, 214);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 25);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Perfil";
-            // 
-            // cmbPerfil
-            // 
-            this.cmbPerfil.FormattingEnabled = true;
-            this.cmbPerfil.Location = new System.Drawing.Point(328, 214);
-            this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(236, 21);
-            this.cmbPerfil.TabIndex = 42;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 80;
             // 
             // frmRegistrarUsuario
             // 
@@ -233,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIGVIDAPS_FORMS.Properties.Resources.awesome_white_wallpaper_70_113_hd_wallpapers;
-            this.ClientSize = new System.Drawing.Size(783, 575);
+            this.ClientSize = new System.Drawing.Size(837, 575);
             this.Controls.Add(this.cmbPerfil);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbEmpleados);
@@ -281,5 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Perfil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

@@ -26,6 +26,7 @@ namespace SIGVIDAPS_FORMS
             cargarEmpleados();
             cargarPerfiles();
             cargarUsuariosDataGridView();
+            dgvUsuarios.ClearSelection();
         }
 
         private void cargarEmpleados()
@@ -94,6 +95,11 @@ namespace SIGVIDAPS_FORMS
                 strError += "La contraseña es obligatoria\n";
                 bolError = true;
             }
+            if (cmbPerfil.SelectedIndex == -1)
+            {
+                strError += "El Perfil es obligatorio\n";
+                bolError = true;
+            }
 
             if (!bolError)
             {
@@ -104,6 +110,7 @@ namespace SIGVIDAPS_FORMS
                     usuario.IDEMP = Convert.ToInt32(cmbEmpleados.SelectedValue);
                     usuario.CONTRASENAUSUARIO = ComputeHash(mskTextBox.Text, "MD5", null);
                     usuario.IDPERFIL = (new clsPerfilBLL()).buscarConId(Convert.ToInt32((Object)cmbPerfil.SelectedValue)).IDPERFIL;
+                    usuario.ESTUSUARIO = true;
 
                     (new clsUsuarioBLL()).insertarUsuario(usuario);
 
@@ -115,6 +122,15 @@ namespace SIGVIDAPS_FORMS
             {
                 MessageBox.Show(strError);
             }
+        }
+
+        private void limpiarInfo()
+        {
+            txtNombreUsuario.Text = "";
+            cmbEmpleados.SelectedIndex = -1;
+            cmbPerfil.SelectedIndex = -1;
+            mskTextBox.Text = "";
+            chkMostrarCon.Checked = false;
         }
 
         public void cargarUsuariosDataGridView() { 
@@ -146,6 +162,11 @@ namespace SIGVIDAPS_FORMS
                     DataGridViewCell cellPerfil = new DataGridViewTextBoxCell();
                     cellPerfil.Value = usuario.PERFIL.NOMBREPERFIL;
                     tempRow.Cells.Add(cellPerfil);
+
+                    //Estado
+                    DataGridViewCell cellEstado = new DataGridViewTextBoxCell();
+                    cellEstado.Value = usuario.ESTUSUARIO == true ? "Activo" : "Inactivo";
+                    tempRow.Cells.Add(cellEstado);
 
                     tempRow.Tag = usuario.IDUSUARIO;
                     dgvUsuarios.Rows.Add(tempRow);
@@ -263,6 +284,11 @@ namespace SIGVIDAPS_FORMS
             {
                 mskTextBox.PasswordChar = '*';
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

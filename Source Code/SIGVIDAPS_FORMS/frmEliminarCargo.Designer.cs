@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,13 +61,14 @@
             this.dgvCargos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.NombreCargo,
-            this.Nivel});
-            this.dgvCargos.Location = new System.Drawing.Point(74, 163);
+            this.Nivel,
+            this.Estado});
+            this.dgvCargos.Location = new System.Drawing.Point(24, 163);
             this.dgvCargos.MultiSelect = false;
             this.dgvCargos.Name = "dgvCargos";
             this.dgvCargos.ReadOnly = true;
             this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargos.Size = new System.Drawing.Size(522, 240);
+            this.dgvCargos.Size = new System.Drawing.Size(623, 240);
             this.dgvCargos.TabIndex = 29;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvCargos_SelectionChanged);
             // 
@@ -127,6 +129,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // frmEliminarCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,5 +168,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

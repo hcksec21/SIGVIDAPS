@@ -48,7 +48,7 @@ namespace SIGVIDAPS_BLL {
         
         private OPCIONES_VIATICOSDataTable tableOPCIONES_VIATICOS;
         
-        private RUTADataTable tableRUTA;
+        private TIPO_TRANSPORTEDataTable tableTIPO_TRANSPORTE;
         
         private SOLICITUD__ANTICIPODataTable tableSOLICITUD__ANTICIPO;
         
@@ -62,7 +62,7 @@ namespace SIGVIDAPS_BLL {
         
         private global::System.Data.DataRelation relationFK_DETALLE__RELATIONS_FACTURAC;
         
-        private global::System.Data.DataRelation relationFK_DETALLE__RELATIONS_RUTA;
+        private global::System.Data.DataRelation relationFK_DETALLE__RELATIONS_TIPO_TRANSPORTE;
         
         private global::System.Data.DataRelation relationFK_DETALLE__RELATIONS_SOLIC;
         
@@ -148,8 +148,8 @@ namespace SIGVIDAPS_BLL {
                 if ((ds.Tables["OPCIONES_VIATICOS"] != null)) {
                     base.Tables.Add(new OPCIONES_VIATICOSDataTable(ds.Tables["OPCIONES_VIATICOS"]));
                 }
-                if ((ds.Tables["RUTA"] != null)) {
-                    base.Tables.Add(new RUTADataTable(ds.Tables["RUTA"]));
+                if ((ds.Tables["TIPO_TRANSPORTE"] != null)) {
+                    base.Tables.Add(new TIPO_TRANSPORTEDataTable(ds.Tables["TIPO_TRANSPORTE"]));
                 }
                 if ((ds.Tables["SOLICITUD__ANTICIPO"] != null)) {
                     base.Tables.Add(new SOLICITUD__ANTICIPODataTable(ds.Tables["SOLICITUD__ANTICIPO"]));
@@ -299,9 +299,9 @@ namespace SIGVIDAPS_BLL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RUTADataTable RUTA {
+        public TIPO_TRANSPORTEDataTable TIPO_TRANSPORTE {
             get {
-                return this.tableRUTA;
+                return this.tableTIPO_TRANSPORTE;
             }
         }
         
@@ -428,8 +428,8 @@ namespace SIGVIDAPS_BLL {
                 if ((ds.Tables["OPCIONES_VIATICOS"] != null)) {
                     base.Tables.Add(new OPCIONES_VIATICOSDataTable(ds.Tables["OPCIONES_VIATICOS"]));
                 }
-                if ((ds.Tables["RUTA"] != null)) {
-                    base.Tables.Add(new RUTADataTable(ds.Tables["RUTA"]));
+                if ((ds.Tables["TIPO_TRANSPORTE"] != null)) {
+                    base.Tables.Add(new TIPO_TRANSPORTEDataTable(ds.Tables["TIPO_TRANSPORTE"]));
                 }
                 if ((ds.Tables["SOLICITUD__ANTICIPO"] != null)) {
                     base.Tables.Add(new SOLICITUD__ANTICIPODataTable(ds.Tables["SOLICITUD__ANTICIPO"]));
@@ -542,10 +542,10 @@ namespace SIGVIDAPS_BLL {
                     this.tableOPCIONES_VIATICOS.InitVars();
                 }
             }
-            this.tableRUTA = ((RUTADataTable)(base.Tables["RUTA"]));
+            this.tableTIPO_TRANSPORTE = ((TIPO_TRANSPORTEDataTable)(base.Tables["TIPO_TRANSPORTE"]));
             if ((initTable == true)) {
-                if ((this.tableRUTA != null)) {
-                    this.tableRUTA.InitVars();
+                if ((this.tableTIPO_TRANSPORTE != null)) {
+                    this.tableTIPO_TRANSPORTE.InitVars();
                 }
             }
             this.tableSOLICITUD__ANTICIPO = ((SOLICITUD__ANTICIPODataTable)(base.Tables["SOLICITUD__ANTICIPO"]));
@@ -564,7 +564,7 @@ namespace SIGVIDAPS_BLL {
             this.relationFK_DETALLE__RELATIONS_CALCULO = this.Relations["FK_DETALLE__RELATIONS_CALCULO"];
             this.relationFK_DETALLE__RELATIONS_OPCIONES = this.Relations["FK_DETALLE__RELATIONS_OPCIONES"];
             this.relationFK_DETALLE__RELATIONS_FACTURAC = this.Relations["FK_DETALLE__RELATIONS_FACTURAC"];
-            this.relationFK_DETALLE__RELATIONS_RUTA = this.Relations["FK_DETALLE__RELATIONS_RUTA"];
+            this.relationFK_DETALLE__RELATIONS_TIPO_TRANSPORTE = this.Relations["FK_DETALLE__RELATIONS_TIPO_TRANSPORTE"];
             this.relationFK_DETALLE__RELATIONS_SOLIC = this.Relations["FK_DETALLE__RELATIONS_SOLIC"];
             this.relationFK_DETALLE__RELATIONS_SOLICITUD = this.Relations["FK_DETALLE__RELATIONS_SOLICITUD"];
             this.relationFK_EMPLEADO_RELATIONS_CARGO = this.Relations["FK_EMPLEADO_RELATIONS_CARGO"];
@@ -609,8 +609,8 @@ namespace SIGVIDAPS_BLL {
             base.Tables.Add(this.tableOPCION_NIVEL);
             this.tableOPCIONES_VIATICOS = new OPCIONES_VIATICOSDataTable();
             base.Tables.Add(this.tableOPCIONES_VIATICOS);
-            this.tableRUTA = new RUTADataTable();
-            base.Tables.Add(this.tableRUTA);
+            this.tableTIPO_TRANSPORTE = new TIPO_TRANSPORTEDataTable();
+            base.Tables.Add(this.tableTIPO_TRANSPORTE);
             this.tableSOLICITUD__ANTICIPO = new SOLICITUD__ANTICIPODataTable();
             base.Tables.Add(this.tableSOLICITUD__ANTICIPO);
             this.tableSOLICITUD_LIQUIDACION = new SOLICITUD_LIQUIDACIONDataTable();
@@ -631,10 +631,10 @@ namespace SIGVIDAPS_BLL {
                         this.tableFACTURACION.IDFACTURACIONColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLE_FACTURACION.IDFACTURACIONColumn}, false);
             this.Relations.Add(this.relationFK_DETALLE__RELATIONS_FACTURAC);
-            this.relationFK_DETALLE__RELATIONS_RUTA = new global::System.Data.DataRelation("FK_DETALLE__RELATIONS_RUTA", new global::System.Data.DataColumn[] {
-                        this.tableRUTA.IDRUTAColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDETALLE_SOLICITUD_ANTICIPO.IDRUTAColumn}, false);
-            this.Relations.Add(this.relationFK_DETALLE__RELATIONS_RUTA);
+            this.relationFK_DETALLE__RELATIONS_TIPO_TRANSPORTE = new global::System.Data.DataRelation("FK_DETALLE__RELATIONS_TIPO_TRANSPORTE", new global::System.Data.DataColumn[] {
+                        this.tableTIPO_TRANSPORTE.IDTIPO_TRANSPORTEColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDETALLE_SOLICITUD_ANTICIPO.IDTIPO_TRANSPORTEColumn}, false);
+            this.Relations.Add(this.relationFK_DETALLE__RELATIONS_TIPO_TRANSPORTE);
             this.relationFK_DETALLE__RELATIONS_SOLIC = new global::System.Data.DataRelation("FK_DETALLE__RELATIONS_SOLIC", new global::System.Data.DataColumn[] {
                         this.tableSOLICITUD_LIQUIDACION.IDSOLICLIQColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLE_SOLICITUD_ANTICIPO.IDSOLICLIQColumn}, false);
@@ -751,7 +751,7 @@ namespace SIGVIDAPS_BLL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeRUTA() {
+        private bool ShouldSerializeTIPO_TRANSPORTE() {
             return false;
         }
         
@@ -859,7 +859,7 @@ namespace SIGVIDAPS_BLL {
         public delegate void OPCIONES_VIATICOSRowChangeEventHandler(object sender, OPCIONES_VIATICOSRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void RUTARowChangeEventHandler(object sender, RUTARowChangeEvent e);
+        public delegate void TIPO_TRANSPORTERowChangeEventHandler(object sender, TIPO_TRANSPORTERowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SOLICITUD__ANTICIPORowChangeEventHandler(object sender, SOLICITUD__ANTICIPORowChangeEvent e);
@@ -2318,7 +2318,7 @@ namespace SIGVIDAPS_BLL {
             
             private global::System.Data.DataColumn columnIDSOLICLIQ;
             
-            private global::System.Data.DataColumn columnIDRUTA;
+            private global::System.Data.DataColumn columnIDTIPO_TRANSPORTE;
             
             private global::System.Data.DataColumn columnFECSALIDA;
             
@@ -2387,9 +2387,9 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDRUTAColumn {
+            public global::System.Data.DataColumn IDTIPO_TRANSPORTEColumn {
                 get {
-                    return this.columnIDRUTA;
+                    return this.columnIDTIPO_TRANSPORTE;
                 }
             }
             
@@ -2462,7 +2462,7 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DETALLE_SOLICITUD_ANTICIPORow AddDETALLE_SOLICITUD_ANTICIPORow(SOLICITUD__ANTICIPORow parentSOLICITUD__ANTICIPORowByFK_DETALLE__RELATIONS_SOLICITUD, SOLICITUD_LIQUIDACIONRow parentSOLICITUD_LIQUIDACIONRowByFK_DETALLE__RELATIONS_SOLIC, RUTARow parentRUTARowByFK_DETALLE__RELATIONS_RUTA, System.DateTime FECSALIDA, int HORASALIDA, System.DateTime FECLLEGADA, int HORALLEGADA) {
+            public DETALLE_SOLICITUD_ANTICIPORow AddDETALLE_SOLICITUD_ANTICIPORow(SOLICITUD__ANTICIPORow parentSOLICITUD__ANTICIPORowByFK_DETALLE__RELATIONS_SOLICITUD, SOLICITUD_LIQUIDACIONRow parentSOLICITUD_LIQUIDACIONRowByFK_DETALLE__RELATIONS_SOLIC, TIPO_TRANSPORTERow parentTIPO_TRANSPORTERowByFK_DETALLE__RELATIONS_TIPO_TRANSPORTE, System.DateTime FECSALIDA, int HORASALIDA, System.DateTime FECLLEGADA, int HORALLEGADA) {
                 DETALLE_SOLICITUD_ANTICIPORow rowDETALLE_SOLICITUD_ANTICIPORow = ((DETALLE_SOLICITUD_ANTICIPORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2479,8 +2479,8 @@ namespace SIGVIDAPS_BLL {
                 if ((parentSOLICITUD_LIQUIDACIONRowByFK_DETALLE__RELATIONS_SOLIC != null)) {
                     columnValuesArray[2] = parentSOLICITUD_LIQUIDACIONRowByFK_DETALLE__RELATIONS_SOLIC[0];
                 }
-                if ((parentRUTARowByFK_DETALLE__RELATIONS_RUTA != null)) {
-                    columnValuesArray[3] = parentRUTARowByFK_DETALLE__RELATIONS_RUTA[0];
+                if ((parentTIPO_TRANSPORTERowByFK_DETALLE__RELATIONS_TIPO_TRANSPORTE != null)) {
+                    columnValuesArray[3] = parentTIPO_TRANSPORTERowByFK_DETALLE__RELATIONS_TIPO_TRANSPORTE[0];
                 }
                 rowDETALLE_SOLICITUD_ANTICIPORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDETALLE_SOLICITUD_ANTICIPORow);
@@ -2514,7 +2514,7 @@ namespace SIGVIDAPS_BLL {
                 this.columnIDDETSOLIC = base.Columns["IDDETSOLIC"];
                 this.columnIDSOLICANT = base.Columns["IDSOLICANT"];
                 this.columnIDSOLICLIQ = base.Columns["IDSOLICLIQ"];
-                this.columnIDRUTA = base.Columns["IDRUTA"];
+                this.columnIDTIPO_TRANSPORTE = base.Columns["IDTIPO_TRANSPORTE"];
                 this.columnFECSALIDA = base.Columns["FECSALIDA"];
                 this.columnHORASALIDA = base.Columns["HORASALIDA"];
                 this.columnFECLLEGADA = base.Columns["FECLLEGADA"];
@@ -2530,8 +2530,8 @@ namespace SIGVIDAPS_BLL {
                 base.Columns.Add(this.columnIDSOLICANT);
                 this.columnIDSOLICLIQ = new global::System.Data.DataColumn("IDSOLICLIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDSOLICLIQ);
-                this.columnIDRUTA = new global::System.Data.DataColumn("IDRUTA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDRUTA);
+                this.columnIDTIPO_TRANSPORTE = new global::System.Data.DataColumn("IDTIPO_TRANSPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDTIPO_TRANSPORTE);
                 this.columnFECSALIDA = new global::System.Data.DataColumn("FECSALIDA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECSALIDA);
                 this.columnHORASALIDA = new global::System.Data.DataColumn("HORASALIDA", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4501,18 +4501,18 @@ namespace SIGVIDAPS_BLL {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RUTADataTable : global::System.Data.TypedTableBase<RUTARow> {
+        public partial class TIPO_TRANSPORTEDataTable : global::System.Data.TypedTableBase<TIPO_TRANSPORTERow> {
             
-            private global::System.Data.DataColumn columnIDRUTA;
+            private global::System.Data.DataColumn columnIDTIPO_TRANSPORTE;
             
-            private global::System.Data.DataColumn columnCODRUTA;
+            private global::System.Data.DataColumn columnCODTIPO_TRANSPORTE;
             
-            private global::System.Data.DataColumn columnNOMRUTA;
+            private global::System.Data.DataColumn columnNOMTIPO_TRANSPORTE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTADataTable() {
-                this.TableName = "RUTA";
+            public TIPO_TRANSPORTEDataTable() {
+                this.TableName = "TIPO_TRANSPORTE";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -4520,7 +4520,7 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RUTADataTable(global::System.Data.DataTable table) {
+            internal TIPO_TRANSPORTEDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -4537,32 +4537,32 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected RUTADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TIPO_TRANSPORTEDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDRUTAColumn {
+            public global::System.Data.DataColumn IDTIPO_TRANSPORTEColumn {
                 get {
-                    return this.columnIDRUTA;
+                    return this.columnIDTIPO_TRANSPORTE;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CODRUTAColumn {
+            public global::System.Data.DataColumn CODTIPO_TRANSPORTEColumn {
                 get {
-                    return this.columnCODRUTA;
+                    return this.columnCODTIPO_TRANSPORTE;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NOMRUTAColumn {
+            public global::System.Data.DataColumn NOMTIPO_TRANSPORTEColumn {
                 get {
-                    return this.columnNOMRUTA;
+                    return this.columnNOMTIPO_TRANSPORTE;
                 }
             }
             
@@ -4577,54 +4577,54 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow this[int index] {
+            public TIPO_TRANSPORTERow this[int index] {
                 get {
-                    return ((RUTARow)(this.Rows[index]));
+                    return ((TIPO_TRANSPORTERow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RUTARowChangeEventHandler RUTARowChanging;
+            public event TIPO_TRANSPORTERowChangeEventHandler TIPO_TRANSPORTERowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RUTARowChangeEventHandler RUTARowChanged;
+            public event TIPO_TRANSPORTERowChangeEventHandler TIPO_TRANSPORTERowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RUTARowChangeEventHandler RUTARowDeleting;
+            public event TIPO_TRANSPORTERowChangeEventHandler TIPO_TRANSPORTERowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RUTARowChangeEventHandler RUTARowDeleted;
+            public event TIPO_TRANSPORTERowChangeEventHandler TIPO_TRANSPORTERowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddRUTARow(RUTARow row) {
+            public void AddTIPO_TRANSPORTERow(TIPO_TRANSPORTERow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow AddRUTARow(string CODRUTA, string NOMRUTA) {
-                RUTARow rowRUTARow = ((RUTARow)(this.NewRow()));
+            public TIPO_TRANSPORTERow AddTIPO_TRANSPORTERow(string CODTIPO_TRANSPORTE, string NOMTIPO_TRANSPORTE) {
+                TIPO_TRANSPORTERow rowTIPO_TRANSPORTERow = ((TIPO_TRANSPORTERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        CODRUTA,
-                        NOMRUTA};
-                rowRUTARow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRUTARow);
-                return rowRUTARow;
+                        CODTIPO_TRANSPORTE,
+                        NOMTIPO_TRANSPORTE};
+                rowTIPO_TRANSPORTERow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTIPO_TRANSPORTERow);
+                return rowTIPO_TRANSPORTERow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow FindByIDRUTA(decimal IDRUTA) {
-                return ((RUTARow)(this.Rows.Find(new object[] {
-                            IDRUTA})));
+            public TIPO_TRANSPORTERow FindByIDTIPO_TRANSPORTE(decimal IDTIPO_TRANSPORTE) {
+                return ((TIPO_TRANSPORTERow)(this.Rows.Find(new object[] {
+                            IDTIPO_TRANSPORTE})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                RUTADataTable cln = ((RUTADataTable)(base.Clone()));
+                TIPO_TRANSPORTEDataTable cln = ((TIPO_TRANSPORTEDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -4632,62 +4632,62 @@ namespace SIGVIDAPS_BLL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new RUTADataTable();
+                return new TIPO_TRANSPORTEDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnIDRUTA = base.Columns["IDRUTA"];
-                this.columnCODRUTA = base.Columns["CODRUTA"];
-                this.columnNOMRUTA = base.Columns["NOMRUTA"];
+                this.columnIDTIPO_TRANSPORTE = base.Columns["IDTIPO_TRANSPORTE"];
+                this.columnCODTIPO_TRANSPORTE = base.Columns["CODTIPO_TRANSPORTE"];
+                this.columnNOMTIPO_TRANSPORTE = base.Columns["NOMTIPO_TRANSPORTE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnIDRUTA = new global::System.Data.DataColumn("IDRUTA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDRUTA);
-                this.columnCODRUTA = new global::System.Data.DataColumn("CODRUTA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODRUTA);
-                this.columnNOMRUTA = new global::System.Data.DataColumn("NOMRUTA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOMRUTA);
+                this.columnIDTIPO_TRANSPORTE = new global::System.Data.DataColumn("IDTIPO_TRANSPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDTIPO_TRANSPORTE);
+                this.columnCODTIPO_TRANSPORTE = new global::System.Data.DataColumn("CODTIPO_TRANSPORTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCODTIPO_TRANSPORTE);
+                this.columnNOMTIPO_TRANSPORTE = new global::System.Data.DataColumn("NOMTIPO_TRANSPORTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMTIPO_TRANSPORTE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIDRUTA}, true));
-                this.columnIDRUTA.AutoIncrement = true;
-                this.columnIDRUTA.AutoIncrementSeed = -1;
-                this.columnIDRUTA.AutoIncrementStep = -1;
-                this.columnIDRUTA.AllowDBNull = false;
-                this.columnIDRUTA.ReadOnly = true;
-                this.columnIDRUTA.Unique = true;
-                this.columnCODRUTA.MaxLength = 15;
-                this.columnNOMRUTA.MaxLength = 30;
+                                this.columnIDTIPO_TRANSPORTE}, true));
+                this.columnIDTIPO_TRANSPORTE.AutoIncrement = true;
+                this.columnIDTIPO_TRANSPORTE.AutoIncrementSeed = -1;
+                this.columnIDTIPO_TRANSPORTE.AutoIncrementStep = -1;
+                this.columnIDTIPO_TRANSPORTE.AllowDBNull = false;
+                this.columnIDTIPO_TRANSPORTE.ReadOnly = true;
+                this.columnIDTIPO_TRANSPORTE.Unique = true;
+                this.columnCODTIPO_TRANSPORTE.MaxLength = 15;
+                this.columnNOMTIPO_TRANSPORTE.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow NewRUTARow() {
-                return ((RUTARow)(this.NewRow()));
+            public TIPO_TRANSPORTERow NewTIPO_TRANSPORTERow() {
+                return ((TIPO_TRANSPORTERow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new RUTARow(builder);
+                return new TIPO_TRANSPORTERow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(RUTARow);
+                return typeof(TIPO_TRANSPORTERow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.RUTARowChanged != null)) {
-                    this.RUTARowChanged(this, new RUTARowChangeEvent(((RUTARow)(e.Row)), e.Action));
+                if ((this.TIPO_TRANSPORTERowChanged != null)) {
+                    this.TIPO_TRANSPORTERowChanged(this, new TIPO_TRANSPORTERowChangeEvent(((TIPO_TRANSPORTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -4695,8 +4695,8 @@ namespace SIGVIDAPS_BLL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.RUTARowChanging != null)) {
-                    this.RUTARowChanging(this, new RUTARowChangeEvent(((RUTARow)(e.Row)), e.Action));
+                if ((this.TIPO_TRANSPORTERowChanging != null)) {
+                    this.TIPO_TRANSPORTERowChanging(this, new TIPO_TRANSPORTERowChangeEvent(((TIPO_TRANSPORTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -4704,8 +4704,8 @@ namespace SIGVIDAPS_BLL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.RUTARowDeleted != null)) {
-                    this.RUTARowDeleted(this, new RUTARowChangeEvent(((RUTARow)(e.Row)), e.Action));
+                if ((this.TIPO_TRANSPORTERowDeleted != null)) {
+                    this.TIPO_TRANSPORTERowDeleted(this, new TIPO_TRANSPORTERowChangeEvent(((TIPO_TRANSPORTERow)(e.Row)), e.Action));
                 }
             }
             
@@ -4713,14 +4713,14 @@ namespace SIGVIDAPS_BLL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.RUTARowDeleting != null)) {
-                    this.RUTARowDeleting(this, new RUTARowChangeEvent(((RUTARow)(e.Row)), e.Action));
+                if ((this.TIPO_TRANSPORTERowDeleting != null)) {
+                    this.TIPO_TRANSPORTERowDeleting(this, new TIPO_TRANSPORTERowChangeEvent(((TIPO_TRANSPORTERow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveRUTARow(RUTARow row) {
+            public void RemoveTIPO_TRANSPORTERow(TIPO_TRANSPORTERow row) {
                 this.Rows.Remove(row);
             }
             
@@ -4747,7 +4747,7 @@ namespace SIGVIDAPS_BLL {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RUTADataTable";
+                attribute2.FixedValue = "TIPO_TRANSPORTEDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5943,17 +5943,17 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal IDRUTA {
+            public decimal IDTIPO_TRANSPORTE {
                 get {
                     try {
-                        return ((decimal)(this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDRUTAColumn]));
+                        return ((decimal)(this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDTIPO_TRANSPORTEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IDRUTA\' in table \'DETALLE_SOLICITUD_ANTICIPO\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDTIPO_TRANSPORTE\' in table \'DETALLE_SOLICITUD_ANTICIPO\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDRUTAColumn] = value;
+                    this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDTIPO_TRANSPORTEColumn] = value;
                 }
             }
             
@@ -6027,12 +6027,12 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow RUTARow {
+            public TIPO_TRANSPORTERow TIPO_TRANSPORTERow {
                 get {
-                    return ((RUTARow)(this.GetParentRow(this.Table.ParentRelations["FK_DETALLE__RELATIONS_RUTA"])));
+                    return ((TIPO_TRANSPORTERow)(this.GetParentRow(this.Table.ParentRelations["FK_DETALLE__RELATIONS_TIPO_TRANSPORTE"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_DETALLE__RELATIONS_RUTA"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_DETALLE__RELATIONS_TIPO_TRANSPORTE"]);
                 }
             }
             
@@ -6084,14 +6084,14 @@ namespace SIGVIDAPS_BLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDRUTANull() {
-                return this.IsNull(this.tableDETALLE_SOLICITUD_ANTICIPO.IDRUTAColumn);
+            public bool IsIDTIPO_TRANSPORTENull() {
+                return this.IsNull(this.tableDETALLE_SOLICITUD_ANTICIPO.IDTIPO_TRANSPORTEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDRUTANull() {
-                this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDRUTAColumn] = global::System.Convert.DBNull;
+            public void SetIDTIPO_TRANSPORTENull() {
+                this[this.tableDETALLE_SOLICITUD_ANTICIPO.IDTIPO_TRANSPORTEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6838,92 +6838,92 @@ namespace SIGVIDAPS_BLL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class RUTARow : global::System.Data.DataRow {
+        public partial class TIPO_TRANSPORTERow : global::System.Data.DataRow {
             
-            private RUTADataTable tableRUTA;
+            private TIPO_TRANSPORTEDataTable tableTIPO_TRANSPORTE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RUTARow(global::System.Data.DataRowBuilder rb) : 
+            internal TIPO_TRANSPORTERow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRUTA = ((RUTADataTable)(this.Table));
+                this.tableTIPO_TRANSPORTE = ((TIPO_TRANSPORTEDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal IDRUTA {
+            public decimal IDTIPO_TRANSPORTE {
                 get {
-                    return ((decimal)(this[this.tableRUTA.IDRUTAColumn]));
+                    return ((decimal)(this[this.tableTIPO_TRANSPORTE.IDTIPO_TRANSPORTEColumn]));
                 }
                 set {
-                    this[this.tableRUTA.IDRUTAColumn] = value;
+                    this[this.tableTIPO_TRANSPORTE.IDTIPO_TRANSPORTEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CODRUTA {
-                get {
-                    try {
-                        return ((string)(this[this.tableRUTA.CODRUTAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CODRUTA\' in table \'RUTA\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRUTA.CODRUTAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string NOMRUTA {
+            public string CODTIPO_TRANSPORTE {
                 get {
                     try {
-                        return ((string)(this[this.tableRUTA.NOMRUTAColumn]));
+                        return ((string)(this[this.tableTIPO_TRANSPORTE.CODTIPO_TRANSPORTEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NOMRUTA\' in table \'RUTA\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CODTIPO_TRANSPORTE\' in table \'TIPO_TRANSPORTE\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRUTA.NOMRUTAColumn] = value;
+                    this[this.tableTIPO_TRANSPORTE.CODTIPO_TRANSPORTEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCODRUTANull() {
-                return this.IsNull(this.tableRUTA.CODRUTAColumn);
+            public string NOMTIPO_TRANSPORTE {
+                get {
+                    try {
+                        return ((string)(this[this.tableTIPO_TRANSPORTE.NOMTIPO_TRANSPORTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOMTIPO_TRANSPORTE\' in table \'TIPO_TRANSPORTE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTIPO_TRANSPORTE.NOMTIPO_TRANSPORTEColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCODRUTANull() {
-                this[this.tableRUTA.CODRUTAColumn] = global::System.Convert.DBNull;
+            public bool IsCODTIPO_TRANSPORTENull() {
+                return this.IsNull(this.tableTIPO_TRANSPORTE.CODTIPO_TRANSPORTEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNOMRUTANull() {
-                return this.IsNull(this.tableRUTA.NOMRUTAColumn);
+            public void SetCODTIPO_TRANSPORTENull() {
+                this[this.tableTIPO_TRANSPORTE.CODTIPO_TRANSPORTEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNOMRUTANull() {
-                this[this.tableRUTA.NOMRUTAColumn] = global::System.Convert.DBNull;
+            public bool IsNOMTIPO_TRANSPORTENull() {
+                return this.IsNull(this.tableTIPO_TRANSPORTE.NOMTIPO_TRANSPORTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOMTIPO_TRANSPORTENull() {
+                this[this.tableTIPO_TRANSPORTE.NOMTIPO_TRANSPORTEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DETALLE_SOLICITUD_ANTICIPORow[] GetDETALLE_SOLICITUD_ANTICIPORows() {
-                if ((this.Table.ChildRelations["FK_DETALLE__RELATIONS_RUTA"] == null)) {
+                if ((this.Table.ChildRelations["FK_DETALLE__RELATIONS_TIPO_TRANSPORTE"] == null)) {
                     return new DETALLE_SOLICITUD_ANTICIPORow[0];
                 }
                 else {
-                    return ((DETALLE_SOLICITUD_ANTICIPORow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__RELATIONS_RUTA"])));
+                    return ((DETALLE_SOLICITUD_ANTICIPORow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__RELATIONS_TIPO_TRANSPORTE"])));
                 }
             }
         }
@@ -7732,22 +7732,22 @@ namespace SIGVIDAPS_BLL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class RUTARowChangeEvent : global::System.EventArgs {
+        public class TIPO_TRANSPORTERowChangeEvent : global::System.EventArgs {
             
-            private RUTARow eventRow;
+            private TIPO_TRANSPORTERow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARowChangeEvent(RUTARow row, global::System.Data.DataRowAction action) {
+            public TIPO_TRANSPORTERowChangeEvent(TIPO_TRANSPORTERow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RUTARow Row {
+            public TIPO_TRANSPORTERow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9686,7 +9686,7 @@ SELECT IDDETALLEFAC, IDFACTURACION FROM DETALLE_FACTURACION WHERE (IDDETALLEFAC 
             tableMapping.ColumnMappings.Add("IDDETSOLIC", "IDDETSOLIC");
             tableMapping.ColumnMappings.Add("IDSOLICANT", "IDSOLICANT");
             tableMapping.ColumnMappings.Add("IDSOLICLIQ", "IDSOLICLIQ");
-            tableMapping.ColumnMappings.Add("IDRUTA", "IDRUTA");
+            tableMapping.ColumnMappings.Add("IDTIPO_TRANSPORTE", "IDTIPO_TRANSPORTE");
             tableMapping.ColumnMappings.Add("FECSALIDA", "FECSALIDA");
             tableMapping.ColumnMappings.Add("HORASALIDA", "HORASALIDA");
             tableMapping.ColumnMappings.Add("FECLLEGADA", "FECLLEGADA");
@@ -9694,15 +9694,15 @@ SELECT IDDETALLEFAC, IDFACTURACION FROM DETALLE_FACTURACION WHERE (IDDETALLEFAC 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DETALLE_SOLICITUD_ANTICIPO] WHERE (([IDDETSOLIC] = @Original_IDDETSOLIC) AND ((@IsNull_IDSOLICANT = 1 AND [IDSOLICANT] IS NULL) OR ([IDSOLICANT] = @Original_IDSOLICANT)) AND ((@IsNull_IDSOLICLIQ = 1 AND [IDSOLICLIQ] IS NULL) OR ([IDSOLICLIQ] = @Original_IDSOLICLIQ)) AND ((@IsNull_IDRUTA = 1 AND [IDRUTA] IS NULL) OR ([IDRUTA] = @Original_IDRUTA)) AND ((@IsNull_FECSALIDA = 1 AND [FECSALIDA] IS NULL) OR ([FECSALIDA] = @Original_FECSALIDA)) AND ((@IsNull_HORASALIDA = 1 AND [HORASALIDA] IS NULL) OR ([HORASALIDA] = @Original_HORASALIDA)) AND ((@IsNull_FECLLEGADA = 1 AND [FECLLEGADA] IS NULL) OR ([FECLLEGADA] = @Original_FECLLEGADA)) AND ((@IsNull_HORALLEGADA = 1 AND [HORALLEGADA] IS NULL) OR ([HORALLEGADA] = @Original_HORALLEGADA)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DETALLE_SOLICITUD_ANTICIPO] WHERE (([IDDETSOLIC] = @Original_IDDETSOLIC) AND ((@IsNull_IDSOLICANT = 1 AND [IDSOLICANT] IS NULL) OR ([IDSOLICANT] = @Original_IDSOLICANT)) AND ((@IsNull_IDSOLICLIQ = 1 AND [IDSOLICLIQ] IS NULL) OR ([IDSOLICLIQ] = @Original_IDSOLICLIQ)) AND ((@IsNull_IDTIPO_TRANSPORTE = 1 AND [IDTIPO_TRANSPORTE] IS NULL) OR ([IDTIPO_TRANSPORTE] = @Original_IDTIPO_TRANSPORTE)) AND ((@IsNull_FECSALIDA = 1 AND [FECSALIDA] IS NULL) OR ([FECSALIDA] = @Original_FECSALIDA)) AND ((@IsNull_HORASALIDA = 1 AND [HORASALIDA] IS NULL) OR ([HORASALIDA] = @Original_HORASALIDA)) AND ((@IsNull_FECLLEGADA = 1 AND [FECLLEGADA] IS NULL) OR ([FECLLEGADA] = @Original_FECLLEGADA)) AND ((@IsNull_HORALLEGADA = 1 AND [HORALLEGADA] IS NULL) OR ([HORALLEGADA] = @Original_HORALLEGADA)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDDETSOLIC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDDETSOLIC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDSOLICANT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSOLICANT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSOLICANT", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICANT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDSOLICLIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSOLICLIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECSALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECSALIDA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HORASALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORASALIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -9713,24 +9713,24 @@ SELECT IDDETALLEFAC, IDFACTURACION FROM DETALLE_FACTURACION WHERE (IDDETALLEFAC 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HORALLEGADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORALLEGADA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DETALLE_SOLICITUD_ANTICIPO] ([IDSOLICANT], [IDSOLICLIQ], [IDRUTA], [FECSALIDA], [HORASALIDA], [FECLLEGADA], [HORALLEGADA]) VALUES (@IDSOLICANT, @IDSOLICLIQ, @IDRUTA, @FECSALIDA, @HORASALIDA, @FECLLEGADA, @HORALLEGADA);
-SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA FROM DETALLE_SOLICITUD_ANTICIPO WHERE (IDDETSOLIC = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DETALLE_SOLICITUD_ANTICIPO] ([IDSOLICANT], [IDSOLICLIQ], [IDTIPO_TRANSPORTE], [FECSALIDA], [HORASALIDA], [FECLLEGADA], [HORALLEGADA]) VALUES (@IDSOLICANT, @IDSOLICLIQ, @IDTIPO_TRANSPORTE, @FECSALIDA, @HORASALIDA, @FECLLEGADA, @HORALLEGADA);
+SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDTIPO_TRANSPORTE, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA FROM DETALLE_SOLICITUD_ANTICIPO WHERE (IDDETSOLIC = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSOLICANT", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICANT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSOLICLIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECSALIDA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HORASALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORASALIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECLLEGADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECLLEGADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HORALLEGADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORALLEGADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DETALLE_SOLICITUD_ANTICIPO] SET [IDSOLICANT] = @IDSOLICANT, [IDSOLICLIQ] = @IDSOLICLIQ, [IDRUTA] = @IDRUTA, [FECSALIDA] = @FECSALIDA, [HORASALIDA] = @HORASALIDA, [FECLLEGADA] = @FECLLEGADA, [HORALLEGADA] = @HORALLEGADA WHERE (([IDDETSOLIC] = @Original_IDDETSOLIC) AND ((@IsNull_IDSOLICANT = 1 AND [IDSOLICANT] IS NULL) OR ([IDSOLICANT] = @Original_IDSOLICANT)) AND ((@IsNull_IDSOLICLIQ = 1 AND [IDSOLICLIQ] IS NULL) OR ([IDSOLICLIQ] = @Original_IDSOLICLIQ)) AND ((@IsNull_IDRUTA = 1 AND [IDRUTA] IS NULL) OR ([IDRUTA] = @Original_IDRUTA)) AND ((@IsNull_FECSALIDA = 1 AND [FECSALIDA] IS NULL) OR ([FECSALIDA] = @Original_FECSALIDA)) AND ((@IsNull_HORASALIDA = 1 AND [HORASALIDA] IS NULL) OR ([HORASALIDA] = @Original_HORASALIDA)) AND ((@IsNull_FECLLEGADA = 1 AND [FECLLEGADA] IS NULL) OR ([FECLLEGADA] = @Original_FECLLEGADA)) AND ((@IsNull_HORALLEGADA = 1 AND [HORALLEGADA] IS NULL) OR ([HORALLEGADA] = @Original_HORALLEGADA)));
-SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA FROM DETALLE_SOLICITUD_ANTICIPO WHERE (IDDETSOLIC = @IDDETSOLIC)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DETALLE_SOLICITUD_ANTICIPO] SET [IDSOLICANT] = @IDSOLICANT, [IDSOLICLIQ] = @IDSOLICLIQ, [IDTIPO_TRANSPORTE] = @IDTIPO_TRANSPORTE, [FECSALIDA] = @FECSALIDA, [HORASALIDA] = @HORASALIDA, [FECLLEGADA] = @FECLLEGADA, [HORALLEGADA] = @HORALLEGADA WHERE (([IDDETSOLIC] = @Original_IDDETSOLIC) AND ((@IsNull_IDSOLICANT = 1 AND [IDSOLICANT] IS NULL) OR ([IDSOLICANT] = @Original_IDSOLICANT)) AND ((@IsNull_IDSOLICLIQ = 1 AND [IDSOLICLIQ] IS NULL) OR ([IDSOLICLIQ] = @Original_IDSOLICLIQ)) AND ((@IsNull_IDTIPO_TRANSPORTE = 1 AND [IDTIPO_TRANSPORTE] IS NULL) OR ([IDTIPO_TRANSPORTE] = @Original_IDTIPO_TRANSPORTE)) AND ((@IsNull_FECSALIDA = 1 AND [FECSALIDA] IS NULL) OR ([FECSALIDA] = @Original_FECSALIDA)) AND ((@IsNull_HORASALIDA = 1 AND [HORASALIDA] IS NULL) OR ([HORASALIDA] = @Original_HORASALIDA)) AND ((@IsNull_FECLLEGADA = 1 AND [FECLLEGADA] IS NULL) OR ([FECLLEGADA] = @Original_FECLLEGADA)) AND ((@IsNull_HORALLEGADA = 1 AND [HORALLEGADA] IS NULL) OR ([HORALLEGADA] = @Original_HORALLEGADA)));
+SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDTIPO_TRANSPORTE, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA FROM DETALLE_SOLICITUD_ANTICIPO WHERE (IDDETSOLIC = @IDDETSOLIC)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSOLICANT", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICANT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSOLICLIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECSALIDA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HORASALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORASALIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECLLEGADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECLLEGADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9740,8 +9740,8 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSOLICANT", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICANT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDSOLICLIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSOLICLIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDSOLICLIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECSALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECSALIDA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECSALIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HORASALIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HORASALIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -9766,7 +9766,7 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLEG" +
+            this._commandCollection[0].CommandText = "SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDTIPO_TRANSPORTE, FECSALIDA, HORASALIDA, FECLLEG" +
                 "ADA, HORALLEGADA FROM dbo.DETALLE_SOLICITUD_ANTICIPO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -9828,7 +9828,7 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_IDDETSOLIC, global::System.Nullable<decimal> Original_IDSOLICANT, global::System.Nullable<decimal> Original_IDSOLICLIQ, global::System.Nullable<decimal> Original_IDRUTA, global::System.Nullable<global::System.DateTime> Original_FECSALIDA, global::System.Nullable<int> Original_HORASALIDA, global::System.Nullable<global::System.DateTime> Original_FECLLEGADA, global::System.Nullable<int> Original_HORALLEGADA) {
+        public virtual int Delete(decimal Original_IDDETSOLIC, global::System.Nullable<decimal> Original_IDSOLICANT, global::System.Nullable<decimal> Original_IDSOLICLIQ, global::System.Nullable<decimal> Original_IDTIPO_TRANSPORTE, global::System.Nullable<global::System.DateTime> Original_FECSALIDA, global::System.Nullable<int> Original_HORASALIDA, global::System.Nullable<global::System.DateTime> Original_FECLLEGADA, global::System.Nullable<int> Original_HORALLEGADA) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_IDDETSOLIC));
             if ((Original_IDSOLICANT.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -9846,9 +9846,9 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDRUTA.HasValue == true)) {
+            if ((Original_IDTIPO_TRANSPORTE.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_IDRUTA.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_IDTIPO_TRANSPORTE.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
@@ -9906,7 +9906,7 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<decimal> IDSOLICANT, global::System.Nullable<decimal> IDSOLICLIQ, global::System.Nullable<decimal> IDRUTA, global::System.Nullable<global::System.DateTime> FECSALIDA, global::System.Nullable<int> HORASALIDA, global::System.Nullable<global::System.DateTime> FECLLEGADA, global::System.Nullable<int> HORALLEGADA) {
+        public virtual int Insert(global::System.Nullable<decimal> IDSOLICANT, global::System.Nullable<decimal> IDSOLICLIQ, global::System.Nullable<decimal> IDTIPO_TRANSPORTE, global::System.Nullable<global::System.DateTime> FECSALIDA, global::System.Nullable<int> HORASALIDA, global::System.Nullable<global::System.DateTime> FECLLEGADA, global::System.Nullable<int> HORALLEGADA) {
             if ((IDSOLICANT.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(IDSOLICANT.Value));
             }
@@ -9919,8 +9919,8 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((IDRUTA.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(IDRUTA.Value));
+            if ((IDTIPO_TRANSPORTE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(IDTIPO_TRANSPORTE.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -9972,7 +9972,7 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
         public virtual int Update(
                     global::System.Nullable<decimal> IDSOLICANT, 
                     global::System.Nullable<decimal> IDSOLICLIQ, 
-                    global::System.Nullable<decimal> IDRUTA, 
+                    global::System.Nullable<decimal> IDTIPO_TRANSPORTE, 
                     global::System.Nullable<global::System.DateTime> FECSALIDA, 
                     global::System.Nullable<int> HORASALIDA, 
                     global::System.Nullable<global::System.DateTime> FECLLEGADA, 
@@ -9980,7 +9980,7 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
                     decimal Original_IDDETSOLIC, 
                     global::System.Nullable<decimal> Original_IDSOLICANT, 
                     global::System.Nullable<decimal> Original_IDSOLICLIQ, 
-                    global::System.Nullable<decimal> Original_IDRUTA, 
+                    global::System.Nullable<decimal> Original_IDTIPO_TRANSPORTE, 
                     global::System.Nullable<global::System.DateTime> Original_FECSALIDA, 
                     global::System.Nullable<int> Original_HORASALIDA, 
                     global::System.Nullable<global::System.DateTime> Original_FECLLEGADA, 
@@ -9998,8 +9998,8 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((IDRUTA.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(IDRUTA.Value));
+            if ((IDTIPO_TRANSPORTE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(IDTIPO_TRANSPORTE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -10045,9 +10045,9 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_IDRUTA.HasValue == true)) {
+            if ((Original_IDTIPO_TRANSPORTE.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_IDRUTA.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_IDTIPO_TRANSPORTE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
@@ -10106,8 +10106,8 @@ SELECT IDDETSOLIC, IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<decimal> IDSOLICANT, global::System.Nullable<decimal> IDSOLICLIQ, global::System.Nullable<decimal> IDRUTA, global::System.Nullable<global::System.DateTime> FECSALIDA, global::System.Nullable<int> HORASALIDA, global::System.Nullable<global::System.DateTime> FECLLEGADA, global::System.Nullable<int> HORALLEGADA, decimal Original_IDDETSOLIC, global::System.Nullable<decimal> Original_IDSOLICANT, global::System.Nullable<decimal> Original_IDSOLICLIQ, global::System.Nullable<decimal> Original_IDRUTA, global::System.Nullable<global::System.DateTime> Original_FECSALIDA, global::System.Nullable<int> Original_HORASALIDA, global::System.Nullable<global::System.DateTime> Original_FECLLEGADA, global::System.Nullable<int> Original_HORALLEGADA) {
-            return this.Update(IDSOLICANT, IDSOLICLIQ, IDRUTA, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA, Original_IDDETSOLIC, Original_IDSOLICANT, Original_IDSOLICLIQ, Original_IDRUTA, Original_FECSALIDA, Original_HORASALIDA, Original_FECLLEGADA, Original_HORALLEGADA, Original_IDDETSOLIC);
+        public virtual int Update(global::System.Nullable<decimal> IDSOLICANT, global::System.Nullable<decimal> IDSOLICLIQ, global::System.Nullable<decimal> IDTIPO_TRANSPORTE, global::System.Nullable<global::System.DateTime> FECSALIDA, global::System.Nullable<int> HORASALIDA, global::System.Nullable<global::System.DateTime> FECLLEGADA, global::System.Nullable<int> HORALLEGADA, decimal Original_IDDETSOLIC, global::System.Nullable<decimal> Original_IDSOLICANT, global::System.Nullable<decimal> Original_IDSOLICLIQ, global::System.Nullable<decimal> Original_IDTIPO_TRANSPORTE, global::System.Nullable<global::System.DateTime> Original_FECSALIDA, global::System.Nullable<int> Original_HORASALIDA, global::System.Nullable<global::System.DateTime> Original_FECLLEGADA, global::System.Nullable<int> Original_HORALLEGADA) {
+            return this.Update(IDSOLICANT, IDSOLICLIQ, IDTIPO_TRANSPORTE, FECSALIDA, HORASALIDA, FECLLEGADA, HORALLEGADA, Original_IDDETSOLIC, Original_IDSOLICANT, Original_IDSOLICLIQ, Original_IDTIPO_TRANSPORTE, Original_FECSALIDA, Original_HORASALIDA, Original_FECLLEGADA, Original_HORALLEGADA, Original_IDDETSOLIC);
         }
     }
     
@@ -12381,7 +12381,7 @@ SELECT IDOPCION, CODOPCION, NOMBREOPCION FROM OPCIONES_VIATICOS WHERE (IDOPCION 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RUTATableAdapter : global::System.ComponentModel.Component {
+    public partial class TIPO_TRANSPORTETableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -12395,7 +12395,7 @@ SELECT IDOPCION, CODOPCION, NOMBREOPCION FROM OPCIONES_VIATICOS WHERE (IDOPCION 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public RUTATableAdapter() {
+        public TIPO_TRANSPORTETableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -12492,42 +12492,42 @@ SELECT IDOPCION, CODOPCION, NOMBREOPCION FROM OPCIONES_VIATICOS WHERE (IDOPCION 
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "RUTA";
-            tableMapping.ColumnMappings.Add("IDRUTA", "IDRUTA");
-            tableMapping.ColumnMappings.Add("CODRUTA", "CODRUTA");
-            tableMapping.ColumnMappings.Add("NOMRUTA", "NOMRUTA");
+            tableMapping.DataSetTable = "TIPO_TRANSPORTE";
+            tableMapping.ColumnMappings.Add("IDTIPO_TRANSPORTE", "IDTIPO_TRANSPORTE");
+            tableMapping.ColumnMappings.Add("CODTIPO_TRANSPORTE", "CODTIPO_TRANSPORTE");
+            tableMapping.ColumnMappings.Add("NOMTIPO_TRANSPORTE", "NOMTIPO_TRANSPORTE");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[RUTA] WHERE (([IDRUTA] = @Original_IDRUTA) AND ((@IsNull_CODRU" +
-                "TA = 1 AND [CODRUTA] IS NULL) OR ([CODRUTA] = @Original_CODRUTA)) AND ((@IsNull_" +
-                "NOMRUTA = 1 AND [NOMRUTA] IS NULL) OR ([NOMRUTA] = @Original_NOMRUTA)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TIPO_TRANSPORTE] WHERE (([IDTIPO_TRANSPORTE] = @Original_IDTIPO_TRANSPORTE) AND ((@IsNull_CODRU" +
+                "TA = 1 AND [CODTIPO_TRANSPORTE] IS NULL) OR ([CODTIPO_TRANSPORTE] = @Original_CODTIPO_TRANSPORTE)) AND ((@IsNull_" +
+                "NOMTIPO_TRANSPORTE = 1 AND [NOMTIPO_TRANSPORTE] IS NULL) OR ([NOMTIPO_TRANSPORTE] = @Original_NOMTIPO_TRANSPORTE)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[RUTA] ([CODRUTA], [NOMRUTA]) VALUES (@CODRUTA, @NOMRUTA);\r\nSEL" +
-                "ECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TIPO_TRANSPORTE] ([CODTIPO_TRANSPORTE], [NOMTIPO_TRANSPORTE]) VALUES (@CODTIPO_TRANSPORTE, @NOMTIPO_TRANSPORTE);\r\nSEL" +
+                "ECT IDTIPO_TRANSPORTE, CODTIPO_TRANSPORTE, NOMTIPO_TRANSPORTE FROM TIPO_TRANSPORTE WHERE (IDTIPO_TRANSPORTE = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[RUTA] SET [CODRUTA] = @CODRUTA, [NOMRUTA] = @NOMRUTA WHERE (([IDRUTA] = @Original_IDRUTA) AND ((@IsNull_CODRUTA = 1 AND [CODRUTA] IS NULL) OR ([CODRUTA] = @Original_CODRUTA)) AND ((@IsNull_NOMRUTA = 1 AND [NOMRUTA] IS NULL) OR ([NOMRUTA] = @Original_NOMRUTA)));
-SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TIPO_TRANSPORTE] SET [CODTIPO_TRANSPORTE] = @CODTIPO_TRANSPORTE, [NOMTIPO_TRANSPORTE] = @NOMTIPO_TRANSPORTE WHERE (([IDTIPO_TRANSPORTE] = @Original_IDTIPO_TRANSPORTE) AND ((@IsNull_CODTIPO_TRANSPORTE = 1 AND [CODTIPO_TRANSPORTE] IS NULL) OR ([CODTIPO_TRANSPORTE] = @Original_CODTIPO_TRANSPORTE)) AND ((@IsNull_NOMTIPO_TRANSPORTE = 1 AND [NOMTIPO_TRANSPORTE] IS NULL) OR ([NOMTIPO_TRANSPORTE] = @Original_NOMTIPO_TRANSPORTE)));
+SELECT IDTIPO_TRANSPORTE, CODTIPO_TRANSPORTE, NOMTIPO_TRANSPORTE FROM TIPO_TRANSPORTE WHERE (IDTIPO_TRANSPORTE = @IDTIPO_TRANSPORTE)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDRUTA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMRUTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMRUTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMRUTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDRUTA", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "IDRUTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMTIPO_TRANSPORTE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDTIPO_TRANSPORTE", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "IDTIPO_TRANSPORTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12543,7 +12543,7 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDRUTA, CODRUTA, NOMRUTA FROM dbo.RUTA";
+            this._commandCollection[0].CommandText = "SELECT IDTIPO_TRANSPORTE, CODTIPO_TRANSPORTE, NOMTIPO_TRANSPORTE FROM dbo.TIPO_TRANSPORTE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12551,7 +12551,7 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SIGVIDAPSDataSet.RUTADataTable dataTable) {
+        public virtual int Fill(SIGVIDAPSDataSet.TIPO_TRANSPORTEDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -12564,9 +12564,9 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SIGVIDAPSDataSet.RUTADataTable GetData() {
+        public virtual SIGVIDAPSDataSet.TIPO_TRANSPORTEDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SIGVIDAPSDataSet.RUTADataTable dataTable = new SIGVIDAPSDataSet.RUTADataTable();
+            SIGVIDAPSDataSet.TIPO_TRANSPORTEDataTable dataTable = new SIGVIDAPSDataSet.TIPO_TRANSPORTEDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -12574,7 +12574,7 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIGVIDAPSDataSet.RUTADataTable dataTable) {
+        public virtual int Update(SIGVIDAPSDataSet.TIPO_TRANSPORTEDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -12582,7 +12582,7 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(SIGVIDAPSDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "RUTA");
+            return this.Adapter.Update(dataSet, "TIPO_TRANSPORTE");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12604,23 +12604,23 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_IDRUTA, string Original_CODRUTA, string Original_NOMRUTA) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_IDRUTA));
-            if ((Original_CODRUTA == null)) {
+        public virtual int Delete(decimal Original_IDTIPO_TRANSPORTE, string Original_CODTIPO_TRANSPORTE, string Original_NOMTIPO_TRANSPORTE) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_IDTIPO_TRANSPORTE));
+            if ((Original_CODTIPO_TRANSPORTE == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_CODRUTA));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_CODTIPO_TRANSPORTE));
             }
-            if ((Original_NOMRUTA == null)) {
+            if ((Original_NOMTIPO_TRANSPORTE == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_NOMRUTA));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_NOMTIPO_TRANSPORTE));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12642,18 +12642,18 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string CODRUTA, string NOMRUTA) {
-            if ((CODRUTA == null)) {
+        public virtual int Insert(string CODTIPO_TRANSPORTE, string NOMTIPO_TRANSPORTE) {
+            if ((CODTIPO_TRANSPORTE == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(CODRUTA));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(CODTIPO_TRANSPORTE));
             }
-            if ((NOMRUTA == null)) {
+            if ((NOMTIPO_TRANSPORTE == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(NOMRUTA));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(NOMTIPO_TRANSPORTE));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12675,37 +12675,37 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string CODRUTA, string NOMRUTA, decimal Original_IDRUTA, string Original_CODRUTA, string Original_NOMRUTA, decimal IDRUTA) {
-            if ((CODRUTA == null)) {
+        public virtual int Update(string CODTIPO_TRANSPORTE, string NOMTIPO_TRANSPORTE, decimal Original_IDTIPO_TRANSPORTE, string Original_CODTIPO_TRANSPORTE, string Original_NOMTIPO_TRANSPORTE, decimal IDTIPO_TRANSPORTE) {
+            if ((CODTIPO_TRANSPORTE == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(CODRUTA));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(CODTIPO_TRANSPORTE));
             }
-            if ((NOMRUTA == null)) {
+            if ((NOMTIPO_TRANSPORTE == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(NOMRUTA));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(NOMTIPO_TRANSPORTE));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Original_IDRUTA));
-            if ((Original_CODRUTA == null)) {
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Original_IDTIPO_TRANSPORTE));
+            if ((Original_CODTIPO_TRANSPORTE == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_CODRUTA));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_CODTIPO_TRANSPORTE));
             }
-            if ((Original_NOMRUTA == null)) {
+            if ((Original_NOMTIPO_TRANSPORTE == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_NOMRUTA));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_NOMTIPO_TRANSPORTE));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(IDRUTA));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(IDTIPO_TRANSPORTE));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12726,8 +12726,8 @@ SELECT IDRUTA, CODRUTA, NOMRUTA FROM RUTA WHERE (IDRUTA = @IDRUTA)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string CODRUTA, string NOMRUTA, decimal Original_IDRUTA, string Original_CODRUTA, string Original_NOMRUTA) {
-            return this.Update(CODRUTA, NOMRUTA, Original_IDRUTA, Original_CODRUTA, Original_NOMRUTA, Original_IDRUTA);
+        public virtual int Update(string CODTIPO_TRANSPORTE, string NOMTIPO_TRANSPORTE, decimal Original_IDTIPO_TRANSPORTE, string Original_CODTIPO_TRANSPORTE, string Original_NOMTIPO_TRANSPORTE) {
+            return this.Update(CODTIPO_TRANSPORTE, NOMTIPO_TRANSPORTE, Original_IDTIPO_TRANSPORTE, Original_CODTIPO_TRANSPORTE, Original_NOMTIPO_TRANSPORTE, Original_IDTIPO_TRANSPORTE);
         }
     }
     
@@ -13658,7 +13658,7 @@ SELECT IDSOLICLIQ, IDSOLICANT, CODSOLICLIQ, NUMSOLICLIQ, FECSOLICLIQ FROM SOLICI
         
         private OPCIONES_VIATICOSTableAdapter _oPCIONES_VIATICOSTableAdapter;
         
-        private RUTATableAdapter _rUTATableAdapter;
+        private TIPO_TRANSPORTETableAdapter _rUTATableAdapter;
         
         private SOLICITUD__ANTICIPOTableAdapter _sOLICITUD__ANTICIPOTableAdapter;
         
@@ -13852,7 +13852,7 @@ SELECT IDSOLICLIQ, IDSOLICANT, CODSOLICLIQ, NUMSOLICLIQ, FECSOLICLIQ FROM SOLICI
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RUTATableAdapter RUTATableAdapter {
+        public TIPO_TRANSPORTETableAdapter TIPO_TRANSPORTETableAdapter {
             get {
                 return this._rUTATableAdapter;
             }
@@ -14119,7 +14119,7 @@ SELECT IDSOLICLIQ, IDSOLICANT, CODSOLICLIQ, NUMSOLICLIQ, FECSOLICLIQ FROM SOLICI
                 }
             }
             if ((this._rUTATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RUTA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                global::System.Data.DataRow[] updatedRows = dataSet.TIPO_TRANSPORTE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
@@ -14255,7 +14255,7 @@ SELECT IDSOLICLIQ, IDSOLICANT, CODSOLICLIQ, NUMSOLICLIQ, FECSOLICLIQ FROM SOLICI
                 }
             }
             if ((this._rUTATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RUTA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                global::System.Data.DataRow[] addedRows = dataSet.TIPO_TRANSPORTE.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._rUTATableAdapter.Update(addedRows));
@@ -14353,7 +14353,7 @@ SELECT IDSOLICLIQ, IDSOLICANT, CODSOLICLIQ, NUMSOLICLIQ, FECSOLICLIQ FROM SOLICI
                 }
             }
             if ((this._rUTATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RUTA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                global::System.Data.DataRow[] deletedRows = dataSet.TIPO_TRANSPORTE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._rUTATableAdapter.Update(deletedRows));
