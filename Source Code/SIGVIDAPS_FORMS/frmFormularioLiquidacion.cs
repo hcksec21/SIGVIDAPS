@@ -53,10 +53,10 @@ namespace SIGVIDAPS_FORMS
                         CIUDADFORMLIQ=txtCiudad.Text,
                         ESTADOFORMLIQ="EMITIDO",
                         FECHAFORMLIQ= dtpFechaSolicitud.Value.Date,
-                        FECHALLEGADAITINFORMLIQ=dtpFechaLlegadaInf.Value.Date,
-                        FECHASALIDAITINFORMLIQ=dtpFechaSalidaInf.Value.Date,
+                        LLEGADAITINFORMLIQ=dtpFechaLlegadaInf.Value.Date,
+                        SALIDAITINFORMLIQ=dtpFechaSalidaInf.Value.Date,
                         //HORALLEGADAITINFORMLIQ=dtpHoraLlegadaInf.Value.ToShortTimeString(),
-                        HORASALIDAITINFORMLIQ=dtpHoraSalidaInf.Value,
+                        //SALIDAITINFORMLIQ=dtpHoraSalidaInf.Value,
                         NUMFORMLIQ=txtNumeroSolicitud.Text,
                         //UNIDADFORMLIQ=txt     dato quemado
                     }

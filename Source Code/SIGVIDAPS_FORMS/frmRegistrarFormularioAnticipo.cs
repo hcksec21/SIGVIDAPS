@@ -106,6 +106,9 @@ namespace SIGVIDAPS_FORMS
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Form frmAbout = new Form();
+            frmAbout.ShowDialog();
+
             String strError = "";
             Boolean bolError = false;
 
@@ -116,7 +119,7 @@ namespace SIGVIDAPS_FORMS
             }
             if (DateTime.Compare(dtpFechaSolicitud.Value, DateTime.Now) > 0)
             {
-                strError += "La Fecha de Solicitud es Invalida\n";
+                strError += "La Fecha de Solicitud no es Valida\n";
                 bolError = true;
             }
             if (txtCiudad.Text == "")
@@ -146,12 +149,12 @@ namespace SIGVIDAPS_FORMS
             }
             if (DateTime.Compare(dtpFechaSalidaGen.Value, dtpFechaSolicitud.Value) < 0)
             {
-                strError += "La Fecha de Salida es Invalida\n";
+                strError += "La Fecha de Salida no es Valida\n";
                 bolError = true;
             }
             if (DateTime.Compare(dtpFechaLlegadaGen.Value, dtpFechaSalidaGen.Value) < 0)
             {
-                strError += "La Fecha de Llegada es Invalida\n";
+                strError += "La Fecha de Llegada no es Valida\n";
                 bolError = true;
             }
 
@@ -226,6 +229,11 @@ namespace SIGVIDAPS_FORMS
             if (cmbRuta.SelectedIndex == -1)
             {
                 strError += "La Ruta es Obligatorio\n";
+                bolError = true;
+            }
+            if (DateTime.Compare(dtpFechaLlegadaTrans.Value, dtpFechaSalidaTrans.Value) < 0)
+            {
+                strError += "La fechas de transporte no son Validas\n";
                 bolError = true;
             }
             if (!bolError)
