@@ -57,3 +57,32 @@ INSERT INTO [dbo].[EMPLEADO]([IDCARGO],[CEDULAEMP],[NOMBREEMP],[APELLIDOEMP],[DI
 
 --Usuario
 INSERT INTO [dbo].[USUARIO]([IDEMP],[IDPERFIL],[NOMBREUSUARIO] ,[CONTRASENAUSUARIO],[ESTUSUARIO]) VALUES(1,1,'sebas1208','pass',1)
+
+--Tipos de Transporte
+INSERT INTO [dbo].[TIPO_TRANSPORTE]([TIPOTRANSPORTE])VALUES('Taxi');
+INSERT INTO [dbo].[TIPO_TRANSPORTE]([TIPOTRANSPORTE])VALUES('Transporte Interprovincial');
+INSERT INTO [dbo].[TIPO_TRANSPORTE]([TIPOTRANSPORTE])VALUES('Transporte SIGTIERRAS');
+INSERT INTO [dbo].[TIPO_TRANSPORTE]([TIPOTRANSPORTE])VALUES('Transporte Aereo');
+
+--Tipo de Viaticos
+INSERT INTO [dbo].[OPCIONES_VIATICOS]
+           ([NOMBREOPCION])
+     VALUES
+           ('Viático');
+
+INSERT INTO [dbo].[OPCIONES_VIATICOS]
+           ([NOMBREOPCION])
+     VALUES
+           ('Subsistencia');
+
+
+INSERT INTO [dbo].[OPCIONES_VIATICOS]
+           ([NOMBREOPCION])
+     VALUES
+           ('Alimentación');
+
+
+INSERT INTO [dbo].[OPCIONES_VIATICOS]
+           ([NOMBREOPCION])
+     VALUES
+           ('Movilización');

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     02/08/2015 23:24:22                          */
+/* Created on:     02/08/2015 23:40:11                          */
 /*==============================================================*/
 
 
@@ -69,9 +69,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('FACTURA') and o.name = 'FK_FACTURA_RELATIONS_FORMULAR')
-alter table FACTURA
-   drop constraint FK_FACTURA_RELATIONS_FORMULAR
+   where r.fkeyid = object_id('FACTURACION') and o.name = 'FK_FACTURAC_RELATIONS_FORMULAR')
+alter table FACTURACION
+   drop constraint FK_FACTURAC_RELATIONS_FORMULAR
 go
 
 if exists (select 1
@@ -255,18 +255,18 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('FACTURA')
+           where  id    = object_id('FACTURACION')
             and   name  = 'RELATIONSHIP_9_FK'
             and   indid > 0
             and   indid < 255)
-   drop index FACTURA.RELATIONSHIP_9_FK
+   drop index FACTURACION.RELATIONSHIP_9_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('FACTURA')
+           where  id = object_id('FACTURACION')
             and   type = 'U')
-   drop table FACTURA
+   drop table FACTURACION
 go
 
 if exists (select 1
@@ -496,10 +496,8 @@ create table DETALLE_FORMULARIO (
    IDTIPOTRANSPORTE     numeric              null,
    IDRUTA               numeric              null,
    NOMBRETRANSPORTE     varchar(50)          null,
-   FECSALIDA            datetime             null,
-   HORASALIDA           int                  null,
-   FECLLEGADA           datetime             null,
-   HORALLEGADA          int                  null,
+   SALIDATRANSPORTE     datetime             null,
+   LLEGADATRANSPORTE    datetime             null,
    constraint PK_DETALLE_FORMULARIO primary key nonclustered (IDDETFORM)
 )
 go
@@ -561,23 +559,23 @@ IDCARGO ASC
 go
 
 /*==============================================================*/
-/* Table: FACTURA                                               */
+/* Table: FACTURACION                                           */
 /*==============================================================*/
-create table FACTURA (
+create table FACTURACION (
    IDFACTURACION        numeric              identity,
    IDFORMLIQ            numeric              null,
    PATHIMAGENFACTURA    varchar(300)         null,
    FECHAFACTURA         datetime             null,
    EMISORFACTURA        varchar(50)          null,
    MONTOFACTURA         money                null,
-   constraint PK_FACTURA primary key nonclustered (IDFACTURACION)
+   constraint PK_FACTURACION primary key nonclustered (IDFACTURACION)
 )
 go
 
 /*==============================================================*/
 /* Index: RELATIONSHIP_9_FK                                     */
 /*==============================================================*/
-create index RELATIONSHIP_9_FK on FACTURA (
+create index RELATIONSHIP_9_FK on FACTURACION (
 IDFORMLIQ ASC
 )
 go
@@ -821,8 +819,8 @@ alter table EMPLEADO
       references CARGO (IDCARGO)
 go
 
-alter table FACTURA
-   add constraint FK_FACTURA_RELATIONS_FORMULAR foreign key (IDFORMLIQ)
+alter table FACTURACION
+   add constraint FK_FACTURAC_RELATIONS_FORMULAR foreign key (IDFORMLIQ)
       references FORMULARIO_LIQUIDACION (IDFORMLIQ)
 go
 
