@@ -298,5 +298,10 @@ namespace SIGVIDAPS_FORMS
             base.Show();
             this.Close();
         }
+
+        private void verAyudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"C:\Manual.pdf");
+        }
     }
 }

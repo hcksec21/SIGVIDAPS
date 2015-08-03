@@ -318,8 +318,9 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver Ayuda";
+            this.verAyudaToolStripMenuItem.Click += new System.EventHandler(this.verAyudaToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
