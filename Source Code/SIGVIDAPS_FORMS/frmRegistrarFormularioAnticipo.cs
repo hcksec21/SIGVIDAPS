@@ -231,11 +231,11 @@ namespace SIGVIDAPS_FORMS
                 strError += "La Ruta es Obligatorio\n";
                 bolError = true;
             }
-            if (DateTime.Compare(dtpFechaLlegadaTrans.Value, dtpFechaSalidaTrans.Value) < 0)
-            {
-                strError += "La fechas de transporte no son Validas\n";
-                bolError = true;
-            }
+            //if (DateTime.Compare(dtpFechaLlegadaTrans.Value, dtpFechaSalidaTrans.Value) < 0)
+            //{
+            //    strError += "La fechas de transporte no son Validas\n";
+            //    bolError = true;
+            //}
             if(value > 16){
                 strError += "El Monto máximo es de $16\n";
                 bolError = true;
@@ -271,9 +271,8 @@ namespace SIGVIDAPS_FORMS
             txtNombreTransporte.Text = "";
             cmbTipoTransporte.SelectedIndex = -1;
             cmbRuta.SelectedIndex = -1;
-            dtpFechaSalidaTrans.Value = dtpFechaLlegadaTrans.Value;      
-            dtpHoraLlegadaTrans.Value = DateTime.Now;
-            dtpHoraSalidaTrans.Value = DateTime.Now;
+            dtpFechaSalidaTrans.Value = dtpFechaLlegadaTrans.Value;
+            dtpHoraSalidaTrans.Value = dtpHoraLlegadaTrans.Value;
             mskMontoTransporte.Text = "";
         }
 
