@@ -63,7 +63,11 @@ namespace SIGVIDAPS_FORMS
                 {
                     lblMensaje.Text = "Credenciales Incorrectas";
                 }
-            }            
+            }
+            else
+            {
+                MessageBox.Show("No pueden existir campos vacios");
+            }
         }
     }
 }

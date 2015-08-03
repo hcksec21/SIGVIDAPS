@@ -93,6 +93,16 @@ namespace SIGVIDAPS_FORMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap document_search {
+            get {
+                object obj = ResourceManager.GetObject("document_search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ecuador_ama_la_vida {
             get {
                 object obj = ResourceManager.GetObject("ecuador_ama_la_vida", resourceCulture);

@@ -23,6 +23,11 @@ namespace SIGVIDAPS_FORMS
             this.user = user;
         }
 
+        public mdiMenu()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void ValidarForm(Form forma)
         {
             Cursor.Current = Cursors.WaitCursor;

@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIGVIDAPS_DAT;
 using SIGVIDAPS_BLL;
+using System.IO;
 
 namespace SIGVIDAPS_FORMS
 {
     public partial class frmFormularioLiquidacion : Form
     {
+
+
+        private String selectedFileName;
+        Double total = 0;
+
+
         public frmFormularioLiquidacion()
         {
             InitializeComponent();
@@ -57,7 +64,7 @@ namespace SIGVIDAPS_FORMS
                         SALIDAITINFORMLIQ=dtpFechaSalidaInf.Value.Date,
                         //HORALLEGADAITINFORMLIQ=dtpHoraLlegadaInf.Value.ToShortTimeString(),
                         //SALIDAITINFORMLIQ=dtpHoraSalidaInf.Value,
-                        NUMFORMLIQ=txtNumeroSolicitud.Text,
+                        NUMFORMLIQ=mskNumeroSolicitud.Text,
                         //UNIDADFORMLIQ=txt     dato quemado
                     }
 
@@ -65,6 +72,60 @@ namespace SIGVIDAPS_FORMS
 
 
                 
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            openFD.Title = "Escoja una factura válida";
+            openFD.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFD.FileName = "";
+            openFD.Filter = "JPEG Images|*.jpg|All Files|*.*";
+
+
+            if (openFD.ShowDialog() != DialogResult.Cancel)
+            {
+
+                string objString = Microsoft.VisualBasic.Interaction.InputBox("Valor de Factura", "Ingrese valor total de Factura", "", 0, 0);
+                double Num;
+                bool esCorrecto = double.TryParse(objString, out Num);
+
+                if (esCorrecto)
+                {
+                    selectedFileName = null;
+                    foreach (string fileName in openFD.FileNames)
+                    {
+                        selectedFileName = fileName;
+                        Image img = Image.FromFile(fileName);
+                        img.Tag = fileName;
+                        imageList1.Images.Add(Path.GetFileName(fileName), img);
+                    }
+
+                    lstImgFacturas.Clear();
+                    lstImgFacturas.LargeImageList = imageList1;
+
+                    for (int index = 0; index < imageList1.Images.Count; index++)
+                    {
+                        lstImgFacturas.Items.Add(
+                            new ListViewItem()
+                            {
+                                ImageIndex = index
+                            }
+                        );
+                    }
+
+                    lstImgFacturas.Refresh();
+                    txtMonto.Enabled = false;
+                    lstImgFacturas.Enabled = true;
+
+                    total += double.Parse(objString);
+                    txtMonto.Text = total.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("El total ingresado no es correcto");
+                }
             }
         }
     }
